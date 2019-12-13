@@ -1,0 +1,19 @@
+.nav-link, footer p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+    color: white;
+}
+
+.nav-link:hover{
+    color: rgb(103,99,214);
+}
+
+footer {
+    background-color: black;
+}
+
+#footer-info{
+    font-size: 13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
