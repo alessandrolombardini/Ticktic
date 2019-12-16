@@ -18,7 +18,7 @@
                         <label class="col-4">o</label>
                     </div>
                     <div class="form-group text-center">
-                        <a href="#" class="col-4">Registrati</label>
+                        <a href="#" class="col-4">Registrati</a>
                     </div>
                 </form>      
         </div>
