@@ -17,21 +17,22 @@
   </head>
   <body class ="bg-light">
 
-        <header>
-            <nav class="navbar navbar-expand-md navbar-static-top bg-dark navbar-dark">
-                <div class="container-fluid">
+        <header class="">
+            <nav class="navbar navbar-static-top navbar-dark"> <!-- navbar-expand-md per far comparire il menù con display grandi-->
+                <div class="container-fluid ml-mr-0">
+                    <button class="navbar-toggler text-light collapsed float-left" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars "></i>
+                    </button>
                     
-                    <a class="navbar-brand w-50" href="index.php">
+                    <a class="blog-header-logo w-50 float-left" href="index.php">
                         <img src="./images/ticktic_logo.png" class="img-fluid float-left" alt="" />
                     </a>
+
+                    
 
                     <a class="nav-link text-light">
                                 <i class="fa fa-shopping-cart " href="#"></i>  
                     </a>            
-
-                    <button class="navbar-toggler text-light collapsed border-dark" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
                     
                     <div class="collapse navbar-collapse mr-md-auto" id="navbar"> <!-- Contenuto del menu -->
                         <ul class="nav navbar-nav">

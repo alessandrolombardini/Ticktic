@@ -12,8 +12,12 @@ h3 {
     color: rgb(103,99,214);
 }
 
-footer {
+footer, header {
     background-color: black;
+}
+
+nav button {
+    border-color: black;
 }
 
 #footer-info{
