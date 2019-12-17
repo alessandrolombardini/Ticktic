@@ -25,7 +25,7 @@
                     
                     <a class="blog-header-logo w-50 float-left" href="index.php">
                         <img src="./images/ticktic_logo.png" class="img-fluid float-left" alt="" />
-                    </a>                      
+                    </a>           
 
                     <a class="nav-link text-light">
                                 <i class="fa fa-shopping-cart " href="#"></i>  
