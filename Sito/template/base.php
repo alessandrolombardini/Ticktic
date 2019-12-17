@@ -10,7 +10,7 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.css"/>
         <link rel="stylesheet" type="text/css" href="./css/style.css" />
         
         <title>TickTick</title>
@@ -18,23 +18,23 @@
   <body class ="bg-light">
 
         <header>
-            <nav class="navbar navbar-expand-md navbar-static-top bg-dark navbar-dark">
+            <nav class="navbar navbar-expand-lg navbar-static-top bg-dark navbar-dark">
                 <div class="container-fluid">
                     
                     <a class="navbar-brand w-50" href="index.php">
                         <img src="./images/ticktic_logo.png" class="img-fluid float-left" alt="" />
-                    </a>
+                    </a>           
 
-                    <a class="nav-link text-light">
-                                <i class="fa fa-shopping-cart " href="#"></i>  
-                    </a>            
+                    <a class="nav-link text-light align-right ml-auto" href="./carrello.php">
+                        <i class="fa fa-shopping-cart fa-2x"></i>  
+                    </a> 
 
                     <button class="navbar-toggler text-light collapsed border-dark" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     
-                    <div class="collapse navbar-collapse mr-md-auto" id="navbar"> <!-- Contenuto del menu -->
-                        <ul class="nav navbar-nav">
+                    <div class="collapse navbar-collapse" id="navbar"> <!-- Contenuto del menu -->
+                        <ul class="nav navbar-nav mr-auto">
                             <li class="nav-item mt-3 mt-md-0">
                                 <a class="nav-link text-light" href="./login.php">
                                     <span>Account</span>
