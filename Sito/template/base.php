@@ -18,22 +18,20 @@
   <body class ="bg-light">
 
         <header>
-            <nav class="navbar navbar-expand-md navbar-static-top bg-dark navbar-dark">
+            <nav class="navbar  navbar-static-top bg-dark navbar-dark">
                 <div class="container-fluid">
-                    
-                    <a class="navbar-brand w-50" href="index.php">
-                        <img src="./images/ticktic_logo.png" class="img-fluid float-left" alt="" />
-                    </a>
-
-                    <a class="nav-link text-light">
-                                <i class="fa fa-shopping-cart " href="#"></i>  
-                    </a>            
-
-                    <button class="navbar-toggler text-light collapsed border-dark" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="float-left navbar-toggler text-light collapsed border-dark" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     
-                    <div class="collapse navbar-collapse mr-md-auto" id="navbar"> <!-- Contenuto del menu -->
+                    <a class="float-left navbar-brand w-50" href="index.php">
+                        <img src="./images/ticktic_logo.png" class="img-fluid" alt="" />
+                    </a>
+
+                             
+
+                    
+                    <div class="collapse navbar-collapse ml-md-auto" id="navbar"> <!-- Contenuto del menu -->
                         <ul class="nav navbar-nav">
                             <li class="nav-item mt-3 mt-md-0">
                                 <a class="nav-link text-light" href="./login.php">
@@ -51,6 +49,7 @@
                                 </a>
                             </li>
                             <div class="dropdown-divider"></div>
+
                             <li class="nav-item dropdown show">
                                 <a id="#site-navigation" class="nav-link text-light dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span>Naviga</span>
@@ -62,8 +61,14 @@
                                     <a class="dropdown-item text-light" href="./luoghi.php" >Luoghi</a>
                                 </div>
                             </li>
+
                         </ul>
                     </div>
+
+                    <a class="float-right nav-link text-light">
+                        <i class="fa fa-shopping-cart " href="#"></i>  
+                    </a>
+
                 </div>
             </nav>
         </header>
