@@ -10,12 +10,13 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.css"/>
         <link rel="stylesheet" type="text/css" href="./css/style.css" />
         
         <title>TickTick</title>
   </head>
   <body class ="bg-light">
+<<<<<<< HEAD
 
         <header>
             <nav class="navbar  navbar-static-top bg-dark navbar-dark">
@@ -33,6 +34,25 @@
                     
                     <div class="collapse navbar-collapse ml-md-auto" id="navbar"> <!-- Contenuto del menu -->
                         <ul class="nav navbar-nav">
+=======
+        <header class="">
+            <nav class="navbar navbar-static-top navbar-dark"> <!-- navbar-expand-md per far comparire il menù con display grandi-->
+                <div class="container-fluid ml-mr-0">
+                    <button class="navbar-toggler text-light collapsed float-left" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars "></i>
+                    </button>
+                    
+                    <a class="blog-header-logo w-50 float-left" href="index.php">
+                        <img src="./images/ticktic_logo.png" class="img-fluid float-left" alt="" />
+                    </a>                      
+
+                    <a class="nav-link text-light">
+                                <i class="fa fa-shopping-cart " href="#"></i>  
+                    </a>            
+                    
+                    <div class="collapse navbar-collapse" id="navbar"> <!-- Contenuto del menu -->
+                        <ul class="nav navbar-nav mr-auto">
+>>>>>>> fa10411e9c0d68b68e40478e19c33fb94fea4582
                             <li class="nav-item mt-3 mt-md-0">
                                 <a class="nav-link text-light" href="./login.php">
                                     <span>Account</span>
