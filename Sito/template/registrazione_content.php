@@ -59,7 +59,7 @@
         <div class="mb-3"> 
           <label for="gestore"><input type="checkbox" name="gestore"> Richiedi abilitazione come gestore</input></label>
         </div>
-        <div class="mb-3">
+        <div class="areagestore mb-3">
           <label for="iban">IBAN</label>
           <input type="text" class="form-control" id="iban" name="iban" required/>
           <div class="invalid-feedback">Inserire indizzo.</div>
