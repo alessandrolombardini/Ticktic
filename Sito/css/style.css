@@ -24,6 +24,15 @@ h3 {
     color:black;
 }
 
+.color-purple{
+    color:  rgb(103,99,214);
+}
+
+.description{
+    font-size: 0.6em;
+    line-height: 1;
+}
+
 footer, header {
     background-color: black;
 }

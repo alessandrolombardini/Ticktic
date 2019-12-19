@@ -11,11 +11,13 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.css"/>
+        <script type="text/javascript" src="./js/utils.js"> </script>
         <link rel="stylesheet" type="text/css" href="./css/style.css" />
         
         <title>TickTick</title>
   </head>
   <body class ="bg-light">
+
         <header class="">
             <nav class="navbar navbar-static-top navbar-dark"> <!-- navbar-expand-md per far comparire il menù con display grandi-->
                 <div class="container-fluid ml-mr-0">
@@ -49,6 +51,7 @@
                                 </a>
                             </li>
                             <div class="dropdown-divider"></div>
+
                             <li class="nav-item dropdown show">
                                 <a id="#site-navigation" class="nav-link text-light dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span>Naviga</span>
@@ -60,8 +63,10 @@
                                     <a class="dropdown-item text-light" href="./luoghi.php" >Luoghi</a>
                                 </div>
                             </li>
+
                         </ul>
                     </div>
+
                 </div>
             </nav>
         </header>
