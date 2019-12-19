@@ -1,0 +1,43 @@
+<div id="chart-payment">
+    <div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8"></div>
+        <form action="#" method="GET">
+            <h3 class="mb-3">Pagamento</h3>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                <label for="intestario">Intestatario Carta</label>
+                <input type="text" class="form-control" id="intestario" name="intestario"/>
+                </div>
+                <div class="col-md-6">
+                <label for="numero">Numero Carta</label>
+                <input type="text" class="form-control" id="numero" name="numero"/>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-5">
+                <label for="dataScadenza">Data di scadenza:</label>
+                <input type="month" id="dataScadenza" name="dataScadenza" class="form-control" min="<?php echo date("Y-m"); ?>" value="<?php $d=strtotime("+6 Years"); echo date("Y-m", $d) ?>"/>
+                </div>
+                <div class="col-md-3">
+                <label for="cvv">CVV:</label>
+                <input type="text" class="form-control" id="cvv" name="cvv"/>
+                </div>
+                <div class="col-md-4 inline-block text-center" id="card-selector">
+                    <img src="./images/carte/mastercard.png" alt="select_mastercard" class="selected"/>
+                    <img src="./images/carte/visa.png" alt="select_visa"/>
+                    <img src="./images/carte/maestro.png" alt="select_maestro"/>
+                    <img src="./images/carte/nexi.png" alt="select_nexi"/>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3 p-0 m-0"> </div>
+                <button class="btn col-6 p-3 m-0 mb-5 rounded-pill"><p class="mb-0">Procedi all'acquisto</p></button>
+                <div class="col-3 p-0 m-0"> </div>
+            </div>
+            </form>
+        </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

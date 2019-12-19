@@ -11,4 +11,12 @@ $(document).ready(function(){
             $("div.areagestore").show();
         }
     });
+
+    // $("#chart-content").hasClass("selected").hide();
+
+    $("#card-selector img").click(function(){
+        $("#card-selector img.selected").removeClass("selected");
+        $(this).addClass("selected");
+    });
+
 });

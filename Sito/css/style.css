@@ -6,12 +6,24 @@ a{
     text-decoration: none !important;
 }
 
-.nav-link, footer p, h3{
-    font-weight: 100;
-    color: white;
-} 
+.font-mediumlittle{
+    font-size:1.4rem !important;
+}
 
-h3 {
+.font-medium{
+    font-size:1.5rem;
+}
+
+.font-big{
+    font-size:1.8rem;
+}
+
+.nav-link, footer p, h3{
+    font-weight: bold;
+    color: white;
+}
+
+h3{
     color:black;
     letter-spacing: 2px;
 }
@@ -55,8 +67,8 @@ article > header > div > img{
 }
 
 .btn {
-    background-color: rgb(103,99,214);
-    color: white;
+    background-color: rgb(103,99,214) !important;
+    color: white !important;
 }
 
 aside > section > ul > li > img{
@@ -66,7 +78,7 @@ aside > section > ul > li > img{
 }
 
 button p {
-    letter-spacing: 1px;
+    letter-spacing: 0.2rem;
 }
 
 .btn-gestore{
@@ -93,38 +105,44 @@ a .chart-progress-selected:hover{
     color:black;
 }
 
-p.selected{
-    color:black;
-}
-
 .chart-progress-selected{
     color:rgb(103,99,214);
 }
 
 hr{
-    border: solid 1px rgb(200, 200, 200);
-    margin : 2px 0;
+    border: solid 3px rgb(200, 200, 200);
+    margin : 2% 0;
 }
 
-.chart{
+#chart{
     font-size: 0.8rem;
     letter-spacing: 0.1rem;
 }
 
-.chart-container{
+#card-selector img{
+    width:22%;
+    height: 40%;
+    margin-top: 18%;
+    padding: 2%;
+    border: solid 0.1rem rgb(189, 189, 189);
+    border-radius: 0.5rem;
+}
+
+#card-selector img.selected{
+    border: solid 0.1rem rgb(103,99,214);
+}
+
+#card-selector img:hover{
+    border: solid 0.1rem rgb(103,99,214);
+    cursor:pointer;
+}
+
+.roundend-corners{
     border-radius: 20px;
 }
 
-.tickets-number{
-    font-size:1.4rem !important;
-}
-
-.chart-total{
-    font-size:1.5rem;
-}
-
 .event-info p{
-    letter-spacing:0.1em;
+    letter-spacing:0.1rem;
     margin-bottom: 0;
 }
 
@@ -143,13 +161,13 @@ hr{
   margin-bottom: 10rem !important;
 }
 
-.ml-6,
-.mx-6 {
+.ml-10,
+.mx-10 {
   margin-left: 10rem !important;
 }
 
 @media screen and (min-width: 768px) {
-    .chart{
+    #chart{
         font-size: 1rem;
         letter-spacing: 0.2rem;
     }

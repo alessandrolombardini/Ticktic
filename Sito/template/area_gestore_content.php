@@ -1,5 +1,4 @@
-<br/>
-<div class="container">
+<div class="container mt-3">
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
