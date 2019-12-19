@@ -158,3 +158,8 @@ hr{
         letter-spacing: 0.2rem;
     }
 }
+
+/* Tutti i paragrami date degli eventi */
+.date {
+    font-size: 0.6em;
+}
