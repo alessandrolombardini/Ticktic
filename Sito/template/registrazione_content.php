@@ -1,7 +1,7 @@
 <div class="container">
   <div class="col-md-2"></div>
   <div class="col-md-8"></div>
-        <h4 class="mb-3">Registrazione utente</h4>
+        <h3 class="mb-3">Registrazione utente</h4>
         <form class="needs-validation" novalidate>
           <div class="row">
             <div class="col-md-6 mb-3">
@@ -26,7 +26,7 @@
             <div class="invalid-feedback">Inserire indizzo.</div>
           </div>
           <div class="d-block my-3">
-            <p>Sesso:</p>
+            <p>Sesso</p>
             <div class="custom-control custom-radio">
               <input id="sessoMaschio" name="sesso" type="radio" class="custom-control-input" checked required/>
               <label class="custom-control-label" for="sessoMaschio">Maschio</label>
@@ -66,7 +66,7 @@
             <div class="invalid-feedback">Inserire indizzo.</div>
           </div>
           <div class="mb-3">
-              <button class="btn btn-primary btn-lg btn-block rounded-pill" type="submit">Registrati</button>
+              <input class="btn btn-primary btn-lg btn-block rounded-pill" value="Registrati" type="submit"/>
           </div>
         </form>
       </div>

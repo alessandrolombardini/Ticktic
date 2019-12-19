@@ -12,7 +12,7 @@
                         <input type="password" class="form-control shadow-sm p-4 mt-4 bg-white rounded" id="password" placeholder="Password" required>
                     </div>
                     <div class="form-group text-center">
-                        <button type="submit" class="btn col-10 shadow-sm p-3 mt-4 rounded-pill">Accedi</button>
+                        <input type="submit" value="Accedi" class="btn col-10 shadow-sm p-3 mt-4 rounded-pill"></input>
                     </div>
                     <div class="form-group text-center">
                         <label class="col-4">o</label>
