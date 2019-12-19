@@ -1,13 +1,12 @@
-<div id="chart-payment">
-    <div class="container">
-    <div class="col-md-2"></div>
-    <div class="col-md-8"></div>
+<div class="row" id="chart-payment">
+    <div class="col-md-2 col-1"></div>
+    <div class="col-md-8 col-10">
         <form action="#" method="GET">
             <h3 class="mb-3">Pagamento</h3>
             <div class="row mb-3">
                 <div class="col-md-6">
-                <label for="intestario">Intestatario Carta</label>
-                <input type="text" class="form-control" id="intestario" name="intestario"/>
+                <label for="intestatario">Intestatario Carta</label>
+                <input type="text" class="form-control" id="intestatario" name="intestatario"/>
                 </div>
                 <div class="col-md-6">
                 <label for="numero">Numero Carta</label>
@@ -38,6 +37,6 @@
             </form>
         </div>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-2 col-1"></div>
     </div>
 </div>

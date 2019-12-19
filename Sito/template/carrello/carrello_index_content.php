@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-1"></div>
-    <div class="roundend-corners col-10 bg-white border mt-2 mb-4 px-4 py-3 shadow-sm">
+    <div class="col-1 col-md-2"></div>
+    <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 mr-0 shadow-sm">
         <div class="row m-0 p-0">
             <a class="col-12 text-right m-0 p-0" href="#"><i class="fas fa-times fa-2x"></i></a>
         </div>
@@ -37,9 +37,15 @@
             <p class="col-4 text-center p-0 m-0">€ 19,50</p>
         </div>
     </div>
-    <div class="col-1"></div>
+    <div class="col-1 col-md-2"></div>
     </div>
-    <hr/>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <hr class="col-md-8"/>
+        <div class="col-md-2"></div>
+    </div>
+
     <div class="row font-big">
         <p class="col-6 text-center p-0 m-0 mt-2 mb-3"> TOTALE</p>
         <p class="col-4 text-right p-0 m-0 mt-2 mb-3"> € 19,50 </p>

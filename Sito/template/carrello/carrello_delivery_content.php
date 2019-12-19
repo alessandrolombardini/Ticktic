@@ -1,7 +1,6 @@
-<div id="chart-delivery">
-    <div class="container">
-    <div class="col-md-2"></div>
-    <div class="col-md-8"></div>
+<div class="row" id="chart-delivery">
+    <div class="col-md-2 col-1"></div>
+    <div class="col-md-8 col-10">
         <form action="#" method="GET">
             <h3 class="mb-3">Spedizione</h3>
             <div class="row">
@@ -61,6 +60,6 @@
             </form>
         </div>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-2 col-1"></div>
     </div>
 </div>

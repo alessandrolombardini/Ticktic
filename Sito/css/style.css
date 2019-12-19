@@ -23,7 +23,7 @@ a{
 }
 
 .nav-link, footer p, h3{
-    font-weight: bold;
+    font-weight: 100;
     color: white;
 }
 h3, h2 {
@@ -124,8 +124,8 @@ hr{
 
 #card-selector img{
     width:22%;
-    height: 40%;
-    margin-top: 18%;
+    height: 60%;
+    margin-top:5%;
     padding: 2%;
     border: solid 0.1rem rgb(189, 189, 189);
     border-radius: 0.5rem;
@@ -149,6 +149,11 @@ hr{
     margin-bottom: 0;
 }
 
+/* Tutti i paragrami date degli eventi */
+.date {
+    font-size: 0.6em;
+}
+
 .mt-10,
 .my-10 {
   margin-top: 10rem !important;
@@ -170,13 +175,15 @@ hr{
 }
 
 @media screen and (min-width: 768px) {
+    /*dimensioni del font nel carrello*/
     #chart{
         font-size: 1rem;
         letter-spacing: 0.2rem;
     }
-}
 
-/* Tutti i paragrami date degli eventi */
-.date {
-    font-size: 0.6em;
+    /*dimensioni delle carte di credito*/
+    #card-selector img{
+        height: 50%;
+        margin-top:11%;
+    }
 }
