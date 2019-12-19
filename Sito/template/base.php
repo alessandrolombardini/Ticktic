@@ -29,8 +29,8 @@
                         <img src="./images/ticktic_logo.png" class="img-fluid float-left" alt="" />
                     </a>           
 
-                    <a class="nav-link text-light">
-                                <i class="fa fa-shopping-cart " href="#"></i>  
+                    <a class="nav-link text-light" href="carrello.php">
+                                <i class="fa fa-shopping-cart"></i>  
                     </a>            
                     
                     <div class="collapse navbar-collapse" id="navbar"> <!-- Contenuto del menu -->
