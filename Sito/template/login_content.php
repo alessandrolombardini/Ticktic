@@ -3,7 +3,7 @@
         <div class="col-12 col-md-4">
                 <form class="bg-white border mt-4 mb-4 px-5 py-4">
                     <div class="form-group text-center">
-                        <img class="img-fluid col-4" src="./images/pic_ominostilizzato.png" alt="Login"></img>
+                        <img class="img-fluid col-8 col-md-5" src="./images/pic_ominostilizzato.png" alt="Login"></img>
                     </div>
                     <div class="form-group text-center">
                         <input type="email" class="form-control shadow-sm p-4 mt-5 bg-white rounded" id="email" aria-describedby="emailHelp" placeholder="Username" required autofocus>
@@ -12,7 +12,7 @@
                         <input type="password" class="form-control shadow-sm p-4 mt-4 bg-white rounded" id="password" placeholder="Password" required>
                     </div>
                     <div class="form-group text-center">
-                        <input type="submit" class="btn col-10 shadow-sm p-3 mt-4 rounded-pill">Accedi</input>
+                        <input type="submit" value="Accedi" class="btn col-10 shadow-sm p-3 mt-4 rounded-pill"></input>
                     </div>
                     <div class="form-group text-center">
                         <label class="col-4">o</label>

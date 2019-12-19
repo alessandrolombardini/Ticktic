@@ -2,6 +2,10 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#testo-responsive{
+    font-size:50%;
+}
+
 a{
     text-decoration: none !important;
 }
@@ -22,8 +26,7 @@ a{
     font-weight: bold;
     color: white;
 }
-
-h3{
+h3, h2 {
     color:black;
     letter-spacing: 2px;
 }
@@ -41,7 +44,7 @@ h3{
 }
 
 .description{
-    font-size: 0.6em;
+    font-size: 0.7rem;
     line-height: 1;
 }
 
@@ -171,4 +174,9 @@ hr{
         font-size: 1rem;
         letter-spacing: 0.2rem;
     }
+}
+
+/* Tutti i paragrami date degli eventi */
+.date {
+    font-size: 0.6em;
 }
