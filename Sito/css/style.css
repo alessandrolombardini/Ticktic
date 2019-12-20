@@ -6,8 +6,12 @@ body{
     font-size:50%;
 }
 
-a{
+a {
     text-decoration: none !important;
+}
+
+.font-little{
+    font-size: 0.7rem;
 }
 
 .font-mediumlittle{
@@ -22,30 +26,52 @@ a{
     font-size:1.8rem;
 }
 
-.nav-link, footer p, h3{
+.font-white{
     font-weight: 100;
     color: white;
 }
+
+.roundend-corners{
+    border-radius: 20px;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.color-purple{
+    color: rgb(103,99,214) !important;
+}
+
+.close-lines{
+    line-height: 1;
+}
+
+.purple-black-link{
+    color: rgb(103,99,214) !important;
+}
+
+.purple-black-link:hover{
+    color: black !important;
+}
+
+.purple-btn {
+    background-color: rgb(103,99,214) !important;
+    color: white !important;
+}
+
+.purple-btn:hover{
+    color:black !important;
+    border: 1px solid black;
+}
+
 h3, h2 {
     color:black;
     letter-spacing: 2px;
 }
 
-.nav-link:hover, .fa-times{
+.nav-link:hover{
     color: rgb(103,99,214);
-}
-
-.fa-times:hover{
-    color:black;
-}
-
-.color-purple{
-    color:  rgb(103,99,214);
-}
-
-.description{
-    font-size: 0.7rem;
-    line-height: 1;
 }
 
 footer, header {
@@ -56,10 +82,6 @@ nav button {
     border-color: black;
 }
 
-#footer-info{
-    font-size: 0.7rem;
-}
-
 button {
     border: 1px solid rgb(223,223,223);
     border-radius: 7px;
@@ -67,11 +89,6 @@ button {
 
 article > header > div > img{
     max-height: 200px;
-}
-
-.btn {
-    background-color: rgb(103,99,214) !important;
-    color: white !important;
 }
 
 aside > section > ul > li > img{
@@ -98,14 +115,6 @@ button p {
 
 .chart-progress{
     color:rgb(189, 189, 189);
-}
-
-a .chart-progress:hover{
-    color:rgb(103,99,214);
-}
-
-a .chart-progress-selected:hover{
-    color:black;
 }
 
 .chart-progress-selected{
@@ -138,10 +147,6 @@ hr{
 #card-selector img:hover{
     border: solid 0.1rem rgb(103,99,214);
     cursor:pointer;
-}
-
-.roundend-corners{
-    border-radius: 20px;
 }
 
 .event-info p{

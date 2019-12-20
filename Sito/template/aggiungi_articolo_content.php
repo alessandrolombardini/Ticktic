@@ -36,8 +36,8 @@
                 <input type="file" name="immagine" id="immagine" class="form-control" />
             </div>
             <div class="form-group col-12 text-center"> 
-                <button type="submit" class="btn btn-default d-inline-block">Preview</button>
-                <button type="submit" class="btn btn-default d-inline-block">Pubblica</button>
+                <button type="submit" class="purple-btn bnt-default d-inline-block">Preview</button>
+                <button type="submit" class="purple-btn btn-default d-inline-block">Pubblica</button>
             </div>
         </form>
     </div>

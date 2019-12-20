@@ -8,7 +8,7 @@
                 <p class="mb-0">IDAYS</p>
                 <p class="date font-italic m-0">dal 20/05/19 al 13/09/19</p>
                 <div class="col-12 text-right p-0 m-0">
-                    <button class="btn p-1 mt-2 pr-3 pl-3 d-inline-block shadow-sm  rounded-pill">Scopri</button>
+                    <button class="purple-btn p-1 mt-2 pr-3 pl-3 d-inline-block shadow-sm  rounded-pill">Scopri</button>
                 </div>
         </div>    
     </div>

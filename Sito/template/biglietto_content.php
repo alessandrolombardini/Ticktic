@@ -22,7 +22,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-8"></div>
-                        <a id="testo-responsive" href="./artista.php?id=1" class="btn col-4 mr-0 text-center rounded-pill">Visualizza</a>
+                        <a id="testo-responsive" href="./artista.php?id=1" class="purple-btn col-4 mr-0 text-center rounded-pill">Visualizza</a>
 
                     </div>
                     <hr />

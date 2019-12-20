@@ -85,28 +85,28 @@
                         <div class="col-1"></div>
                         <div class="col-3">
                             <nav class="nav flex-column">
-                                <p class="pl-3 mb-0 pb-0">CATEGORIE</p>
+                                <p class="pl-3 mb-0 pb-0 font-white">CATEGORIE</p>
                                 <div class="dropdown-divider"></div>
-                                <a class="nav-link" href="#">Sport</a>
-                                <a class="nav-link" href="#">Concerti</a>
-                                <a class="nav-link" href="#">Cinema</a>
-                                <a class="nav-link" href="#">Spettacoli</a>
-                                <a class="nav-link" href="#">Fiere</a>
-                                <a class="nav-link" href="#">Mostre e Musei</a>
-                                <a class="nav-link" href="#">Altro</a>
+                                <a class="nav-link font-white" href="#">Sport</a>
+                                <a class="nav-link font-white" href="#">Concerti</a>
+                                <a class="nav-link font-white" href="#">Cinema</a>
+                                <a class="nav-link font-white" href="#">Spettacoli</a>
+                                <a class="nav-link font-white" href="#">Fiere</a>
+                                <a class="nav-link font-white" href="#">Mostre e Musei</a>
+                                <a class="nav-link font-white" href="#">Altro</a>
                             </nav>
                         </div>
                         <div class="col-2"></div>
                         <div class="col-1"></div>
                         <div class="col-3">
                             <nav class="nav flex-column">
-                                <p class="pl-3 mb-0 pb-0"> OVERVIEW </p>
+                                <p class="pl-3 mb-0 pb-0 font-white"> OVERVIEW </p>
                                 <div class="dropdown-divider"></div>
-                                <a class="nav-link" href="#">Eventi</a>
-                                <a class="nav-link" href="#">Categorie</a>
-                                <a class="nav-link" href="#">Luoghi</a>
-                                <a class="nav-link" href="#">Artisti</a>
-                                <a class="nav-link" href="#">Area Personale</a>
+                                <a class="nav-link font-white" href="#">Eventi</a>
+                                <a class="nav-link font-white" href="#">Categorie</a>
+                                <a class="nav-link font-white" href="#">Luoghi</a>
+                                <a class="nav-link font-white" href="#">Artisti</a>
+                                <a class="nav-link font-white" href="#">Area Personale</a>
                             </nav>
                         </div>
                         <div class="col-2"></div>
@@ -120,13 +120,13 @@
                         <div class="col-1"></div>
                     </div>
 
-                    <div class="row" id="footer-info">
+                    <div class="row">
                         <div class="col-1 col-md-1"></div>
                         <div class="col-md-5 col-10">  
-                            <p class="text-md-right text-center mb-0">ticktic - Via Roma dell'Università 612, FC - Cesena - 47042</p>
+                            <p class="text-md-right text-center mb-0 font-little font-white">ticktic - Via Roma dell'Università 612, FC - Cesena - 47042</p>
                         </div>
                         <div class="col md-5">
-                            <p class="text-md-left text-center pl-5 pl-md-0">info@ticktic.com - tel. 0547892346 - P.IVA 0243546576678  </p>
+                            <p class="text-md-left text-center pl-5 pl-md-0 font-little font-white">info@ticktic.com - tel. 0547892346 - P.IVA 0243546576678  </p>
                         </div>
                         <div class="col-1 col-md-1"></div>
                     </div>

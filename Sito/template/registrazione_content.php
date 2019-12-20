@@ -66,7 +66,7 @@
             <div class="invalid-feedback">Inserire indizzo.</div>
           </div>
           <div class="mb-3">
-              <input class="btn btn-primary btn-lg btn-block rounded-pill" value="Registrati" type="submit"/>
+              <input class="purple-btn btn-primary btn-lg btn-block rounded-pill" value="Registrati" type="submit"/>
           </div>
         </form>
       </div>

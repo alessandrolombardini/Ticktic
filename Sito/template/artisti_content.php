@@ -23,7 +23,7 @@
                 </td>
                 <td class="w-75 align-middle">
                     <p id="testo-responsive">Salmo</p>
-                    <p id="testo-responsive" class="text-black-50 description">Salmo, pseudonimo di Maurizio Pisciottu (Olbia, 29 giugno 1984), è un rapper e produttore discografico italiano. Salmo ha iniziato la sua carriera musicale all'età di 13 anni, incidendo le sue prime rime tra il 1997 e il 1998.</p>
+                    <p id="testo-responsive" class="text-black-50 font-little close-lines">Salmo, pseudonimo di Maurizio Pisciottu (Olbia, 29 giugno 1984), è un rapper e produttore discografico italiano. Salmo ha iniziato la sua carriera musicale all'età di 13 anni, incidendo le sue prime rime tra il 1997 e il 1998.</p>
                     <div class=" text-right">
                         <a id="testo-responsive" href="./artista.php?id=2" class="btn text-light shadow-sm p-1 mt-1 pr-3 pl-3 rounded-pill description"> Visualizza</a>
                     </div>
