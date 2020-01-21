@@ -1,27 +1,51 @@
-/*Aggiorna i prezzi di totale parziale, totale evento e totale carrello nel carrello*/
-function updateChartPrices(ticketkind, number, price){
-    let event = $(ticketkind).parent();
-    let chart = $(event).parent().parent().parent();
-
-    let parziale = (number*price).toFixed(2);
-    $(ticketkind).find("p.totale-parziale").text("€" + parziale);
-
-    let totaleevento = 0;
-    $(event).find("p.totale-parziale").each(function(){
-        totaleevento += Number($(this).text().substring(1));
-    });
-    totaleevento=totaleevento.toFixed(2);
-    $(event).find("p.totale-evento").text("€" + totaleevento);
-
-    let totalecarrello = 0;
-    $(chart).find("p.totale-evento").each(function(){
-        totalecarrello += Number($(this).text().substring(1));
-    });
-    totalecarrello=totalecarrello.toFixed(2);
-    $(chart).find("p.totale-carrello").text("€" + totalecarrello);
+/*Aggiorna i prezzi del carrello*/
+function updateChartPrices(){
+    updateEventPartial();
+    updateEventTotal();
+    updateChartTotal();
 }
 
+/*Aggiorna i prezzi di totale parziale nel carrello*/
+function updateEventPartial(){
+    $(".ticket-kind").each(function(){
+        let number = Number($(this).find("p.tickets-number").text());
+        let price = parseFloat($(this).find("p.ticket-price").text().substring(1));
+        let parziale = (number*price).toFixed(2);
+        $(this).find("p.totale-parziale").text("€" + parziale);
+    });
+}
+
+/*Aggiorna i prezzi di totale evento nel carrello*/
+function updateEventTotal(){
+    $(".event").each(function(){
+        let totaleevento = 0;
+        $(this).find(".totale-parziale").each(function(){
+            totaleevento += parseFloat($(this).text().substring(1));
+        });
+        totaleevento=totaleevento.toFixed(2);
+        $(this).find(".totale-evento").text("€" + totaleevento);
+    });
+}
+
+/*Aggiorna il prezzo di totale carrello nel carrello*/
+function updateChartTotal(){
+    let totalecarrello = 0;
+    $(".totale-evento").each(function(){
+        totalecarrello += parseFloat($(this).text().substring(1));
+    });
+    totalecarrello = totalecarrello.toFixed(2);
+    $(".totale-carrello").text("€" + totalecarrello);
+}
+
+function showChartSelectedContent(){
+    let attività = $(".chart-content");
+    $(attività).children().hide();
+    $(attività).children(".selected").show();
+}
+
+
 $(document).ready(function(){
+
     /* Mostra e nascondi opzioni gestore in registrazione */
     let nascosto = 1;
     $("div.areagestore").hide();
@@ -35,26 +59,43 @@ $(document).ready(function(){
         }
     });
 
-    // $("#chart-content").hasClass("selected").hide();
+    /*Gestione delle 4 attività del carrello*/;
+    showChartSelectedContent();
+    $(".chart-content").find("button").click(function(){
+        let selezionato = $(".chart-content").children(".selected");
+        $(selezionato).removeClass("selected");
+        $(selezionato).next().addClass("selected");
+        showChartSelectedContent();
+    });
+
+    $(".chart-content").find("button").siblings("a").click(function(){
+        let selezionato = $(".chart-content").children(".selected");
+        $(selezionato).removeClass("selected");
+        $(selezionato).prev().addClass("selected");
+        showChartSelectedContent();
+    });
 
     /*Selettore per le carte di credito*/
     $("#card-selector img").click(function(){
-        $("#card-selector img.selected").removeClass("selected");
-        $(this).addClass("selected");
+        $("#card-selector img.purpleborder").removeClass("purpleborder");
+        $(this).addClass("purpleborder");
     });
+
+    /*Inizializza i prezzi del carrello*/
+    updateEventPartial();
+    updateEventTotal();
+    updateChartTotal();
 
     /*Aumenta il numero di biglietti*/
     $(".fa-plus-circle").click(function(){
         let ticketkind = $(this).parent().parent();
         let number = Number($(ticketkind).find("p.tickets-number").text());
-        let price = parseFloat($(ticketkind).find("p.ticket-price").text().substring(1));
-
         if(number < 8){
             number++;
             $(ticketkind).find("p.tickets-number").text(number);
-            updateChartPrices(ticketkind, number, price);
+            updateChartPrices();
         } else {
-            //TO-DO
+            ;
         }
     });
 
@@ -62,13 +103,29 @@ $(document).ready(function(){
     $(".fa-minus-circle").click(function(){
         let ticketkind = $(this).parent().parent();
         let number = Number($(ticketkind).find("p.tickets-number").text());
-        let price = parseFloat($(ticketkind).find("p.ticket-price").text().substring(2));
         if(number > 1){
             number--;
             $(ticketkind).find("p.tickets-number").text(number);
-            updateChartPrices(ticketkind, number, price);
+            updateChartPrices();
         } else {
-            //TO-DO
+            ;
         }
     });
+
+    /*Toglie dal carrello i biglietti per un evento aggiornando il totale*/
+    $(".close").parent().click(function(){
+        let container = $(this).parent().parent();
+        $(container).remove();
+        updateChartPrices();
+    });
+
+    /*Aggiorna i prezzi del resume del carrello*/
+    $("#resume-btn").click(function(){
+        var spedizione = parseFloat($("input[name='spedizione']:checked").val());
+        $(".resume").find(".spedizione").text("€" + spedizione.toFixed(2));
+        var totalecarello = parseFloat($(".resume").find(".totale-carrello").text().substring(1));
+        var totalespesa =(totalecarello + spedizione).toFixed(2);
+        $(".totale-spesa").text("€" + totalespesa);
+    });
+
 });

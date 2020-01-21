@@ -43,6 +43,14 @@ a {
     color: rgb(103,99,214) !important;
 }
 
+.color-black{
+    color:black !important;
+}
+
+.purpleborder{
+    border: solid 0.1rem rgb(103,99,214) !important;
+}
+
 .close-lines{
     line-height: 1;
 }
@@ -117,10 +125,6 @@ button p {
     color:rgb(189, 189, 189);
 }
 
-.chart-progress-selected{
-    color:rgb(103,99,214);
-}
-
 hr{
     border: solid 3px rgb(200, 200, 200);
     margin : 2% 0;
@@ -132,16 +136,12 @@ hr{
 }
 
 #card-selector img{
-    width:22%;
+    width: 23%;
     height: 60%;
     margin-top:5%;
     padding: 2%;
     border: solid 0.1rem rgb(189, 189, 189);
     border-radius: 0.5rem;
-}
-
-#card-selector img.selected{
-    border: solid 0.1rem rgb(103,99,214);
 }
 
 #card-selector img:hover{
