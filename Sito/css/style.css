@@ -2,16 +2,16 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#testo-responsive{
-    font-size:50%;
-}
-
 a {
     text-decoration: none !important;
 }
 
 .font-little{
     font-size: 0.7rem;
+}
+
+.font-description{
+    font-size: 1rem;
 }
 
 .font-mediumlittle{
