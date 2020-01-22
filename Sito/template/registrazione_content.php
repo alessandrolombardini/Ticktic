@@ -25,6 +25,18 @@
             <input type="text" class="form-control" id="indirizzo"  name="indirizzo" required/>
             <div class="invalid-feedback">Inserire indizzo.</div>
           </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="citta">Città</label>
+              <input type="citta" maxlength="16" class="form-control" id="citta" name="citta" required/>
+              <div class="invalid-feedback">Citta</div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="CAP">CAP</label>
+              <input type="CAP" maxlength="16" class="form-control" id="CAP" name="CAP" required/>
+              <div class="invalid-feedback">CAP</div>
+            </div>
+          </div>
           <div class="d-block my-3">
             <p>Sesso</p>
             <div class="custom-control custom-radio">
