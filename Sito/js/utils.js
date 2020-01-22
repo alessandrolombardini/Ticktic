@@ -38,6 +38,7 @@ function updateChartTotal(){
 }
 
 function showChartSelectedContent(){
+    $(window).scrollTop(0); //!!! NOT WORKING
     let attività = $(".chart-content");
     $(attività).children().hide();
     $(attività).children(".selected").show();
@@ -61,17 +62,38 @@ $(document).ready(function(){
 
     /*Gestione delle 4 attività del carrello*/;
     showChartSelectedContent();
+
+    /*Bottoni per procedere con l'acquisto*/
     $(".chart-content").find("button").click(function(){
         let selezionato = $(".chart-content").children(".selected");
         $(selezionato).removeClass("selected");
         $(selezionato).next().addClass("selected");
+        
+        let progress = $(".chart-progress").children();
+        let purple = $(progress[0]).find(".color-purple");
+        $(purple).removeClass("color-purple");
+        $(purple).next().addClass("color-purple");
+        let black = $(progress[1]).find(".color-black");
+        $(black).removeClass("color-black");
+        $(black).next().addClass("color-black");
+
         showChartSelectedContent();
     });
 
+    /*Pulsanti per tornare indietro*/
     $(".chart-content").find("button").siblings("a").click(function(){
         let selezionato = $(".chart-content").children(".selected");
         $(selezionato).removeClass("selected");
         $(selezionato).prev().addClass("selected");
+
+        let progress = $(".chart-progress").children();
+        let purple = $(progress[0]).find(".color-purple");
+        $(purple).removeClass("color-purple");
+        $(purple).prev().addClass("color-purple");
+        let black = $(progress[1]).find(".color-black");
+        $(black).removeClass("color-black");
+        $(black).prev().addClass("color-black");
+
         showChartSelectedContent();
     });
 

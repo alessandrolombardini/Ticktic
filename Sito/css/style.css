@@ -188,7 +188,6 @@ hr{
 
     /*dimensioni delle carte di credito*/
     #card-selector img{
-        height: 50%;
-        margin-top:11%;
+       margin-top: 10%;
     }
 }
