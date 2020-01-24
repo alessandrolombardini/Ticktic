@@ -35,7 +35,7 @@ create table ESEGUE (
 
 create table EVENTO (
      Anteprima varchar(1024),
-     Luogo varchar(1) not null,
+     Luogo varchar(1024) not null,
      NumeroPosti bigint not null,
      PrezzoBiglietto float(10) not null,
      ImmagineEvento varchar(1024),

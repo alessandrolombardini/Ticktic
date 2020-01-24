@@ -3,7 +3,7 @@
         <div class="col-1"></div>
         <div class="col-10">
             <h3 class="text-black pt-2 mb-4"> Area Gestore</h3>
-            <?php if (isset($templateParams["msg"])):?>
+            <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"):?>
                 <p class="col-10 float-left my-2 align-center"> <?php echo $templateParams["msg"] ?> </p> 
             <?php endif?>
             <form action="./inserisci_evento.php" method="GET">

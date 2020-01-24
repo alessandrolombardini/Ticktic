@@ -1,9 +1,7 @@
 <?php
-require_once 'bootstrap.php';
+require_once("./bootstrap.php");
 
 if($_POST["action"]==1){
-    //Inserisco
-
     $anteprima = $_POST["anteprima"];
     $luogo = $_POST["luogo"];
     $numeroPosti = $_POST["biglietti"];
@@ -12,33 +10,23 @@ if($_POST["action"]==1){
      $noteEvento = $_POST["note"];
      $descrizioneEvento = $_POST["descrizione"]; 
      $nomeEvento = $_POST["nome"];
-     
      $IDCategoria = $_POST["categoria"]; 
-     echo $IDCategoria;
-     $IDOrganizzatore = $_SESSION["IDOrganizzatore"];
-     $artisti;
-    
-    $titoloarticolo = $_POST["titoloarticolo"];
-    $testoarticolo = $_POST["testoarticolo"];
-    $anteprimaarticolo = $_POST["anteprimaarticolo"];
-    $dataarticolo = date("Y-m-d");
-    $autore = $_SESSION["idautore"];
+     $IDOrganizzatore = /*$_SESSION["IDOrganizzatore"];*/ $_POST["tempid"];
 
-    $categorie = $dbh->getCategories();
-    $categorie_inserite = array();
-    foreach($categorie as $categoria){
-        if(isset($_POST["categoria_".$categoria["idcategoria"]])){
-            array_push($categorie_inserite, $categoria["idcategoria"]);
-        }
+    $artisti = array();
+    $count = 1;
+    while (isset($_POST["artisti_".$count]) && $_POST["artisti_".$count] != "none"){
+        array_push($artisti, $_POST["artisti_".$count]);
+        $count++;
     }
 
-    list($result, $msg) = uploadImage(UPLOAD_DIR, $_FILES["immagine"]);
+    list($result, $msg) = uploadImage(UPLOAD_DIR."artisti/", $_FILES["imga"]);
     if($result != 0){
         $immagineEvento = $msg;
-        $id = $dbh->insertArticle($titoloarticolo, $testoarticolo, $anteprimaarticolo, $dataarticolo, $imgarticolo, $autore);
+        $id = $dbh->insertEvent($anteprima, $luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore);
         if($id!=false){
-            foreach($categorie_inserite as $categoria){
-                $ris = $dbh->insertCategoryOfArticle($id, $categoria);
+            foreach($artisti as $artista){
+                $ris = $dbh->insertArtistiOnEvent($artista, $id);
             }
             $msg = "Inserimento completato correttamente!";
         }
@@ -48,5 +36,6 @@ if($_POST["action"]==1){
         
     }
     header("location: area_gestore.php?msg=".$msg);
-}
+} 
+
 ?>

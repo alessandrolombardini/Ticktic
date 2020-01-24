@@ -46,7 +46,7 @@
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link text-light" href="./area_gestore.php">
+                                <a class="nav-link text-light" href="./area_gestore.php?msg=0">
                                     <span>Area Gestore</span>
                                 </a>
                             </li>
