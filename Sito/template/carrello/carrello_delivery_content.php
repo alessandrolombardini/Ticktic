@@ -2,7 +2,7 @@
     <div class="col-md-2 col-1"></div>
     <div class="col-md-8 col-10">
         <form action="#" method="GET">
-            <h3 class="mb-3">Spedizione</h3>
+            <h3 class="mb-5">Spedizione</h3>
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="nome">Nome</label>

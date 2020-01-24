@@ -38,10 +38,20 @@ function updateChartTotal(){
 }
 
 function showChartSelectedContent(){
-    $(window).scrollTop(0); //!!! NOT WORKING
+    $(window).scrollTop(0);
     let attività = $(".chart-content");
     $(attività).children().hide();
     $(attività).children(".selected").show();
+}
+
+function checkArtistiSelected(){
+    let notselected="none";
+    let option = $( "select[name='artisti_1'] option:selected" ).val();
+    if (option == notselected){
+        $(".artista_presente").hide();
+    } else {
+        $(".artista_presente").show();
+    }
 }
 
 
@@ -58,6 +68,28 @@ $(document).ready(function(){
             nascosto = 0;
             $("div.areagestore").show();
         }
+    });
+
+    /*Gestione inserimento evento*/
+    checkArtistiSelected();
+    $("select[name='artisti_1']").change(function(){
+        checkArtistiSelected();
+    });
+
+    /*Possibilità di associare più artisti ad un evento*/
+    $(".more-artists").click(function(){
+        let c = $(".select_artisti").length + 1;
+        let html = `<div class="col-md-8 mb-3"> </div>
+                    <div class="col-md-4 mb-3">
+                        <select name="artisti_${c}" class="form-control select_artisti" required>
+                            <option value="none">...</option>
+                        </select>
+                    </div>`;
+        let options = $("select[name='artisti_1'] option").clone();
+        $(".select_artisti").last().parent().after(html);
+        $(options).last().remove().each(function(){
+            $(".select_artisti").last().children("option").after($(this));
+        });
     });
 
     /*Gestione delle 4 attività del carrello*/;

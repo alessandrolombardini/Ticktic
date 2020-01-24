@@ -73,9 +73,27 @@ a {
     border: 1px solid black;
 }
 
+.little-btn{
+    color: rgb(103,99,214);
+    border: solid 1px rgb(103,99,214);
+    border-radius: 10px;
+    font-size:small;
+    margin:2%;
+}
+
+.little-btn:hover{
+    color:black;
+    border:solid 1px black;
+}
+
 h3, h2 {
     color:black;
     letter-spacing: 2px;
+    font-size: large;
+}
+
+h4{
+    font-size: medium;
 }
 
 .nav-link:hover{
@@ -136,7 +154,7 @@ hr{
 }
 
 #card-selector img{
-    width: 23%;
+    width: 21%;
     height: 60%;
     margin-top:5%;
     padding: 2%;
@@ -188,6 +206,6 @@ hr{
 
     /*dimensioni delle carte di credito*/
     #card-selector img{
-       margin-top: 10%;
+        margin-top: 10% !important;
     }
 }

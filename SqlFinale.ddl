@@ -179,3 +179,8 @@ alter table ORDINE add constraint FKEFFETTUA
 
 
 INSERT INTO AMMINISTRATORE (Email, Password, Nome, Cognome) VALUES ('alesssandrolombardini@gmail.com','alessandro','Alessandro','Lombardini');
+INSERT INTO AMMINISTRATORE (Email, Password, Nome, Cognome) VALUES ('asialucchi@yahoo.it','pw','Asia','Lucchi');
+INSERT INTO CATEGORIA (NomeCategoria) VALUES ('Danza');
+INSERT INTO CATEGORIA (NomeCategoria) VALUES ('Teatro');
+INSERT INTO CATEGORIA (NomeCategoria) VALUES ('Concerto');
+INSERT INTO CATEGORIA (NomeCategoria) VALUES ('Altro');
