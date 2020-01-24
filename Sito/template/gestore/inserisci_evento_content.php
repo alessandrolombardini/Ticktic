@@ -1,8 +1,12 @@
 <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
-        <h3 class="mb-3 mt-5"><?php if ($templateParams["azione"] == 1){echo "Inserisci Evento";}?>
-        <?php if ($templateParams["azione"] == 2){ echo "Modifica Evento";}?></h3>
+        <div class="row mb-3 mt-5">
+            <h3 class="col-3 "><?php if ($templateParams["azione"] == 1){echo "Inserisci Evento";}?>
+            <?php if ($templateParams["azione"] == 2){ echo "Modifica Evento";}?></h3>
+            <div class="col-4 col-md-7"></div>
+            <a class="col-md-1 col-4 text-center pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Annulla </a>
+        </div>
         <hr/>
         <?php if ($templateParams["azione"] == 2){
             echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5'>";
@@ -104,7 +108,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-2 col-3 p-0 m-0"> </div>
-                    <a class="col-md-2 text-center col-6 p-3 m-0 mb-md-5 mb-0 cursor-pointer purple-black-link font-weight-bold"> Annulla </a>
+                    <a class="col-md-2 text-center col-6 p-3 m-0 mb-md-5 mb-0 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Annulla </a>
                     <div class="col-md-1 col-3 p-0 m-0"> </div>
                     <div class="col-1 p-0 m-0"> </div>
                     <input type="submit" class="purple-btn col-md-4 col-10 p-3 m-0 mb-5 rounded-pill" value="Inserisci"/>
