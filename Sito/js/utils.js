@@ -1,3 +1,6 @@
+/*variabile con stringa con il value dell'option della select che significa nessuna selezione*/
+notselected="none";
+
 /*Aggiorna i prezzi del carrello*/
 function updateChartPrices(){
     updateEventPartial();
@@ -37,6 +40,7 @@ function updateChartTotal(){
     $(".totale-carrello").text("€" + totalecarrello);
 }
 
+/*Naviga fre le varie sezioni del carrello*/
 function showChartSelectedContent(){
     $(window).scrollTop(0);
     let attività = $(".chart-content");
@@ -44,8 +48,8 @@ function showChartSelectedContent(){
     $(attività).children(".selected").show();
 }
 
+/*Controlla che sia stato selezionato almeno un artista*/
 function checkArtistiSelected(){
-    let notselected="none";
     let option = $( "select[name='artisti_1'] option:selected" ).val();
     if (option == notselected){
         $(".artista_presente").hide();
@@ -53,7 +57,6 @@ function checkArtistiSelected(){
         $(".artista_presente").show();
     }
 }
-
 
 $(document).ready(function(){
 
@@ -77,10 +80,10 @@ $(document).ready(function(){
     });
 
     /*Possibilità di associare più artisti ad un evento*/
+    $(".reset").hide();
     $(".more-artists").click(function(){
         let c = $(".select_artisti").length + 1;
-        let html = `<div class="col-md-8 mb-3"> </div>
-                    <div class="col-md-4 mb-3">
+        let html = `<div class="col-md-4 mb-3">
                         <select name="artisti_${c}" class="form-control select_artisti" required>
                             <option value="none">...</option>
                         </select>
@@ -90,7 +93,22 @@ $(document).ready(function(){
         $(options).last().remove().each(function(){
             $(".select_artisti").last().children("option").after($(this));
         });
+
+        if (c == 2){
+            $(".reset").show();
+        }
     });
+
+    /*Reset artisti*/
+    $(".reset").click(function(){
+        $(".select_artisti[name!='artisti_1']").parent().remove();
+        $(".select_artisti[name='artisti_1']").val(notselected);
+        checkArtistiSelected();
+        $(".reset").hide();
+    });
+
+    /*Elimina il required se non stiamo sull'effettivo bottone di submit*/
+    //TODO
 
     /*Gestione delle 4 attività del carrello*/;
     showChartSelectedContent();

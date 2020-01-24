@@ -5,5 +5,10 @@ $templateParams["categorie"] = $dbh -> getCategories();
 $templateParams["artisti"] = $dbh -> getArtisti();
 $templateParams["azione"] = $_GET["action"];
 
+if (isset($_GET["id"])){
+    $templateParams["evento"] = $dbh -> getEvent($_GET["id"]);
+    //$templateParams["artistiEvento"] = $dbh -> getArtistsFromEvent($_GET["id"]);
+}
+
 require_once("./template/base.php");
 ?>
