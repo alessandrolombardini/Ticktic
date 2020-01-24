@@ -60,5 +60,37 @@
 
         return $stmt->insert_id;
     }
+
+    public function checkLogin($email, $password){
+        $queryartista = "SELECT *
+                        FROM AMMINISTRATORE
+                        WHERE Email = ? AND Password = ?";
+        $stmt = $this->db->prepare($queryartista);
+        $stmt->bind_param('ss', $email, $password);
+        $stmt->execute();
+        var_dump(mysqli_num_rows($stmt->get_result())==0);
+
+        if(mysqli_num_rows(checkUser($email, $password, "AMMINISTRATORE"))==0){
+            return "AMMINISTRATORE";
+        } else if(mysqli_num_rows(checkUser($email, $password, "ORGANIZZATORE"))==0){
+            return "ORGANIZZATORE";
+        } else if(mysqli_num_rows(checkUser($email, $password, "UTENTE"))==0){
+            return "UTENTE";
+        } else {
+            return "NON REGISTRATO";
+        }
+    }
+
+    private function checkUser($email, $password, $userType){
+        $queryartista = "SELECT *
+                         FROM AMMINISTRATORE
+                         WHERE Email = ? AND Password = ?";
+        $stmt = $this->db->prepare($queryartista);
+        $stmt->bind_param('sss', $userType, $email, $password);
+        $stmt->execute();
+        var_dump($stmt->get_result());
+        return $stmt->get_result();
+    }
+
 }
 ?>
