@@ -61,36 +61,55 @@
         return $stmt->insert_id;
     }
 
-    public function checkLogin($email, $password){
-        $queryartista = "SELECT *
-                        FROM AMMINISTRATORE
-                        WHERE Email = ? AND Password = ?";
-        $stmt = $this->db->prepare($queryartista);
+    
+    public function checkOrganizzatore($email, $password){
+        $query = "SELECT *
+                  FROM ORGANIZZATORE
+                  WHERE Email = ? AND Password = ?";
+        $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss', $email, $password);
         $stmt->execute();
-        var_dump(mysqli_num_rows($stmt->get_result())==0);
-
-        if(mysqli_num_rows(checkUser($email, $password, "AMMINISTRATORE"))==0){
-            return "AMMINISTRATORE";
-        } else if(mysqli_num_rows(checkUser($email, $password, "ORGANIZZATORE"))==0){
-            return "ORGANIZZATORE";
-        } else if(mysqli_num_rows(checkUser($email, $password, "UTENTE"))==0){
-            return "UTENTE";
-        } else {
-            return "NON REGISTRATO";
-        }
+        return $stmt->get_result()->num_rows > 0 ? 1 : 0;
     }
-
-    private function checkUser($email, $password, $userType){
-        $queryartista = "SELECT *
-                         FROM AMMINISTRATORE
-                         WHERE Email = ? AND Password = ?";
-        $stmt = $this->db->prepare($queryartista);
-        $stmt->bind_param('sss', $userType, $email, $password);
+    
+    public function checkAmministratore($email, $password){
+        $query = "SELECT *
+                  FROM AMMINISTRATORE
+                  WHERE Email = ? AND Password = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $email, $password);
         $stmt->execute();
-        var_dump($stmt->get_result());
-        return $stmt->get_result();
+        return $stmt->get_result()->num_rows > 0 ? 1 : 0;
     }
 
+    public function checkUtente($email, $password){
+        $query = "SELECT *
+                  FROM UTENTE
+                  WHERE Email = ? AND Password = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $email, $password);
+        $stmt->execute();
+        return $stmt->get_result()->num_rows > 0 ? 1 : 0;
+    }
+
+    public function inserisciNuovoUtente($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta){
+        $query = "INSERT INTO UTENTE(Email, Sesso, Password, Nome, Cognome, DataNascita, Indirizzo, CAP, Citta)
+                  VALUES (?,?,?,?,?,?,?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssssssss', $email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+
+    public function inserisciNuovoOrganizzatore($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $iban){
+        $valutato="n";
+        $autorizzato="n";
+        $query = "INSERT INTO ORGANIZZATORE(Email, Sesso, Password, Nome, Cognome, DataNascita, Indirizzo, CAP, Citta, IBAN, ValutatoSN, AutorizzatoSN)
+                  VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssssssssssss', $email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $iban, $valutato, $autorizzato);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
 }
 ?>

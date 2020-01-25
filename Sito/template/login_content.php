@@ -15,6 +15,9 @@
                         <input type="submit" value="Accedi" class="purple-btn col-10 shadow-sm p-3 mt-4 rounded-pill"></input>
                     </div>
                     <div class="form-group text-center">
+                        <label class="col-12 text-center"><?php echo $templateParams["loginErrorMessage"]?></label>
+                    </div>
+                    <div class="form-group text-center">
                         <label class="col-4">o</label>
                     </div>
                     <div class="form-group text-center">

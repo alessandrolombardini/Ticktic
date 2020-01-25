@@ -2,7 +2,7 @@
   <div class="col-md-2"></div>
   <div class="col-md-8"></div>
         <h3 class="mb-3">Registrazione utente</h4>
-        <form class="needs-validation" novalidate>
+        <form action="./processaRegistrazione.php" method="POST" class="needs-validation" novalidate>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="nome">Nome</label>
@@ -40,15 +40,15 @@
           <div class="d-block my-3">
             <p>Sesso</p>
             <div class="custom-control custom-radio">
-              <input id="sessoMaschio" name="sesso" type="radio" class="custom-control-input" checked required/>
+              <input id="sessoMaschio" name="sesso" type="radio" value="m" class="custom-control-input" checked required/>
               <label class="custom-control-label" for="sessoMaschio">Maschio</label>
             </div>
             <div class="custom-control custom-radio">
-              <input id="sessoFemmina" name="sesso" type="radio" class="custom-control-input" required/>
+              <input id="sessoFemmina" name="sesso" type="radio" value="f" class="custom-control-input" required/>
               <label class="custom-control-label" for="sessoFemmina">Femmina</label>
             </div>
             <div class="custom-control custom-radio">
-              <input id="sessoAltro" name="sesso" type="radio" class="custom-control-input" required/>
+              <input id="sessoAltro" name="sesso" type="radio" value="a" class="custom-control-input" required/>
               <label class="custom-control-label" for="sessoAltro">Altro</label>
             </div>
           </div>
