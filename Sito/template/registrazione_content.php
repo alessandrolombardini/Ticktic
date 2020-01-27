@@ -2,7 +2,7 @@
   <div class="col-md-2"></div>
   <div class="col-md-8"></div>
         <h3 class="mb-3">Registrazione utente</h4>
-        <form action="./processaRegistrazione.php" method="POST" class="needs-validation" novalidate>
+        <form action="./processa_registrazione.php" method="POST" class="needs-validation" novalidate>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="nome">Nome</label>

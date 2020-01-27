@@ -1,7 +1,7 @@
 <div class="row">
         <div class="col-md-4"></div>
         <div class="col-12 col-md-4">
-                <form action="./homepage.php" method="POST" class="bg-white border mt-4 mb-4 px-5 py-4">
+                <form action="./processa_login.php" method="POST" class="bg-white border mt-4 mb-4 px-5 py-4">
                     <div class="form-group text-center">
                         <img class="img-fluid col-8 col-md-5" src="./images/pic_ominostilizzato.png" alt="Login"></img>
                     </div>
@@ -15,7 +15,13 @@
                         <input type="submit" value="Accedi" class="purple-btn col-10 shadow-sm p-3 mt-4 rounded-pill"></input>
                     </div>
                     <div class="form-group text-center">
-                        <label class="col-12 text-center"><?php echo $templateParams["loginErrorMessage"]?></label>
+                        <label class="col-12 text-center">
+                        <?php 
+                            if(isset($_SESSION["autorizzazione"]) && $_SESSION["autorizzazione"]=="NON LOGGATO"){    
+                                echo $templateParams["loginErrorMessage"];
+                            }
+                        ?>
+                        </label>
                     </div>
                     <div class="form-group text-center">
                         <label class="col-4">o</label>

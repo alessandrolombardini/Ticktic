@@ -61,7 +61,6 @@
         return $stmt->insert_id;
     }
 
-    
     public function checkOrganizzatore($email, $password){
         $query = "SELECT *
                   FROM ORGANIZZATORE
@@ -102,14 +101,40 @@
     }
 
     public function inserisciNuovoOrganizzatore($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $iban){
-        $valutato="n";
-        $autorizzato="n";
         $query = "INSERT INTO ORGANIZZATORE(Email, Sesso, Password, Nome, Cognome, DataNascita, Indirizzo, CAP, Citta, IBAN, ValutatoSN, AutorizzatoSN)
-                  VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                  VALUES (?,?,?,?,?,?,?,?,?,?,'n','n')";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssssssssssss', $email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $iban, $valutato, $autorizzato);
+        $stmt->bind_param('ssssssssss', $email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $iban);
         $stmt->execute();
         return $stmt->insert_id;
+    }
+
+    public function ottieniInformazioniOrganizzatore($id){
+        $query = "SELECT *
+                  FROM ORGANIZZATORE
+                  WHERE IDOrganizzatore = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
+    public function aggiornaInformazioniOrganizzatore($id, $consensoSN){
+        $query = "UPDATE ORGANIZZATORE
+                  SET AutorizzatoSN = ?, ValutatoSN = 's'
+                  WHERE IDOrganizzatore = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('si', $consensoSN, $id);
+        $stmt->execute();
+    }
+
+    public function ottieniOrganizzatoriNonValutati(){
+        $stmt = $this->db->prepare("SELECT Nome, Cognome, IDOrganizzatore
+                                    FROM ORGANIZZATORE
+                                    WHERE ValutatoSN = 'n'");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 ?>

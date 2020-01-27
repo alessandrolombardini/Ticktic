@@ -25,10 +25,9 @@ var_dump($citta);
 var_dump($cap);
 */
 if(checkBaseParams($email, $sesso, $password, $ripetipassword, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta)){
+    //$password = password_hash($password, PASSWORD_DEFAULT);
     /* Se devo aggiungere un utente */
-    var_dump("ciao");
     if(!isset($_POST["gestore"])){
-        var_dump("Registrazione utente completata!");
         $dbh->inserisciNuovoUtente($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta);
         $inserimentoCorretto = true;
     }
@@ -36,7 +35,6 @@ if(checkBaseParams($email, $sesso, $password, $ripetipassword, $nome, $cognome, 
     else {
         $iban = $_POST["iban"];
         if(checkOrganizzatoreParams($iban)){
-            var_dump("Registrazione gestore completata!");
             $dbh->inserisciNuovoOrganizzatore($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $iban);
             $inserimentoCorretto = true;
         } 
@@ -44,7 +42,7 @@ if(checkBaseParams($email, $sesso, $password, $ripetipassword, $nome, $cognome, 
 }
 
 if($inserimentoCorretto == true){
-
+    require_once("./login.php");
 } else { 
     require_once("./registrazione.php");
 }
