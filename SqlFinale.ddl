@@ -70,8 +70,9 @@ create table INTERESSA (
 
 create table NOTIFICA (
      TestoNotifica varchar(5012) not null,
+     TitoloNotifica varchar(5012) not null,
      IDNotifica int not null AUTO_INCREMENT,
-     DataNotifica date not null,
+     DataNotifica timestamp default current_timestamp,
      IDOrganizzatore int,
      IDEvento int,
      IDAmministratore int,
@@ -83,7 +84,7 @@ create table NOTIFICA_PERSONALE (
      IDOrganizzatore int,
      IDUtente int,
      IDAmministratore int,
-    IDNotificaPersonale int not null  AUTO_INCREMENT,
+     IDNotificaPersonale int not null  AUTO_INCREMENT,
      constraint IDNOTIFICA primary key (IDNotificaPersonale));
 
 create table ORDINE (

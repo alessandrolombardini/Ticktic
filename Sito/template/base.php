@@ -27,12 +27,17 @@
                     
                     <a class="blog-header-logo w-50 float-left" href="index.php">
                         <img src="./images/ticktic_logo.png" class="img-fluid float-left" alt="" />
-                    </a>           
+                    </a>              
 
                     <a class="nav-link text-light" href="carrello.php">
                                 <i class="fa fa-shopping-cart"></i>  
-                    </a>            
+                    </a>   
+
                     
+                    <a class="nav-link text-light" href="storico_notifiche.php">
+                        <i class="fas fa-user"></i>
+                    </a> 
+
                     <div class="collapse navbar-collapse" id="navbar"> <!-- Contenuto del menu -->
                         <ul class="nav navbar-nav mr-auto">
                             <li class="nav-item mt-3 mt-md-0">

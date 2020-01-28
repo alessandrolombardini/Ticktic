@@ -15,6 +15,12 @@
                     <i class="fa fa-angle-right fa-2x"></i> 
                 </button>
             </a>
+            <a href="./crea_notifica_amministratore.php">
+                <button type="submit" class="btn btn-gestore col-12 py-3 mb-2">
+                    <p class="col-10 float-left mb-0 mt-1 align-center"> Emetti notifica </p> 
+                    <i class="fa fa-angle-right fa-2x"></i> 
+                </button>
+            </a>
         </div>
         <div class="col-1"></div>
     </div>

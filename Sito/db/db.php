@@ -136,5 +136,103 @@
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    /********************************************************************************************************************** */
+    /* Sezione notifiche */
+
+    public function ottieniStoricoNotifiche($idUtente){
+        $stmt = $this->db->prepare("SELECT TestoNotifica, DataNotifica
+                                    FROM NOTIFICA, NOTIFICA_PERSONALE
+                                    WHERE NOTIFICA.IDNotifica = NOTIFICA_PERSONALE.IDNotifica
+                                    AND (NOTIFICA_PERSONALE.IDOrganizzatore = ? OR
+                                         NOTIFICA_PERSONALE.IDUtente = ? OR
+                                         NOTIFICA_PERSONALE.IDAmministratore = ?)
+                                    ORDER BY NOTIFICA.DataNotifica DESC");
+        $stmt->bind_param('iii', $idUtente, $idUtente, $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function inserisciNotificaAmministratore($titolo, $testo, $idAmministratore){
+        $query = "INSERT INTO NOTIFICA(TitoloNotifica, TestoNotifica, IDAmministratore)
+                  VALUES (?,?,?)";
+        $stmt = $this->db->prepare($query);
+        /*var_dump(date("Y-m-d h:i:sa"));*/
+        $stmt->bind_param('sss', $titolo, $testo, $idAmministratore);
+        $stmt->execute();
+        var_dump($stmt->insert_id);
+        return $stmt->insert_id;
+    }
+
+    public function ottieniIDPersona($email){
+        $query = "SELECT IDAmministratore as ID
+                  FROM AMMINISTRATORE
+                  WHERE Email = ?
+                  UNION
+                  SELECT IDAmministratore as ID
+                  FROM AMMINISTRATORE
+                  WHERE Email = ?
+                  UNION
+                  SELECT IDUtente as ID
+                  FROM Utente
+                  WHERE Email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sss', $email,$email,$email);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $result[0]["ID"];
+    }
+
+    public function ottieniUtenti(){
+        $query = "SELECT IDUtente
+                  FROM UTENTE";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $result;
+    }
+
+    public function ottieniOrganizzatori(){
+        $query = "SELECT IDOrganizzatore
+                  FROM ORGANIZZATORE";       
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $result;
+    }
+
+    public function pubblicaNotificaATuttiGliUtenti($IDNotifica){
+        $utenti = $this->ottieniUtenti();
+        foreach ($utenti as $utente){
+            $this->pubblicaNotificaAdUtente($utente["IDUtente"], $IDNotifica);
+        }
+    }
+    
+    public function pubblicaNotificaATuttiGliOrganizzatori($IDNotifica){
+        $organizzatori = $this->ottieniOrganizzatori();
+        foreach ($organizzatori as $organizzatore){
+            $this->pubblicaNotificaAdOrganizzatore($organizzatore["IDOrganizzatore"], $IDNotifica);
+        }
+    }
+
+    public function pubblicaNotificaAdUtente($IDUtente, $IDNotifica){
+        $query = "INSERT INTO NOTIFICA_PERSONALE(IDUtente, IDNotifica, VisualizzataSN)
+                  VALUES (?,?,'n')";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $IDUtente, $IDNotifica);
+        $stmt->execute();
+    }   
+
+    public function pubblicaNotificaAdOrganizzatore($IDNotifica, $IDOrganizzatore){
+        $query = "INSERT INTO NOTIFICA_PERSONALE(IDOrganizzatore, IDNotifica, VisualizzataSN)
+                  VALUES (?,?,'n')";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $IDOrganizzatore, $IDNotifica);
+        $stmt->execute();
+    }
+
+    /********************************************************************************************************************** */
+
 }
 ?>
