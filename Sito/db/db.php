@@ -140,15 +140,41 @@
     /********************************************************************************************************************** */
     /* Sezione notifiche */
 
-    public function ottieniStoricoNotifiche($idUtente){
-        $stmt = $this->db->prepare("SELECT TestoNotifica, DataNotifica
-                                    FROM NOTIFICA, NOTIFICA_PERSONALE
-                                    WHERE NOTIFICA.IDNotifica = NOTIFICA_PERSONALE.IDNotifica
-                                    AND (NOTIFICA_PERSONALE.IDOrganizzatore = ? OR
-                                         NOTIFICA_PERSONALE.IDUtente = ? OR
-                                         NOTIFICA_PERSONALE.IDAmministratore = ?)
+    public function ottieniNotificheVisteByIDPersona($idPersona){
+        $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica, 
+                                           ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore, 
+                                           AMMINISTRATORE.Nome, AMMINISTRATORE.Cognome, AMMINISTRATORE.IDAmministratore,
+                                           EVENTO.IDEvento, EVENTO.NomeEvento, EVENTO.DataEvento
+                                    FROM NOTIFICA INNER JOIN NOTIFICA_PERSONALE ON NOTIFICA.IDNotifica = NOTIFICA_PERSONALE.IDNotifica	
+                                                  LEFT JOIN EVENTO ON NOTIFICA.IDEvento = EVENTO.IDEvento
+                                                  LEFT JOIN AMMINISTRATORE ON NOTIFICA.IDAmministratore = AMMINISTRATORE.IDAmministratore
+                                                  LEFT JOIN ORGANIZZATORE ON NOTIFICA.IDOrganizzatore = ORGANIZZATORE.IDOrganizzatore
+                                    WHERE (NOTIFICA_PERSONALE.IDOrganizzatore = ? OR
+                                           NOTIFICA_PERSONALE.IDUtente = ? OR
+                                           NOTIFICA_PERSONALE.IDAmministratore = ?)
+                                           AND NOTIFICA_PERSONALE.VisualizzataSN = 's'
                                     ORDER BY NOTIFICA.DataNotifica DESC");
-        $stmt->bind_param('iii', $idUtente, $idUtente, $idUtente);
+        $stmt->bind_param('iii', $idPersona, $idPersona, $idPersona);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function ottieniNotificheNonVisteByIDPersona($idPersona){
+        $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica, 
+                                           ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore,
+                                           AMMINISTRATORE.Nome, AMMINISTRATORE.Cognome, AMMINISTRATORE.IDAmministratore,
+                                           EVENTO.IDEvento, EVENTO.NomeEvento, EVENTO.DataEvento
+                                    FROM NOTIFICA INNER JOIN NOTIFICA_PERSONALE ON NOTIFICA.IDNotifica = NOTIFICA_PERSONALE.IDNotifica	
+                                                  LEFT JOIN EVENTO ON NOTIFICA.IDEvento = EVENTO.IDEvento
+                                                  LEFT JOIN AMMINISTRATORE ON NOTIFICA.IDAmministratore = AMMINISTRATORE.IDAmministratore
+                                                  LEFT JOIN ORGANIZZATORE ON NOTIFICA.IDOrganizzatore = ORGANIZZATORE.IDOrganizzatore
+                                    WHERE (NOTIFICA_PERSONALE.IDOrganizzatore = ? OR
+                                           NOTIFICA_PERSONALE.IDUtente = ? OR
+                                           NOTIFICA_PERSONALE.IDAmministratore = ?)
+                                           AND NOTIFICA_PERSONALE.VisualizzataSN = 'n'
+                                    ORDER BY NOTIFICA.DataNotifica DESC");
+        $stmt->bind_param('iii', $idPersona, $idPersona, $idPersona);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -229,6 +255,15 @@
                   VALUES (?,?,'n')";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss', $IDOrganizzatore, $IDNotifica);
+        $stmt->execute();
+    }
+
+    public function segnaNotificaPersonaComeVisualizzata($idNotificaPersonale){
+        $query = "UPDATE NOTIFICA_PERSONALE
+                  SET VisualizzataSN = 's'
+                  WHERE IDNotificaPersonale = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $idNotificaPersonale);
         $stmt->execute();
     }
 
