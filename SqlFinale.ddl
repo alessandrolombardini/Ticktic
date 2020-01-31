@@ -13,6 +13,8 @@ create table ARTISTA (
      ImmagineArtista varchar(1024),
      Descrizione varchar(5012),
      IDArtista int not null AUTO_INCREMENT,
+     ValutatoSN char(1) not null,
+     AutorizzatoSN char(1) not null,
      PseudonimoArtista varchar(1024) not null,
      constraint IDARTISTA primary key (IDArtista));
 
