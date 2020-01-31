@@ -24,7 +24,8 @@ var_dump($indirizzo);
 var_dump($citta);
 var_dump($cap);
 */
-if(checkBaseParams($email, $sesso, $password, $ripetipassword, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta)){
+if(checkBaseParams($email, $sesso, $password, $ripetipassword, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta)
+   && !$dbh->controllaSeEsisteMail($email)){
     //$password = password_hash($password, PASSWORD_DEFAULT);
     /* Se devo aggiungere un utente */
     if(!isset($_POST["gestore"])){

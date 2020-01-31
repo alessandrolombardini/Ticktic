@@ -3,11 +3,13 @@
         <h3 class="mb-3"> Nuove notifiche </h4>        
     </div>
     <?php foreach ($templateParams["notifiche"] as $notifica): ?>
-        <div class="row">
+        <div data-IDNotificaPersonale=<?php echo $notifica["IDNotificaPersonale"] ?> class="row">
             <div class="col-1 col-md-2"></div>
             <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 shadow-sm">
                 <div class="row m-0 p-0 d-block float-right">
-                    <a class="col-12 text-right m-0 p-0" href="#"><i class="fas fa-times color-purple fa-2x click_nuove_notifiche"></i></a>
+                    <a class="col-12 text-right m-0 p-0" href="#">
+                        <i class="fas fa-times color-purple fa-2x click_nuove_notifiche"></i>
+                    </a>
                 </div>
                 <div class="mt-1 mt-md-0">
                     <h4 class="text-left mb-3"><?php echo $notifica["TitoloNotifica"]?></h4>

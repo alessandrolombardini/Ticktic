@@ -201,13 +201,14 @@ $(document).ready(function(){
     });
 
     /* Pressione del pulsante per segnalare la vista dell notifica: invio dati JSON per aggiornare */
-    $(".click_nuove_notifiche").parent().click(function(){
+    $(".click_nuove_notifiche").click(function(){
+        const row = $(this).parent().parent().parent().parent();
+        console.log(row);
         $.post("./api-notifica-visualizzata.php",
         {
-            IDNotificaPersonale: "1"
+            IDNotificaPersonale: row.attr("data-IDNotificaPersonale")
         });
-        const container = $(this).parent().parent();
-        $(container).remove();
+        $(row).remove();
     });
 
 
