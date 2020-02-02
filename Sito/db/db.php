@@ -352,6 +352,16 @@
         return $stmt->get_result()->fetch_assoc();
     }
 
+    public function ottieniInformazioniArtista($id){
+        $query = "SELECT *
+                  FROM ARTISTA
+                  WHERE IDArtista = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
     public function aggiornaInformazioniOrganizzatore($id, $consensoSN){
         $query = "UPDATE ORGANIZZATORE
                   SET AutorizzatoSN = ?, ValutatoSN = 's'
@@ -361,9 +371,27 @@
         $stmt->execute();
     }
 
+    public function aggiornaInformazioniArtista($id, $consensoSN){
+        $query = "UPDATE ARTISTA
+                  SET AutorizzatoSN = ?, ValutatoSN = 's'
+                  WHERE IDArtista = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('si', $consensoSN, $id);
+        $stmt->execute();
+    }
+
     public function ottieniOrganizzatoriNonValutati(){
         $stmt = $this->db->prepare("SELECT Nome, Cognome, IDOrganizzatore
                                     FROM ORGANIZZATORE
+                                    WHERE ValutatoSN = 'n'");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function ottieniArtistiNonValutati(){
+        $stmt = $this->db->prepare("SELECT PseudonimoArtista, IDArtista, Descrizione, ImmagineArtista
+                                    FROM ARTISTA
                                     WHERE ValutatoSN = 'n'");
         $stmt->execute();
         $result = $stmt->get_result();

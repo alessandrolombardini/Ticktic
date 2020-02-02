@@ -1,5 +1,7 @@
 <div class="container">
-    <h3 class="mb-3">Creazione notifiche</h4>
+    <div class="row text-center">
+        <h3 class="mb-3">Creazione notifiche</h3>
+    </div>
     <form action="./processa_inserimento_notifica_organizzatore.php" method="POST">
         <div class="mb-3">
             <label for="titolo">Titolo</label>

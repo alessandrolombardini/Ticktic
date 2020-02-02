@@ -200,16 +200,17 @@ $(document).ready(function(){
         $(".totale-spesa").text("€" + totalespesa);
     });
 
-    /* Pressione del pulsante per segnalare la vista dell notifica: invio dati JSON per aggiornare */
+    /* Gestisce la pressione del pulsante con cui le notifiche vengono dichiarate viste */
     $(".click_nuove_notifiche").click(function(){
         const row = $(this).parent().parent().parent().parent();
-        console.log(row);
         $.post("./api-notifica-visualizzata.php",
         {
             IDNotificaPersonale: row.attr("data-IDNotificaPersonale")
         });
         $(row).remove();
     });
+
+    
 
 
 });

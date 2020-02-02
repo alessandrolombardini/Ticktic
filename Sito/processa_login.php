@@ -3,7 +3,12 @@ require_once("./bootstrap.php");
 if (isset($_POST["email"]) && isset($_POST["password"])){
     $email = $_POST["email"];
     $password = $_POST["password"];
-    if($dbh->checkAmministratore($email, $password)=="OK"){
+    if(empty($email) || empty($password) && !isset($_SESSION["autorizzazione"])){
+        /* Non sono state inserite tutte le informazioni -> mostrare interfaccia di login con errore */
+        $_SESSION["autorizzazione"]="NON LOGGATO";
+        $templateParams["loginErrorMessage"]="Inserisci email e password!";
+        require_once("./login.php");
+    }else if($dbh->checkAmministratore($email, $password)=="OK"){
         /* E' un amministratore -> mostrare interfaccia amministratore */
         $_SESSION["autorizzazione"]="AMMINISTRATORE";
         $_SESSION["id"]=$dbh->ottieniIDPersona($email);
@@ -21,8 +26,8 @@ if (isset($_POST["email"]) && isset($_POST["password"])){
     }else{
         /* Non è registrato -> mostrare interfaccia di login con errore */
         $_SESSION["autorizzazione"]="NON LOGGATO";
-        $templateParams["loginErrorMessage"]="Accesso negato, non sei registrato!";
+        $templateParams["loginErrorMessage"]="Accesso negato, credenziali sconosciute!";
         require_once("./login.php");
     }
-}
+} 
 ?>

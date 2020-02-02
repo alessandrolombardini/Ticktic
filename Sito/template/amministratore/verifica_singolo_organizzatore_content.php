@@ -1,10 +1,6 @@
-<?php
-    $templateParams["informazioni_gestore"] = $dbh->ottieniInformazioniOrganizzatore($_GET["id"]);
-?>
-
 <div class="container">
-  <div class="row col-12 col-md-12 row justify-content-center">
-    <h3 class="d-block">Autorizza organizzatore</h3>
+  <div class="row col-12 col-md-12 justify-content-center">
+    <h3 class="mb-3">Autorizza organizzatore</h3>
   </div>
   <div class="row">
       <div class="col-1 col-md-2"></div>

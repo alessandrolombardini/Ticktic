@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row col-12 col-md-12 row justify-content-center">
+  <div class="row col-12 col-md-12 justify-content-center">
     <h3 class="d-block">Organizzatori da valutare</h3>
   </div>
   <div class="row">
@@ -8,19 +8,22 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col"></th>
-            <th scope="col">Nome</th>
-            <th scope="col">Cognome</th>
+            <th id="numeroInLista"></th>
+            <th id="nome">Nome</th>
+            <th id="cognome">Cognome</th>
+            <th id="linkAdOrganizzatore"></th>
           </tr>
         </thead>
         <tbody>
+          <?php $i = 1 ?>
           <?php foreach ($templateParams["organizzatoriDaAnalizzare"] as $organizzatore): ?>
             <tr>
-              <th scope="row">1</th>
-              <td><?php echo $organizzatore["Nome"] ?></td>
-              <td><?php echo $organizzatore["Cognome"] ?></td>
-              <td><a href="./verifica_singolo_organizzatore.php?id=<?php echo $organizzatore["IDOrganizzatore"] ?>">Apri</a></td>
+              <th id="numero" headers="numeroInLista"><?php echo $i ?></th>
+              <td headers="numero nome"><?php echo $organizzatore["Nome"] ?></td>
+              <td headers="numero cognome"><?php echo $organizzatore["Cognome"] ?></td>
+              <td headers="numero linkAdOrganizzatore"><a href="./verifica_singolo_organizzatore.php?id=<?php echo $organizzatore["IDOrganizzatore"] ?>">Apri</a></td>
             </tr>  
+          <?php $i++ ?>
           <?php endforeach ?>
         </tbody>
       </table>

@@ -2,12 +2,11 @@
   <div class="col-md-2"></div>
   <div class="col-md-8"></div>
         <h3 class="mb-3">Registrazione utente</h4>
-        <form action="./processa_registrazione.php" method="POST" class="needs-validation" novalidate>
+        <form action="./processa_registrazione.php" method="POST">
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="nome">Nome</label>
               <input type="text" class="form-control" id="nome" name="nome" required/>
-              <div class="invalid-feedback">Inserire il nome.</div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="cognome">Cognome</label>
@@ -33,7 +32,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="CAP">CAP</label>
-              <input type="CAP" maxlength="16" class="form-control" id="CAP" name="CAP" required/>
+              <input type="number" maxlength="16" class="form-control" id="CAP" name="CAP" required/>
               <div class="invalid-feedback">CAP</div>
             </div>
           </div>
