@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.css"/>
         <script type="text/javascript" src="./js/utils.js"> </script>
         
-        <title>TickTick</title>
+        <title>TickTic</title>
   </head>
   <body class ="bg-light">
 
@@ -71,6 +71,7 @@
             </nav>
         </header>
         <main>
+        
             <!-- Main content of the page -->
             <?php
                 if(isset($templateParams["page_content"])){
