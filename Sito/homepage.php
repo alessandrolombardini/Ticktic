@@ -14,5 +14,5 @@
         $templateParams["loginErrorMessage"]="Accesso negato, non sei registrato!";
         require_once("./login.php");
     }
-}
+
 ?>
