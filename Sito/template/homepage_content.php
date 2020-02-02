@@ -3,7 +3,7 @@
     <!-- Background image -->
     <img class="img-fluid" src="./images/background_homepage.png" />
     <!-- Search form -->
-    <form class=" mx-5 forn-inline search-box position-absolute fixed-bottom mb-10">
+    <form class=" mx-5 search-box position-absolute fixed-bottom mb-10">
         <input class="form-control rouded-pill search-input text-center" type="search" placeholder="Cerca per Eventi, Artisti, Luoghi, ..." aria-label="Search">
     </form>
 </div>
