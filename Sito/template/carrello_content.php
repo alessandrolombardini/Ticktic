@@ -1,20 +1,22 @@
 <div id="chart">
-    <div class="row mt-4 px-3">
-        <div class="col-md-2"></div>
-        <div class="col-3 col-md-2 text-center chart-progress" id="btn-chart-index" href="#"><i class="fas fa-dot-circle fa-2x chart-progress color-purple"></i></div>
-        <div class="col-3 col-md-2 text-center chart-progress" id="btn-chart-delivery" href="#"><i class="fas fa-dot-circle fa-2x chart-progress"></i></div>
-        <div class="col-3 col-md-2 text-center chart-progress" id="btn-chart-payment" href="#"><i class="fas fa-dot-circle fa-2x chart-progress"></i></div>
-        <div class="col-3 col-md-2 text-center chart-progress" id="btn-chart-resume" href="#"><i class="fas fa-dot-circle fa-2x chart-progress"></i></div>
-        <div class="col-md-2"></div>
-    </div>
+    <div class="chart-progress">
+        <div class="row mt-4 px-3">
+            <div class="col-md-2"></div>
+            <div class="col-3 col-md-2 text-center chart-index color-purple"><i class="fas fa-dot-circle fa-2x"></i></div>
+            <div class="col-3 col-md-2 text-center chart-delivery"><i class="fas fa-dot-circle fa-2x"></i></div>
+            <div class="col-3 col-md-2 text-center chart-payment"><i class="fas fa-dot-circle fa-2x"></i></div>
+            <div class="col-3 col-md-2 text-center chart-resume"><i class="fas fa-dot-circle fa-2x"></i></div>
+            <div class="col-md-2"></div>
+        </div>
 
-    <div class="row px-3 mb-0">
-        <div class="col-md-2"></div>
-        <div class="col-3 col-md-2 text-center chart-progress color-black"><p class="mb-0"> Carrello </p></div>
-        <div class="col-3 col-md-2 text-center chart-progress"><p class="mb-0"> Spedizione </p></i></div>
-        <div class="col-3 col-md-2 text-center chart-progress"><p class="mb-0"> Pagamento </p></i></div>
-        <div class="col-3 col-md-2 text-center chart-progress"><p class="mb-0"> Ordine </p></i></div>
-        <div class="col-md-2"></div>
+        <div class="row px-3 mb-0">
+            <div class="col-md-2"></div>
+            <div class="col-3 col-md-2 text-center chart-index color-black"><p class="mb-0"> Carrello </p></div>
+            <div class="col-3 col-md-2 text-center chart-delivery"><p class="mb-0"> Spedizione </p></i></div>
+            <div class="col-3 col-md-2 text-center chart-payment"><p class="mb-0"> Pagamento </p></i></div>
+            <div class="col-3 col-md-2 text-center chart-resume"><p class="mb-0"> Ordine </p></i></div>
+            <div class="col-md-2"></div>
+        </div>
     </div>
 
     <hr/>

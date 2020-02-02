@@ -1,3 +1,6 @@
+/*variabile con stringa con il value dell'option della select che significa nessuna selezione*/
+notselected="none";
+
 /*Aggiorna i prezzi del carrello*/
 function updateChartPrices(){
     updateEventPartial();
@@ -37,12 +40,23 @@ function updateChartTotal(){
     $(".totale-carrello").text("€" + totalecarrello);
 }
 
+/*Naviga fre le varie sezioni del carrello*/
 function showChartSelectedContent(){
+    $(window).scrollTop(0);
     let attività = $(".chart-content");
     $(attività).children().hide();
     $(attività).children(".selected").show();
 }
 
+/*Controlla che sia stato selezionato almeno un artista*/
+function checkArtistiSelected(){
+    let option = $( "select[name='artisti_1'] option:selected" ).val();
+    if (option == notselected){
+        $(".artista_presente").hide();
+    } else {
+        $(".artista_presente").show();
+    }
+}
 
 $(document).ready(function(){
 
@@ -59,19 +73,77 @@ $(document).ready(function(){
         }
     });
 
+    /*Gestione inserimento evento*/
+    checkArtistiSelected();
+    $("select[name='artisti_1']").change(function(){
+        checkArtistiSelected();
+    });
+
+    /*Possibilità di associare più artisti ad un evento*/
+    $(".reset").hide();
+    $(".more-artists").click(function(){
+        let c = $(".select_artisti").length + 1;
+        let html = `<div class="col-md-4 mb-3">
+                        <select name="artisti_${c}" class="form-control select_artisti" required>
+                            <option value="none">...</option>
+                        </select>
+                    </div>`;
+        let options = $("select[name='artisti_1'] option").clone();
+        $(".select_artisti").last().parent().after(html);
+        $(options).last().remove().each(function(){
+            $(".select_artisti").last().children("option").after($(this));
+        });
+
+        if (c == 2){
+            $(".reset").show();
+        }
+    });
+
+    /*Reset artisti*/
+    $(".reset").click(function(){
+        $(".select_artisti[name!='artisti_1']").parent().remove();
+        $(".select_artisti[name='artisti_1']").val(notselected);
+        checkArtistiSelected();
+        $(".reset").hide();
+    });
+
+    /*Elimina il required se non stiamo sull'effettivo bottone di submit*/
+    //TODO
+
     /*Gestione delle 4 attività del carrello*/;
     showChartSelectedContent();
+
+    /*Bottoni per procedere con l'acquisto*/
     $(".chart-content").find("button").click(function(){
         let selezionato = $(".chart-content").children(".selected");
         $(selezionato).removeClass("selected");
         $(selezionato).next().addClass("selected");
+        
+        let progress = $(".chart-progress").children();
+        let purple = $(progress[0]).find(".color-purple");
+        $(purple).removeClass("color-purple");
+        $(purple).next().addClass("color-purple");
+        let black = $(progress[1]).find(".color-black");
+        $(black).removeClass("color-black");
+        $(black).next().addClass("color-black");
+
         showChartSelectedContent();
     });
 
+    /*Pulsanti per tornare indietro*/
     $(".chart-content").find("button").siblings("a").click(function(){
         let selezionato = $(".chart-content").children(".selected");
         $(selezionato).removeClass("selected");
         $(selezionato).prev().addClass("selected");
+
+        let progress = $(".chart-progress").children();
+        let purple = $(progress[0]).find(".color-purple");
+        $(purple).removeClass("color-purple");
+        $(purple).prev().addClass("color-purple");
+        let black = $(progress[1]).find(".color-black");
+        $(black).removeClass("color-black");
+        $(black).prev().addClass("color-black");
+
         showChartSelectedContent();
     });
 
@@ -115,7 +187,7 @@ $(document).ready(function(){
     /*Toglie dal carrello i biglietti per un evento aggiornando il totale*/
     $(".close").parent().click(function(){
         let container = $(this).parent().parent();
-        $(container).remove();
+        $(container).remove();  /* Usare const in questi casi */
         updateChartPrices();
     });
 
@@ -127,5 +199,17 @@ $(document).ready(function(){
         var totalespesa =(totalecarello + spedizione).toFixed(2);
         $(".totale-spesa").text("€" + totalespesa);
     });
+
+    /* Pressione del pulsante per segnalare la vista dell notifica: invio dati JSON per aggiornare */
+    $(".click_nuove_notifiche").click(function(){
+        const row = $(this).parent().parent().parent().parent();
+        console.log(row);
+        $.post("./api-notifica-visualizzata.php",
+        {
+            IDNotificaPersonale: row.attr("data-IDNotificaPersonale")
+        });
+        $(row).remove();
+    });
+
 
 });
