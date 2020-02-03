@@ -13,6 +13,8 @@ create table ARTISTA (
      ImmagineArtista varchar(1024),
      Descrizione varchar(5012),
      IDArtista int not null AUTO_INCREMENT,
+     ValutatoSN char(1) not null,
+     AutorizzatoSN char(1) not null,
      PseudonimoArtista varchar(1024) not null,
      constraint IDARTISTA primary key (IDArtista));
 
@@ -70,8 +72,9 @@ create table INTERESSA (
 
 create table NOTIFICA (
      TestoNotifica varchar(5012) not null,
+     TitoloNotifica varchar(5012) not null,
      IDNotifica int not null AUTO_INCREMENT,
-     DataNotifica date not null,
+     DataNotifica timestamp default current_timestamp,
      IDOrganizzatore int,
      IDEvento int,
      IDAmministratore int,
@@ -83,7 +86,7 @@ create table NOTIFICA_PERSONALE (
      IDOrganizzatore int,
      IDUtente int,
      IDAmministratore int,
-    IDNotificaPersonale int not null  AUTO_INCREMENT,
+     IDNotificaPersonale int not null  AUTO_INCREMENT,
      constraint IDNOTIFICA primary key (IDNotificaPersonale));
 
 create table ORDINE (

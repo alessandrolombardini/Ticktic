@@ -241,7 +241,7 @@ $(document).ready(function(){
     /*Toglie dal carrello i biglietti per un evento aggiornando il totale*/
     $(".close").parent().click(function(){
         let container = $(this).parent().parent();
-        $(container).remove();
+        $(container).remove();  /* Usare const in questi casi */
         updateChartPrices();
     });
 
@@ -253,5 +253,18 @@ $(document).ready(function(){
         var totalespesa =(totalecarello + spedizione).toFixed(2);
         $(".totale-spesa").text("€" + totalespesa);
     });
+
+    /* Gestisce la pressione del pulsante con cui le notifiche vengono dichiarate viste */
+    $(".click_nuove_notifiche").click(function(){
+        const row = $(this).parent().parent().parent().parent();
+        $.post("./api-notifica-visualizzata.php",
+        {
+            IDNotificaPersonale: row.attr("data-IDNotificaPersonale")
+        });
+        $(row).remove();
+    });
+
+    
+
 
 });
