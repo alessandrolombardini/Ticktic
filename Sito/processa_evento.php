@@ -43,12 +43,12 @@ if($_POST["action"]==2){
     $luogo = $_POST["luogo"];
     $numeroPosti = $_POST["biglietti"];
     $prezzoBiglietto = $_POST["prezzo"]; 
-    $dataEvento = DateTime::createFromFormat('m/d/Y', $_POST['date']);
+    $dataEvento = $_POST["year"] . "-" . $_POST["month"] . "-". $_POST["day"] . " " . $_POST["orario"] . ":00";
     $noteEvento = $_POST["note"];
     $descrizioneEvento = $_POST["descrizione"]; 
     $nomeEvento = $_POST["nome"];
     $IDCategoria = $_POST["categoria"]; 
-    $IDOrganizzatore = /*$_SESSION["IDOrganizzatore"];*/ $_POST["tempid"];
+    $IDOrganizzatore = $_SESSION["id"];
 
     $artisti = array();
     $count = 1;

@@ -1,6 +1,9 @@
 /*variabile con stringa con il value dell'option della select che significa nessuna selezione*/
 notselected="none";
 
+/*selettore dei giorni nell'inserimento evento*/
+daySelect = $(".eventdate#day"); 
+
 /*Aggiorna i prezzi del carrello*/
 function updateChartPrices(){
     updateEventPartial();
@@ -58,6 +61,38 @@ function checkArtistiSelected(){
     }
 }
 
+function populateDays($month){
+    let daySelect = $(".eventdate#day");
+    daySelect.find("option").remove();
+
+    if ($month=="11" || $month=="04" || $month=="09" || $month=="06"){
+        for(var i = 1; i <= 30; i++) {
+            var option = document.createElement('option');
+            option.textContent = i;
+            daySelect.append(option);
+        }
+    } else if ($month=="02"){
+        for(var i = 1; i <= 28; i++) {
+            var option = document.createElement('option');
+            option.textContent = i;
+            daySelect.append(option);
+        }
+        let year = $(".eventdate#year :selected").text(); 
+        console.log(year);
+        if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)){
+            var option = document.createElement('option');
+            option.textContent = "29";
+            daySelect.append(option);
+        }
+    } else {
+        for(var i = 1; i <= 31; i++) {
+            var option = document.createElement('option');
+            option.textContent = i;
+            daySelect.append(option);
+        }
+    }
+}
+
 $(document).ready(function(){
 
     /* Mostra e nascondi opzioni gestore in registrazione */
@@ -107,8 +142,27 @@ $(document).ready(function(){
         $(".reset").hide();
     });
 
-    /*Elimina il required se non stiamo sull'effettivo bottone di submit*/
-    //TODO
+    /*Popola gli anni nell'inserimento artista*/
+    let date = new Date();
+    let year = date.getFullYear();
+    let yearSelect = $(".eventdate#year"); 
+    for(var i = 0; i <= 5; i++) {
+        var option = document.createElement('option');
+        option.textContent = year+i;
+        yearSelect.append(option);
+    }
+
+    /*Popola i giorni nell'inserimento artista*/
+    let monthSelect = $(".eventdate#month"); 
+    populateDays(monthSelect.find(":selected").val());
+
+    /*Ripopola correttamente i giorni quando si cambia mese o anno*/
+    monthSelect.change(function(){
+        populateDays(monthSelect.find(":selected").val())
+    });
+    yearSelect.change(function(){
+        populateDays(monthSelect.find(":selected").val())
+    });
 
     /*Gestione delle 4 attività del carrello*/;
     showChartSelectedContent();

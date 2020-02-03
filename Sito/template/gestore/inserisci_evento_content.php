@@ -2,10 +2,10 @@
     <div class="col-1"></div>
     <div class="col-10">
         <div class="row mb-3 mt-5">
-            <h3 class="col-3 "><?php if ($templateParams["azione"] == 1){echo "Inserisci Evento";}?>
+            <h3 class="col-8 col-md-7"><?php if ($templateParams["azione"] == 1){echo "Inserisci Evento";}?>
             <?php if ($templateParams["azione"] == 2){ echo "Modifica Evento";}?></h3>
-            <div class="col-4 col-md-7"></div>
-            <a class="col-md-1 col-4 text-center pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Annulla </a>
+            
+            <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Annulla </a>
         </div>
         <hr/>
         <?php if ($templateParams["azione"] == 2){
@@ -15,7 +15,7 @@
             <div class="row">
                 <label for="artisti" class="col-md-3 col-3"><h4> Artisti </h4></label>
                 <div class="col-4 col-md-7"></div>
-                <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2 mb-3">Reset</button>`
+                <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2 mb-3">Reset</button>
             </div>
             <?php if ($templateParams["azione"] == 1):?>
             <div class="row mb-3">
@@ -42,22 +42,44 @@
             <?php endif ?>
             <div class="artista_presente mt-5">
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-5 mb-3">
                         <label for="nome">Nome Evento *</label>
                         <input type="text" class="form-control" id="nome" name="nome" 
                         value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["NomeEvento"];} else {echo "";}?>" required/>
                     </div>
-                    <div class="col-md-3 col-6 mb-3">
-                        <label for="data">Data *</label>
-                        <input type="day" id="data" name="data" class="form-control" min="<?php echo date("d-m-Y"); ?>" value="<?php $d=strtotime("+ 1 Month"); echo date("d-m-Y", $d) ?>"
-                        value="<?php// if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["DataEvento"];} else {echo "";}?>" required/>
+                    <div class="col-md-1 col-3 mb-3">
+                        <label for="day">Giorno*</label>
+                        <select class="form-control eventdate" id="day" name="day">
+                        </select>
                     </div>
-                    <div class="col-md-3 col-6 mb-3">
+                    <div class="col-md-2 col-5 mb-3">
+                        <label for="month">Mese*</label>
+                        <select id="month" class="form-control eventdate " name="month">
+                        <option value="01"selected>January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 col-4 mb-3">
+                        <label for="year">Anno*</label>
+                        <select id="year" class="form-control eventdate" name="year">
+                        </select>
+                    </div>
+                    <div class="col-md-2 col-6 mb-3">
                         <label for="orario">Orario *</label>
-                        <input type="time" class="form-control" id="orario" name="orario" required/>
+                        <input type="time" class="form-control eventdate" id="orario" name="orario" required/>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-2">
                     <div class="col-md-6 mb-3">
                         <label for="luogo">Luogo *</label>
                         <input type="text" class="form-control" id="luogo" name="luogo"
@@ -74,7 +96,7 @@
                         value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["PrezzoBiglietto"];} else {echo "";}?>" required/>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-2">
                     <div class="col-md-4 mb-3">
                         <label for="categoria">Categoria *</label>
                         <select name="categoria" class="form-control" required>
@@ -96,7 +118,7 @@
                         value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["Anteprima"];} else {echo "";}?>" required/>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-2">
                     <div class="col-md-6 mb-3">
                         <label for="descrizione">Descrizione*</label>
                         <textarea class="form-control" id="descrizione" name="descrizione"><?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["DescrizioneEvento"];} else {echo "";}?> </textarea>
@@ -115,7 +137,6 @@
                     <div class="col-md-3 col-1 p-0 m-0"> </div>
                 </div>
                 <input type="hidden" name="action" value="<?php echo $templateParams["azione"]; ?>"/>
-                <input type="hidden" name="tempid" value="0"/>
                 <input type="hidden" name="oldimg" value="<?php $templateParams["evento"]["ImmagineEvento"] ?>"/>
             </div>
         </form>

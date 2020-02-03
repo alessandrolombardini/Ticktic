@@ -39,7 +39,7 @@ create table EVENTO (
      NumeroPosti bigint not null,
      PrezzoBiglietto float(10) not null,
      ImmagineEvento varchar(1024),
-     DataEvento date not null,
+     DataEvento datetime not null,
      NoteEvento varchar(5012),
      DescrizioneEvento varchar(5012),
      IDEvento int not null AUTO_INCREMENT,
