@@ -14,68 +14,73 @@
         <script type="text/javascript" src="./js/utils.js"> </script>
         
         <title>TickTic</title>
-  </head>
-  <body class ="bg-light">
+    </head>
+    <body class ="bg-light">
 
-        <header class="">
-            <nav class="navbar navbar-static-top navbar-dark"> <!-- navbar-expand-md per far comparire il menù con display grandi-->
-                <div class="container-fluid ml-mr-0">
-                    <button class="navbar-toggler text-light collapsed float-left" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fa fa-bars "></i>
-                    </button>
-                    
-                    <a class="blog-header-logo w-50 float-left" href="index.php">
-                        <img src="./images/ticktic_logo.png" class="img-fluid float-left" alt="" />
-                    </a>              
+        <header>
+            <nav class="navbar navbar-vertical navbar-dark navbar-top row"> <!-- navbar-expand-md per far comparire il menù con display grandi-->
+                
+                <!-- Navbar Toggler -->
+                <button class="navbar-toggler border-0 text-light collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars"></span>
+                </button>
+                
+                <!-- Navbar Logo -->
+                <a class="navbar-brand py-0 ml-auto mr-0" href="./index.php">
+                    <img id="nav-logo" src="./images/ticktic_logo.png" alt="ticktic logo" />
+                </a>
 
-                    <a class="nav-link text-light" href="carrello.php">
-                                <i class="fa fa-shopping-cart"></i>  
-                    </a>   
+                <!-- Navbar Right Side-->
+                <ul class="navbar nav align-items-center ml-auto">
+                    <li class="nav-item dropdown mx-2">
+                        <a class="nav-link text-light px-0" href="carrello.php">
+                            <i class="fa fa-shopping-cart"></i>  
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown mx-2">
+                        <a class="nav-link text-light px-0" href="nuove_notifiche.php">
+                            <i class="fas fa-user"></i>
+                        </a> 
+                    </li>
+                </ul>             
+                
+                <!-- Navbar Menu -->
+                <div class="collapse navbar-collapse perfect-scrollbar scrollbar" id="navbar"> <!-- Contenuto del menu -->
+                    <ul class="flex-column navbar-nav">
+                        <li class="nav-item mt-3 mt-md-0">
+                            <a class="nav-link text-light" href="./login.php">
+                                <span>Account</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link text-light" href="./ordini.php">
+                                <span>Ordini</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link text-light" href="./area_gestore.php?msg=0">
+                                <span>Area Gestore</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="./lista_desideri.php">
+                                <span>Lista Desideri</span>
+                            </a>
+                        </li>
+                        <div class="dropdown-divider"></div>
 
-                    
-                    <a class="nav-link text-light" href="nuove_notifiche.php">
-                        <i class="fas fa-user"></i>
-                    </a> 
-
-                    <div class="collapse navbar-collapse" id="navbar"> <!-- Contenuto del menu -->
-                        <ul class="nav navbar-nav mr-auto">
-                            <li class="nav-item mt-3 mt-md-0">
-                                <a class="nav-link text-light" href="./login.php">
-                                    <span>Account</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link text-light" href="./ordini.php">
-                                    <span>Ordini</span>
-                                </a>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link text-light" href="./area_gestore.php?msg=0">
-                                    <span>Area Gestore</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" href="./lista_desideri.php">
-                                    <span>Lista Desideri</span>
-                                </a>
-                            </li>
-                            <div class="dropdown-divider"></div>
-
-                            <li class="nav-item dropdown show">
-                                <a id="#site-navigation" class="nav-link text-light dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span>Naviga</span>
-                                </a>
-                                <div class="dropdown-menu bg-dark border-dark " aria-labelledby="site-navigation">
-                                    <a class="dropdown-item text-light" href="./eventi.php">Eventi</a>
-                                    <a class="dropdown-item text-light" href="./categorie.php">Categorie</a>
-                                    <a class="dropdown-item text-light" href="./artisti.php">Artisti</a>
-                                    <a class="dropdown-item text-light" href="./luoghi.php" >Luoghi</a>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-
+                        <li class="nav-item dropdown show">
+                            <a id="#site-navigation" class="nav-link text-light dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span>Naviga</span>
+                            </a>
+                            <div class="dropdown-menu bg-dark border-dark " aria-labelledby="site-navigation">
+                                <a class="dropdown-item text-light" href="./eventi.php">Eventi</a>
+                                <a class="dropdown-item text-light" href="./categorie.php">Categorie</a>
+                                <a class="dropdown-item text-light" href="./artisti.php">Artisti</a>
+                                <a class="dropdown-item text-light" href="./luoghi.php" >Luoghi</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </header>
@@ -87,6 +92,7 @@
                     require($templateParams["page_content"]);
                 }
             ?>
+
         </main>
         <div class="row">
             <div class="col-12">
@@ -140,10 +146,10 @@
                         </div>
                         <div class="col-1 col-md-1"></div>
                     </div>
-                    </div>
+                    
                 </footer>   
             </div>   
         </div>
-  </body>
+    </body>
 </html>
 
