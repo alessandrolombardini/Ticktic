@@ -4,12 +4,14 @@
         <div class="row mb-3 mt-5">
             <h3 class="col-8 col-md-7"><?php if ($templateParams["azione"] == 1){echo "Inserisci Evento";}?>
             <?php if ($templateParams["azione"] == 2){ echo "Modifica Evento";}?></h3>
-            
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Annulla </a>
         </div>
         <hr/>
+        <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"):?>
+        <p class="col-8 mb-3"> <?php echo $templateParams["msg"] ?> </p> 
+        <?php endif?>
         <?php if ($templateParams["azione"] == 2){
-            echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5'>";
+            echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5 updateeventimg'>";
         }?>
         <form action="processa_evento.php" method="POST" enctype="multipart/form-data">
             <div class="row">
@@ -35,7 +37,9 @@
                 </div>
                 <div class="col-md-4 mb-3 px-md-0">
                     <div class="col-md-1"></div>
-                    <button type="button" class="little-btn col-md-10 m-0 py-2"><p class="mb-0">L'artista non è presente?</p></button>
+                    <a href="./inserisci_artista.php">
+                        <button type="button" class="little-btn col-md-10 m-0 py-2"><p class="mb-0">L'artista non è presente?</p></button>
+                    </a>
                     <div class="col-md-1"></div>
                 </div>
             </div>  
@@ -49,30 +53,28 @@
                     </div>
                     <div class="col-md-1 col-3 mb-3">
                         <label for="day">Giorno*</label>
-                        <select class="form-control eventdate" id="day" name="day">
-                        </select>
+                        <select class="form-control eventdate <?php if ($templateParams["azione"] == 2) {echo "updateevent ";}?>" id="day" name="day"><?php if ($templateParams["azione"] == 2) {echo $templateParams["giornoEvento"];}?></select>
                     </div>
                     <div class="col-md-2 col-5 mb-3">
                         <label for="month">Mese*</label>
-                        <select id="month" class="form-control eventdate " name="month">
-                        <option value="01"selected>January</option>
-                        <option value="02">February</option>
-                        <option value="03">March</option>
-                        <option value="04">April</option>
-                        <option value="05">May</option>
-                        <option value="06">June</option>
-                        <option value="07">July</option>
-                        <option value="08">August</option>
-                        <option value="09">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
+                        <select id="month" class="form-control eventdate" name="month">
+                        <option value="01" <?php if ((($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "01")) || $templateParams["azione"]==1) {echo "selected";}?>>January</option>
+                        <option value="02" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "02")) {echo "selected";}?>>February</option>
+                        <option value="03" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "03")) {echo "selected";}?>>March</option>
+                        <option value="04" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "04")) {echo "selected";}?>>April</option>
+                        <option value="05" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "05")) {echo "selected";}?>>May</option>
+                        <option value="06" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "06")) {echo "selected";}?>>June</option>
+                        <option value="07" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "07")) {echo "selected";}?>>July</option>
+                        <option value="08" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "08")) {echo "selected";}?>>August</option>
+                        <option value="09" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "09")) {echo "selected";}?>>September</option>
+                        <option value="10" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "10")) {echo "selected";}?>>October</option>
+                        <option value="11" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "11")) {echo "selected";}?>>November</option>
+                        <option value="12" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "12")) {echo "selected";}?>>December</option>
                         </select>
                     </div>
                     <div class="col-md-2 col-4 mb-3">
                         <label for="year">Anno*</label>
-                        <select id="year" class="form-control eventdate" name="year">
-                        </select>
+                        <select id="year" class="form-control eventdate <?php if ($templateParams["azione"] == 2) {echo "updateevent ";}?>" name="year"><?php if ($templateParams["azione"] == 2) {echo $templateParams["annoEvento"];}?></select>
                     </div>
                     <div class="col-md-2 col-6 mb-3">
                         <label for="orario">Orario *</label>
@@ -110,7 +112,7 @@
                         </select>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="imga">Immagine *</label><input type="file" name="imga" id="imga"/>
+                        <label for="eventimg">Immagine *</label><input type="file" name="eventimg" id="eventimg"/>
                     </div>
                     <div class="col-md-4 mb-3">
                         <label for="anteprima">Anteprima</label>

@@ -7,7 +7,15 @@ $templateParams["azione"] = $_GET["action"];
 
 if (isset($_GET["id"])){
     $templateParams["evento"] = $dbh -> getEvent($_GET["id"]);
-    //$templateParams["artistiEvento"] = $dbh -> getArtistsFromEvent($_GET["id"]);
+    $templateParams["artistiEvento"] = $dbh -> getArtistsFromEvent($_GET["id"]);
+    $data = $templateParams["evento"]["DataEvento"];
+    $templateParams["giornoEvento"] = substr($data, 8, 2);
+    $templateParams["meseEvento"] = substr($data, 5, 2);
+    $templateParams["annoEvento"] = substr($data, 0, 4);
+}
+
+if (isset($_GET["msg"])){
+    $templateParams["msg"] = $_GET["msg"];
 }
 
 require_once("./template/base.php");

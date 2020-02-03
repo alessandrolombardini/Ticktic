@@ -64,32 +64,24 @@ function checkArtistiSelected(){
 function populateDays($month){
     let daySelect = $(".eventdate#day");
     daySelect.find("option").remove();
+    let max = 31;
 
     if ($month=="11" || $month=="04" || $month=="09" || $month=="06"){
-        for(var i = 1; i <= 30; i++) {
-            var option = document.createElement('option');
-            option.textContent = i;
-            daySelect.append(option);
-        }
+        max = 30;
     } else if ($month=="02"){
-        for(var i = 1; i <= 28; i++) {
-            var option = document.createElement('option');
-            option.textContent = i;
-            daySelect.append(option);
-        }
         let year = $(".eventdate#year :selected").text(); 
-        console.log(year);
         if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)){
-            var option = document.createElement('option');
-            option.textContent = "29";
-            daySelect.append(option);
+            max = 29;
+        } else {
+            max = 28;
         }
-    } else {
-        for(var i = 1; i <= 31; i++) {
-            var option = document.createElement('option');
-            option.textContent = i;
-            daySelect.append(option);
-        }
+    }
+
+    for(var i = 1; i <= max; i++) {
+        var option = document.createElement('option');
+        option.textContent = i;
+        option.value = i;
+        daySelect.append(option);
     }
 }
 
@@ -146,15 +138,28 @@ $(document).ready(function(){
     let date = new Date();
     let year = date.getFullYear();
     let yearSelect = $(".eventdate#year"); 
+    if ($(".eventdate#year").hasClass("updateevent")){
+        $year = $(".eventdate#year").text();
+    }
     for(var i = 0; i <= 5; i++) {
         var option = document.createElement('option');
         option.textContent = year+i;
+        option.value = year+i;
         yearSelect.append(option);
     }
+    $(".eventdate#year").find('option[value="' + $year + '"]').attr('selected','selected');
 
     /*Popola i giorni nell'inserimento artista*/
-    let monthSelect = $(".eventdate#month"); 
+    let monthSelect = $(".eventdate#month");
+    if ($(".eventdate#day").hasClass("updateevent")){
+        $day = $(".eventdate#day").text();
+        if ($day.substring(0,1) == 0){
+            $day = $day.substring(1,2);
+        } 
+    }
     populateDays(monthSelect.find(":selected").val());
+    $(".eventdate#day").find('option[value="' + $day + '"]').attr('selected','selected');
+
 
     /*Ripopola correttamente i giorni quando si cambia mese o anno*/
     monthSelect.change(function(){

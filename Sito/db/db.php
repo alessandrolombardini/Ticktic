@@ -9,6 +9,8 @@
         }        
     }
 
+    /******************************************************************************************************************************/
+    /* Inserimento e Modifica Evento */
     public function getCategories(){
         $stmt = $this->db->prepare("SELECT * FROM CATEGORIA");
         $stmt->execute();
@@ -18,7 +20,9 @@
     }
 
     public function getArtisti(){
-        $stmt = $this->db->prepare("SELECT * FROM ARTISTA");
+        $stmt = $this->db->prepare("SELECT * FROM ARTISTA WHERE ValutatoSN = ?");
+        $valutato = "s";
+        $stmt->bind_param('s', $valutato);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -35,7 +39,7 @@
     }
 
     public function getArtistsFromEvent($id){
-        $stmt = $this->db->prepare("SELECT * FROM ARTISTA, ESEGUE WHERE IDArtista = IDArtista AND IDEvento = ?");
+        $stmt = $this->db->prepare("SELECT * FROM ARTISTA, ESEGUE WHERE IDEvento = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -57,6 +61,16 @@
         $stmt = $this->db->prepare($queryartista);
         $stmt->bind_param('ii', $IDEvento, $IDAartista);
         $stmt->execute();
+
+        return $stmt->insert_id;
+    }
+
+    public function insertArtistaNonValutato($pseudominoArtista, $descrizione, $immagine, $valutato){
+        $query = "INSERT INTO ARTISTA (PseudonimoArtista, Descrizione, ImmagineArtista, ValutatoSN) VALUES (?,?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssss', $pseudominoArtista, $descrizione, $immagine, $valutato);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         return $stmt->insert_id;
     }
