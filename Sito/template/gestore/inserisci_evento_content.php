@@ -53,30 +53,28 @@
                     </div>
                     <div class="col-md-1 col-3 mb-3">
                         <label for="day">Giorno*</label>
-                        <select class="form-control eventdate" id="day" name="day">
-                        </select>
+                        <select class="form-control eventdate <?php if ($templateParams["azione"] == 2) {echo "updateevent ";}?>" id="day" name="day"><?php if ($templateParams["azione"] == 2) {echo $templateParams["giornoEvento"];}?></select>
                     </div>
                     <div class="col-md-2 col-5 mb-3">
                         <label for="month">Mese*</label>
-                        <select id="month" class="form-control eventdate " name="month">
-                        <option value="01"selected>January</option>
-                        <option value="02">February</option>
-                        <option value="03">March</option>
-                        <option value="04">April</option>
-                        <option value="05">May</option>
-                        <option value="06">June</option>
-                        <option value="07">July</option>
-                        <option value="08">August</option>
-                        <option value="09">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
+                        <select id="month" class="form-control eventdate" name="month">
+                        <option value="01" <?php if ((($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "01")) || $templateParams["azione"]==1) {echo "selected";}?>>January</option>
+                        <option value="02" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "02")) {echo "selected";}?>>February</option>
+                        <option value="03" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "03")) {echo "selected";}?>>March</option>
+                        <option value="04" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "04")) {echo "selected";}?>>April</option>
+                        <option value="05" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "05")) {echo "selected";}?>>May</option>
+                        <option value="06" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "06")) {echo "selected";}?>>June</option>
+                        <option value="07" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "07")) {echo "selected";}?>>July</option>
+                        <option value="08" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "08")) {echo "selected";}?>>August</option>
+                        <option value="09" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "09")) {echo "selected";}?>>September</option>
+                        <option value="10" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "10")) {echo "selected";}?>>October</option>
+                        <option value="11" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "11")) {echo "selected";}?>>November</option>
+                        <option value="12" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "12")) {echo "selected";}?>>December</option>
                         </select>
                     </div>
                     <div class="col-md-2 col-4 mb-3">
                         <label for="year">Anno*</label>
-                        <select id="year" class="form-control eventdate" name="year">
-                        </select>
+                        <select id="year" class="form-control eventdate <?php if ($templateParams["azione"] == 2) {echo "updateevent ";}?>" name="year"><?php if ($templateParams["azione"] == 2) {echo $templateParams["annoEvento"];}?></select>
                     </div>
                     <div class="col-md-2 col-6 mb-3">
                         <label for="orario">Orario *</label>
