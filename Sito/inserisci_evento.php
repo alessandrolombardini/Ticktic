@@ -10,5 +10,9 @@ if (isset($_GET["id"])){
     //$templateParams["artistiEvento"] = $dbh -> getArtistsFromEvent($_GET["id"]);
 }
 
+if (isset($_GET["msg"])){
+    $templateParams["msg"] = $_GET["msg"];
+}
+
 require_once("./template/base.php");
 ?>

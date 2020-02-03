@@ -6,12 +6,13 @@ if($_POST["action"]==1){
     $luogo = $_POST["luogo"];
     $numeroPosti = $_POST["biglietti"];
     $prezzoBiglietto = $_POST["prezzo"]; 
-    $dataEvento = DateTime::createFromFormat('m/d/Y', $_POST['date']);
+    $dataEvento = $_POST["year"] . "-" . $_POST["month"] . "-". $_POST["day"] . " " . $_POST["orario"] . ":00";
+    var_dump("$dataEvento");
     $noteEvento = $_POST["note"];
     $descrizioneEvento = $_POST["descrizione"]; 
     $nomeEvento = $_POST["nome"];
     $IDCategoria = $_POST["categoria"]; 
-    $IDOrganizzatore = /*$_SESSION["IDOrganizzatore"];*/ $_POST["tempid"];
+    $IDOrganizzatore = /*$_SESSION["id"];*/ "1";
 
     $artisti = array();
     $count = 1;
@@ -20,7 +21,7 @@ if($_POST["action"]==1){
         $count++;
     }
 
-    list($result, $msg) = uploadImage(UPLOAD_DIR."eventi/", $_FILES["imga"]);
+    list($result, $msg) = uploadImage(UPLOAD_DIR."eventi/", $_FILES["eventimg"]);
     if($result != 0){
         $immagineEvento = $msg;
         $id = $dbh->insertEvent($anteprima, $luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore);
@@ -29,13 +30,15 @@ if($_POST["action"]==1){
                 $ris = $dbh->insertArtistiOnEvent($artista, $id);
             }
             $msg = "Inserimento completato correttamente!";
+            header("location: area_gestore.php?msg=".$msg);
         }
         else{
             $msg = "Errore in inserimento!";
+            header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg);
         }
-        
+    } else {
+    header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg);
     }
-    header("location: area_gestore.php?msg=".$msg);
 } 
 
 if($_POST["action"]==2){

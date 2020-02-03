@@ -202,10 +202,10 @@ label.labelInvisibile {  /* Essendo le label obbligatorie, le faccio scomparire 
 }
 
 @media screen and (min-width: 768px) {
-    /*img {
+    .updateeventimg {
         margin-left:20%;
         width:60%;
-    }*/
+    }
 
     /*dimensioni del font nel carrello*/
     #chart{
