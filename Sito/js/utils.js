@@ -134,7 +134,7 @@ $(document).ready(function(){
         $(".reset").hide();
     });
 
-    /*Popola gli anni nell'inserimento artista*/
+    /*Popola gli anni nell'inserimento e modifica evento*/
     let date = new Date();
     let year = date.getFullYear();
     let yearSelect = $(".eventdate#year"); 
@@ -149,7 +149,7 @@ $(document).ready(function(){
     }
     $(".eventdate#year").find('option[value="' + selectedyear + '"]').attr('selected','selected');
 
-    /*Popola i giorni nell'inserimento artista*/
+    /*Popola i giorni nell'inserimento e modifica evento*/
     let monthSelect = $(".eventdate#month");
     let day = $(".eventdate#day").first().text();
     if ($(".eventdate#day").hasClass("updateevent")){
