@@ -155,7 +155,7 @@
                     <div class="col-md-3 col-1 p-0 m-0"> </div>
                 </div>
                 <input type="hidden" name="action" value="<?php echo $templateParams["azione"]; ?>"/>
-                <input type="hidden" name="oldimg" value="<?php $templateParams["evento"]["ImmagineEvento"] ?>"/>
+                <input type="hidden" name="oldimg" value="<?php echo $templateParams["evento"]["ImmagineEvento"]?>"/>
                 <input type="hidden" name="eventid" value="<?php echo $templateParams["evento"]["IDEvento"]; ?>"/>
             </div>
         </form>

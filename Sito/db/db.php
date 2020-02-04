@@ -20,9 +20,9 @@
     }
 
     public function getArtisti(){
-        $stmt = $this->db->prepare("SELECT * FROM ARTISTA WHERE ValutatoSN = ?");
+        $stmt = $this->db->prepare("SELECT * FROM ARTISTA WHERE ValutatoSN = ? AND AccettatoSN = ?");
         $valutato = "s";
-        $stmt->bind_param('s', $valutato);
+        $stmt->bind_param('ss', $valutato, $valutato);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -65,10 +65,18 @@
         return $stmt->insert_id;
     }
 
+    public function deleteArtistiOnEvent($IDEvento){
+        $queryartista = "DELETE FROM ESEGUE WHERE IDEvento = ?";
+        $stmt = $this->db->prepare($queryartista);
+        $stmt->bind_param('i', $IDEvento);
+        $stmt->execute();
+    }
+
+
     public function insertArtistaNonValutato($pseudominoArtista, $descrizione, $immagine, $valutato){
-        $query = "INSERT INTO ARTISTA (PseudonimoArtista, Descrizione, ImmagineArtista, ValutatoSN) VALUES (?,?,?,?)";
+        $query = "INSERT INTO ARTISTA (PseudonimoArtista, Descrizione, ImmagineArtista, ValutatoSN, AccettatoSN) VALUES (?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssss', $pseudominoArtista, $descrizione, $immagine, $valutato);
+        $stmt->bind_param('ssss', $pseudominoArtista, $descrizione, $immagine, $valutato, $valutato);
         $stmt->execute();
         $result = $stmt->get_result();
 

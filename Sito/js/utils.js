@@ -138,6 +138,7 @@ $(document).ready(function(){
     let date = new Date();
     let year = date.getFullYear();
     let yearSelect = $(".eventdate#year"); 
+    let selectedyear = year;
     if ($(".eventdate#year").hasClass("updateevent")){
         selectedyear = $(".eventdate#year").text();
     }
