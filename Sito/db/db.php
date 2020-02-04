@@ -20,7 +20,7 @@
     }
 
     public function getArtisti(){
-        $stmt = $this->db->prepare("SELECT * FROM ARTISTA WHERE ValutatoSN = ? AND AccettatoSN = ?");
+        $stmt = $this->db->prepare("SELECT * FROM ARTISTA WHERE ValutatoSN = ? AND AutorizzatoSN = ?");
         $valutato = "s";
         $stmt->bind_param('ss', $valutato, $valutato);
         $stmt->execute();
