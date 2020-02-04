@@ -8,7 +8,8 @@ require_once("./bootstrap.php");
             //header("./area_utente?msg=" . $msg);
         } else {
             $bigliettivenduti = $event["BigliettiVenduti"] + $_POST["tickets_".$count];
-            $dbh -> updateBigliettiVenduti($event["IDEvento"], $bigliettivenduti);
+            $dbh -> updateBigliettiVenduti($event["IDEvento"], $bigliettivenduti); //da controllare
+            
             //andare avanti qui!
         }
         $count++;

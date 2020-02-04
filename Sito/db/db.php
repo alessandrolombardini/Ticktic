@@ -82,6 +82,17 @@
         return $stmt->insert_id;
     }
 
+    public function insertCategoriaNonValutata($nome){
+        $query = "INSERT INTO CATEGORIA (NomeCategoria, ValutataSN, AutorizzataSN) VALUES (?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $valutato = 'n';
+        $stmt->bind_param('sss', $nome, $valutato, $valutato);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $stmt->insert_id;
+    }
+
     public function updateEvent($anteprima, $luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento){
         $query = "UPDATE EVENTO
                   SET Anteprima = ?, Luogo = ?, NumeroPosti = ?, PrezzoBiglietto = ?, ImmagineEvento = ?, 
