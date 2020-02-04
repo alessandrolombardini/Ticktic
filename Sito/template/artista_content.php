@@ -10,6 +10,18 @@
         <div class="dropdown-divider"></div>
     </div>
 
+    <div class="card-body position-relative">
+        <h6>
+            "Customers"
+            <span class="badge badge-soft-warning rounded-capsule ml-2">-0.23%</span>
+        </h6>
+        <div class="display-4 fs-4 mb-2 font-weight-normal text-warning" >58.39K</div>
+        <a class="fs--1 text-nowrap" href="#!">
+            "See all"
+            <span class="fa fa-shopping-bag"></span>
+        </a>
+    </div>
+
     <div class=" border-dark bg-white shadow-sm mb-3 rounded text-center row align-left">
         <div class="col-4 d-inline-block my-3">
             <img class="img-fluid rounded" src="./images/tour/idays_2020.jpg" alt="idays_2020"/>

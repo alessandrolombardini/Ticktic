@@ -26,21 +26,21 @@
                 </button>
                 
                 <!-- Navbar Logo -->
-                <a class="navbar-brand py-0 ml-3 mr-0" href="./index.php">
+                <a class="navbar-brand py-0 ml-3 " href="./index.php">
                     <img id="nav-logo" src="./images/ticktic_logo.png" alt="ticktic logo" />
                 </a>
 
                 <!-- Search Bar -->
-                <ul class=" ml-3 navbar-nav align-items-center d-none d-md-block ">
-                    <li class="nav-item">
-                        <form class="form-inline search-box">
-                            <input class="form-control rounded-pill search-input" type="search" placeholder="Cerca ..." aria-label="Search" />
+                <ul class=" ml-10 navbar-nav align-items-center d-none d-xl-block mr-auto inline-search-bar">
+                    <li class="nav-item" >
+                        <form class="form-inline search-box" >
+                            <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
                         </form>
                     </li>
                 </ul>
 
                 <!-- Navbar Right Side-->
-                <ul class="navbar nav align-items-center float-right ml-auto">
+                <ul class="navbar nav align-items-center ml-0 float-right">
                     <li class="nav-item  mx-2">
                         <a class="nav-link text-light px-0" href="carrello.php">
                             <i class="fa fa-shopping-cart"></i>  
@@ -82,7 +82,7 @@
                             <a id="#site-navigation" class="nav-link text-light dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span>Naviga</span>
                             </a>
-                            <div class="dropdown-menu bg-dark border-dark" aria-labelledby="site-navigation" style="z-index:999  !important;">
+                            <div class="dropdown-menu bg-dark border-dark" aria-labelledby="site-navigation">
                                 <a class="dropdown-item text-light" href="./eventi.php">Eventi</a>
                                 <a class="dropdown-item text-light" href="./categorie.php">Categorie</a>
                                 <a class="dropdown-item text-light" href="./artisti.php">Artisti</a>
