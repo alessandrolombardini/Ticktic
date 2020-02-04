@@ -133,7 +133,7 @@
                         </a>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label for="eventimg">Immagine*  </label><input type="file" name="eventimg" id="eventimg"/>
+                        <label for="eventimg">Immagine*  </label><input type="file" name="eventimg" id="eventimg" required/>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="anteprima">Anteprima</label>
@@ -144,7 +144,7 @@
                 <div class="row mt-2">
                     <div class="col-md-6 mb-3">
                         <label for="descrizione">Descrizione*</label>
-                        <textarea class="form-control" id="descrizione" name="descrizione"><?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["DescrizioneEvento"];} else {echo "";}?> </textarea>
+                        <textarea class="form-control" id="descrizione" name="descrizione" required ><?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["DescrizioneEvento"];} else {echo "";}?> </textarea>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="note">Note</label>
