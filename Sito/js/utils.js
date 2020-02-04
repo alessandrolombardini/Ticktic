@@ -271,13 +271,10 @@ $(document).ready(function(){
     $(".btn_aggiungi_al_carrello").click(function(){
         const IDEvento = $(".contenitoreID").attr("data-idevento");
         const numeroBiglietti = $(".tickets-number").html();
-        $.post("processa_aggiungi_evento_al_cerrello.php", 
+        $.post("processa_aggiungi_evento_al_carrello.php", 
         {
             numeroBiglietti: numeroBiglietti,
             IDEvento: IDEvento
         });
-        console.log(IDEvento);
-        console.log(numeroBiglietti);
-
     });
 });

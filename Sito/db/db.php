@@ -375,11 +375,46 @@
 
     /********************************************************************************************************************** */
     /* Acquisto */
-    public function aggiungiACarrelloEvento($IDEvento, $NumeroBiglietti, $IDUtente){
-        $query = "INSERT INTO DESIDERA_ACQUISTARE(IDEvento, NumeroBiglietti, IDUtente)
-                  VALUES (?,?,?)";
+    public function aggiungiACarrelloEvento($IDEvento, $bigliettiDaAggiungere, $IDUtente){
+        $result = $this->verificaPresenzaEventoInCarrelloDiUtente($IDEvento, $IDUtente);
+        if($result->num_rows > 0){
+            $numeroPrecedenteDiBiglietti = $result->fetch_assoc()["NumeroBiglietti"];
+            $this->aggiungiBigliettiAdEventoInCarrello($IDEvento, $IDUtente, $numeroPrecedenteDiBiglietti, $bigliettiDaAggiungere);
+        } else {
+            $query = "INSERT INTO DESIDERA_ACQUISTARE(IDEvento, NumeroBiglietti, IDUtente)
+                      VALUES (?,?,?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('sss', $IDEvento, $bigliettiDaAggiungere, $IDUtente);
+            $stmt->execute();
+            return $stmt->insert_id;
+        }
+    }
+
+    public function verificaPresenzaEventoInCarrelloDiUtente($IDEvento, $IDUtente){
+        $query = "SELECT *
+                  FROM DESIDERA_ACQUISTARE
+                  WHERE IDEvento = ? AND IDUtente = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sss', $IDEvento, $NumeroBiglietti, $IDUtente);
+        $stmt->bind_param('ss', $IDEvento, $IDUtente);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+
+    public function aggiungiBigliettiAdEventoInCarrello($IDEvento, $IDUtente, $numeroPrecedenteDiBiglietti, $bigliettiDaAggiungere){
+        $numeroBigliettiNuovo = $numeroPrecedenteDiBiglietti + $bigliettiDaAggiungere;
+        $query = "UPDATE DESIDERA_ACQUISTARE
+                  SET NumeroBiglietti = ?
+                  WHERE IDEvento = ? && IDUtente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iii', $numeroBigliettiNuovo, $IDEvento, $IDUtente);
+        $stmt->execute();
+    }
+
+    public function rimuoviEventoDalCarrello($IDEvento, $IDUtente){
+        $query = "DELETE FROM DESIDERA_ACQUISTARE
+                  WHERE IDEvento = ? && IDUtente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii', $IDEvento, $IDUtente);
         $stmt->execute();
         return $stmt->insert_id;
     }
