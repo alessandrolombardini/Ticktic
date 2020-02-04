@@ -90,6 +90,9 @@
         $stmt->bind_param('ssidsssssiii',$anteprima, $luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento);
         $stmt->execute();
     }
+    
+    /******************************************************************************************************************************/
+    /* Carrello */
 
 
     /******************************************************************************************************************************/

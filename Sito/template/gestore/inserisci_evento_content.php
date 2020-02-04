@@ -132,7 +132,7 @@
                         </a>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="eventimg">Immagine*</label><input type="file" name="eventimg" id="eventimg" required/>
+                        <label for="eventimg">Immagine*</label><input type="file" name="eventimg" id="eventimg" <?php if ($templateParams["azione"] == 1) {echo "required";}?>/>
                     </div>
                 </div>
                 <div class="row mt-2">
