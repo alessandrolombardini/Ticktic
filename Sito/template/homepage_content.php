@@ -1,20 +1,18 @@
 <!-- Testata del sito -->
 <div id="homepage-image" class="position-relative m-0 p-0"> 
-    
-    <div class="position-absolute fixed-top mt-5">
-      <h1 class="text-light text-center">Benvenuti su ticktic! </h1>
+      <h1 class="text-light text-center pt-5">Benvenuti su ticktic! </h1>
       <h2 class="text-light text-center">Il miglior portale di ricerca e acquisto di eventi!</h2>
       <!-- Search form -->
       <div class="row mt-10">
         <div class="col-lg-3"></div>
         <div class="col-12 col-lg-6">
           <form class="search-box mx-3 mb-5">
-            <input class="form-control rouded-pill search-input text-center" type="search" placeholder="Cerca per Eventi, Artisti, Luoghi, ..." aria-label="Search">
+            <input class="form-control rounded-pill search-input text-center" type="search" placeholder="Cerca per Eventi, Artisti, Luoghi, ..." aria-label="Search">
           </form>
         </div>
         <div class="col-lg-3"></div>
       </div>
-    </div>
+    
 </div>
 
 <!-- Carousel -->
