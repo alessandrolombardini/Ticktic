@@ -10,7 +10,7 @@
     <?php endif?>
     <div class="row">
         <?php foreach ($templateParams["notifiche"] as $notifica): ?>
-            <div class="row">
+            <div class="col-12 col-md-6 col-xl-4">
                 <div class="col-1 col-md-2"></div>
                 <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 shadow-sm">
                     <div class="mt-1 mt-md-0">

@@ -63,7 +63,7 @@
             <div class="<?php if ($templateParams["azione"] == 1) {echo "artista_presente";} ?> mt-5">
                 <div class="row">
                     <div class="col-md-5 mb-3">
-                        <label for="nome">Nome Evento *</label>
+                        <label for="nome">Nome Evento*</label>
                         <input type="text" class="form-control" id="nome" name="nome" 
                         value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["NomeEvento"];} else {echo "";}?>" required/>
                     </div>
@@ -93,7 +93,7 @@
                         <select id="year" class="form-control eventdate <?php if ($templateParams["azione"] == 2) {echo "updateevent ";}?>" name="year"><?php if ($templateParams["azione"] == 2) {echo $templateParams["annoEvento"];}?></select>
                     </div>
                     <div class="col-md-2 col-6 mb-3">
-                        <label for="orario">Orario *</label>
+                        <label for="orario">Orario*</label>
                         <input type="time" class="form-control eventdate" id="orario" name="orario" <?php if ($templateParams["azione"] == 2) {echo 'value="' . $templateParams["oraEvento"] . '"';}?> required/>
                     </div>
                 </div>
@@ -144,7 +144,7 @@
                 <div class="row mt-2">
                     <div class="col-md-6 mb-3">
                         <label for="descrizione">Descrizione*</label>
-                        <textarea class="form-control" id="descrizione" name="descrizione" required ><?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["DescrizioneEvento"];} else {echo "";}?> </textarea>
+                        <textarea class="form-control" id="descrizione" name="descrizione" required><?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["DescrizioneEvento"];} else {echo "";}?> </textarea>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="note">Note</label>
