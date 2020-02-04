@@ -17,8 +17,8 @@
     </head>
     <body class ="bg-light">
 
-        <header>
-            <nav class="navbar navbar-vertical navbar-dark navbar-top row"> <!-- navbar-expand-md per far comparire il menù con display grandi-->
+        <header >
+            <nav class="navbar navbar-dark navbar-top row"> <!-- navbar-expand-md per far comparire il menù con display grandi-->
                 
                 <!-- Navbar Toggler -->
                 <button class="navbar-toggler border-0 text-light collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,27 +26,36 @@
                 </button>
                 
                 <!-- Navbar Logo -->
-                <a class="navbar-brand py-0 ml-auto mr-0" href="./index.php">
+                <a class="navbar-brand py-0 ml-3 " href="./index.php">
                     <img id="nav-logo" src="./images/ticktic_logo.png" alt="ticktic logo" />
                 </a>
 
+                <!-- Search Bar -->
+                <ul class=" ml-10 navbar-nav align-items-center d-none d-xl-block mr-auto inline-search-bar">
+                    <li class="nav-item" >
+                        <form class="form-inline search-box" >
+                            <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
+                        </form>
+                    </li>
+                </ul>
+
                 <!-- Navbar Right Side-->
-                <ul class="navbar nav align-items-center ml-auto">
-                    <li class="nav-item dropdown mx-2">
+                <ul class="navbar nav align-items-center ml-0 float-right">
+                    <li class="nav-item  mx-2">
                         <a class="nav-link text-light px-0" href="carrello.php">
                             <i class="fa fa-shopping-cart"></i>  
                         </a>
                     </li>
-                    <li class="nav-item dropdown mx-2">
+                    <li class="nav-item  mx-2">
                         <a class="nav-link text-light px-0" href="nuove_notifiche.php">
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-bell"></i>
                         </a> 
                     </li>
-                </ul>             
+                </ul> 
                 
                 <!-- Navbar Menu -->
-                <div class="collapse navbar-collapse perfect-scrollbar scrollbar" id="navbar"> <!-- Contenuto del menu -->
-                    <ul class="flex-column navbar-nav">
+                <div class="collapse fixed-left navbar-collapse ml-auto" id="navbar"> <!-- Contenuto del menu -->
+                    <ul class=" navbar-nav">
                         <li class="nav-item mt-3 mt-md-0">
                             <a class="nav-link text-light" href="./login.php">
                                 <span>Account</span>
@@ -73,7 +82,7 @@
                             <a id="#site-navigation" class="nav-link text-light dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span>Naviga</span>
                             </a>
-                            <div class="dropdown-menu bg-dark border-dark " aria-labelledby="site-navigation">
+                            <div class="dropdown-menu bg-dark border-dark" aria-labelledby="site-navigation">
                                 <a class="dropdown-item text-light" href="./eventi.php">Eventi</a>
                                 <a class="dropdown-item text-light" href="./categorie.php">Categorie</a>
                                 <a class="dropdown-item text-light" href="./artisti.php">Artisti</a>
@@ -82,6 +91,8 @@
                         </li>
                     </ul>
                 </div>
+
+                  
             </nav>
         </header>
         <main>
