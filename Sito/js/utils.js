@@ -139,7 +139,7 @@ $(document).ready(function(){
     let year = date.getFullYear();
     let yearSelect = $(".eventdate#year"); 
     if ($(".eventdate#year").hasClass("updateevent")){
-        $year = $(".eventdate#year").text();
+        selectedyear = $(".eventdate#year").text();
     }
     for(var i = 0; i <= 5; i++) {
         var option = document.createElement('option');
@@ -147,18 +147,19 @@ $(document).ready(function(){
         option.value = year+i;
         yearSelect.append(option);
     }
-    $(".eventdate#year").find('option[value="' + $year + '"]').attr('selected','selected');
+    $(".eventdate#year").find('option[value="' + selectedyear + '"]').attr('selected','selected');
 
     /*Popola i giorni nell'inserimento artista*/
     let monthSelect = $(".eventdate#month");
+    let day = $(".eventdate#day").first().text();
     if ($(".eventdate#day").hasClass("updateevent")){
-        $day = $(".eventdate#day").text();
-        if ($day.substring(0,1) == 0){
-            $day = $day.substring(1,2);
+        day = $(".eventdate#day").text();
+        if (day.substring(0,1) == 0){
+            day = day.substring(1,2);
         } 
     }
     populateDays(monthSelect.find(":selected").val());
-    $(".eventdate#day").find('option[value="' + $day + '"]').attr('selected','selected');
+    $(".eventdate#day").find('option[value="' + day + '"]').attr('selected','selected');
 
 
     /*Ripopola correttamente i giorni quando si cambia mese o anno*/
@@ -268,8 +269,4 @@ $(document).ready(function(){
         });
         $(row).remove();
     });
-
-    
-
-
 });
