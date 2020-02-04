@@ -75,26 +75,17 @@ if($_POST["action"]==2){
    
     $dbh->updateEvent($anteprima, $luogo, $numeroPosti, $prezzoBiglietto, $img, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento);
     $dbh->deleteArtistiOnEvent($IDEvento);
-    
-    var_dump($artisti);
     foreach($artisti as $artista){
-        var_dump($artista);
         $id = $dbh->insertArtistiOnEvent($artista, $IDEvento);
-        var_dump($id);
         if($id==false){
             $msg = "Errore in inserimento!";
-            //header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg);
-            //break;
+            header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg);
+            break;
         }
     } 
 
     $msg = "Modifica completata correttamente!";
-    //header("location: area_gestore.php?msg=".$msg);
-    
-    /*else{
-        $msg = "Errore in inserimento!";
-        header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg);
-    }*/
+    header("location: area_gestore.php?msg=".$msg);
 }
 
 ?>

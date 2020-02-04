@@ -6,16 +6,15 @@ require_once("./bootstrap.php");
     list($result, $msg) = uploadImage(UPLOAD_DIR."artisti/", $_FILES["artistimg"]);
     if($result != 0){
         $immagineArtista = $msg;
-        $id = $dbh->insertArtistaNonValutato($nome, $descrizione, $immagineArtista, "n");
+        $id = $dbh->insertArtistaNonValutato($nome, $descrizione, $immagineArtista);
         if($id!=false){
             $msg = "Richiesta inoltrata.";
-            header("location: area_gestore.php?msg=".$msg);
         }
         else{
             $msg = "Errore in inserimento!";
-            header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg);
         }
     } else {
-    header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg);
+        $msg = "Errore nel caricamento immagine.";
     }
+    header("location: area_gestore.php?msg=".$msg);
 ?>

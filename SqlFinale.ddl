@@ -27,11 +27,13 @@ create table CATEGORIA (
 
 create table COMPRENDE (
      IDOrdine int not null,
-     IDEvento int not null);
+     IDEvento int not null,
+     NumeroBiglietti int not null);
 
 create table DESIDERA_ACQUISTARE (
      IDUtente int not null,
-     IDEvento int not null);
+     IDEvento int not null,
+     NumeroBiglietti int not null);
 
 create table ESEGUE (
      IDArtista int not null,
