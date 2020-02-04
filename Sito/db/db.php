@@ -72,7 +72,6 @@
         $stmt->execute();
     }
 
-
     public function insertArtistaNonValutato($pseudominoArtista, $descrizione, $immagine, $valutato){
         $query = "INSERT INTO ARTISTA (PseudonimoArtista, Descrizione, ImmagineArtista, ValutatoSN, AutorizzatoSN) VALUES (?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
