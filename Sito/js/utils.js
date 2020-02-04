@@ -270,4 +270,14 @@ $(document).ready(function(){
         });
         $(row).remove();
     });
+
+    $(".btn_aggiungi_al_carrello").click(function(){
+        const IDEvento = $("contenitoreID").attr("data-idevento");
+        const numeroBiglietti = $("tickets-number").html();
+        $.post("processa_aggiungi_evento_al_cerrello.php", 
+        {
+            numeroBiglietti: numeroBiglietti,
+            IDEvento: IDEvento
+        });
+    });
 });
