@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row newevent">
     <div class="col-1"></div>
     <div class="col-10">
         <div class="row mb-3 mt-5">
@@ -13,7 +13,7 @@
         <?php if ($templateParams["azione"] == 2){
             echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5 updateeventimg'>";
         }?>
-        <form action="processa_evento.php" method="POST" enctype="multipart/form-data">
+        <form action="processa_evento.php" method="POST" enctype="multipart/form-data" id="newevent">
             <div class="row">
                 <label for="artisti" class="col-md-3 col-3"><h4> Artisti </h4></label>
                 <div class="col-4 col-md-7"></div>
@@ -105,17 +105,16 @@
                     </div>
                     <div class="col-md-3 col-6 mb-3">
                         <label for="biglietti">Totale Biglietti*</label>
-                        <input type="text" class="form-control" id="biglietti" name="biglietti" 
+                        <input type="number" class="form-control" id="biglietti" name="biglietti" min='0' max='1000000'
                         value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["NumeroPosti"];} else {echo "";}?>" required/>
                     </div>
-                    <div class="col-md-3 col-6 mb-3">
+                    <div class="col-md-3 col-6 mb-3 input-number input-number-currency">
                         <label for="prezzo">Prezzo*</label>
-                        <input type="text" class="form-control" id="prezzo" name="prezzo" 
-                        value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["PrezzoBiglietto"];} else {echo "";}?>" required/>
+                        <input type="number" class="form-control" id="prezzo" name="prezzo" step="0.01" min='0' max='1000000' value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["PrezzoBiglietto"];} else {echo "";}?>" required/>
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-2 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="categoria">Categoria*</label>
                         <select name="categoria" class="form-control" required>
                             <?php foreach ($templateParams["categorie"] as $categoria): ?>
@@ -127,18 +126,13 @@
                             <?php endforeach ?>
                         </select>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-5 mb-3">
                         <a href="./inserisci_categoria.php">
-                            <button type="button" class="little-btn col-md-10 mt-4 mb-1 py-2"><p class="mb-0">La categoria non è presente?</p></button>
+                            <button type="button" class="little-btn col-md-10 mt-md-4 mb-1 py-2"><p class="mb-0">La categoria non è presente?</p></button>
                         </a>
                     </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="eventimg">Immagine*  </label><input type="file" name="eventimg" id="eventimg" required/>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="anteprima">Anteprima</label>
-                        <input type="text" class="form-control" id="anteprima" name="anteprima" 
-                        value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["Anteprima"];} else {echo "";}?>"/>
+                    <div class="col-md-4 mb-3">
+                        <label for="eventimg">Immagine*</label><input type="file" name="eventimg" id="eventimg" <?php if ($templateParams["azione"] == 1) {echo "required";}?>/>
                     </div>
                 </div>
                 <div class="row mt-2">

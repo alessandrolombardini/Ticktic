@@ -4,7 +4,11 @@
         <div class="col-10">
             <h3 class="text-black pt-2 mb-4"> Area Gestore</h3>
             <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"):?>
-                <p class="col-10 float-left my-2 align-center"> <?php echo $templateParams["msg"] ?> </p> 
+            <div class="row">
+                <p class="col-3"></p>
+                <p class="col-6 text-center my-2 align-center error-msg"> <?php echo $templateParams["msg"] ?> </p>
+                <p class="col-3"></p>
+            </div>
             <?php endif?>
             <a href="./nuove_notifiche.php">
                 <button type="submit" class="btn btn-gestore col-12 py-3 mt-5 mb-2 ml-0">

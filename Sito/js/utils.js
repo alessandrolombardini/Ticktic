@@ -49,6 +49,7 @@ function checkArtistiSelected(){
     }
 }
 
+/*Popola i giorni in base al mese e l'anno*/
 function populateDays($month){
     let daySelect = $(".eventdate#day");
     let selectedDay = $(".eventdate#day").val();
@@ -70,10 +71,8 @@ function populateDays($month){
         let option = document.createElement('option');
         option.textContent = i;
         option.value = i;
-        console.log(selectedDay);
-        console.log(i);
         if (selectedDay == i){
-            option.attr('selected','selected');
+            $(option).attr('selected','selected');
         }
         daySelect.append(option);
     }
@@ -110,7 +109,6 @@ $(document).ready(function(){
                         </select>
                     </div>`;
         let options = $("select[name='artisti_1'] option").clone();
-        console.log(options);
         $(".select_artisti").last().parent().after(html);
         $(".select_artisti").last().append(options);
         $(".select_artisti").last().val("none").attr('selected','selected');

@@ -193,6 +193,18 @@ hr{
     margin-bottom: 0;
 }
 
+.error-msg{
+    background-color:white;
+    letter-spacing:0.1rem;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color:red;
+    border-radius: 2px;
+    border: red 2px solid;
+}
+
 /* Tutti i paragrami date degli eventi */
 .date {
     font-size: 0.6em;
