@@ -205,6 +205,12 @@ hr{
     border: red 2px solid;
 }
 
+.msg{
+    letter-spacing:0.1rem;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
 /* Tutti i paragrami date degli eventi */
 .date {
     font-size: 0.6em;

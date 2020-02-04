@@ -71,6 +71,11 @@
                                 <span>Area Gestore</span>
                             </a>
                         </li>
+                        <li class="nav-item ">
+                            <a class="nav-link text-light" href="./area_utente.php?msg=0">
+                                <span>Area Utente</span>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="./lista_desideri.php">
                                 <span>Lista Desideri</span>

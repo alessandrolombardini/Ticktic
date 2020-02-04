@@ -136,6 +136,33 @@
         $stmt->execute();
     }
 
+    public function insertOrdine($data, $IDUtente){
+        $query = "INSERT INTO ORDINE (DataOrdine, IDUtente) VALUES (?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('si', $data, $IDUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $stmt->insert_id;
+    }
+
+    public function insertEventiOnOrdine($IDOrdine, $IDEvento, $numberobiglietti){
+        $query = "INSERT INTO COMPRENDE (IDOrdine, IDEvento, NumeroBiglietti) VALUES (?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iii', $IDOrdine, $IDEvento, $numberobiglietti);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $stmt->insert_id;
+    }
+
+    public function resetCarrello($IDUtente){
+        $query = "DELETE FROM DESIDERA_ACQUISTARE WHERE IDUtente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $IDUtente);
+        $stmt->execute();
+    }
+
     /******************************************************************************************************************************/
     /* Login */
     public function checkAmministratore($email, $password){

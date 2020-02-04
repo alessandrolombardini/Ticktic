@@ -2,6 +2,7 @@
 require_once("./bootstrap.php");
 
 if($_POST["action"]==1){
+    $error='s';
     $anteprima = $_POST["anteprima"];
     $luogo = $_POST["luogo"];
     $numeroPosti = $_POST["biglietti"];
@@ -30,18 +31,20 @@ if($_POST["action"]==1){
                 $ris = $dbh->insertArtistiOnEvent($artista, $id);
             }
             $msg = "Inserimento completato correttamente!";
-            header("location: area_gestore.php?msg=".$msg);
+            $error='n';
+            header("location: area_gestore.php?msg=".$msg."&error=".$error);
         }
         else{
             $msg = "Errore in inserimento!";
-            header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg);
+            header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg."&error=".$error);
         }
     } else {
-    header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg);
+    header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg."&error=".$error);
     }
 } 
 
 if($_POST["action"]==2){
+    $error='s';
     $anteprima = $_POST["anteprima"];
     $luogo = $_POST["luogo"];
     $numeroPosti = $_POST["biglietti"];
@@ -79,13 +82,16 @@ if($_POST["action"]==2){
         $id = $dbh->insertArtistiOnEvent($artista, $IDEvento);
         if($id==false){
             $msg = "Errore in inserimento!";
-            header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg);
+            header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg."&error=".$error);
             break;
         }
     } 
 
-    $msg = "Modifica completata correttamente!";
-    header("location: area_gestore.php?msg=".$msg);
+    if ($id != false){
+        $msg = "Modifica completata correttamente!";
+        $error='n';
+        header("location: area_gestore.php?msg=".$msg."&error=".$error);
+    }
 }
 
 ?>
