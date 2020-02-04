@@ -17,20 +17,37 @@
             <div class="row">
                 <label for="artisti" class="col-md-3 col-3"><h4> Artisti </h4></label>
                 <div class="col-4 col-md-7"></div>
-                <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2 mb-3">Reset</button>
+                <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2 mb-3 <?php if ($templateParams["azione"] == 1){echo "hide";}?>">Reset</button>
             </div>
-            <?php if ($templateParams["azione"] == 1):?>
             <div class="row mb-3">
                 <div class="col-md-0 mb-3">
                 </div>
-                <div class="col-md-4 mb-3">
-                    <select name="artisti_1" class="form-control select_artisti" required>
+                <?php if ($templateParams["azione"] == 1):?>
+                    <div class="col-md-4 mb-3">
+                        <select name="artisti_1" class="form-control select_artisti" required>
+                            <option value="none">...</option>
+                            <?php foreach ($templateParams["artisti"] as $artista): ?>
+                            <option value="<?php echo $artista["IDArtista"]?>"><?php echo $artista["PseudonimoArtista"]?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                <?php endif?>
+                <?php if ($templateParams["azione"] == 2):
+                    $i = 1; foreach($templateParams["artistiEvento"] as $artistaselezionato):?>
+                    <div class="col-md-4 mb-3">
+                        <select name="artisti_<?php echo $i; $i++;?>" class="form-control select_artisti" required>
                         <option value="none">...</option>
-                        <?php foreach ($templateParams["artisti"] as $artista): ?>
-                        <option value="<?php echo $artista["IDArtista"]?>"><?php echo $artista["PseudonimoArtista"]?></option>
-                        <?php endforeach ?>
-                    </select>
-                </div>
+                            <?php foreach ($templateParams["artisti"] as $artista): ?>
+                            <option value="<?php echo $artista["IDArtista"]?>" <?php 
+                                    if ($artista["IDArtista"] == $artistaselezionato["IDArtista"]){
+                                        echo "selected";
+                                    }
+                                ?>><?php echo $artista["PseudonimoArtista"]?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <?php endforeach ?>
+                <?php endif?>
                 <div class="col-md-4 mb-3 pr-md-0 pl-md-3">
                     <div class="col-md-1"></div>
                     <button type="button" class="little-btn col-md-11 m-0 py-2 more-artists"><p class="mb-0">Inserisci un altro artista</p></button>
@@ -43,8 +60,7 @@
                     <div class="col-md-1"></div>
                 </div>
             </div>  
-            <?php endif ?>
-            <div class="artista_presente mt-5">
+            <div class="<?php if ($templateParams["azione"] == 1) {echo "artista_presente";} ?> mt-5">
                 <div class="row">
                     <div class="col-md-5 mb-3">
                         <label for="nome">Nome Evento *</label>
@@ -78,7 +94,7 @@
                     </div>
                     <div class="col-md-2 col-6 mb-3">
                         <label for="orario">Orario *</label>
-                        <input type="time" class="form-control eventdate" id="orario" name="orario" required/>
+                        <input type="time" class="form-control eventdate" id="orario" name="orario" <?php if ($templateParams["azione"] == 2) {echo 'value="' . $templateParams["oraEvento"] . '"';}?> required/>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -117,7 +133,7 @@
                     <div class="col-md-4 mb-3">
                         <label for="anteprima">Anteprima</label>
                         <input type="text" class="form-control" id="anteprima" name="anteprima" 
-                        value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["Anteprima"];} else {echo "";}?>" required/>
+                        value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["Anteprima"];} else {echo "";}?>"/>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -140,6 +156,7 @@
                 </div>
                 <input type="hidden" name="action" value="<?php echo $templateParams["azione"]; ?>"/>
                 <input type="hidden" name="oldimg" value="<?php $templateParams["evento"]["ImmagineEvento"] ?>"/>
+                <input type="hidden" name="eventid" value="<?php echo $templateParams["evento"]["IDEvento"]; ?>"/>
             </div>
         </form>
         <div class="col-1"></div>

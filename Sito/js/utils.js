@@ -107,19 +107,19 @@ $(document).ready(function(){
     });
 
     /*Possibilità di associare più artisti ad un evento*/
-    $(".reset").hide();
+    $(".reset hide").hide();
     $(".more-artists").click(function(){
         let c = $(".select_artisti").length + 1;
         let html = `<div class="col-md-4 mb-3">
                         <select name="artisti_${c}" class="form-control select_artisti" required>
-                            <option value="none">...</option>
+                            
                         </select>
                     </div>`;
         let options = $("select[name='artisti_1'] option").clone();
+        console.log(options);
         $(".select_artisti").last().parent().after(html);
-        $(options).last().remove().each(function(){
-            $(".select_artisti").last().children("option").after($(this));
-        });
+        $(".select_artisti").last().append(options);
+        $(".select_artisti").last().val("none").attr('selected','selected');
 
         if (c == 2){
             $(".reset").show();

@@ -51,7 +51,8 @@ if($_POST["action"]==2){
     $descrizioneEvento = $_POST["descrizione"]; 
     $nomeEvento = $_POST["nome"];
     $IDCategoria = $_POST["categoria"]; 
-    $IDOrganizzatore = $_SESSION["id"];
+    $IDOrganizzatore = /*$_SESSION["id"];*/ "1";
+    $IDEvento = $_POST["eventid"];
 
     $artisti = array();
     $count = 1;
@@ -63,18 +64,17 @@ if($_POST["action"]==2){
     if(isset($_FILES["imga"]) && strlen($_FILES["imga"]["name"])>0){
         list($result, $msg) = uploadImage(UPLOAD_DIR, $_FILES["imga"]);
         if($result == 0){
-            header("location: login.php?formmsg=".$msg);
+            $img = $msg;
+            header("location: area_gestore.php?msg=".$msg);
         }
-        $imgarticolo = $msg;
-
     }
     else{
-        $imgarticolo = $_POST["oldimg"];
+        $img = $_POST["oldimg"];
     }
-    $dbh->updateArticleOfAuthor($idarticolo, $titoloarticolo, $testoarticolo, $anteprimaarticolo, $imgarticolo, $autore);
+    $dbh->updateEvent($anteprima, $luogo, $numeroPosti, $prezzoBiglietto, $img, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento);
 
     $msg = "Modifica completata correttamente!";
-    header("location: login.php?formmsg=".$msg);
+    //header("location: area_gestore.php?msg=".$msg);
 }
 
 ?>

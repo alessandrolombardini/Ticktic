@@ -12,6 +12,7 @@ if (isset($_GET["id"])){
     $templateParams["giornoEvento"] = substr($data, 8, 2);
     $templateParams["meseEvento"] = substr($data, 5, 2);
     $templateParams["annoEvento"] = substr($data, 0, 4);
+    $templateParams["oraEvento"] = substr($data, 11, 5);
 }
 
 if (isset($_GET["msg"])){

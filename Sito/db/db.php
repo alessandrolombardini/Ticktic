@@ -39,7 +39,7 @@
     }
 
     public function getArtistsFromEvent($id){
-        $stmt = $this->db->prepare("SELECT * FROM ARTISTA, ESEGUE WHERE IDEvento = ?");
+        $stmt = $this->db->prepare("SELECT * FROM ESEGUE WHERE IDEvento = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -74,6 +74,17 @@
 
         return $stmt->insert_id;
     }
+
+    public function updateEvent($anteprima, $luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento){
+        $query = "UPDATE EVENTO
+                  SET Anteprima = ?, Luogo = ?, NumeroPosti = ?, PrezzoBiglietto = ?, ImmagineEvento = ?, 
+                  DataEvento = ?, NoteEvento = ?, DescrizioneEvento = ?, NomeEvento = ?, IDCategoria = ?, IDOrganizzatore = ?
+                  WHERE IDEvento = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssidsssssiii',$anteprima, $luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento);
+        $stmt->execute();
+    }
+
 
     /******************************************************************************************************************************/
     /* Login */
