@@ -6,6 +6,7 @@ a {
     text-decoration: none !important;
 }
 
+
 .font-little{
     font-size: 0.7rem;
 }
@@ -92,6 +93,14 @@ h3, h2 {
     font-size: large;
 }
 
+h1{
+    font-size:2.5em;
+}
+
+h2{
+    font-size:2em;
+}
+
 h4{
     font-size: medium;
 }
@@ -104,8 +113,16 @@ footer, header {
     background-color: black;
 }
 
-nav button {
-    border-color: black;
+#nav-logo {
+    height: 2em;
+}
+
+#homepage-image{
+    box-sizing:border-box; 
+    height: 70vh; 
+    background-image: url('../images/background_homepage.png');
+    background-size: cover; 
+    background-position: center;
 }
 
 button {
@@ -195,10 +212,6 @@ hr{
 .ml-10,
 .mx-10 {
   margin-left: 10rem !important;
-}
-
-label.labelInvisibile {  /* Essendo le label obbligatorie, le faccio scomparire se non necessarie */
-    display: none;
 }
 
 @media screen and (min-width: 768px) {

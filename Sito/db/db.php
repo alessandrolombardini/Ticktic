@@ -88,20 +88,19 @@
 
     /******************************************************************************************************************************/
     /* Login */
-
-    public function checkOrganizzatore($email, $password){
-        if($this->controllaSeEsisteMail($email) == 1){
-            $hashed_password = $this->ottieniPasswordByEmail($email);
+    public function checkAmministratore($email, $password){
+        if($this->controllaSeEsisteMailAmministratore($email) == 1){
+            $hashed_password = $this->ottieniPasswordByEmailAmministratore($email);
             if(password_verify($password, $hashed_password)){
                 return "OK";
             }
         }
         return "NOT OK";
     }
-    
-    public function checkAmministratore($email, $password){
-        if($this->controllaSeEsisteMail($email) == 1){
-            $hashed_password = $this->ottieniPasswordByEmail($email);
+
+    public function checkOrganizzatore($email, $password){
+        if($this->controllaSeEsisteMailOrganizzatore($email) == 1){
+            $hashed_password = $this->ottieniPasswordByEmailOrganizzatore($email);
             if(password_verify($password, $hashed_password)){
                 return "OK";
             }
@@ -110,8 +109,8 @@
     }
 
     public function checkUtente($email, $password){
-        if($this->controllaSeEsisteMail($email) == 1){
-            $hashed_password = $this->ottieniPasswordByEmail($email);
+        if($this->controllaSeEsisteMailUtente($email) == 1){
+            $hashed_password = $this->ottieniPasswordByEmailUtente($email);
             if(password_verify($password, $hashed_password)){
                 return "OK";
             }
@@ -119,41 +118,68 @@
         return "NOT OK";
     }
 
-    public function controllaSeEsisteMail($email){
+    public function controllaSeEsisteMailAmministratore($email){
         $query =   "SELECT IDAmministratore as ID
                     FROM AMMINISTRATORE
-                    WHERE Email = ?
-                    UNION
-                    SELECT IDOrganizzatore as ID
-                    FROM ORGANIZZATORE
-                    WHERE Email = ?
-                    UNION
-                    SELECT IDUtente as ID
-                    FROM UTENTE
                     WHERE Email = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sss', $email, $email, $email);
+        $stmt->bind_param('s', $email);
         $stmt->execute();
         return $stmt->get_result()->num_rows > 0 ? 1 : 0;
     }
 
-    public function ottieniPasswordByEmail($email){
+    public function controllaSeEsisteMailOrganizzatore($email){
+        $query =   "SELECT IDOrganizzatore as ID
+                    FROM ORGANIZZATORE
+                    WHERE Email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        return $stmt->get_result()->num_rows > 0 ? 1 : 0;
+    }
+
+    public function controllaSeEsisteMailUtente($email){
+        $query =   "SELECT IDUtente as ID
+                    FROM UTENTE
+                    WHERE Email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        return $stmt->get_result()->num_rows > 0 ? 1 : 0;
+    }
+
+    public function ottieniPasswordByEmailAmministratore($email){
         $query = "SELECT Password
                   FROM AMMINISTRATORE
-                  WHERE Email = ?
-                  UNION
-                  SELECT Password
+                  WHERE Email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_assoc();
+        return $result["Password"];
+    }
+
+    
+    public function ottieniPasswordByEmailOrganizzatore($email){
+        $query = "SELECT Password
                   FROM ORGANIZZATORE
-                  WHERE Email = ?
-                  UNION
-                  SELECT Password
+                  WHERE Email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_assoc();
+        return $result["Password"];
+    }
+    
+    public function ottieniPasswordByEmailUtente($email){
+        $query = "SELECT Password
                   FROM UTENTE
                   WHERE Email = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sss', $email, $email, $email);
+        $stmt->bind_param('s', $email);
         $stmt->execute();
-        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $result[0]["Password"];
+        $result = $stmt->get_result()->fetch_assoc();
+        return $result["Password"];
     }
 
     /******************************************************************************************************************************/
@@ -405,6 +431,15 @@
         $stmt->execute();
     }
 
+    public function aggiornaInformazioniCategoria($id, $consensoSN){
+        $query = "UPDATE CATEGORIA
+                  SET AutorizzataSN = ?, ValutataSN = 's'
+                  WHERE IDCategoria = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('si', $consensoSN, $id);
+        $stmt->execute();
+    }
+
     public function ottieniOrganizzatoriNonValutati(){
         $stmt = $this->db->prepare("SELECT Nome, Cognome, IDOrganizzatore
                                     FROM ORGANIZZATORE
@@ -418,6 +453,15 @@
         $stmt = $this->db->prepare("SELECT PseudonimoArtista, IDArtista, Descrizione, ImmagineArtista
                                     FROM ARTISTA
                                     WHERE ValutatoSN = 'n'");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function ottieniCategorieNonValutate(){
+        $stmt = $this->db->prepare("SELECT NomeCategoria, IDCategoria
+                                    FROM CATEGORIA
+                                    WHERE ValutataSN = 'n'");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

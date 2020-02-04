@@ -21,7 +21,9 @@ create table ARTISTA (
 create table CATEGORIA (
      NomeCategoria varchar(1024) not null,
      IDCategoria int not null AUTO_INCREMENT,
-     constraint IDCATEGORIA primary key (IDCategoria));
+     constraint IDCATEGORIA primary key (IDCategoria) 
+     ValutataSN char(1) not null,
+     AutorizzataSN char(1) not null);
 
 create table COMPRENDE (
      IDOrdine int not null,

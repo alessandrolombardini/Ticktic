@@ -16,6 +16,12 @@
                         <i class="fa fa-angle-right fa-2x"></i> 
                     </button>
                 </a>
+                <a href="./verifica_nuove_categorie.php">
+                    <button class="btn btn-gestore col-12 py-3 mb-2">
+                        <p class="col-10 float-left mb-0 mt-1 align-center"> Verifica nuove categorie </p> 
+                        <i class="fa fa-angle-right fa-2x"></i> 
+                    </button>
+                </a>
                 <a href="./crea_notifica_amministratore.php">
                     <button class="btn btn-gestore col-12 py-3 mb-2">
                         <p class="col-10 float-left mb-0 mt-1 align-center"> Emetti notifica </p> 
