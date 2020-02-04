@@ -43,6 +43,7 @@ create table EVENTO (
      Anteprima varchar(1024),
      Luogo varchar(1024) not null,
      NumeroPosti bigint not null,
+     BigliettiVenduti bigint not null,
      PrezzoBiglietto float(10) not null,
      ImmagineEvento varchar(1024),
      DataEvento datetime not null,

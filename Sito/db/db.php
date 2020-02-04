@@ -127,8 +127,16 @@
         $stmt->bind_param('i', $IDUtente);
         $stmt->execute();
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
         return $result[0];
+    }
+
+    public function updateBigliettiVenduti($IDEvento, $numerobiglietti){
+        $query = "UPDATE EVENTO
+                  SET BigliettiVenduti = ?
+                  WHERE IDEvento = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii', $numerobiglietti, $IDEvento);
+        $stmt->execute();
     }
 
     /******************************************************************************************************************************/

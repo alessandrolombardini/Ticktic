@@ -38,6 +38,6 @@
     <a class="col-md-2 text-center col-6 p-3 m-0 mb-md-5 mb-0 cursor-pointer purple-black-link font-weight-bold"> Indietro </a>
     <div class="col-md-1 col-3 p-0 m-0"> </div>
     <div class="col-1 p-0 m-0"> </div>
-    <button id="resume-btn" class="purple-btn col-md-4 col-10 p-3 m-0 mb-5 rounded-pill" href="#"><p class="mb-0">Procedi all'acquisto</p></button>
+    <button type="button" id="resume-btn" class="purple-btn col-md-4 col-10 p-3 m-0 mb-5 rounded-pill" href="#"><p class="mb-0">Procedi all'acquisto</p></button>
     <div class="col-md-3 col-1 p-0 m-0"> </div>
 </div>

@@ -1,4 +1,4 @@
-<?php foreach($templateParams["eventi"] as $evento):?>
+<?php $i=0; foreach($templateParams["eventi"] as $evento):?>
 <div class="row event">
     <div class="col-1 col-md-2"></div>
     <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 mr-0 shadow-sm concert-tickets">
@@ -23,6 +23,7 @@
             <div class="row mt-3">
                 <i class="col-2 col-md-1 fas fa-minus-circle fa-2x text-right m-0 px-0 pb-0 pt-1 cursor-pointer"></i>
                 <p class="col-2 col-md-1 text-center p-0 m-0 font-medium tickets-number"><?php echo $evento["NumeroBiglietti"]?></p>
+                <input type="hidden" name="tickets_<?php echo $i; $i++;?>" value="<?php echo $evento["NumeroBiglietti"]; ?>"/>
                 <i class="col-2 col-md-1 fas fa-plus-circle fa-2x text-left m-0 px-0 pb-0 pt-1 cursor-pointer"></i>
                 <p class="col-1 col-md-3 m-0 p-0"></p>
                 <p class="col-3 col-md-4 text-right p-0 mt-2 ticket-price">€ <?php echo $evento["PrezzoBiglietto"]?></p>
@@ -37,6 +38,7 @@
         </div>
     </div>
     <div class="col-1 col-md-2"></div>
+    <input type="hidden" name="event_<?php echo $i; $i++;?>" value="<?php echo $evento["IDEvento"]; ?>"/>
 </div>
 <?php endforeach ?>
 
@@ -54,6 +56,6 @@
 
 <div class="row mb-3">
     <div class="col-3 p-0 m-0"> </div>
-    <button class="purple-btn col-6 p-3 m-0 mb-5 rounded-pill"><p class="mb-0">Procedi all'acquisto</p></button>
+    <button type="button" class="purple-btn col-6 p-3 m-0 mb-5 rounded-pill"><p class="mb-0">Procedi all'acquisto</p></button>
     <div class="col-3 p-0 m-0"> </div>
 </div>

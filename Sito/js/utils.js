@@ -215,6 +215,7 @@ $(document).ready(function(){
         if(number < 8){
             number++;
             $(ticketkind).find("p.tickets-number").text(number);
+            $(ticketkind).children("hidden").attr("value", number)
             updateChartPrices();
         } else {
             ;
@@ -228,6 +229,7 @@ $(document).ready(function(){
         if(number > 1){
             number--;
             $(ticketkind).find("p.tickets-number").text(number);
+            $(ticketkind).children("hidden").attr("value", number)
             updateChartPrices();
         } else {
             ;
