@@ -15,7 +15,7 @@
             </div>
             <div class="row mt-3">
                 <div class="col-md-2 col-3 p-0 m-0"> </div>
-                <a class="col-md-2 text-center col-6 p-3 m-0 mb-md-5 mb-0 cursor-pointer purple-black-link font-weight-bold" href="inserisci_evento?action=1.php"> Annulla </a>
+                <a class="col-md-2 text-center col-6 p-3 m-0 mb-md-5 mb-0 cursor-pointer purple-black-link font-weight-bold" href="inserisci_evento.php?action=1"> Annulla </a>
                 <div class="col-md-1 col-3 p-0 m-0"> </div>
                 <div class="col-1 p-0 m-0"> </div>
                 <input type="submit" class="purple-btn col-md-4 col-10 p-3 m-0 mb-5 rounded-pill" value="Richiedi"/>

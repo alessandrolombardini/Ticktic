@@ -51,6 +51,7 @@ function checkArtistiSelected(){
 
 function populateDays($month){
     let daySelect = $(".eventdate#day");
+    let selectedDay = $(".eventdate#day").val();
     daySelect.find("option").remove();
     let max = 31;
 
@@ -65,10 +66,15 @@ function populateDays($month){
         }
     }
 
-    for(var i = 1; i <= max; i++) {
-        var option = document.createElement('option');
+    for(let i = 1; i <= max; i++) {
+        let option = document.createElement('option');
         option.textContent = i;
         option.value = i;
+        console.log(selectedDay);
+        console.log(i);
+        if (selectedDay == i){
+            option.attr('selected','selected');
+        }
         daySelect.append(option);
     }
 }
