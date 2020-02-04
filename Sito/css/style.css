@@ -117,6 +117,10 @@ footer, header {
     height: 2em;
 }
 
+.inline-search-bar{
+    min-width:50%;
+}
+
 #homepage-image{
     box-sizing:border-box; 
     height: 70vh; 
