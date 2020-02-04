@@ -99,24 +99,24 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6 mb-3">
-                        <label for="luogo">Luogo *</label>
+                        <label for="luogo">Luogo*</label>
                         <input type="text" class="form-control" id="luogo" name="luogo"
                         value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["Luogo"];} else {echo "";}?>" required/>
                     </div>
                     <div class="col-md-3 col-6 mb-3">
-                        <label for="biglietti">Totale Biglietti *</label>
+                        <label for="biglietti">Totale Biglietti*</label>
                         <input type="text" class="form-control" id="biglietti" name="biglietti" 
                         value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["NumeroPosti"];} else {echo "";}?>" required/>
                     </div>
                     <div class="col-md-3 col-6 mb-3">
-                        <label for="prezzo">Prezzo *</label>
+                        <label for="prezzo">Prezzo*</label>
                         <input type="text" class="form-control" id="prezzo" name="prezzo" 
                         value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["PrezzoBiglietto"];} else {echo "";}?>" required/>
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-4 mb-3">
-                        <label for="categoria">Categoria *</label>
+                    <div class="col-md-2 mb-3">
+                        <label for="categoria">Categoria*</label>
                         <select name="categoria" class="form-control" required>
                             <?php foreach ($templateParams["categorie"] as $categoria): ?>
                                 <option value="<?php echo $categoria["IDCategoria"]?>" 
@@ -128,9 +128,14 @@
                         </select>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="eventimg">Immagine *</label><input type="file" name="eventimg" id="eventimg"/>
+                        <a href="./inserisci_categoria.php">
+                            <button type="button" class="little-btn col-md-10 mt-4 mb-1 py-2"><p class="mb-0">La categoria non è presente?</p></button>
+                        </a>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
+                        <label for="eventimg">Immagine*  </label><input type="file" name="eventimg" id="eventimg"/>
+                    </div>
+                    <div class="col-md-3 mb-3">
                         <label for="anteprima">Anteprima</label>
                         <input type="text" class="form-control" id="anteprima" name="anteprima" 
                         value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["Anteprima"];} else {echo "";}?>"/>

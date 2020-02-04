@@ -21,21 +21,23 @@
 
     <hr/>
 
-    <div class="chart-content">
-        <div id="chart-index" class="selected">
-            <?php require("carrello/carrello_index_content.php");?>
-        </div> 
+    <form method="post" action="processa_carrello.php">
+        <div class="chart-content">
+            <div id="chart-index" class="selected">
+                <?php require("carrello/carrello_index_content.php");?>
+            </div> 
 
-        <div id="chart-delivery">
-            <?php require("carrello/carrello_delivery_content.php");?>
-        </div> 
+            <div id="chart-delivery">
+                <?php require("carrello/carrello_delivery_content.php");?>
+            </div> 
 
-        <div id="chart-payment">
-            <?php require("carrello/carrello_payment_content.php");?>
-        </div> 
+            <div id="chart-payment">
+                <?php require("carrello/carrello_payment_content.php");?>
+            </div> 
 
-        <div id="chart-resume">
-            <?php require("carrello/carrello_resume_content.php");?>
-        </div> 
-    </div>
+            <div id="chart-resume">
+                <?php require("carrello/carrello_resume_content.php");?>
+            </div> 
+        </div>
+    </form>
 </div>

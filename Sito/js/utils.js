@@ -6,29 +6,17 @@ daySelect = $(".eventdate#day");
 
 /*Aggiorna i prezzi del carrello*/
 function updateChartPrices(){
-    updateEventPartial();
     updateEventTotal();
     updateChartTotal();
-}
-
-/*Aggiorna i prezzi di totale parziale nel carrello*/
-function updateEventPartial(){
-    $(".ticket-kind").each(function(){
-        let number = Number($(this).find("p.tickets-number").text());
-        let price = parseFloat($(this).find("p.ticket-price").text().substring(1));
-        let parziale = (number*price).toFixed(2);
-        $(this).find("p.totale-parziale").text("€" + parziale);
-    });
 }
 
 /*Aggiorna i prezzi di totale evento nel carrello*/
 function updateEventTotal(){
     $(".event").each(function(){
         let totaleevento = 0;
-        $(this).find(".totale-parziale").each(function(){
-            totaleevento += parseFloat($(this).text().substring(1));
-        });
-        totaleevento=totaleevento.toFixed(2);
+        let ticketsnumber = parseFloat($(this).find(".tickets-number").text());
+        let ticketprice = parseFloat($(this).find(".ticket-price").text().substring(1));
+        totaleevento = (ticketprice*ticketsnumber).toFixed(2);
         $(this).find(".totale-evento").text("€" + totaleevento);
     });
 }
@@ -215,7 +203,8 @@ $(document).ready(function(){
     });
 
     /*Inizializza i prezzi del carrello*/
-    updateEventPartial();
+    let price = "€" + (parseFloat($(".ticket-price").text().substring(1))).toFixed(2);
+    $(".ticket-price").html(price);
     updateEventTotal();
     updateChartTotal();
 
@@ -226,6 +215,7 @@ $(document).ready(function(){
         if(number < 8){
             number++;
             $(ticketkind).find("p.tickets-number").text(number);
+            $(ticketkind).children("hidden").attr("value", number)
             updateChartPrices();
         } else {
             ;
@@ -239,6 +229,7 @@ $(document).ready(function(){
         if(number > 1){
             number--;
             $(ticketkind).find("p.tickets-number").text(number);
+            $(ticketkind).children("hidden").attr("value", number)
             updateChartPrices();
         } else {
             ;

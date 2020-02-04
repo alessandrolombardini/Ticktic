@@ -27,11 +27,13 @@ create table CATEGORIA (
 
 create table COMPRENDE (
      IDOrdine int not null,
-     IDEvento int not null);
+     IDEvento int not null,
+     NumeroBiglietti int not null);
 
 create table DESIDERA_ACQUISTARE (
      IDUtente int not null,
-     IDEvento int not null);
+     IDEvento int not null,
+     NumeroBiglietti int not null);
 
 create table ESEGUE (
      IDArtista int not null,
@@ -41,6 +43,7 @@ create table EVENTO (
      Anteprima varchar(1024),
      Luogo varchar(1024) not null,
      NumeroPosti bigint not null,
+     BigliettiVenduti bigint not null,
      PrezzoBiglietto float(10) not null,
      ImmagineEvento varchar(1024),
      DataEvento datetime not null,

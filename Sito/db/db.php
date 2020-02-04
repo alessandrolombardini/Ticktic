@@ -20,7 +20,7 @@
     }
 
     public function getArtisti(){
-        $stmt = $this->db->prepare("SELECT * FROM ARTISTA WHERE ValutatoSN = ? AND AccettatoSN = ?");
+        $stmt = $this->db->prepare("SELECT * FROM ARTISTA WHERE ValutatoSN = ? AND AutorizzatoSN = ?");
         $valutato = "s";
         $stmt->bind_param('ss', $valutato, $valutato);
         $stmt->execute();
@@ -39,7 +39,9 @@
     }
 
     public function getArtistsFromEvent($id){
-        $stmt = $this->db->prepare("SELECT * FROM ESEGUE WHERE IDEvento = ?");
+        $stmt = $this->db->prepare("SELECT * 
+                                    FROM ESEGUE INNER JOIN ARTISTA ON ESEGUE.IDArtista = ARTISTA.IDArtista
+                                    WHERE IDEvento = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -57,9 +59,9 @@
     }
 
     public function insertArtistiOnEvent($IDArtista, $IDEvento){
-        $queryartista = "INSERT INTO ESEGUE (IDEvento, IDArtista) VALUES (?,?)";
+        $queryartista = "INSERT INTO ESEGUE (IDArtista, IDEvento) VALUES (?,?)";
         $stmt = $this->db->prepare($queryartista);
-        $stmt->bind_param('ii', $IDEvento, $IDAartista);
+        $stmt->bind_param('ii', $IDArtista, $IDEvento);
         $stmt->execute();
 
         return $stmt->insert_id;
@@ -72,11 +74,22 @@
         $stmt->execute();
     }
 
-
-    public function insertArtistaNonValutato($pseudominoArtista, $descrizione, $immagine, $valutato){
-        $query = "INSERT INTO ARTISTA (PseudonimoArtista, Descrizione, ImmagineArtista, ValutatoSN, AccettatoSN) VALUES (?,?,?,?,?)";
+    public function insertArtistaNonValutato($pseudominoArtista, $descrizione, $immagine){
+        $query = "INSERT INTO ARTISTA (PseudonimoArtista, Descrizione, ImmagineArtista, ValutatoSN, AutorizzatoSN) VALUES (?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssss', $pseudominoArtista, $descrizione, $immagine, $valutato, $valutato);
+        $valutato = 'n';
+        $stmt->bind_param('sssss', $pseudominoArtista, $descrizione, $immagine, $valutato, $valutato);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $stmt->insert_id;
+    }
+
+    public function insertCategoriaNonValutata($nome){
+        $query = "INSERT INTO CATEGORIA (NomeCategoria, ValutataSN, AutorizzataSN) VALUES (?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $valutato = 'n';
+        $stmt->bind_param('sss', $nome, $valutato, $valutato);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -93,6 +106,38 @@
         $stmt->execute();
     }
 
+    /******************************************************************************************************************************/
+    /* Carrello */
+    
+    public function getEventiCheDesideraAcquistare ($IDUtente){
+        $stmt = $this->db->prepare("SELECT * 
+                                    FROM DESIDERA_ACQUISTARE INNER JOIN EVENTO ON DESIDERA_ACQUISTARE.IDEvento = EVENTO.IDEvento 
+                                    WHERE IDUtente = ?");
+        $stmt->bind_param('i', $IDUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getUtente($IDUtente){
+        $stmt = $this->db->prepare("SELECT * 
+                                    FROM UTENTE 
+                                    WHERE IDUtente = ?");
+        $stmt->bind_param('i', $IDUtente);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $result[0];
+    }
+
+    public function updateBigliettiVenduti($IDEvento, $numerobiglietti){
+        $query = "UPDATE EVENTO
+                  SET BigliettiVenduti = ?
+                  WHERE IDEvento = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii', $numerobiglietti, $IDEvento);
+        $stmt->execute();
+    }
 
     /******************************************************************************************************************************/
     /* Login */
