@@ -1,6 +1,15 @@
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-12 col-md-4">
+        <div class="row text-center">
+        <?php if(isset($templateParams["msg"])): ?>
+            <div class="col-md-1 col-1"></div>
+            <div class="text-center bg-success roundend-corners col-md-10 col-10 border pt-2 mt-2">
+                <p>Congratulazioni, fai ora parte della nostra comunity!</p>
+            </div>
+            <div class="col-md-1 col-1"></div>
+        <?php endif ?>
+        </div>
         <div class="bg-white border mt-4 mb-4 px-5 py-4">
             <div class="form-group text-center">
                 <img class="img-fluid col-7 col-md-4" src="./images/pic_ominostilizzato.png" alt="Login"></img>

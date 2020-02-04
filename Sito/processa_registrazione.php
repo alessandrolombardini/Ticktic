@@ -24,25 +24,34 @@ var_dump($indirizzo);
 var_dump($citta);
 var_dump($cap);
 */
-if(checkBaseParams($email, $sesso, $password, $ripetipassword, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta)
-   && !$dbh->controllaSeEsisteMailOrganizzatore($email) && !$dbh->controllaSeEsisteMailUtente($email)){
-    //$password = password_hash($password, PASSWORD_DEFAULT);
-    /* Se devo aggiungere un utente */
-    if(!isset($_POST["gestore"])){
-        $dbh->inserisciNuovoUtente($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta);
-        $inserimentoCorretto = true;
+if(checkBaseParams($email, $sesso, $password, $ripetipassword, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta)){
+    if(!$dbh->controllaSeEsisteMailOrganizzatore($email) && !$dbh->controllaSeEsisteMailUtente($email)){
+        if($password == $ripetipassword){
+            /* Se devo aggiungere un utente */
+            if(!isset($_POST["gestore"])){
+                $dbh->inserisciNuovoUtente($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta);
+                $inserimentoCorretto = true;
+            }
+            /* Se devo aggiungere un gestore */
+            else {
+                $iban = $_POST["iban"];
+                if(checkOrganizzatoreParams($iban)){
+                    $dbh->inserisciNuovoOrganizzatore($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $iban);
+                    $inserimentoCorretto = true;
+                } 
+            }
+        } else {
+            $templateParams["msg"] = "La password non corrisponde";
+        }
+    } else {
+        $templateParams["msg"] = "Email già in uso";
     }
-    /* Se devo aggiungere un gestore */
-    else {
-        $iban = $_POST["iban"];
-        if(checkOrganizzatoreParams($iban)){
-            $dbh->inserisciNuovoOrganizzatore($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $iban);
-            $inserimentoCorretto = true;
-        } 
-    }
+} else {
+    $templateParams["msg"] = "Campi non completamente compilati";
 }
 
 if($inserimentoCorretto == true){
+    $templateParams["congratulazioni"] = "Complimenti, sei ora parte della nostra comunity";
     require_once("./login.php");
 } else { 
     require_once("./registrazione.php");
@@ -51,7 +60,6 @@ if($inserimentoCorretto == true){
 function checkBaseParams($email, $sesso, $password, $ripetipassword, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta){
     return !empty($password) 
            && !empty($ripetipassword)
-           && $password == $ripetipassword
            && filter_var($email, FILTER_VALIDATE_EMAIL)
            && ($sesso == "m" || $sesso == "f" || $sesso == "a")
            && !empty($nome) 
