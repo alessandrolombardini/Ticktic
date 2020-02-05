@@ -444,6 +444,16 @@
         }
     }
 
+    public function checkNuoveNotifiche($IDPersona){
+        $nuovenotifiche = $this->ottieniNotificheNonVisteByIDPersona($IDPersona);
+        $numeronotifiche = count($nuovenotifiche);
+        if ($numeronotifiche > 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /********************************************************************************************************************** */
     /* Acquisto */
     public function aggiungiACarrelloEvento($IDEvento, $bigliettiDaAggiungere, $IDUtente){
@@ -513,8 +523,6 @@
         $stmt->bind_param('ss', $finale, $IDEvento);
         $stmt->execute();
     }
-
-
 
     public function ottieniInformazioniOrganizzatore($id){
         $query = "SELECT *

@@ -12,8 +12,9 @@
             <?php endif?>
             <a href="./nuove_notifiche.php">
                 <button type="submit" class="btn btn-gestore col-12 py-3 mt-5 mb-2 ml-0">
-                    <?php $dbh-> ottieniNotificheNonVisteByIDPersona(/*$_SESSION["id]*/ "1");?>
-                    <i class="fas fa-circle notify color-purple font-medium mt-1 float-left"></i>
+                    <?php if($templateParams["nuoveNotifiche"] == true):?>
+                        <i class="fas fa-circle notify color-purple font-medium mt-1 float-left"></i>
+                    <?php endif ?>
                     <p class="col-10 float-left mb-0 mt-1 align-center"> Notifiche ricevute </p> 
                     <i class="fa fa-angle-right fa-2x"></i> 
                 </button>
