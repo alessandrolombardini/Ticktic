@@ -19,7 +19,7 @@
                     <i class="fa fa-angle-right fa-2x"></i> 
                 </button>
             </a>
-            <a href="#">
+            <a href="./ordini.php">
                 <button type="submit" class="btn btn-gestore col-12 py-3 mt-5 mb-2 ml-0">
                     <p class="col-10 float-left mb-0 mt-1 align-center"> Ordini </p> 
                     <i class="fa fa-angle-right fa-2x"></i> 

@@ -13,7 +13,7 @@
             header("./area_utente?msg=".$msg."&error?".$error);
         } else {
             $bigliettivenduti = $event["BigliettiVenduti"] + $event["bigliettiacquistati"] ;
-            $dbh -> updateBigliettiVenduti($event["IDEvento"], $bigliettivenduti); //da controllare
+            $dbh -> updateBigliettiVenduti($event["IDEvento"], $bigliettivenduti);
             $insertOrdine = true;
             array_push($eventiAcquistati, $event);
         }
@@ -22,8 +22,10 @@
 
     if ($insertOrdine == true){
         $dataOrdine = date("Y-m-d");
-        $IDUtente = /*$_SESSION["id"]*/ "1";
-        $id = $dbh->insertOrdine($dataOrdine, $IDUtente);
+        $IDUtente = $_SESSION["id"];
+        $SpesaTotale = $_POST["totale-spesa"];
+
+        $id = $dbh->insertOrdine($dataOrdine, $IDUtente, $SpesaTotale);
         if($id!=false){
             $dbh->resetCarrello($IDUtente);
             foreach ($eventiAcquistati as $evento){
@@ -32,7 +34,7 @@
                     $msg = "Errore in inserimento!";
                     break;
                 } else {
-                    $msg = "Inserimento completato correttamente.";
+                    $msg = "Ordine effettuato.";
                     $error = 'n';
                 }
             }
@@ -41,5 +43,5 @@
             $msg = "Errore in inserimento!";
         }
     }
-    header("location: area_gestore.php?msg=".$msg."&error?".$error);
+    header("location: area_utente.php?msg=".$msg."&error?".$error);
 ?>

@@ -136,10 +136,10 @@
         $stmt->execute();
     }
 
-    public function insertOrdine($data, $IDUtente){
-        $query = "INSERT INTO ORDINE (DataOrdine, IDUtente) VALUES (?,?)";
+    public function insertOrdine($data, $IDUtente, $TotaleSpesa){
+        $query = "INSERT INTO ORDINE (DataOrdine, IDUtente, TotaleSpesa) VALUES (?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('si', $data, $IDUtente);
+        $stmt->bind_param('sid', $data, $IDUtente, $TotaleSpesa);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -183,7 +183,7 @@
                   FROM DESIDERA_ACQUISTARE
                   WHERE IDEvento = ? AND IDUtente = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss', $IDEvento, $IDUtente);
+        $stmt->bind_param('ii', $IDEvento, $IDUtente);
         $stmt->execute();
         return $stmt->get_result();
     }
@@ -211,7 +211,23 @@
     /* Ordini */
 
     public function getOrdiniDiUtente($IDUtente){
+        $query = "SELECT *
+                  FROM ORDINE
+                  WHERE IDUtente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $IDUtente);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
 
+    public function getEventiDiOrdine($IDOrdine){
+        $query = "SELECT *
+                  FROM COMPRENDE INNER JOIN EVENTO ON COMPRENDE.IDEvento = EVENTO.IDEvento
+                  WHERE IDOrdine = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $IDOrdine);
+        $stmt->execute();
+        return $stmt->get_result();
     }
     
     /******************************************************************************************************************************/

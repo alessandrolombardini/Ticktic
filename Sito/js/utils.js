@@ -18,6 +18,8 @@ function updateEventTotal(){
         let ticketprice = parseFloat($(this).find(".ticket-price").text().substring(1));
         totaleevento = (ticketprice*ticketsnumber).toFixed(2);
         $(this).find(".totale-evento").text("€" + totaleevento);
+        let eventid = $(this).attr('id').substring(12);
+        $(".resume").find(".totale-evento-resume-" + eventid).text("€" + totaleevento);
     });
 }
 
@@ -76,6 +78,23 @@ function populateDays($month){
         }
         daySelect.append(option);
     }
+}
+
+/*Torna indietro nelle pagine del carrello*/
+function chartChangePageBack(){
+    let selezionato = $(".chart-content").children(".selected");
+    $(selezionato).removeClass("selected");
+    $(selezionato).prev().addClass("selected");
+
+    let progress = $(".chart-progress").children();
+    let purple = $(progress[0]).find(".color-purple");
+    $(purple).removeClass("color-purple");
+    $(purple).prev().addClass("color-purple");
+    let black = $(progress[1]).find(".color-black");
+    $(black).removeClass("color-black");
+    $(black).prev().addClass("color-black");
+
+    showChartSelectedContent();
 }
 
 $(document).ready(function(){
@@ -185,19 +204,10 @@ $(document).ready(function(){
 
     /*Pulsanti per tornare indietro*/
     $(".chart-content").find("button").siblings("a").click(function(){
-        let selezionato = $(".chart-content").children(".selected");
-        $(selezionato).removeClass("selected");
-        $(selezionato).prev().addClass("selected");
-
-        let progress = $(".chart-progress").children();
-        let purple = $(progress[0]).find(".color-purple");
-        $(purple).removeClass("color-purple");
-        $(purple).prev().addClass("color-purple");
-        let black = $(progress[1]).find(".color-black");
-        $(black).removeClass("color-black");
-        $(black).prev().addClass("color-black");
-
-        showChartSelectedContent();
+        chartChangePageBack()
+    });
+    $(".chart-content").find("input[type='submit']").siblings("a").click(function(){
+        chartChangePageBack()
     });
 
     /*Selettore per le carte di credito*/
@@ -254,6 +264,7 @@ $(document).ready(function(){
         var totalecarello = parseFloat($(".resume").find(".totale-carrello").text().substring(1));
         var totalespesa =(totalecarello + spedizione).toFixed(2);
         $(".totale-spesa").text("€" + totalespesa);
+        $(this).after("<input type='hidden' name='totale-spesa' value=" + totalespesa + "/>");
     });
 
     /* Gestisce la pressione del pulsante con cui le notifiche vengono dichiarate viste */
