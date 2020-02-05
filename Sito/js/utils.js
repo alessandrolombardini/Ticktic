@@ -78,6 +78,16 @@ function populateDays($month){
     }
 }
 
+/* Open when someone clicks on the span element */
+function openNav() {
+    document.getElementById("nav").style.width = "90%";
+}
+    
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+    document.getElementById("nav").style.width = "0%";
+} 
+
 $(document).ready(function(){
 
     /* Mostra e nascondi opzioni gestore in registrazione */
@@ -274,4 +284,16 @@ $(document).ready(function(){
             IDEvento: IDEvento
         });
     });
+
+    /* Dropdown button */
+    $(".dropdown-btn").click(function() {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+        } else {
+        dropdownContent.style.display = "block";
+        }
+    });
+
 });

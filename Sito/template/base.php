@@ -21,17 +21,19 @@
             <nav class="navbar navbar-dark navbar-top row"> <!-- navbar-expand-md per far comparire il menù con display grandi-->
                 
                 <!-- Navbar Toggler -->
-                <button class="navbar-toggler border-0 text-light collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+               <!--  <button class="navbar-toggler border-0 text-light collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span>
+                </button> -->
+                <button onclick="openNav()" class="navbar-toggler border-0 text-light">
+                    <span  class="fa fa-bars"></span>
                 </button>
-                
                 <!-- Navbar Logo -->
-                <a class="navbar-brand py-0 ml-3 " href="./index.php">
+                <a class="navbar-brand py-0 ml-3 float-center" href="./index.php">
                     <img id="nav-logo" src="./images/ticktic_logo.png" alt="ticktic logo" />
                 </a>
 
-                <!-- Search Bar -->
-                <ul class=" ml-10 navbar-nav align-items-center d-none d-xl-block mr-auto inline-search-bar">
+                <!-- Search Bar Desktop -->
+                <ul class=" ml-10 navbar-nav align-items-center d-none d-xl-block mr-auto desktop-search-bar">
                     <li class="nav-item" >
                         <form class="form-inline search-box" >
                             <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
@@ -52,53 +54,42 @@
                         </a> 
                     </li>
                 </ul> 
-                
-                <!-- Navbar Menu -->
-                <div class="collapse fixed-left navbar-collapse ml-auto" id="navbar"> <!-- Contenuto del menu -->
-                    <ul class=" navbar-nav">
-                        <li class="nav-item mt-3 mt-md-0">
-                            <a class="nav-link text-light" href="./login.php">
-                                <span>Account</span>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link text-light" href="./ordini.php">
-                                <span>Ordini</span>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link text-light" href="./area_gestore.php?msg=0">
-                                <span>Area Gestore</span>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link text-light" href="./area_utente.php?msg=0">
-                                <span>Area Utente</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="./lista_desideri.php">
-                                <span>Lista Desideri</span>
-                            </a>
-                        </li>
-                        <div class="dropdown-divider"></div>
-
-                        <li class="nav-item dropdown show">
-                            <a id="#site-navigation" class="nav-link text-light dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span>Naviga</span>
-                            </a>
-                            <div class="dropdown-menu bg-dark border-dark" aria-labelledby="site-navigation">
-                                <a class="dropdown-item text-light" href="./eventi.php">Eventi</a>
-                                <a class="dropdown-item text-light" href="./categorie.php">Categorie</a>
-                                <a class="dropdown-item text-light" href="./artisti.php">Artisti</a>
-                                <a class="dropdown-item text-light" href="./luoghi.php" >Luoghi</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                  
             </nav>
+
+            <!-- Search Bar Mobile -->  
+            <div class="row text-center">  
+                <ul class=" mb-2 mx-auto navbar-nav d-block d-xl-none align-items-center d-none mobile-search-bar">
+                    <li class="nav-item" >
+                        <form class="form-inline search-box" >
+                            <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
+                        </form>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Nav overlay -->
+            <div class="overlay" id="nav"> <!-- Contenuto del menu -->
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                    <a class="nav-link text-light" href="./login.php">Account</a>                        
+                    <a class="nav-link text-light" href="./ordini.php">Ordini</a>                       
+                    <a class="nav-link text-light" href="./area_gestore.php?msg=0">Area Gestore</a>                       
+                    <a class="nav-link text-light" href="./area_utente.php?msg=0">Area Utente</a>                
+                    <a class="nav-link text-light" href="./lista_desideri.php">Lista Desideri</a>
+
+                    <a class="text-light nav-link dropdown-btn">Naviga
+                        <span class="text-light nav-link fa fa-caret-down"></span>
+                    </a>
+                    <div class="dropdown-container overlay-bg-color">
+                        <a class="text-light nav-link" href="./eventi.php">Eventi</a>
+                        <a class="text-light nav-link" href="./categorie.php">Categorie</a>
+                        <a class="text-light nav-link" href="./artisti.php">Artisti</a>
+                        <a class="text-light nav-link" href="./luoghi.php" >Luoghi</a>
+                    </div>
+                </div>
+            </div>
+
+
         </header>
         <main>
         
