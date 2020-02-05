@@ -164,6 +164,13 @@
     }
 
     /******************************************************************************************************************************/
+    /* Ordini */
+
+    public function getOrdiniDiUtente($IDUtente){
+
+    }
+    
+    /******************************************************************************************************************************/
     /* Login */
     public function checkAmministratore($email, $password){
         if($this->controllaSeEsisteMailAmministratore($email) == 1){

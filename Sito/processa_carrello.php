@@ -10,7 +10,7 @@
         $event["bigliettiacquistati"] = $_POST["tickets_".$count];
         if ($event["NumeroPosti"]-$event["BigliettiVenduti"] < $event["bigliettiacquistati"] ){
             $msg = "Errore! La quantità di biglietti che si desidera acquistare per l'evento " . $event["NomeEvento"] . " non è disponibile.";
-            //header("./area_utente?msg=" . $msg);
+            header("./area_utente?msg=".$msg."&error?".$error);
         } else {
             $bigliettivenduti = $event["BigliettiVenduti"] + $event["bigliettiacquistati"] ;
             $dbh -> updateBigliettiVenduti($event["IDEvento"], $bigliettivenduti); //da controllare
