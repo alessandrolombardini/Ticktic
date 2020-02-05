@@ -18,7 +18,7 @@
                             <img class="img-fluid rounded" src="./images/eventi/salmo.jpg" alt="salmo"/>
                         </div>
 
-                        <div class="col-auto ml-5 ml-md-2 ml-lg-5 ml-xl-3">
+                        <div class="col-auto ml-auto mr-3 mr-md-0">
                             <div class="d-inline-block text-center">
                                 <p class="mb-0 ">IDAYS - Foo Fighters</p>
                                 <p class="font-description close-lines text-black-50 m-0">Data evento 13/09/19</p>
@@ -42,7 +42,7 @@
                             <img class="img-fluid rounded" src="./images/eventi/salmo.jpg" alt="salmo"/>
                         </div>
 
-                        <div class="col-auto ml-5 ml-md-2 ml-lg-5 ml-xl-3">
+                        <div class="col-auto ml-auto mr-3 mr-md-0">
                             <div class="d-inline-block text-center">
                                 <p class="mb-0 ">IDAYS - Foo Fighters</p>
                                 <p class="font-description close-lines text-black-50 m-0">Data evento 13/09/19</p>
@@ -66,7 +66,7 @@
                             <img class="img-fluid rounded" src="./images/eventi/salmo.jpg" alt="salmo"/>
                         </div>
 
-                        <div class="col-auto ml-5 ml-md-2 ml-lg-5 ml-xl-3">
+                        <div class="col-auto ml-auto mr-3 mr-md-0">
                             <div class="d-inline-block text-center">
                                 <p class="mb-0 ">IDAYS - Foo Fighters</p>
                                 <p class="font-description close-lines text-black-50 m-0">Data evento 13/09/19</p>
@@ -90,7 +90,7 @@
                             <img class="img-fluid rounded" src="./images/eventi/salmo.jpg" alt="salmo"/>
                         </div>
 
-                        <div class="col-auto ml-5 ml-md-2 ml-lg-5 ml-xl-3">
+                        <div class="col-auto ml-auto mr-3 mr-md-0">
                             <div class="d-inline-block text-center">
                                 <p class="mb-0 ">IDAYS - Foo Fighters</p>
                                 <p class="font-description close-lines text-black-50 m-0">Data evento 13/09/19</p>
@@ -105,7 +105,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
 
 </div>
