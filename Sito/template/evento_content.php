@@ -1,17 +1,19 @@
 <div data-idevento=<?php echo $templateParams["informazioniEvento"]["IDEvento"] ?> class="row contenitoreID">
     <div class="col-1 col-md-2"></div>
     <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 mr-0 shadow-sm concert-tickets">
-        <div class="row mb-3 mt-0">
-            <div class="col-md-5 col-12">
-                <img class="img-fluid" src="./images/eventi/<?php echo $templateParams["informazioniEvento"]["ImmagineEvento"] ?>" alt=""/>
+        <div class="row mb-3 mt-0 text-center">
+            <div class="col-md-5 col-12 pb-3 d-inline float-left">
+                <img style="width: 100%; display: block; float:left "class="img-fluid" src="./images/eventi/<?php echo $templateParams["informazioniEvento"]["ImmagineEvento"] ?>" alt=""/>
             </div>
-            <div class="col-md-7 col-12 text-center">
+            <div class="col-md-7 col-12">
                 <section>
                     <h3><?php echo $templateParams["informazioniEvento"]["NomeEvento"] ?></h3>
+                    <p><?php foreach($templateParams["artisti"] as $artista){ echo $artista["Pseudonimo"]; }?></p> 
                     <p><?php echo $templateParams["informazioniEvento"]["DescrizioneEvento"] ?></p>
                     <p><?php echo $templateParams["informazioniEvento"]["Luogo"] ?></p> 
                     <p><?php echo $templateParams["informazioniEvento"]["DataEvento"] ?></p>
-                </section>
+                </section>  
+                <hr/>
             </div>
         </div>
         <hr />
