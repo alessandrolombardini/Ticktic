@@ -21,7 +21,7 @@
             </div>
             <div class="row font-medium m-0 pb-0">
                 <p class="col-7 p-0 m-0"></p>
-                <p class="col-5 text-right p-0 m-0 font-weight-bold totale-carrello"></p>
+                <p class="col-5 text-right p-0 m-0 font-weight-bold totale-evento-resume-<?php echo $evento["IDEvento"];?>"></p>
             </div>
         </div>
         <div class="col-1 col-md-2"></div>

@@ -2,7 +2,7 @@
     <div class="col-md-4"></div>
     <div class="col-12 col-md-4">
         <div class="row text-center">
-        <?php if(isset($templateParams["msg"])): ?>
+        <?php if(isset($templateParams["congratulazioni"])): ?>
             <div class="col-md-1 col-1"></div>
             <div class="text-center bg-success roundend-corners col-md-10 col-10 border pt-2 mt-2">
                 <p>Congratulazioni, fai ora parte della nostra comunity!</p>

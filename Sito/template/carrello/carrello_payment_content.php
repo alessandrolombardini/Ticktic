@@ -6,21 +6,21 @@
             <div class="row mb-3">
                 <div class="col-md-6 mb-3">
                     <label for="intestatario">Intestatario Carta</label>
-                    <input type="text" class="form-control" id="intestatario" name="intestatario"/>
+                    <input type="text" class="form-control" id="intestatario" name="intestatario" required/>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="numero">Numero Carta</label>
-                    <input type="text" class="form-control" id="numero" name="numero"/>
+                    <input type="text" class="form-control" id="numero" name="numero" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-5 col-12 mb-3">
                     <label for="dataScadenza">Data di scadenza:</label>
-                    <input type="month" id="dataScadenza" name="dataScadenza" class="form-control" min="<?php echo date("Y-m"); ?>" value="<?php $d=strtotime("+6 Years"); echo date("Y-m", $d) ?>"/>
+                    <input type="month" id="dataScadenza" name="dataScadenza" class="form-control" min="<?php echo date("Y-m"); ?>" value="<?php $d=strtotime("+6 Years"); echo date("Y-m", $d) ?>" required/>
                 </div>
                 <div class="col-md-3 col-12 mb-3">
                     <label for="cvv">CVV:</label>
-                    <input type="text" class="form-control" id="cvv" name="cvv"/>
+                    <input type="text" class="form-control" id="cvv" name="cvv" required/>
                 </div>
                 <div class="col-12 col-md-4 mb-3 inline-block text-center" id="card-selector">
                     <img src="./images/carte/mastercard.png" alt="select_mastercard" class="selected col-md-3"/>

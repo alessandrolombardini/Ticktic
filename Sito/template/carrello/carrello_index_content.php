@@ -1,5 +1,5 @@
 <?php $i=0; foreach($templateParams["eventi"] as $evento):?>
-<div class="row event">
+<div class="row event" id="chart_event_<?php echo $evento["IDEvento"];?>">
     <div class="col-1 col-md-2"></div>
     <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 mr-0 shadow-sm concert-tickets">
         <div class="row m-0 p-0">
