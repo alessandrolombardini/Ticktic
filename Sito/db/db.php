@@ -163,6 +163,50 @@
         $stmt->execute();
     }
 
+    public function aggiungiACarrelloEvento($IDEvento, $bigliettiDaAggiungere, $IDUtente){
+        $result = $this->verificaPresenzaEventoInCarrelloDiUtente($IDEvento, $IDUtente);
+        if($result->num_rows > 0){
+            $numeroPrecedenteDiBiglietti = $result->fetch_assoc()["NumeroBiglietti"];
+            $this->aggiungiBigliettiAdEventoInCarrello($IDEvento, $IDUtente, $numeroPrecedenteDiBiglietti, $bigliettiDaAggiungere);
+        } else {
+            $query = "INSERT INTO DESIDERA_ACQUISTARE(IDEvento, NumeroBiglietti, IDUtente)
+                      VALUES (?,?,?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('sss', $IDEvento, $bigliettiDaAggiungere, $IDUtente);
+            $stmt->execute();
+            return $stmt->insert_id;
+        }
+    }
+
+    public function verificaPresenzaEventoInCarrelloDiUtente($IDEvento, $IDUtente){
+        $query = "SELECT *
+                  FROM DESIDERA_ACQUISTARE
+                  WHERE IDEvento = ? AND IDUtente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $IDEvento, $IDUtente);
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+    
+    public function aggiungiBigliettiAdEventoInCarrello($IDEvento, $IDUtente, $numeroPrecedenteDiBiglietti, $bigliettiDaAggiungere){
+        $numeroBigliettiNuovo = $numeroPrecedenteDiBiglietti + $bigliettiDaAggiungere;
+        $query = "UPDATE DESIDERA_ACQUISTARE
+                  SET NumeroBiglietti = ?
+                  WHERE IDEvento = ? && IDUtente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iii', $numeroBigliettiNuovo, $IDEvento, $IDUtente);
+        $stmt->execute();
+    }
+
+    public function rimuoviEventoDalCarrello($IDEvento, $IDUtente){
+        $query = "DELETE FROM DESIDERA_ACQUISTARE
+                  WHERE IDEvento = ? && IDUtente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii', $IDEvento, $IDUtente);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+
     /******************************************************************************************************************************/
     /* Ordini */
 
@@ -405,7 +449,7 @@
         $query = "SELECT UTENTE.IDUtente
                   FROM EVENTO INNER JOIN COMPRENDE ON Evento.IDEvento = COMPRENDE.IDEvento
                               INNER JOIN ORDINE ON COMPRENDE.IDOrdine = ORDINE.IDOrdine
-                              INNER JOIN UTENTE ON ORDINE.Utente = UTENTE.IDUtente
+                              INNER JOIN UTENTE ON ORDINE.IDUtente = UTENTE.IDUtente
                   WHERE EVENTO.IDEvento = ?";       
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $IDEvento);
@@ -445,7 +489,7 @@
     }
 
     public function pubblicaNotificaATuttiGliUtentiDiUnEvento($IDNotifica, $IDEvento){
-        $utenti = $this->ottieniUtentiChePartecipanoAdUnEvento($IDEvento);
+        $utenti = $this->ottieniUtentiChePartecipanoAdUnEvento($IDEvento);  
         foreach ($utenti as $utente){
             $this->pubblicaNotificaAdUtente($utente["IDUtente"], $IDNotifica);
         }
@@ -460,68 +504,21 @@
             return false;
         }
     }
-
-    /********************************************************************************************************************** */
-    /* Acquisto */
-    public function aggiungiACarrelloEvento($IDEvento, $bigliettiDaAggiungere, $IDUtente){
-        $result = $this->verificaPresenzaEventoInCarrelloDiUtente($IDEvento, $IDUtente);
-        if($result->num_rows > 0){
-            $numeroPrecedenteDiBiglietti = $result->fetch_assoc()["NumeroBiglietti"];
-            $this->aggiungiBigliettiAdEventoInCarrello($IDEvento, $IDUtente, $numeroPrecedenteDiBiglietti, $bigliettiDaAggiungere);
-        } else {
-            $query = "INSERT INTO DESIDERA_ACQUISTARE(IDEvento, NumeroBiglietti, IDUtente)
-                      VALUES (?,?,?)";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param('sss', $IDEvento, $bigliettiDaAggiungere, $IDUtente);
-            $stmt->execute();
-            return $stmt->insert_id;
-        }
-    }
-
-    public function verificaPresenzaEventoInCarrelloDiUtente($IDEvento, $IDUtente){
-        $query = "SELECT *
-                  FROM DESIDERA_ACQUISTARE
-                  WHERE IDEvento = ? AND IDUtente = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss', $IDEvento, $IDUtente);
-        $stmt->execute();
-        return $stmt->get_result();
-    }
-
-    public function aggiungiBigliettiAdEventoInCarrello($IDEvento, $IDUtente, $numeroPrecedenteDiBiglietti, $bigliettiDaAggiungere){
-        $numeroBigliettiNuovo = $numeroPrecedenteDiBiglietti + $bigliettiDaAggiungere;
-        $query = "UPDATE DESIDERA_ACQUISTARE
-                  SET NumeroBiglietti = ?
-                  WHERE IDEvento = ? && IDUtente = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('iii', $numeroBigliettiNuovo, $IDEvento, $IDUtente);
-        $stmt->execute();
-    }
-
-    public function rimuoviEventoDalCarrello($IDEvento, $IDUtente){
-        $query = "DELETE FROM DESIDERA_ACQUISTARE
-                  WHERE IDEvento = ? && IDUtente = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ii', $IDEvento, $IDUtente);
-        $stmt->execute();
-        return $stmt->insert_id;
-    }
-
     /********************************************************************************************************************** */
 
     public function ottieniInformazioniDiUnEvento($IDEvento){
         $query = "SELECT *
                   FROM EVENTO
-                  WHERE IDOrganizzatore = ?";
+                  WHERE IDEvento = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s', $id);
+        $stmt->bind_param('s', $IDEvento);
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }
 
     public function inserisciNotificaInNoteDiUnEvento($titolo, $testo, $IDEvento){
-        $notaBase = $this->db->ottieniInformazioniDiUnEvento($IDEvento)[0]["NoteEvento"];
-        $aggiunta = $titolo."(".date("Y-m-d h:i:sa").")\n".$testo;
+        $notaBase = $this->ottieniInformazioniDiUnEvento($IDEvento)["NoteEvento"];
+        $aggiunta = "Pubblicato in data ".date("Y-m-d h:i:sa")."<br/>".$titolo."<br/>".$testo;
         $finale = $notaBase."\n\n".$aggiunta;
         $query = "UPDATE EVENTO
                   SET NoteEvento = ?

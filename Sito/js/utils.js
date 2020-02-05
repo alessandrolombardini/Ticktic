@@ -258,12 +258,11 @@ $(document).ready(function(){
 
     /* Gestisce la pressione del pulsante con cui le notifiche vengono dichiarate viste */
     $(".click_nuove_notifiche").click(function(){
-        const row = $(this).parent().parent().parent().parent();
         $.post("./api-notifica-visualizzata.php",
         {
-            IDNotificaPersonale: row.attr("data-IDNotificaPersonale")
+            IDNotificaPersonale: $(this).attr("data-IDNotificaPersonale")
         });
-        $(row).remove();
+        $(this).parent().parent().parent().parent().remove();
     });
 
     $(".btn_aggiungi_al_carrello").click(function(){
