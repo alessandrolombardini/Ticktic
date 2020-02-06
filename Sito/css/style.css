@@ -184,6 +184,8 @@ footer, header {
     padding-left: 0.5em;
 }
 
+/*----------------------------------------------------*/
+
 #homepage-image{
     box-sizing:border-box; 
     height: 70vh; 
@@ -191,8 +193,6 @@ footer, header {
     background-size: cover; 
     background-position: center;
 }
-
-/*----------------------------------------------------*/
 
 button {
     border: 1px solid rgb(223,223,223);

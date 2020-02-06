@@ -12,24 +12,50 @@
             <div class="dropdown-divider"></div>
         </div>
         <div class="row">
-            <div class="col-12 col-xl-6">
-                <div class="card m-1" >
-                    <div class="card-body">
-                        <div class="row h-100 justify-content-beetween no-gutters">
-                            <div class="col-5 col-sm-7 col-xl-5 mt-xl-2 mt-md-2">
-                                <img class="img-fluid rounded" src="./images/eventi/salmo.jpg" alt="salmo"/>
+        <div class="col-12 col-xl-6">
+                <div class="card m-1 " >
+                    <div class="card-body ">
+                        <div class="row justify-content-center no-gutters">
+                            <div class="col-6 col-xl-7 m-auto text-center">
+                                    <img class="rounded img-fluid" src="./images/eventi/salmo.jpg" alt="salmo"/>
                             </div>
 
-                            <div class="col-auto ml-auto mt-sm-3 mt-xl-1 mt-md-5 mr-3 mr-md-3">
-                                <div class="d-inline-block text-center">
-                                    <p class="mb-0 ">IDAYS - Foo Fighters</p>
+                            <div class="col-6 col-xl-5 m-auto p-1 text-center">
+                                <div class="d-inline-block text-center m-auto">
+                                    <p class="mb-0 ">IDAYS - Foo Fighters --- TESTO mooolto LUNGO </p>
                                     <p class="font-description close-lines text-black-50 m-0">Data evento 13/09/19</p>
+                                    <div class="justify-content-center mt-5 row">
+                                        <div data-IDEvento="IDEvento"><span class="cuore-vuoto text-dark pointer mx-3 far fa-heart fa-2x"></span></div>
+                                        <button class="btn py-1 px-3 shadow-sm purple-btn rounded-pill">Scopri</button>
+                                    </div>
                                 </div>
 
-                                <div class="text-left mt-1 row ml-3">
-                                    <button class="btn py-1 px-3 shadow-sm purple-btn rounded-pill">Scopri</button>
-                                    <div data-IDEvento="IDEvento"><span class="cuore-vuoto text-dark pointer mx-3 far fa-heart fa-2x"></span></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="col-12 col-xl-6">
+                <div class="card m-1 " >
+                    <div class="card-body ">
+                        <div class="row justify-content-center no-gutters">
+                            <div class="col-6 col-xl-7 m-auto text-center">
+                                    <img class="rounded img-fluid" src="./images/eventi/salmo.jpg" alt="salmo"/>
+                            </div>
+
+                            <div class="col-6 col-xl-5 m-auto p-1 text-center">
+                                <div class="d-inline-block text-center m-auto">
+                                    <p class="mb-0 ">IDAYS - Foo Fighters --- TESTO mooolto LUNGO </p>
+                                    <p class="font-description close-lines text-black-50 m-0">Data evento 13/09/19</p>
+                                    <div class="justify-content-center mt-5 row">
+                                        <div data-IDEvento="IDEvento"><span class="cuore-vuoto text-dark pointer mx-3 far fa-heart fa-2x"></span></div>
+                                        <button class="btn py-1 px-3 shadow-sm purple-btn rounded-pill">Scopri</button>
+                                    </div>
                                 </div>
+
+                                
                             </div>
                         </div>
                     </div>
@@ -37,75 +63,78 @@
             </div>
             
             <div class="col-12 col-xl-6">
-                <div class="card m-1" >
-                    <div class="card-body">
-                        <div class="row h-100 justify-content-beetween no-gutters">
-                            <div class="col-5 col-sm-7 col-xl-5 mt-xl-2 mt-md-2">
-                                <img class="img-fluid rounded" src="./images/eventi/salmo-estere-biglietti.jpg" alt="salmo"/>
+                <div class="card m-1 " >
+                    <div class="card-body ">
+                        <div class="row justify-content-center no-gutters">
+                            <div class="col-6 col-xl-7 m-auto text-center">
+                                    <img class="rounded img-fluid" src="./images/eventi/salmo.jpg" alt="salmo"/>
                             </div>
 
-                            <div class="col-auto ml-auto mt-sm-3 mt-xl-1 mt-md-5 mr-3 mr-md-3">
-                                <div class="d-inline-block text-center">
-                                    <p class="mb-0 ">IDAYS - Foo Fighters</p>
+                            <div class="col-6 col-xl-5 m-auto p-1 text-center">
+                                <div class="d-inline-block text-center m-auto">
+                                    <p class="mb-0 ">IDAYS - Foo Fighters --- TESTO mooolto LUNGO </p>
                                     <p class="font-description close-lines text-black-50 m-0">Data evento 13/09/19</p>
+                                    <div class="justify-content-center mt-5 row">
+                                        <div data-IDEvento="IDEvento"><span class="cuore-vuoto text-dark pointer mx-3 far fa-heart fa-2x"></span></div>
+                                        <button class="btn py-1 px-3 shadow-sm purple-btn rounded-pill">Scopri</button>
+                                    </div>
                                 </div>
 
-                                <div class="text-left mt-1 row ml-3">
-                                    <button class="btn py-1 px-3 shadow-sm purple-btn rounded-pill">Scopri</button>
-                                    <a href="#" class="link text-dark "><span class="mx-3 far fa-heart fa-2x"></span></a>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                
             </div>
 
             <div class="col-12 col-xl-6">
-                <div class="card m-1" >
-                    <div class="card-body">
-                        <div class="row h-100 justify-content-beetween no-gutters">
-                            <div class="col-5 col-sm-7 col-xl-5 mt-xl-2 mt-md-2">
-                                <img class="img-fluid rounded" src="./images/eventi/salmo.jpg" alt="salmo"/>
+                <div class="card m-1 " >
+                    <div class="card-body ">
+                        <div class="row justify-content-center no-gutters">
+                            <div class="col-6 col-xl-7 m-auto text-center">
+                                    <img class="rounded img-fluid" src="./images/eventi/salmo-estere-biglietti.jpg" alt="salmo"/>
                             </div>
 
-                            <div class="col-auto ml-auto mt-sm-3 mt-xl-1 mt-md-5 mr-3 mr-md-3">
-                                <div class="d-inline-block text-center">
-                                    <p class="mb-0 ">IDAYS - Foo Fighters</p>
+                            <div class="col-6 col-xl-5 m-auto p-1 text-center">
+                                <div class="d-inline-block text-center m-auto">
+                                    <p class="mb-0 ">IDAYS - Foo Fighters --- TESTO mooolto LUNGO </p>
                                     <p class="font-description close-lines text-black-50 m-0">Data evento 13/09/19</p>
+                                    <div class="justify-content-center mt-5 row">
+                                        <div data-IDEvento="IDEvento"><span class="cuore-vuoto text-dark pointer mx-3 far fa-heart fa-2x"></span></div>
+                                        <button class="btn py-1 px-3 shadow-sm purple-btn rounded-pill">Scopri</button>
+                                    </div>
                                 </div>
 
-                                <div class="text-left mt-1 row ml-3">
-                                    <button class="btn py-1 px-3 shadow-sm purple-btn rounded-pill">Scopri</button>
-                                    <a href="#" class="link text-dark "><span class="mx-3 far fa-heart fa-2x"></span></a>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                
             </div>
 
             <div class="col-12 col-xl-6">
-                <div class="card m-1" >
-                    <div class="card-body">
-                        <div class="row h-100 justify-content-beetween no-gutters">
-                            <div class="col-5 col-sm-7 col-xl-5 mt-xl-2 mt-md-2">
-                                <img class="img-fluid rounded" src="./images/eventi/salmo.jpg" alt="salmo"/>
+                <div class="card m-1 " >
+                    <div class="card-body ">
+                        <div class="row justify-content-center no-gutters">
+                            <div class="col-6 col-xl-7 m-auto text-center">
+                                    <img class="rounded img-fluid" src="./images/eventi/salmo.jpg" alt="salmo"/>
                             </div>
 
-                            <div class="col-auto ml-auto mt-sm-3 mt-xl-1 mt-md-5 mr-3 mr-md-3">
-                                <div class="d-inline-block text-center">
-                                    <p class="mb-0 ">IDAYS - Foo Fighters</p>
+                            <div class="col-6 col-xl-5 m-auto p-1 text-center">
+                                <div class="d-inline-block text-center m-auto">
+                                    <p class="mb-0 ">IDAYS - Foo Fighters --- TESTO mooolto LUNGO </p>
                                     <p class="font-description close-lines text-black-50 m-0">Data evento 13/09/19</p>
+                                    <div class="justify-content-center mt-5 row">
+                                        <div data-IDEvento="IDEvento"><span class="cuore-vuoto text-dark pointer mx-3 far fa-heart fa-2x"></span></div>
+                                        <button class="btn py-1 px-3 shadow-sm purple-btn rounded-pill">Scopri</button>
+                                    </div>
                                 </div>
 
-                                <div class="text-left mt-1 row ml-3">
-                                    <button class="btn py-1 px-3 shadow-sm purple-btn rounded-pill">Scopri</button>
-                                    <a href="#" class="link text-dark "><span class="mx-3 far fa-heart fa-2x"></span></a>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                
             </div>
     </div>
     <div class="col-1 col-md-2"></div>
