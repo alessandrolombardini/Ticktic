@@ -48,13 +48,6 @@ foreach($templateParams["eventi"] as $evento):?>
 </div>
 <?php endforeach ?>
 
-<?php if (count($templateParams["eventi"]) == 0):?>
-    <div class="row">
-        <h4 class="color-dark text-center "> Il carrello è vuoto! <h4>
-    </div>
-<?php endif ?>
-
-<?php if (count($templateParams["eventi"]) != 0):?>
 <div class="row">
     <div class="col-md-2"></div>
     <hr class="col-md-8"/>
@@ -72,4 +65,3 @@ foreach($templateParams["eventi"] as $evento):?>
     <button type="button" class="purple-btn col-6 p-3 m-0 mb-5 rounded-pill"><p class="mb-0">Procedi all'acquisto</p></button>
     <div class="col-3 p-0 m-0"> </div>
 </div>
-<?php endif ?>

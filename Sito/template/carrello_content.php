@@ -1,4 +1,11 @@
 <div id="chart">
+    <?php if (count($templateParams["eventi"]) == 0):?>
+        <div class="row">
+            <h4 class="text-dark text-center col-12 mt-10 mb-10"> Il carrello è vuoto! <h4>
+        </div>
+    <?php endif ?>
+
+    <?php if (count($templateParams["eventi"]) != 0):?>
     <div class="chart-progress">
         <div class="row mt-4 px-3">
             <div class="col-md-2"></div>
@@ -40,4 +47,5 @@
             </div> 
         </div>
     </form>
+    <?php endif ?>
 </div>
