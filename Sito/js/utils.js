@@ -109,7 +109,6 @@ function chartChangePageBack(){
 
 
 $(document).ready(function(){
-
     /* Mostra e nascondi opzioni gestore in registrazione */
     let nascosto = 1;
     $("div.areagestore").hide();
@@ -271,15 +270,7 @@ $(document).ready(function(){
         $(this).after("<input type='hidden' name='totale-spesa' value=" + totalespesa + "/>");
     });
 
-    /* Gestisce la pressione del pulsante con cui le notifiche vengono dichiarate viste */
-    $(".click_nuove_notifiche").click(function(){
-        $.post("./api-notifica-visualizzata.php",
-        {
-            IDNotificaPersonale: $(this).attr("data-IDNotificaPersonale")
-        });
-        $(this).parent().parent().parent().parent().remove();
-    });
-
+    
     $(".btn_aggiungi_al_carrello").click(function(){
         const IDEvento = $(".contenitoreID").attr("data-idevento");
         const numeroBiglietti = $(".tickets-number").html();
@@ -289,6 +280,27 @@ $(document).ready(function(){
             IDEvento: IDEvento
         });
     });
+
+    /******************************** NOTIFICHE ******************************************/
+    /* Gestisce la pressione del pulsante con cui le notifiche vengono dichiarate viste */
+    $(".click_nuove_notifiche").click(function(){
+        $.post("./api-notifica-visualizzata.php",
+        {
+            IDNotificaPersonale: $(this).attr("data-IDNotificaPersonale")
+        });
+        $(this).parent().parent().parent().parent().remove();
+    });
+
+    /* Utile per aggiornare le notifiche in tempo reale */
+    setInterval(function(){
+        $.getJSON("api-ottieni-info-nuove-notifiche.js", function(result){
+            $.each(result, function(i, field){
+                
+            });
+        });
+    }, 3000);
+
+    /*********************************************************************************** */
 
     /************************************ CUORE ******************************** */
 

@@ -76,7 +76,7 @@
                     <a class="nav-link text-light" href="./area_gestore.php?msg=0">Area Gestore</a>                       
                     <a class="nav-link text-light" href="./area_utente.php?msg=0">Area Utente</a>                
                     <a class="nav-link text-light" href="./lista_desideri.php">Lista Desideri</a>
-
+                    <!--
                     <a class="text-light nav-link dropdown-btn">Naviga
                         <span class="text-light nav-link fa fa-caret-down"></span>
                     </a>
@@ -85,7 +85,8 @@
                         <a class="text-light nav-link" href="./categorie.php">Categorie</a>
                         <a class="text-light nav-link" href="./artisti.php">Artisti</a>
                         <a class="text-light nav-link" href="./luoghi.php" >Luoghi</a>
-                    </div>
+                    </div>-->
+                    <a class="nav-link text-light" href="./logout.php">Logout</a>
                 </div>
             </div>
 

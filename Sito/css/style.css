@@ -306,6 +306,8 @@ hr{
     width:80%;
 }
 
+.error-template {margin-top: 5%; margin-bottom: 5%;}
+
 @media screen and (min-width: 768px) {
     .updateeventimg {
         margin-left:20%;
