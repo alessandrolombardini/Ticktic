@@ -19,7 +19,7 @@
         <hr/>
         <?php foreach ($templateParams["eventiinordine"][$ordine["IDOrdine"]] as $evento): ?>
         <div class="row mb-0 mt-3">
-            <img class="col-md-4 mt-1 mt-md-0 col-12 mb-3 mb-md-0" src="./images/eventi/salmo.jpg" alt="IDAYS"/>
+            <img class="col-md-4 mt-1 mt-md-0 col-12 mb-3 mb-md-0" src="./images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="IDAYS"/>
             <div class="col-md-8 mt-md-0 col-12">
                 <div class="row mb-0">
                     <h5 class="col-12 text-md-left text-center mb-3"> <?php echo $evento["NomeEvento"];?> </h5>

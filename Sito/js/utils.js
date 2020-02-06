@@ -261,13 +261,6 @@ $(document).ready(function(){
         }
     });
 
-    /*Toglie dal carrello i biglietti per un evento aggiornando il totale*/
-    $(".close").parent().click(function(){
-        let container = $(this).parent().parent();
-        $(container).remove();  /* Usare const in questi casi */
-        updateChartPrices();
-    });
-
     /*Aggiorna i prezzi del resume del carrello*/
     $("#resume-btn").click(function(){
         var spedizione = parseFloat($("input[name='spedizione']:checked").val());

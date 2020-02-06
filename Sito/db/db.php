@@ -192,7 +192,7 @@
         $numeroBigliettiNuovo = $numeroPrecedenteDiBiglietti + $bigliettiDaAggiungere;
         $query = "UPDATE DESIDERA_ACQUISTARE
                   SET NumeroBiglietti = ?
-                  WHERE IDEvento = ? && IDUtente = ?";
+                  WHERE IDEvento = ? AND IDUtente = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('iii', $numeroBigliettiNuovo, $IDEvento, $IDUtente);
         $stmt->execute();
@@ -200,11 +200,10 @@
 
     public function rimuoviEventoDalCarrello($IDEvento, $IDUtente){
         $query = "DELETE FROM DESIDERA_ACQUISTARE
-                  WHERE IDEvento = ? && IDUtente = ?";
+                  WHERE IDEvento = ? AND IDUtente = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii', $IDEvento, $IDUtente);
         $stmt->execute();
-        return $stmt->insert_id;
     }
 
     /******************************************************************************************************************************/
