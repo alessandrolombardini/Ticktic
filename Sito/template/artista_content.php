@@ -28,7 +28,7 @@
 
                                 <div class="text-left mt-1 row ml-3">
                                     <button class="btn py-1 px-3 shadow-sm purple-btn rounded-pill">Scopri</button>
-                                    <a href="#" class="link text-dark "><span class="mx-3 far fa-heart fa-2x"></span></a>
+                                    <div data-IDEvento="IDEvento"><span class="cuore-vuoto text-dark pointer mx-3 far fa-heart fa-2x"></span></div>
                                 </div>
                             </div>
                         </div>

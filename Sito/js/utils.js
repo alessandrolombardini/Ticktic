@@ -297,6 +297,57 @@ $(document).ready(function(){
         });
     });
 
+    /************************************ CUORE ******************************** */
+
+    $(".cuore-pieno").click(svuotaCuore);
+    $(".cuore-vuoto").click(riempiCuore);
+
+    function svuotaCuore(){
+        let IDEvento = $(this).parent().attr("data-IDEvento");
+        $(this).off();
+        $(this).removeClass('cuore-pieno');
+        $(this).removeClass('fas');
+        $(this).addClass('far');
+        $(this).addClass('cuore-vuoto');
+        $.post("./processa_interessati_rimuovi_evento.php", 
+        {
+            IDEvento: IDEvento
+        });
+        $(".cuore-vuoto").click(riempiCuore);
+    }
+    function riempiCuore(){
+        let IDEvento = $(this).parent().attr("data-IDEvento");
+        $(this).off();
+        $(this).removeClass('cuore-vuoto');
+        $(this).removeClass('far');
+        $(this).addClass('fas');
+        $(this).addClass('cuore-pieno');
+        $.post("./processa_interessati_aggiungi_evento.php", 
+        {
+            IDEvento: IDEvento
+        });
+        $(".cuore-pieno").click(svuotaCuore);
+    }
+
+/*    $(".cuore-vuoto").hover(function(){
+        if(!$(this).hasClass('cuore-pieno')){
+            $(this).removeClass('cuore-vuoto');
+            $(this).removeClass('far');
+            $(this).addClass('fas');
+            $(this).addClass('cuore-pieno');
+            val = true;
+        }
+    }, function(){
+        if(val == true){
+            $(this).removeClass('cuore-pieno');
+            $(this).removeClass('fas');
+            $(this).addClass('far');
+            $(this).addClass('cuore-vuoto');        
+        }
+    });*/
+    /******************************************************************************* */
+    
+
     /* Dropdown button */
     $(".dropdown-btn").click(function() {
         this.classList.toggle("active");

@@ -521,7 +521,45 @@
         }
     }
     /********************************************************************************************************************** */
+    /* Eventi di interesse di un utente */
+    public function ottieniEventiDiInteresseDiUnUtente($IDUtente){
+        $query = "SELECT *
+                  FROM EVENTO, INTERESSA
+                  WHERE EVENTO.IDEvento = INTERESSA.IDEvento 
+                  AND IDUtente = ? ";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $IDUtente);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
 
+    public function inserisciInteressePerUtente($IDEvento, $IDUtente){
+        $result = $this->ottieniEventiDiInteresseDiUnUtente($IDUtente);
+        $trovato = false;
+        foreach($result as $row){
+            if($row["IDEvento"]==$IDEvento){
+                $trovato = true;
+            }    
+        }
+        if($trovato == false){
+            $query = "INSERT INTO INTERESSA(IDEvento, IDUtente)
+                      VALUES (?,?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss', $IDEvento, $IDUtente);
+            $stmt->execute();
+        }
+    }
+
+    public function rimuoviInteressePerUtente($IDEvento, $IDUtente){
+        $query = "DELETE FROM INTERESSA WHERE IDEvento = ? AND IDUtente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii', $IDEvento, $IDUtente);
+        $stmt->execute();
+    }
+
+
+
+    /********************************************************************************************************************** */
     public function ottieniInformazioniDiUnEvento($IDEvento){
         $query = "SELECT *
                   FROM EVENTO
