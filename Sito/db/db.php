@@ -217,7 +217,9 @@
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $IDUtente);
         $stmt->execute();
-        return $stmt->get_result();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getEventiDiOrdine($IDOrdine){
@@ -227,7 +229,9 @@
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $IDOrdine);
         $stmt->execute();
-        return $stmt->get_result();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
     
     /******************************************************************************************************************************/
