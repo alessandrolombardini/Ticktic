@@ -301,6 +301,11 @@ hr{
   margin-left: 10rem !important;
 }
 
+.updateeventimg {
+    margin-left:10%;
+    width:80%;
+}
+
 @media screen and (min-width: 768px) {
     .updateeventimg {
         margin-left:20%;

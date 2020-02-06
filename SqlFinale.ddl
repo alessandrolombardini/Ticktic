@@ -40,7 +40,6 @@ create table ESEGUE (
      IDEvento int not null);
 
 create table EVENTO (
-     Anteprima varchar(1024),
      Luogo varchar(1024) not null,
      NumeroPosti bigint not null,
      BigliettiVenduti bigint not null,

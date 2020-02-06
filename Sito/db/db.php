@@ -47,21 +47,20 @@
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function insertEvent($anteprima, $luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore){
-        $query = "INSERT INTO EVENTO(Anteprima, Luogo, NumeroPosti, PrezzoBiglietto, ImmagineEvento, DataEvento, NoteEvento, DescrizioneEvento, NomeEvento, IDCategoria, IDOrganizzatore)
-                    VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+    public function insertEvent($luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore){
+        $query = "INSERT INTO EVENTO(Luogo, NumeroPosti, PrezzoBiglietto, ImmagineEvento, DataEvento, NoteEvento, DescrizioneEvento, NomeEvento, IDCategoria, IDOrganizzatore)
+                    VALUES (?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssidsssssii',$anteprima, $luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore);
+        $stmt->bind_param('sidsssssii', $luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore);
         $stmt->execute();
         return $stmt->insert_id;
     }
 
     public function insertArtistiOnEvent($IDArtista, $IDEvento){
-        $queryartista = "INSERT INTO ESEGUE (IDEvento, IDArtista) VALUES (?,?)";
-        $stmt = $this->db->prepare($queryartista);
-        $stmt->bind_param('ii', $IDEvento, $IDAartista);
+        $query= "INSERT INTO ESEGUE(IDArtista, IDEvento) VALUES (?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii', $IDArtista, $IDEvento);
         $stmt->execute();
-
         return $stmt->insert_id;
     }
 
@@ -93,13 +92,13 @@
         return $stmt->insert_id;
     }
 
-    public function updateEvent($anteprima, $luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento){
+    public function updateEvent($luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento){
         $query = "UPDATE EVENTO
-                  SET Anteprima = ?, Luogo = ?, NumeroPosti = ?, PrezzoBiglietto = ?, ImmagineEvento = ?, 
+                  SET Luogo = ?, NumeroPosti = ?, PrezzoBiglietto = ?, ImmagineEvento = ?, 
                   DataEvento = ?, NoteEvento = ?, DescrizioneEvento = ?, NomeEvento = ?, IDCategoria = ?, IDOrganizzatore = ?
                   WHERE IDEvento = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssidsssssiii',$anteprima, $luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento);
+        $stmt->bind_param('sidsssssiii', $luogo, $numeroPosti, $prezzoBiglietto, $immagineEvento, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento);
         $stmt->execute();
     }
     
