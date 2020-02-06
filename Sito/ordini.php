@@ -4,9 +4,20 @@
 
     $templateParams["ordini"] = $dbh -> getOrdiniDiUtente($_SESSION["id"]);
     $templateParams["eventiinordine"] = array();
-    foreach($templateParams["ordini"] as $ordine){
+    $templateParams["artistiinevento"] = array();
+    foreach($templateParams["ordini"] as $ordinekey => $ordine){
+        $totalebiglietti = 0;
         $eventi = $dbh->getEventiDiOrdine($ordine["IDOrdine"]);
         $templateParams["eventiinordine"][$ordine["IDOrdine"]] = $eventi;
+        foreach($eventi as $eventokey => $evento){
+            $artisti = $dbh->getArtistsFromEvent($evento["IDEvento"]);
+            $templateParams["artistiinevento"][$evento["IDEvento"]] = $artisti;
+            $totaleevento = $evento["PrezzoBiglietto"] * $evento["NumeroBiglietti"];
+            $totalebiglietti += $totaleevento;
+            $templateParams["eventiinordine"][$ordine["IDOrdine"]][$eventokey]["SpesaBiglietti"] = $totaleevento;
+        }
+        $spedizione = $ordine["TotaleSpesa"] - $totalebiglietti;
+        $templateParams["ordini"][$ordinekey]["Spedizione"] = $spedizione;
     }
     require_once("./template/base.php");
 ?>

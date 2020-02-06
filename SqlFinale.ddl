@@ -98,6 +98,7 @@ create table ORDINE (
      DataOrdine date not null,
      IDOrdine int not null AUTO_INCREMENT,
      IDUtente int not null,
+     TotaleSpesa float(10) not null,
      constraint IDORDINE primary key (IDOrdine));
 
 create table UTENTE (

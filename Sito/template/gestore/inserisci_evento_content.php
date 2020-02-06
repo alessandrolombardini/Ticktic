@@ -74,18 +74,18 @@
                     <div class="col-md-2 col-5 mb-3">
                         <label for="month">Mese*</label>
                         <select id="month" class="form-control eventdate" name="month">
-                        <option value="01" <?php if ((($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "01")) || $templateParams["azione"]==1) {echo "selected";}?>>January</option>
-                        <option value="02" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "02")) {echo "selected";}?>>February</option>
-                        <option value="03" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "03")) {echo "selected";}?>>March</option>
-                        <option value="04" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "04")) {echo "selected";}?>>April</option>
-                        <option value="05" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "05")) {echo "selected";}?>>May</option>
-                        <option value="06" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "06")) {echo "selected";}?>>June</option>
-                        <option value="07" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "07")) {echo "selected";}?>>July</option>
-                        <option value="08" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "08")) {echo "selected";}?>>August</option>
-                        <option value="09" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "09")) {echo "selected";}?>>September</option>
-                        <option value="10" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "10")) {echo "selected";}?>>October</option>
-                        <option value="11" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "11")) {echo "selected";}?>>November</option>
-                        <option value="12" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "12")) {echo "selected";}?>>December</option>
+                        <option value="01" <?php if ((($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "01")) || $templateParams["azione"]==1) {echo "selected";}?>>Gennaio</option>
+                        <option value="02" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "02")) {echo "selected";}?>>Febbraio</option>
+                        <option value="03" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "03")) {echo "selected";}?>>Marzo</option>
+                        <option value="04" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "04")) {echo "selected";}?>>Aprile</option>
+                        <option value="05" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "05")) {echo "selected";}?>>Maggio</option>
+                        <option value="06" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "06")) {echo "selected";}?>>Giugno</option>
+                        <option value="07" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "07")) {echo "selected";}?>>Luglio</option>
+                        <option value="08" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "08")) {echo "selected";}?>>Agosto</option>
+                        <option value="09" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "09")) {echo "selected";}?>>Settembre</option>
+                        <option value="10" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "10")) {echo "selected";}?>>Ottobre</option>
+                        <option value="11" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "11")) {echo "selected";}?>>Novembre</option>
+                        <option value="12" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "12")) {echo "selected";}?>>Dicembre</option>
                         </select>
                     </div>
                     <div class="col-md-2 col-4 mb-3">
