@@ -14,10 +14,10 @@
             echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5 updateeventimg'>";
         }?>
         <form action="processa_evento.php" method="POST" enctype="multipart/form-data" id="newevent">
-            <div class="row">
-                <label for="artisti" class="col-md-3 col-3"><h4> Artisti </h4></label>
-                <div class="col-4 col-md-7"></div>
-                <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2 mb-3 <?php if ($templateParams["azione"] == 1){echo "hide";}?>">Reset</button>
+            <div class="row mb-2">
+                <h4 class="col-md-4 col-3"> Artisti </h4>
+                <div class="col-4 col-md-7"> </div>
+                <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2 <?php if ($templateParams["azione"] == 1){echo "hide";}?>">Reset</button>
             </div>
             <div class="row mb-3">
                 <div class="col-md-0 mb-3">
@@ -54,13 +54,13 @@
                 </div>
                 <div class="col-md-4 mb-3 px-md-0">
                     <div class="col-md-1"></div>
-                    <a href="./inserisci_artista.php">
+                    <a href="./inserisci_artista.php" class="ml-md-3">
                         <button type="button" class="little-btn col-md-10 m-0 py-2"><p class="mb-0">L'artista non è presente?</p></button>
                     </a>
-                    <div class="col-md-1"></div>
                 </div>
+                <div class="col-12 col-md-4 text-center font-weight-bold"> <p class="artist_not_selected mb-0"> Utilizza i menù a tua disposizione! </p></div>
             </div>  
-            <div class="<?php if ($templateParams["azione"] == 1) {echo "artista_presente";} ?> mt-5">
+            <div class="artista_presente mt-5">
                 <div class="row">
                     <div class="col-md-5 mb-3">
                         <label for="nome">Nome Evento*</label>

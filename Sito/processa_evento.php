@@ -84,16 +84,11 @@ if($_POST["action"]==2){
     $dbh->deleteArtistiOnEvent($IDEvento);
     foreach($newartisti as $newartista){
         $id = $dbh->insertArtistiOnEvent(intval($newartista), $IDEvento);
-        if($id === false){
-            $msg = "Errore in inserimento!";
-            //header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg."&error=".$error);
-            //break;
-        }
     } 
 
     $msg = "Modifica completata correttamente!";
     $error='n';
-    //header("location: area_gestore.php?msg=".$msg."&error=".$error);
+    header("location: area_gestore.php?msg=".$msg."&error=".$error);
 }
 
 ?>

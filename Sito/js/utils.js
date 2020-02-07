@@ -48,6 +48,7 @@ function checkArtistiSelected(){
         $(".artista_presente").hide();
     } else {
         $(".artista_presente").show();
+        $(".artist_not_selected").hide();
     }
 }
 
@@ -122,7 +123,8 @@ $(document).ready(function(){
         }
     });
 
-    /*Gestione inserimento evento*/
+    /******************************** INSERIMENTO E MODIFICA EVENTO ******************************************/
+    /*Gestione inserimento artistix*/
     checkArtistiSelected();
     $("select[name='artisti_1']").change(function(){
         checkArtistiSelected();
@@ -130,20 +132,26 @@ $(document).ready(function(){
 
     /*Possibilità di associare più artisti ad un evento*/
     $(".reset hide").hide();
+    $(".artist_not_selected").hide();
     $(".more-artists").click(function(){
-        let c = $(".select_artisti").length + 1;
-        let html = `<div class="col-md-4 mb-3">
-                        <select name="artisti_${c}" class="form-control select_artisti" required>
-                            
-                        </select>
-                    </div>`;
-        let options = $("select[name='artisti_1'] option").clone();
-        $(".select_artisti").last().parent().after(html);
-        $(".select_artisti").last().append(options);
-        $(".select_artisti").last().val("none").attr('selected','selected');
+        if ($(".select_artisti").last().find(":selected").val() != "none"){
+            let c = $(".select_artisti").length + 1;
+            let html = `<div class="col-md-4 mb-3">
+                            <select name="artisti_${c}" class="form-control select_artisti" required>
+                                
+                            </select>
+                        </div>`;
+            let options = $("select[name='artisti_1'] option").clone();
+            $(".select_artisti").last().parent().after(html);
+            $(".select_artisti").last().append(options);
+            $(".select_artisti").last().val("none").attr('selected','selected');
 
-        if (c == 2){
-            $(".reset").show();
+            if (c == 2){
+                $(".reset").show();
+            }
+            $(".artist_not_selected").hide();
+        } else {
+            $(".artist_not_selected").show();
         }
     });
 
@@ -153,6 +161,7 @@ $(document).ready(function(){
         $(".select_artisti[name='artisti_1']").val(notselected);
         checkArtistiSelected();
         $(".reset").hide();
+        $(".artist_not_selected").hide();
     });
 
     /*Popola gli anni nell'inserimento e modifica evento*/
@@ -192,6 +201,7 @@ $(document).ready(function(){
         populateDays(monthSelect.find(":selected").val())
     });
 
+    /******************************** CARRELLO ******************************************/
     /*Gestione delle 4 attività del carrello*/;
     showChartSelectedContent();
 
@@ -283,7 +293,7 @@ $(document).ready(function(){
 
     /******************************** NOTIFICHE ******************************************/
     /* Gestisce la pressione del pulsante con cui le notifiche vengono dichiarate viste */
-    $(".click_nuove_notifiche").click(function(){
+   /* $(".click_nuove_notifiche").click(function(){
         $.post("./api-notifica-visualizzata.php",
         {
             IDNotificaPersonale: $(this).attr("data-IDNotificaPersonale")
@@ -292,7 +302,7 @@ $(document).ready(function(){
     });
 
     /* Utile per aggiornare le notifiche in tempo reale */
-    setInterval(function(){
+    /*setInterval(function(){
         $.getJSON("api-ottieni-info-nuove-notifiche.js", function(result){
             $.each(result, function(i, field){
                 
