@@ -19,7 +19,7 @@
                 <div class="col-4 col-md-7"> </div>
                 <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2 <?php if ($templateParams["azione"] == 1){echo "hide";}?>">Reset</button>
             </div>
-            <div class="row mb-3">
+            <div class="row mb-3" id="inserimento_artisti">
                 <div class="col-md-0 mb-3">
                 </div>
                 <?php if ($templateParams["azione"] == 1):?>
@@ -58,7 +58,8 @@
                         <button type="button" class="little-btn col-md-10 m-0 py-2"><p class="mb-0">L'artista non è presente?</p></button>
                     </a>
                 </div>
-                <div class="col-12 col-md-4 text-center font-weight-bold"> <p class="artist_not_selected mb-0"> Utilizza i menù a tua disposizione! </p></div>
+                <div class="col-12 artist_not_selected col-md-4 text-center font-weight-bold"> <p class="mb-0"> Utilizza i menù a tua disposizione! </p></div>
+                <div class="col-12 artist_already_selected col-md-4 text-center font-weight-bold"> <p class="mb-0"> Hai già selezionato questo artista! </p></div>
             </div>  
             <div class="artista_presente mt-5">
                 <div class="row">

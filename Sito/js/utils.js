@@ -126,6 +126,8 @@ $(document).ready(function(){
     /******************************** INSERIMENTO E MODIFICA EVENTO ******************************************/
     /*Gestione inserimento artistix*/
     checkArtistiSelected();
+
+    /*controlla che sia stato selezionato almeno un'artista*/
     $("select[name='artisti_1']").change(function(){
         checkArtistiSelected();
     });
@@ -133,8 +135,9 @@ $(document).ready(function(){
     /*Possibilità di associare più artisti ad un evento*/
     $(".reset hide").hide();
     $(".artist_not_selected").hide();
+    $(".artist_already_selected").hide();
     $(".more-artists").click(function(){
-        if ($(".select_artisti").last().find(":selected").val() != "none"){
+        if ($(".select_artisti").last().find(":selected").val() != notselected){
             let c = $(".select_artisti").length + 1;
             let html = `<div class="col-md-4 mb-3">
                             <select name="artisti_${c}" class="form-control select_artisti" required>
@@ -144,7 +147,7 @@ $(document).ready(function(){
             let options = $("select[name='artisti_1'] option").clone();
             $(".select_artisti").last().parent().after(html);
             $(".select_artisti").last().append(options);
-            $(".select_artisti").last().val("none").attr('selected','selected');
+            $(".select_artisti").last().val(notselected).attr('selected','selected');
 
             if (c == 2){
                 $(".reset").show();
@@ -162,6 +165,22 @@ $(document).ready(function(){
         checkArtistiSelected();
         $(".reset").hide();
         $(".artist_not_selected").hide();
+        $(".artist_already_selected").hide();
+    });
+
+    /*controlla che l'artista non sia già stato selezionato*/
+    $("#inserimento_artisti").on('change', '.select_artisti', function(){
+        let selezionati = new Array();
+        $(".select_artisti").each(function(){
+            selezionati.push($(this).find(":selected").val());
+        });
+        let dimensione = selezionati.length;
+        if ($.unique(selezionati).length < dimensione){
+            $(".artist_already_selected").show();
+            $(this).val(notselected);
+        } else {
+            $(".artist_already_selected").hide();
+        }
     });
 
     /*Popola gli anni nell'inserimento e modifica evento*/
