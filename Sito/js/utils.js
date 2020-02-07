@@ -268,8 +268,10 @@ $(document).ready(function(){
     });
 
     /*Inizializza i prezzi del carrello*/
-    let price = "€" + (parseFloat($(".ticket-price").text().substring(1))).toFixed(2);
-    $(".ticket-price").html(price);
+    $(".ticket-price").each(function(){
+        let price = "€" + (parseFloat($(this).text().substring(1))).toFixed(2);
+        $(this).html(price);
+    });
     updateEventTotal();
     updateChartTotal();
 

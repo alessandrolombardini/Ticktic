@@ -3,22 +3,33 @@
     <div class="row">
         <div class="col-1 col-md-2"></div>
         <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 shadow-sm">
-            <div class="row mb-0 mt-1">
-                <img class="col-md-4 mt-1 mt-md-0 col-12 mb-3 mb-md-0" src="./images/eventi/<?php echo $evento["ImmagineEvento"]?>" alt="IDAYS"/>
-                <div class="col-md-6 mt-1 mt-md-0 col-12">
-                    <h3 class="text-md-left text-center mb-3"> <?php echo $evento["NomeEvento"]?> </h3>
-                    <?php foreach($templateParams["artisti"][$evento["IDEvento"]] as $artista):?>
-                        <h4 class="text-md-left text-center mb-2"> <?php echo $artista["PseudonimoArtista"]?></h4>
-                    <?php endforeach ?>
-                    <div class="event-info text-md-left text-center">
-                        <p> <?php echo $evento["Luogo"]?> </p>
-                        <p> <?php echo $evento["DataEvento"]?> </p>
+            <div class="container">
+                <div class="row mb-0 mt-3 align-items-end">
+                    <img class="col-md-4 mt-1 mt-md-0 col-12 mb-3 mb-md-0" src="./images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="IDAYS"/>
+                    <div class="col-md-8 mt-md-0 col-12 ">
+                        <div class="row mb-0">
+                            <h5 class="col-12 text-md-left text-center mb-3"> <?php echo $evento["NomeEvento"];?> </h5>
+                            <h6 class="col-12 text-left mb-1"><?php foreach ($templateParams["artisti"][$evento["IDEvento"]] as $artista){
+                                $str = $artista["PseudonimoArtista"];
+                                if ($artista["IDArtista"] != end($templateParams["artisti"][$evento["IDEvento"]])["IDArtista"]){
+                                    $str.=" - ";
+                                }
+                                echo $str;
+                            }?></h6>
+                            <p class="col-12 event-info text-left mb-0"><?php echo $evento["Luogo"];?></p>
+                        </div>
+                        <div class="row mb-0 mt-md-1 align-items-end">
+                            <div class="col-md-6 text-md-left text-left mt-md-0 mb-0 col-12 mt-1">
+                                <p class="mb-0"> <?php echo substr($evento["DataEvento"], 0, -3);?></p>
+                            </div>
+                            <div class="col-md-3 mt-md-1 mb-0 col-6 mt-3">
+                            </div>
+                            <div class="col-md-3 text-md-right text-right align-text-bottom mt-md-0 mb-0 col-6 mt-3">
+                                <h5 class="mb-0 totale-evento-resume-<?php echo $evento["IDEvento"];?>"></h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row font-medium m-0 pb-0">
-                <p class="col-7 p-0 m-0"></p>
-                <p class="col-5 text-right p-0 m-0 font-weight-bold totale-evento-resume-<?php echo $evento["IDEvento"];?>"></p>
             </div>
         </div>
         <div class="col-1 col-md-2"></div>
