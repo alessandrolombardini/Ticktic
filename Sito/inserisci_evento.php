@@ -1,11 +1,18 @@
 <?php 
 require_once("./bootstrap.php");
+/****************************** Check permission **********************************/
+if(!isset($_SESSION["id"])){
+    header('Location: ./login.php');
+} else if(isset($_SESSION["id"]) && $_SESSION["autorizzazione"]!="ORGANIZZATORE"){
+    header('Location: ./page_not_allowed.php');
+}
+/**********************************************************************************/
 $templateParams["page_content"] = "./template/gestore/inserisci_evento_content.php";
 $templateParams["categorie"] = $dbh -> getCategories();
 $templateParams["artisti"] = $dbh -> getArtisti();
 $templateParams["azione"] = $_GET["action"];
 
-if (isset($_GET["id"])){
+if (isset($_GET["id"]) && !empty($_GET["id"])){
     $templateParams["evento"] = $dbh -> getEvent($_GET["id"]);
     $templateParams["artistiEvento"] = $dbh -> getArtistsFromEvent($_GET["id"]);
     $data = $templateParams["evento"]["DataEvento"];

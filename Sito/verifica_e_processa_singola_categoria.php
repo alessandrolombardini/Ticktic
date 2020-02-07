@@ -1,10 +1,16 @@
 <?php 
     require_once("./bootstrap.php");
-    if(isset($_GET["id"]) && isset($_GET["valutazione"]) && $_SESSION["autorizzazione"]=="AMMINISTRATORE"){
-        $dbh->aggiornaInformazioniCategoria($_GET["id"], $_GET["valutazione"]);   
-        require_once("./verifica_nuove_categorie.php"); 
-    } else {
-        require_once("./page_not_found.php");
+    /****************************** Check permission **********************************/
+    if(!isset($_SESSION["id"])){
+        header('Location: ./login.php');
+    } else if(isset($_SESSION["id"]) && $_SESSION["autorizzazione"]!="AMMINISTRATORE"){
+        header('Location: ./page_not_allowed.php');
     }
-    require_once("./template/base.php");
+    /**********************************************************************************/
+    if(isset($_GET["id"]) && isset($_GET["valutazione"]) && !empty($_GET["id"]) && !empty($_GET["valutazione"])){
+        $dbh->aggiornaInformazioniCategoria($_GET["id"], $_GET["valutazione"]);   
+        header('Location: ./verifica_nuove_categorie.php'); 
+    } else {
+        header('Location: ./page_something_goes_wrong.php');
+    }
 ?>

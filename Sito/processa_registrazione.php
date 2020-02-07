@@ -1,50 +1,42 @@
 <?php 
 require_once("./bootstrap.php");
-
-$nome = $_POST["nome"];
-$cognome = $_POST["cognome"];
-$email = $_POST["email"];
-$sesso = $_POST["sesso"];
-$password = $_POST["password"];
-$ripetipassword = $_POST["ripetipassword"];
-$datanascita = $_POST["data"];
-$indirizzo = $_POST["indirizzo"];
-$citta = $_POST["citta"];
-$cap = $_POST["CAP"];
-$inserimentoCorretto = false;
-/*
-var_dump($nome);
-var_dump($cognome);
-var_dump($email);
-var_dump($sesso);
-var_dump($password);
-var_dump($ripetipassword);
-var_dump($datanascita);
-var_dump($indirizzo);
-var_dump($citta);
-var_dump($cap);
-*/
-if(checkBaseParams($email, $sesso, $password, $ripetipassword, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta)){
-    if(!$dbh->controllaSeEsisteMailOrganizzatore($email) && !$dbh->controllaSeEsisteMailUtente($email)){
-        if($password == $ripetipassword){
-            /* Se devo aggiungere un utente */
-            if(!isset($_POST["gestore"])){
-                $dbh->inserisciNuovoUtente($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta);
-                $inserimentoCorretto = true;
-            }
-            /* Se devo aggiungere un gestore */
-            else {
-                $iban = $_POST["iban"];
-                if(checkOrganizzatoreParams($iban)){
-                    $dbh->inserisciNuovoOrganizzatore($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $iban);
+$inserimentoCorretto = false;   
+if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["email"]) && isset($_POST["sesso"]) && isset($_POST["password"]) && 
+   isset($_POST["ripetipassword"]) && isset($_POST["data"]) && isset($_POST["indirizzo"]) && isset($_POST["citta"]) && isset($_POST["CAP"])){
+    $nome = $_POST["nome"];
+    $cognome = $_POST["cognome"];
+    $email = $_POST["email"];
+    $sesso = $_POST["sesso"];
+    $password = $_POST["password"];
+    $ripetipassword = $_POST["ripetipassword"];
+    $datanascita = $_POST["data"];
+    $indirizzo = $_POST["indirizzo"];
+    $citta = $_POST["citta"];
+    $cap = $_POST["CAP"];
+    if(checkBaseParams($email, $sesso, $password, $ripetipassword, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta)){
+        if(!$dbh->controllaSeEsisteMailOrganizzatore($email) && !$dbh->controllaSeEsisteMailUtente($email)){
+            if($password == $ripetipassword){
+                /* Se devo aggiungere un utente */
+                if(!isset($_POST["gestore"])){
+                    $dbh->inserisciNuovoUtente($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta);
                     $inserimentoCorretto = true;
-                } 
+                }
+                /* Se devo aggiungere un gestore */
+                else {
+                    if(checkOrganizzatoreParams($_POST["iban"])){
+                        $iban = $_POST["iban"];
+                        $dbh->inserisciNuovoOrganizzatore($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $iban);
+                        $inserimentoCorretto = true;
+                    } 
+                }
+            } else {
+                $templateParams["msg"] = "La password non corrisponde";
             }
         } else {
-            $templateParams["msg"] = "La password non corrisponde";
+            $templateParams["msg"] = "Email già in uso";
         }
     } else {
-        $templateParams["msg"] = "Email già in uso";
+        $templateParams["msg"] = "Campi non completamente compilati";
     }
 } else {
     $templateParams["msg"] = "Campi non completamente compilati";
@@ -71,7 +63,7 @@ function checkBaseParams($email, $sesso, $password, $ripetipassword, $nome, $cog
 }
 
 function checkOrganizzatoreParams($iban){
-    return !empty($iban);
+    return isset($iban) && !empty($iban);
 }
 
 ?>

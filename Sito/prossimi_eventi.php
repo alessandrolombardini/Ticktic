@@ -1,4 +1,5 @@
-<?php require_once("./bootstrap.php");
+<?php 
+require_once("./bootstrap.php");
 $templateParams["page_content"] = "./template/gestore/prossimi_eventi_content.php";
 $templateParams["categorie"] = $dbh -> getCategories();
 $templateParams["artisti"] = $dbh -> getArtisti();
