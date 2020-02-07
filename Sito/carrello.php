@@ -1,5 +1,6 @@
 <?php
     require_once("bootstrap.php");  
+    
     /****************************** Check permission **********************************/
     if(!isset($_SESSION["id"])){
         header('Location: ./login.php');
@@ -7,6 +8,7 @@
         header('Location: ./page_not_allowed.php');
     }
     /**********************************************************************************/
+
     $templateParams["utente"] = $dbh -> getUtente($_SESSION["id"]);
     if (isset($_GET["deleteid"])){
         $dbh->rimuoviEventoDalCarrello($_GET["deleteid"], $_SESSION["id"]);

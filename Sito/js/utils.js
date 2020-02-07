@@ -4,6 +4,13 @@ notselected="none";
 /*selettore dei giorni nell'inserimento evento*/
 daySelect = $(".eventdate#day"); 
 
+/*Elimina gli elementi duplicati in un array di stringhe o numeri*/
+function unique(array){
+    return $.grep(array, function(el, index) {
+        return index == $.inArray(el, array);
+    });
+}
+
 /*Aggiorna i prezzi del carrello*/
 function updateChartPrices(){
     updateEventTotal();
@@ -155,6 +162,7 @@ $(document).ready(function(){
             $(".artist_not_selected").hide();
         } else {
             $(".artist_not_selected").show();
+            $(".artist_already_selected").hide();
         }
     });
 
@@ -175,11 +183,15 @@ $(document).ready(function(){
             selezionati.push($(this).find(":selected").val());
         });
         let dimensione = selezionati.length;
-        if ($.unique(selezionati).length < dimensione){
+        let unique = $.grep(selezionati, function(el, index) {
+            return index == $.inArray(el, selezionati);
+        });
+        if (unique.length < dimensione){
             $(".artist_already_selected").show();
             $(this).val(notselected);
         } else {
             $(".artist_already_selected").hide();
+            $(".artist_not_selected").hide();
         }
     });
 
@@ -268,7 +280,7 @@ $(document).ready(function(){
         if(number < 8){
             number++;
             $(ticketkind).find("p.tickets-number").text(number);
-            $(ticketkind).children("hidden").attr("value", number)
+            $(ticketkind).find("input[type='hidden']").attr("value", number)
             updateChartPrices();
         } else {
             ;
@@ -282,7 +294,7 @@ $(document).ready(function(){
         if(number > 1){
             number--;
             $(ticketkind).find("p.tickets-number").text(number);
-            $(ticketkind).children("hidden").attr("value", number)
+            $(ticketkind).find("input[type='hidden']").attr("value", number)
             updateChartPrices();
         } else {
             ;

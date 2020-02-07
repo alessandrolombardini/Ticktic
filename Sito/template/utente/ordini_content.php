@@ -56,7 +56,7 @@
         <?php endforeach ?>
         <div class="row mb-0 mt-0">
             <div class="col-12 col-md-7 text-right text-md-left mb-0 mt-1 pr-md-3">
-                <p class= "mb-0"> Spedizione € <?php echo $ordine["Spedizione"];?> </p>
+                <p class= "mb-0 pl-md-3"> Spedizione € <?php echo $ordine["Spedizione"];?> </p>
             </div>
             <div class="col-12 col-md-5 text-right mb-0 pr-md-3 color-purple">
                 <h4>€ <?php echo $ordine["TotaleSpesa"];?> </h4>
