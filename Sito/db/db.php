@@ -61,6 +61,8 @@
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii', $IDArtista, $IDEvento);
         $stmt->execute();
+
+        var_dump($this->getArtistsFromEvent($IDEvento));
         return $stmt->insert_id;
     }
 

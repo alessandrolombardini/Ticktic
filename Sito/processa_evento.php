@@ -72,17 +72,15 @@ if($_POST["action"]==2){
         array_push($newartisti, $_POST["artisti_".$count]);
         $count++;
     }
-    var_dump($newartisti);
    
     $dbh->updateEvent($luogo, $numeroPosti, $prezzoBiglietto, $img, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento);
     $dbh->deleteArtistiOnEvent($IDEvento);
     foreach($newartisti as $newartista){
         $id = $dbh->insertArtistiOnEvent(intval($newartista), $IDEvento);
-        var_dump($newartista);
-        if($id == false){
+        if($id === false){
             $msg = "Errore in inserimento!";
             //header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg."&error=".$error);
-            break;
+            //break;
         }
     } 
 
