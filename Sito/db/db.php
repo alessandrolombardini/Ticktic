@@ -355,8 +355,8 @@
 
     /********************************************************************************************************************** */
     /* Notifiche */
-
-    public function ottieniNotificheVisteByIDPersona($idPersona){
+    
+    public function ottieniNotificheVisteByIDUtente($idUtente){
         $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica, 
                                            ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore, 
                                            AMMINISTRATORE.Nome, AMMINISTRATORE.Cognome, AMMINISTRATORE.IDAmministratore,
@@ -366,18 +366,52 @@
                                                   LEFT JOIN EVENTO ON NOTIFICA.IDEvento = EVENTO.IDEvento
                                                   LEFT JOIN AMMINISTRATORE ON NOTIFICA.IDAmministratore = AMMINISTRATORE.IDAmministratore
                                                   LEFT JOIN ORGANIZZATORE ON NOTIFICA.IDOrganizzatore = ORGANIZZATORE.IDOrganizzatore
-                                    WHERE (NOTIFICA_PERSONALE.IDOrganizzatore = ? OR
-                                           NOTIFICA_PERSONALE.IDUtente = ? OR
-                                           NOTIFICA_PERSONALE.IDAmministratore = ?)
+                                    WHERE NOTIFICA_PERSONALE.IDUtente = ?
                                            AND NOTIFICA_PERSONALE.VisualizzataSN = 's'
                                     ORDER BY NOTIFICA.DataNotifica DESC");
-        $stmt->bind_param('iii', $idPersona, $idPersona, $idPersona);
+        $stmt->bind_param('i', $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function ottieniNotificheVisteByIDOrganizzatore($idOrganizzatore){
+        $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica, 
+                                           ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore, 
+                                           AMMINISTRATORE.Nome, AMMINISTRATORE.Cognome, AMMINISTRATORE.IDAmministratore,
+                                           EVENTO.IDEvento, EVENTO.NomeEvento, EVENTO.DataEvento,
+                                           NOTIFICA_PERSONALE.IDNotificaPersonale
+                                    FROM NOTIFICA INNER JOIN NOTIFICA_PERSONALE ON NOTIFICA.IDNotifica = NOTIFICA_PERSONALE.IDNotifica	
+                                                  LEFT JOIN EVENTO ON NOTIFICA.IDEvento = EVENTO.IDEvento
+                                                  LEFT JOIN AMMINISTRATORE ON NOTIFICA.IDAmministratore = AMMINISTRATORE.IDAmministratore
+                                                  LEFT JOIN ORGANIZZATORE ON NOTIFICA.IDOrganizzatore = ORGANIZZATORE.IDOrganizzatore
+                                    WHERE  NOTIFICA_PERSONALE.IDOrganizzatore = ?
+                                           AND NOTIFICA_PERSONALE.VisualizzataSN = 's'
+                                    ORDER BY NOTIFICA.DataNotifica DESC");
+        $stmt->bind_param('i', $idOrganizzatore);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function ottieniNotificheVisteByIDAmministratore($idAmministratore){
+        $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica, 
+                                           ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore, 
+                                           AMMINISTRATORE.Nome, AMMINISTRATORE.Cognome, AMMINISTRATORE.IDAmministratore,
+                                           EVENTO.IDEvento, EVENTO.NomeEvento, EVENTO.DataEvento,
+                                           NOTIFICA_PERSONALE.IDNotificaPersonale
+                                    FROM NOTIFICA INNER JOIN NOTIFICA_PERSONALE ON NOTIFICA.IDNotifica = NOTIFICA_PERSONALE.IDNotifica	
+                                                  LEFT JOIN EVENTO ON NOTIFICA.IDEvento = EVENTO.IDEvento
+                                                  LEFT JOIN AMMINISTRATORE ON NOTIFICA.IDAmministratore = AMMINISTRATORE.IDAmministratore
+                                                  LEFT JOIN ORGANIZZATORE ON NOTIFICA.IDOrganizzatore = ORGANIZZATORE.IDOrganizzatore
+                                    WHERE  NOTIFICA_PERSONALE.IDAmministratore = ?
+                                           AND NOTIFICA_PERSONALE.VisualizzataSN = 's'
+                                    ORDER BY NOTIFICA.DataNotifica DESC");
+        $stmt->bind_param('i', $idAmministratore);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function ottieniNotificheNonVisteByIDPersona($idPersona){
+    public function ottieniNotificheNonVisteByIDUtente($idUtente){
         $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica, 
                                            ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore,
                                            AMMINISTRATORE.Nome, AMMINISTRATORE.Cognome, AMMINISTRATORE.IDAmministratore,
@@ -387,12 +421,48 @@
                                                   LEFT JOIN EVENTO ON NOTIFICA.IDEvento = EVENTO.IDEvento
                                                   LEFT JOIN AMMINISTRATORE ON NOTIFICA.IDAmministratore = AMMINISTRATORE.IDAmministratore
                                                   LEFT JOIN ORGANIZZATORE ON NOTIFICA.IDOrganizzatore = ORGANIZZATORE.IDOrganizzatore
-                                    WHERE (NOTIFICA_PERSONALE.IDOrganizzatore = ? OR
-                                           NOTIFICA_PERSONALE.IDUtente = ? OR
-                                           NOTIFICA_PERSONALE.IDAmministratore = ?)
+                                    WHERE  NOTIFICA_PERSONALE.IDUtente = ?
                                            AND NOTIFICA_PERSONALE.VisualizzataSN = 'n'
                                     ORDER BY NOTIFICA.DataNotifica DESC");
-        $stmt->bind_param('iii', $idPersona, $idPersona, $idPersona);
+        $stmt->bind_param('i', $idUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function ottieniNotificheNonVisteByIDOrganizzatore($idOrganizzatore){
+        $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica, 
+                                           ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore,
+                                           AMMINISTRATORE.Nome, AMMINISTRATORE.Cognome, AMMINISTRATORE.IDAmministratore,
+                                           EVENTO.IDEvento, EVENTO.NomeEvento, EVENTO.DataEvento,
+                                           NOTIFICA_PERSONALE.IDNotificaPersonale
+                                    FROM NOTIFICA INNER JOIN NOTIFICA_PERSONALE ON NOTIFICA.IDNotifica = NOTIFICA_PERSONALE.IDNotifica	
+                                                  LEFT JOIN EVENTO ON NOTIFICA.IDEvento = EVENTO.IDEvento
+                                                  LEFT JOIN AMMINISTRATORE ON NOTIFICA.IDAmministratore = AMMINISTRATORE.IDAmministratore
+                                                  LEFT JOIN ORGANIZZATORE ON NOTIFICA.IDOrganizzatore = ORGANIZZATORE.IDOrganizzatore
+                                    WHERE NOTIFICA_PERSONALE.IDOrganizzatore = ? 
+                                           AND NOTIFICA_PERSONALE.VisualizzataSN = 'n'
+                                    ORDER BY NOTIFICA.DataNotifica DESC");
+        $stmt->bind_param('i', $idOrganizzatore);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function ottieniNotificheNonVisteByIDAmministratore($idAmministratore){
+        $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica, 
+                                           ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore,
+                                           AMMINISTRATORE.Nome, AMMINISTRATORE.Cognome, AMMINISTRATORE.IDAmministratore,
+                                           EVENTO.IDEvento, EVENTO.NomeEvento, EVENTO.DataEvento,
+                                           NOTIFICA_PERSONALE.IDNotificaPersonale
+                                    FROM NOTIFICA INNER JOIN NOTIFICA_PERSONALE ON NOTIFICA.IDNotifica = NOTIFICA_PERSONALE.IDNotifica	
+                                                  LEFT JOIN EVENTO ON NOTIFICA.IDEvento = EVENTO.IDEvento
+                                                  LEFT JOIN AMMINISTRATORE ON NOTIFICA.IDAmministratore = AMMINISTRATORE.IDAmministratore
+                                                  LEFT JOIN ORGANIZZATORE ON NOTIFICA.IDOrganizzatore = ORGANIZZATORE.IDOrganizzatore
+                                    WHERE  NOTIFICA_PERSONALE.IDAmministratore = ?
+                                           AND NOTIFICA_PERSONALE.VisualizzataSN = 'n'
+                                    ORDER BY NOTIFICA.DataNotifica DESC");
+        $stmt->bind_param('i', $idAmministratore);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

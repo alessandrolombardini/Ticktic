@@ -112,6 +112,7 @@ footer, header {
     background-color: black;
 }
 
+
 /*------------------- HEADER & MAIN NAV -----------------*/
 #nav-logo {
     height: 2em;
@@ -306,6 +307,29 @@ hr{
 }
 
 .error-template {margin-top: 5%; margin-bottom: 5%;}
+
+.icona-destra {
+    font-size: 150%;
+}
+
+html, body {
+    height: 100%;
+}
+#container {
+    min-height: 100%;
+}
+
+main{
+    padding-bottom: 500px;
+}
+footer{
+    height: 500px;
+    position: relative;
+    margin-top: -500px;
+    clear:both;
+}
+
+
 
 @media screen and (min-width: 768px) {
     .updateeventimg {

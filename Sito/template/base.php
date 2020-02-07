@@ -25,7 +25,7 @@
                     <span class="fa fa-bars"></span>
                 </button> -->
                 <button onclick="openNav()" class="navbar-toggler border-0 text-light">
-                    <span  class="fa fa-bars"></span>
+                    <span  class="fa fa-bars icona-destra"></span>
                 </button>
                 <!-- Navbar Logo -->
                 <a class="navbar-brand py-0 ml-3 float-center" href="./index.php">
@@ -44,14 +44,14 @@
                 <!-- Navbar Right Side-->
                 <ul class="navbar nav align-items-center ml-0 float-right">
                     <li class="nav-item  mx-2">
-                        <a class="nav-link text-light px-0" href="carrello.php">
-                            <i class="fa fa-shopping-cart"></i>  
-                        </a>
+                        <a class="nav-link text-light px-0 icona-destra" href="nuove_notifiche.php">
+                            <i class="fas fa-bell campanella"></i>
+                        </a> 
                     </li>
                     <li class="nav-item  mx-2">
-                        <a class="nav-link text-light px-0" href="nuove_notifiche.php">
-                            <i class="fas fa-bell"></i>
-                        </a> 
+                        <a class="nav-link text-light px-0 icona-destra" href="carrello.php">
+                            <i class="fa fa-shopping-cart"></i>  
+                        </a>
                     </li>
                 </ul> 
             </nav>
@@ -92,16 +92,17 @@
 
 
         </header>
-        <main>
-        
-            <!-- Main content of the page -->
-            <?php
-                if(isset($templateParams["page_content"])){
-                    require($templateParams["page_content"]);
-                }
-            ?>
+        <div id="container">
+            <main>
+                <!-- Main content of the page -->
+                <?php
+                    if(isset($templateParams["page_content"])){
+                        require($templateParams["page_content"]);
+                    }
+                ?>
 
-        </main>
+            </main>
+        </div>
         <div class="row">
             <div class="col-12">
                 <footer class="py-3 text-white">

@@ -3,6 +3,7 @@
   <div class="col-10">
     <div class="row mb-3 mt-5">
         <h3 class="col-8 col-md-7">Nuove notifiche</h3>
+        <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="storico_notifiche.php"> Vai allo storico notifiche </a>
     </div>
     <hr/>
     <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"):?>

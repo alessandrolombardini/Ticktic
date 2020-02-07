@@ -325,23 +325,32 @@ $(document).ready(function(){
     });
 
     /******************************** NOTIFICHE ******************************************/
+    aggiornaCampanella();
+
     /* Gestisce la pressione del pulsante con cui le notifiche vengono dichiarate viste */
-   /* $(".click_nuove_notifiche").click(function(){
+    $(".click_nuove_notifiche").click(function(){
         $.post("./api-notifica-visualizzata.php",
         {
             IDNotificaPersonale: $(this).attr("data-IDNotificaPersonale")
         });
         $(this).parent().parent().parent().parent().remove();
+        aggiornaCampanella();
     });
 
     /* Utile per aggiornare le notifiche in tempo reale */
-    /*setInterval(function(){
-        $.getJSON("api-ottieni-info-nuove-notifiche.js", function(result){
+    setInterval(aggiornaCampanella, 3000);
+
+    function aggiornaCampanella(){
+        $.getJSON("api-info-notifiche-non-viste.php", function(result){
             $.each(result, function(i, field){
-                
+                if(field=="true"){
+                    $(".campanella").css("color","rgb(103,99,214)");
+                } else {
+                    $(".campanella").css("color","white");
+                }   
             });
         });
-    }, 3000);
+    }
 
     /*********************************************************************************** */
 
