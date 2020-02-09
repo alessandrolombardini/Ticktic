@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once("./bootstrap.php");
 /****************************** Check permission **********************************/
 if(!isset($_SESSION["id"])){
@@ -25,19 +25,21 @@ if(isset($_POST["titolo"]) && isset($_POST["testo"]) && isset($_POST["destinazio
         }
     } else {
         $templateParams["msg"]="Compila correttamente i campi!";
-    }   
+    }
 } else {
     $templateParams["msg"]="Compila correttamente i campi!";
 }
 
 if($inserimentoCorretto == true){
-    require_once("./area_amministratore.php");
-} else { 
-    require_once("./crea_notifica_amministratore.php");
+    $templateParams["msg"] = "Notifica inserita correttamente";
+    $templateParams["error"] = 'n';
+} else {
+      $templateParams["msg"] = "Errore: notifica non inserita.";
+      $templateParams["error"] = 's';
 }
-
+require_once("./crea_notifica_amministratore.php");
 function checkBaseParams($titolo, $testo, $destinazione){
-    return !empty($titolo) 
+    return !empty($titolo)
            && !empty($testo)
            && ($destinazione == "utenti" || $destinazione == "organizzatori" || $destinazione == "tutti");
 }

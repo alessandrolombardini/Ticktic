@@ -4,8 +4,7 @@
             <div class="col-1 col-md-2"></div>
             <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 mr-0 ">
                 <div class="error-template text-center">
-                    <h1>Oops!</h1>
-                    <p class="h5 pt-4">Il carrello è vuoto!</p>
+                    <p class="h5 pt-4">Il carrello è vuoto</p>
                 </div>
             </div>
             <div class="col-1 col-md-2"></div>
@@ -39,19 +38,19 @@
         <div class="chart-content">
             <div id="chart-index" class="selected">
                 <?php require("carrello/carrello_index_content.php");?>
-            </div> 
+            </div>
 
             <div id="chart-delivery">
                 <?php require("carrello/carrello_delivery_content.php");?>
-            </div> 
+            </div>
 
             <div id="chart-payment">
                 <?php require("carrello/carrello_payment_content.php");?>
-            </div> 
+            </div>
 
             <div id="chart-resume">
                 <?php require("carrello/carrello_resume_content.php");?>
-            </div> 
+            </div>
         </div>
     </form>
     <?php endif ?>

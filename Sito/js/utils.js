@@ -2,7 +2,7 @@
 notselected="none";
 
 /*selettore dei giorni nell'inserimento evento*/
-daySelect = $(".eventdate#day"); 
+daySelect = $(".eventdate#day");
 
 /*Elimina gli elementi duplicati in un array di stringhe o numeri*/
 function unique(array){
@@ -69,7 +69,7 @@ function populateDays($month){
     if ($month=="11" || $month=="04" || $month=="09" || $month=="06"){
         max = 30;
     } else if ($month=="02"){
-        let year = $(".eventdate#year :selected").text(); 
+        let year = $(".eventdate#year :selected").text();
         if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)){
             max = 29;
         } else {
@@ -92,11 +92,11 @@ function populateDays($month){
 function openNav() {
     document.getElementById("nav").style.width = "90%";
 }
-    
+
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
     document.getElementById("nav").style.width = "0%";
-} 
+}
 
 /*Torna indietro nelle pagine del carrello*/
 function chartChangePageBack(){
@@ -148,7 +148,7 @@ $(document).ready(function(){
             let c = $(".select_artisti").length + 1;
             let html = `<div class="col-md-4 mb-3">
                             <select name="artisti_${c}" class="form-control select_artisti" required>
-                                
+
                             </select>
                         </div>`;
             let options = $("select[name='artisti_1'] option").clone();
@@ -198,7 +198,7 @@ $(document).ready(function(){
     /*Popola gli anni nell'inserimento e modifica evento*/
     let date = new Date();
     let year = date.getFullYear();
-    let yearSelect = $(".eventdate#year"); 
+    let yearSelect = $(".eventdate#year");
     let selectedyear = year;
     if ($(".eventdate#year").hasClass("updateevent")){
         selectedyear = $(".eventdate#year").text();
@@ -218,7 +218,7 @@ $(document).ready(function(){
         day = $(".eventdate#day").text();
         if (day.substring(0,1) == 0){
             day = day.substring(1,2);
-        } 
+        }
     }
     populateDays(monthSelect.find(":selected").val());
     $(".eventdate#day").find('option[value="' + day + '"]').attr('selected','selected');
@@ -241,7 +241,7 @@ $(document).ready(function(){
         let selezionato = $(".chart-content").children(".selected");
         $(selezionato).removeClass("selected");
         $(selezionato).next().addClass("selected");
-        
+
         let progress = $(".chart-progress").children();
         let purple = $(progress[0]).find(".color-purple");
         $(purple).removeClass("color-purple");
@@ -313,11 +313,11 @@ $(document).ready(function(){
         $(this).after("<input type='hidden' name='totale-spesa' value=" + totalespesa + "/>");
     });
 
-    
+
     $(".btn_aggiungi_al_carrello").click(function(){
         const IDEvento = $(".contenitoreID").attr("data-idevento");
         const numeroBiglietti = $(".tickets-number").html();
-        $.post("processa_aggiungi_evento_al_carrello.php", 
+        $.post("processa_aggiungi_evento_al_carrello.php",
         {
             numeroBiglietti: numeroBiglietti,
             IDEvento: IDEvento
@@ -339,6 +339,60 @@ $(document).ready(function(){
 
     /* Utile per aggiornare le notifiche in tempo reale */
     setInterval(aggiornaCampanella, 3000);
+    setInterval(aggiornaNuoveNotifiche, 3000);
+
+    function aggiornaNuoveNotifiche(){
+      const path = window.location.pathname;
+      const page = path.split("/").pop();
+      if(page == "nuove_notifiche.php"){
+        $.post("api-tutte-le-nuove-notifiche.php",
+        {
+          dataAggiornamento: $(".dataPerNotifiche").attr("data-dataAggiornamento")
+        },
+        function(result){
+          if(result!=""){
+              const array = JSON.parse(result);
+              const item =array[0][0];
+              let notifica =
+              '<div class="col-12 col-md-6 col-xl-4">' +
+              '<div class="notifica">' +
+              '<div class="roundend-corners col-md-12 bg-white border mt-2 mb-4 px-4 py-3 shadow-sm">' +
+              '<div class="row m-0 p-0 d-block float-right">' +
+              '<a data-IDNotificaPersonale=' + item["IDNotificaPersonale"] + ' class="text-right m-0 p-0 click_nuove_notifiche pointer"><i class="fas fa-times color-purple fa-2x"></i></a>' +
+              '</div>' +
+              '<div class="mt-1 mt-md-0">' +
+              '<section>' +
+              '<h4 class="text-left mb-3">'+item["TitoloNotifica"]+'</h4>' +
+              '<div class="text-left">' +
+              '<p>' + item["TestoNotifica"] + '</p>';
+              if(item["IDOrganizzatore"]!=null){
+                notifica += '<p class="small">Pubblicato da '+ item["Nome"] + ' ' + item["Cognome"] + '(ORGANIZZATORE) il ' + item["DataNotifica"] + '</p>'
+                if(item["IDEvento"]){
+                  notifica+='<p class="small">In merito all\'evento '+ item["NomeEvento"]+'(In data '+item["DataEvento"]+'</p>';
+                  notifica+='<div class="text-right"><a href="./evento.php?IDEvento='+item["idevento"]+'>Apri evento</a></div>';
+                }
+              }
+
+              if(item["IDAmministratore"]!=null){
+                notifica += '<p class="small">Pubblicato da '+ item["Nome"] + ' ' + item["Cognome"] + '(AMMINISTRATORE) il ' + item["DataNotifica"] + '</p>'
+              }
+
+              notifica +=
+              '</div>' +
+              '</section>' +
+              '</div>' +
+              '</div>' +
+              '</div>' +
+              '</div>';
+
+              $("div.dataPerNotifiche").prepend(notifica);
+              $("div.dataPerNotifiche").attr("data-dataAggiornamento", array[1]);
+
+          }
+        });
+
+      }
+    }
 
     function aggiornaCampanella(){
         $.getJSON("api-info-notifiche-non-viste.php", function(result){
@@ -347,13 +401,34 @@ $(document).ready(function(){
                     $(".campanella").css("color","rgb(103,99,214)");
                 } else {
                     $(".campanella").css("color","white");
-                }   
+                }
             });
         });
     }
 
     /*********************************************************************************** */
-
+    /* Check immagine di input */
+    var _URL = window.URL || window.webkitURL;
+    $("input[name='eventimg']").change( function(e) {
+        var file, img;
+        if ((file = this.files[0])) {
+            if(file['type'].split('/')[0] !== 'image'){
+              alert("File non idoneo: non è una immagine");
+              $("input[name='eventimg']").val("");
+            }
+            img = new Image();
+            var objectUrl = _URL.createObjectURL(file);
+            img.onload = function () {
+              if(this.width/this.height != 1){
+                alert("File non idoneo: accettate solo imagini con rapporto 1");
+                $("input[name='eventimg']").val("");
+              }
+              /*alert(this.width + " " + this.height); */
+              _URL.revokeObjectURL(objectUrl);
+            };
+            img.src = objectUrl;
+        }
+    });
     /************************************ CUORE ******************************** */
 
     $(".cuore-pieno").click(svuotaCuore);
@@ -366,7 +441,7 @@ $(document).ready(function(){
         $(this).removeClass('fas');
         $(this).addClass('far');
         $(this).addClass('cuore-vuoto');
-        $.post("./processa_interessati_rimuovi_evento.php", 
+        $.post("./processa_interessati_rimuovi_evento.php",
         {
             IDEvento: IDEvento
         });
@@ -379,7 +454,7 @@ $(document).ready(function(){
         $(this).removeClass('far');
         $(this).addClass('fas');
         $(this).addClass('cuore-pieno');
-        $.post("./processa_interessati_aggiungi_evento.php", 
+        $.post("./processa_interessati_aggiungi_evento.php",
         {
             IDEvento: IDEvento
         });
@@ -399,11 +474,11 @@ $(document).ready(function(){
             $(this).removeClass('cuore-pieno');
             $(this).removeClass('fas');
             $(this).addClass('far');
-            $(this).addClass('cuore-vuoto');        
+            $(this).addClass('cuore-vuoto');
         }
     });*/
     /******************************************************************************* */
-    
+
 
     /* Dropdown button */
     $(".dropdown-btn").click(function() {

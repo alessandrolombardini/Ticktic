@@ -7,7 +7,10 @@
     </div>
     <hr/>
     <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"):?>
-        <p class="col-8 mb-3"> <?php echo $templateParams["msg"] ?> </p> 
+      <div class="row">
+          <p class="col-12 my-2
+          <?php if($templateParams["error"] == 's'){echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
+      </div>
     <?php endif?>
     <div class="container">
       <form action="./processa_registrazione.php" method="POST">
@@ -21,7 +24,7 @@
             <input type="text" class="form-control" id="cognome" name="cognome" required/>
           </div>
         </div>
-        <div class="mb-3"> 
+        <div class="mb-3">
           <label for="email">Email</label>
           <input type="email" class="form-control" name="email" required/>
         </div>
@@ -32,7 +35,7 @@
           </div>
           <div class="col-md-6 mb-3">
             <label for="data">Data di nascita</label>
-            <input type="date" class="form-control" name="data" id="data" required/> 
+            <input type="date" class="form-control" name="data" id="data" required/>
           </div>
         </div>
         <div class="row">
@@ -70,7 +73,7 @@
             <input type="password" maxlength="16" class="form-control" id="ripetipassword" name="ripetipassword" required/>
           </div>
         </div>
-        <div class="mb-3"> 
+        <div class="mb-3">
           <label for="gestore"><input type="checkbox" name="gestore"> Richiedi abilitazione come gestore</input></label>
         </div>
         <div class="areagestore mb-3">
@@ -85,4 +88,3 @@
   </div>
   <div class="col-1"></div>
 </div>
-

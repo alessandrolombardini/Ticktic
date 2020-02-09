@@ -3,7 +3,7 @@ require_once("./bootstrap.php");
 /****************************** Check permission **********************************/
 if(isset($_SESSION["id"])){
     header('Location: ./homepage.php');
-} 
+}
 /**********************************************************************************/
 if (isset($_POST["email"]) && isset($_POST["password"])){
     $email = $_POST["email"];
@@ -30,10 +30,11 @@ if (isset($_POST["email"]) && isset($_POST["password"])){
     }else{
         /* Non è registrato -> mostrare interfaccia di login con errore */
         $_SESSION["autorizzazione"]="NON LOGGATO";
-        $templateParams["loginErrorMessage"]="Accesso negato, credenziali sconosciute!";
+        $templateParams["msg"]="Accesso negato, credenziali sconosciute!";
     }
 } else {
-    $templateParams["loginErrorMessage"]="Inserisci email e password!";
+    $templateParams["msg"]="Inserisci email e password!";
 }
+$templateParams["error"]="s";
 require_once("./login.php");
 ?>

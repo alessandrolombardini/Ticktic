@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once("bootstrap.php");
 /****************************** Check permission **********************************/
 if(!isset($_SESSION["id"])){
@@ -8,7 +8,7 @@ if(!isset($_SESSION["id"])){
 }
 /**********************************************************************************/
 $templateParams["page_content"] = "./template/gestore/area_gestore_content.php";
-$templateParams["nuoveNotifiche"] = $dbh->checkNuoveNotifiche(/*$_SESSION["id]*/"1");
+$templateParams["nuoveNotifiche"] = $dbh-> checkNuoveNotificheOrganizzatore(/*$_SESSION["id]*/"1");
 if (isset($_GET["msg"])){
     $templateParams["msg"] = $_GET["msg"];
 }

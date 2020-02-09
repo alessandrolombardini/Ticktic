@@ -8,11 +8,11 @@
             <div class="col-md-7 col-12">
                 <section>
                     <h3><?php echo $templateParams["informazioniEvento"]["NomeEvento"] ?></h3>
-                    <p><?php foreach($templateParams["artisti"] as $artista){ echo $artista["Pseudonimo"]; }?></p> 
+                    <p><?php foreach($templateParams["artisti"] as $artista){ echo $artista["PseudonimoArtista"]; }?></p>
                     <p><?php echo $templateParams["informazioniEvento"]["DescrizioneEvento"] ?></p>
-                    <p><?php echo $templateParams["informazioniEvento"]["Luogo"] ?></p> 
+                    <p><?php echo $templateParams["informazioniEvento"]["Luogo"] ?></p>
                     <p><?php echo $templateParams["informazioniEvento"]["DataEvento"] ?></p>
-                </section>  
+                </section>
                 <hr/>
             </div>
         </div>
@@ -27,7 +27,7 @@
                 <i class="col-1 fas fa-plus-circle fa-2x pl-0 text-left cursor-pointer"></i>
                 <div class="col-1"></div>
             </div>
-            
+
             <hr />
             <div class="row mb-3">
                 <p class="col-9 col-md-10 text-right pr-4 font-weight-bold"> Totale parziale   </p>
@@ -36,7 +36,7 @@
             </div>
             <div class="row mb-3">
                 <div class="col-12 col-md-12">
-                    <div class="form-group text-center">          
+                    <div class="form-group text-center">
                         <a href="./evento.php?IDEvento=<?php echo $templateParams["informazioniEvento"]["IDEvento"] ?>"><button type="button" class="purple-btn col-10 shadow-sm p-3 mt-4 rounded-pill btn_aggiungi_al_carrello" id="declinaBtn">Aggiungi al carrello</button></a>
                     </div>
                 </div>

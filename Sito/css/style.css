@@ -128,7 +128,7 @@ footer, header {
 
 /* The Overlay (background) */
 .overlay {
-  /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
     height: 100%;
     width: 0;
     position: fixed; /* Stay in place */
@@ -176,7 +176,7 @@ footer, header {
     right: 5%;
     font-size: 3.5em;
 }
-    
+
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
     display: none;
@@ -187,10 +187,10 @@ footer, header {
 /*----------------------------------------------------*/
 
 #homepage-image{
-    box-sizing:border-box; 
-    height: 70vh; 
+    box-sizing:border-box;
+    height: 70vh;
     background-image: url('../images/background_homepage.png');
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
 }
 
@@ -234,7 +234,7 @@ hr{
     margin : 2% 0;
 }
 
-#chart{
+#chart, {
     font-size: 0.8rem;
     letter-spacing: 0.1rem;
 }
@@ -258,7 +258,7 @@ hr{
     margin-bottom: 0;
 }
 
-.error-msg{
+/*.error-msg{
     background-color:white;
     letter-spacing:0.1rem;
     font-size: 1.2rem;
@@ -268,12 +268,29 @@ hr{
     color:red;
     border-radius: 2px;
     border: red 2px solid;
-}
+}*/
 
+/*
 .msg{
     letter-spacing:0.1rem;
     font-size: 1.2rem;
     font-weight: bolder;
+}*/
+
+.error-msg {
+  border: 1px solid darkred;
+  color: darkred;
+  padding: 1%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.good-msg {
+  border: 1px solid darkgreen;
+  color: darkgreen;
+  padding: 1%;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 /* Tutti i paragrami date degli eventi */
