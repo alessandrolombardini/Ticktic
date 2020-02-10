@@ -4,7 +4,7 @@
         <div class="row mb-3 mt-5">
             <h3 class="col-8 col-md-7"><?php if ($templateParams["azione"] == 1){echo "Inserisci Evento";}?>
             <?php if ($templateParams["azione"] == 2){ echo "Modifica Evento";}?></h3>
-            <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Annulla </a>
+            <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="javascript:history.back()"> Annulla </a>
         </div>
         <hr/>
         <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"):?>
@@ -17,7 +17,7 @@
             <div class="row mb-2">
                 <h4 class="col-md-4 col-3"> Artisti </h4>
                 <div class="col-4 col-md-7"> </div>
-                <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2 <?php if ($templateParams["azione"] == 1){echo "hide";}?>">Reset</button>
+                <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2"><p class="<?php if ($templateParams["azione"] == 1) {echo "hide";}?> m-0 p-0">Reset</p></button>
             </div>
             <div class="row mb-3" id="inserimento_artisti">
                 <div class="col-md-0 mb-3">

@@ -80,11 +80,13 @@ if($_POST["action"]==2){
         $count++;
     }
    
-    $dbh->updateEvent($luogo, $numeroPosti, $prezzoBiglietto, $img, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento);
+    $dbh->updateEvent($luogo, $numeroPosti, $prezzoBiglietto, $img, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore);
     $dbh->deleteArtistiOnEvent($IDEvento);
     foreach($newartisti as $newartista){
         $id = $dbh->insertArtistiOnEvent(intval($newartista), $IDEvento);
-    } 
+    }
+    $IDNotifica = $dbh -> inserisciNotificaOrganizzatore("MODIFICA", "L'organizzatore dell'evento lo ha modificato, controlla pagina dell'evento per ulteriori informazioni.", $IDOrganizzatore, $IDEvento);
+    $dbh->pubblicaNotificaATuttiGliUtentiDiUnEvento($IDNotifica, $IDEvento);
 
     $msg = "Modifica completata correttamente!";
     $error='n';

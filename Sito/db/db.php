@@ -28,8 +28,9 @@
     }
 
     public function getEvent($id){
-        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE IDEvento = ?");
-        $stmt->bind_param('i', $id);
+        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE IDEvento = ? AND EliminatoSN = ?");
+        $eliminato = 'n';
+        $stmt->bind_param('is', $id, $eliminato);
         $stmt->execute();
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
@@ -70,7 +71,7 @@
         $queryartista = "DELETE FROM ESEGUE WHERE IDEvento = ?";
         $stmt = $this->db->prepare($queryartista);
         $stmt->bind_param('i', $IDEvento);
-        $stmt->execute();
+        $stmt->execute();  
     }
 
     public function insertArtistaNonValutato($pseudominoArtista, $descrizione, $immagine, $valutato){
@@ -232,6 +233,32 @@
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /******************************************************************************************************************************/
+    /* Prossimi Eventi Organizzatore */
+
+    public function getEventiAttiviDiOrganizzatore($IDOrganizzatore){
+        $query = "SELECT *
+                  FROM EVENTO 
+                  WHERE IDOrganizzatore = ? AND EliminatoSN = ?";
+        $eliminato = 'n';
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('is', $IDOrganizzatore, $eliminato);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function deleteEvent($IDEvento){
+        $query = "UPDATE EVENTO
+                  SET EliminatoSN = ?
+                  WHERE IDEvento = ?";
+        $eliminato = 's';
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('si', $eliminato, $IDEvento);
+        $stmt->execute();
     }
 
     /******************************************************************************************************************************/
@@ -518,6 +545,16 @@
         return $stmt->insert_id;
     }
 
+    public function inserisciNotificaSistema($titolo, $testo, $idEvento){
+        $query = "INSERT INTO NOTIFICA(TitoloNotifica, TestoNotifica, IDEvento)
+                  VALUES (?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sss', $titolo, $testo, $idEvento);
+        $stmt->execute();
+        var_dump($stmt->insert_id);
+        return $stmt->insert_id;
+    }
+
     public function ottieniIDPersona($email){
         $query = "SELECT IDAmministratore as ID
                   FROM AMMINISTRATORE
@@ -614,6 +651,7 @@
             return false;
         }
     }
+
     /********************************************************************************************************************** */
     /* Eventi di interesse di un utente */
     public function ottieniEventiDiInteresseDiUnUtente($IDUtente){
@@ -657,9 +695,10 @@
     public function ottieniInformazioniDiUnEvento($IDEvento){
         $query = "SELECT *
                   FROM EVENTO
-                  WHERE IDEvento = ?";
+                  WHERE IDEvento = ? AND EliminatoSN = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s', $IDEvento);
+        $eliminato = 'n';
+        $stmt->bind_param('is', $IDEvento, $eliminato);
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }

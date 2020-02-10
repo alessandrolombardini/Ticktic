@@ -23,6 +23,10 @@
             $dbh -> updateBigliettiVenduti($event["IDEvento"], $bigliettivenduti);
             $insertOrdine = true;
             array_push($eventiAcquistati, $event);
+            if ($bigliettivenduti == $event["NumeroPosti"]){
+                $id = $dbh -> inserisciNotificaSistema("SOLD OUT", "Sono stati venduti tutti i bigletti per l'evento.", $event["IDEvento"]);
+                $dbh-> pubblicaNotificaAdOrganizzatore($id, $event["IDOrganizzatore"]);
+            }
         }
         $count++;
     }

@@ -35,7 +35,7 @@
                     </div>
                     <div class="row mb-0 mt-md-1 align-items-end">
                         <div class="col-md-6 text-md-left text-left mt-md-0 mb-0 col-12 mt-1">
-                            <p class="mb-0"> <?php echo substr($evento["DataEvento"], 0, -3);?></p>
+                            <p class="mb-0"><?php echo date("d/m/Y h:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
                         </div>
                         <div class="col-md-3 text-md-right align-text-bottom text-left mt-md-1 mb-0 col-6 mt-3">
                             <h6 class="mb-0"><?php echo $evento["NumeroBiglietti"];

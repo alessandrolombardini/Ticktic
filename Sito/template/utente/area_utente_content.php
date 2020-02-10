@@ -6,7 +6,7 @@
             <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"):?>
             <div class="row">
                 <p class="col-1"></p>
-                <p class="col-8 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";}?>"><?php echo $templateParams["msg"]?></p>
+                <p class="col-8 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
                 <p class="col-3"></p>
             </div>
             <?php endif?>

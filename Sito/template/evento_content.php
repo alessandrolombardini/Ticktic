@@ -30,7 +30,7 @@
 
             <hr />
             <div class="row mb-3">
-                <p class="col-9 col-md-10 text-right pr-4 font-weight-bold"> Totale parziale   </p>
+                <p class="col-9 col-md-10 text-right pr-4 font-weight-bold"> Totale parziale </p>
                 <p class="col-1 col-md-1 text-right  p-0 font-weight-bold totale-parziale"></p>
                 <div class="col-2 col-md-1"></div>
             </div>

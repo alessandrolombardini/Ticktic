@@ -52,6 +52,7 @@ create table EVENTO (
      NomeEvento varchar(1024) not null,
      IDCategoria int not null,
      IDOrganizzatore int not null,
+     EliminatoSN char(1) not null,
      constraint IDEVENTO primary key (IDEvento));
 
 create table ORGANIZZATORE (
