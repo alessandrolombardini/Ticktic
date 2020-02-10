@@ -17,21 +17,21 @@
             </div>
         </div>
         <hr />
-        <div class="ticket-kind">
+        <div>
             <div class="row mt-3">
                 <p class="col-3 text-center"> Biglietto </p>
                 <p class="col-2 col-md-4 text-right pr-1"> cad.</p>
-                <p class="col-3 col-md-2 text-left p-0 ticket-price">€ <?php echo $templateParams["informazioniEvento"]["PrezzoBiglietto"] ?></p>
-                <i class="col-1 fas fa-minus-circle fa-2x pr-0 text-right cursor-pointer"></i>
-                <p class="col-1 text-center font-mediumlittle tickets-number">1</p>
-                <i class="col-1 fas fa-plus-circle fa-2x pl-0 text-left cursor-pointer"></i>
+                <p class="col-3 col-md-2 text-left p-0 ticket-p">€ <?php echo $templateParams["informazioniEvento"]["PrezzoBiglietto"] ?></p>
+                <i class="col-1 menoEvento fas fa-minus-circle fa-2x pr-0 text-right cursor-pointer"></i>
+                <p class="col-1 text-center font-mediumlittle tickets-num">1</p>
+                <i class="col-1 piuEvento fas fa-plus-circle fa-2x pl-0 text-left cursor-pointer"></i>
                 <div class="col-1"></div>
             </div>
 
             <hr />
             <div class="row mb-3">
                 <p class="col-9 col-md-10 text-right pr-4 font-weight-bold"> Totale parziale </p>
-                <p class="col-1 col-md-1 text-right  p-0 font-weight-bold totale-parziale"></p>
+                <p class="col-1 col-md-1 text-right  p-0 font-weight-bold totale-e"></p>
                 <div class="col-2 col-md-1"></div>
             </div>
             <div class="row mb-3">

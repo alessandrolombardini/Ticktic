@@ -303,6 +303,37 @@ $(document).ready(function(){
         }
     });
 
+    /* Stesse opeazioni poste sopra ma per il singolo evento */
+
+    $(".piuEvento").click(function(){
+        let ticketkind = $(this).parent();
+        let number = Number($(ticketkind).find("p.tickets-num").text());
+        if(number < 8){
+            number++;
+            $(ticketkind).find("p.tickets-num").text(number);
+            updatePrice();
+        } 
+    });
+
+    /*Diminuisce il numero di biglietti*/
+    $(".menoEvento").click(function(){
+        let ticketkind = $(this).parent();
+        let number = Number($(ticketkind).find("p.tickets-num").text());
+        if(number > 1){
+            number--;
+            $(ticketkind).find("p.tickets-num").text(number);
+            updatePrice();
+        } 
+    });
+    updatePrice();
+    function updatePrice(){
+        let totaleevento = 0;
+        let ticketsnumber = parseFloat($(".tickets-num").text());
+        let ticketprice = parseFloat($(".ticket-p").text().substring(1));
+        totaleevento = (ticketprice*ticketsnumber).toFixed(2);
+        $(".totale-e").text("€" + totaleevento);
+    }
+
     /*Aggiorna i prezzi del resume del carrello*/
     $("#resume-btn").click(function(){
         var spedizione = parseFloat($("input[name='spedizione']:checked").val());
@@ -419,7 +450,7 @@ $(document).ready(function(){
             img = new Image();
             var objectUrl = _URL.createObjectURL(file);
             img.onload = function () {
-              if(this.width/this.height != 1){
+              if(this.width/this.height != 2){
                 alert("File non idoneo: accettate solo imagini con rapporto 1");
                 $("input[name='eventimg']").val("");
               }
