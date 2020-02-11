@@ -23,20 +23,18 @@
                 </button>
 
                 <!-- Navbar Logo -->
-                <a class="navbar-brand py-0 ml-5 float-center" href="./index.php">
+                <a class="navbar-brand py-0  float-center" href="./index.php">
                     <img id="nav-logo" src="./images/ticktic_logo.png" alt="ticktic logo" />
                 </a>
 
                 <!-- Search Bar Desktop -->
-                <?php if (!isset($templateParams["hide_search_bar"]) || $templateParams["hide_search_bar"] != "y"):?>
-                    <ul class=" ml-10 navbar-nav align-items-center d-none d-xl-block mr-auto desktop-search-bar">
-                        <li class="nav-item" >
-                            <form class="form-inline search-box" >
-                                <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
-                            </form>
-                        </li>
-                    </ul>
-                <?php endif?>
+                <ul class=" ml-10 navbar-nav align-items-center d-none d-xl-block mr-auto desktop-search-bar">
+                    <li class="nav-item" >
+                        <form class="form-inline search-box" >
+                            <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
+                        </form>
+                    </li>
+                </ul>
 
                 <!-- Navbar Right Side-->
                 <ul class="navbar nav align-items-center float-right">
@@ -56,21 +54,19 @@
             </nav>
 
             <!-- Search Bar Mobile -->  
-            <?php if (!isset($templateParams["hide_search_bar"]) || $templateParams["hide_search_bar"] != "y"):?>
-                <div class="row text-center">  
-                    <ul class=" mb-2 mx-auto navbar-nav d-block d-xl-none align-items-center d-none mobile-search-bar">
-                        <li class="nav-item" >
-                            <form class="form-inline search-box" >
-                                <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            <?php endif ?>
+            <div class="row text-center">  
+                <ul class=" mb-2 mx-auto navbar-nav d-block d-xl-none align-items-center d-none mobile-search-bar">
+                    <li class="nav-item" >
+                        <form class="form-inline search-box" >
+                            <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
+                        </form>
+                    </li>
+                </ul>
+            </div>
 
             <!-- Nav overlay -->
             <div class="overlay" id="nav"> <!-- Contenuto del menu -->
-                <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
                     <a class="font-weight-bold" href="./account.php">Account</a>   
                     <?php if (isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "ORGANIZZATORE"):?>

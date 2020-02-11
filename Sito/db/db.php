@@ -262,6 +262,21 @@
     }
 
     /******************************************************************************************************************************/
+    /* Prossimi eventi utente */
+    public function getEventiDiUtente($IDUtente){
+        $query = "SELECT *
+                  FROM UTENTE inner join ORDINE ON UTENTE.IDUtente = ORDINE.IDUtente
+                              inner join COMPRENDE on ORDINE.IDOrdine = COMPRENDE.IDOrdine
+                              inner join EVENTO on COMPRENDE.IDevento = EVENTO.IDEvento
+                  WHERE UTENTE.IDUtente = ? AND EVENTO.EliminatoSN = 'n'";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $IDUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /******************************************************************************************************************************/
     /* Login */
     public function checkAmministratore($email, $password){
         if($this->controllaSeEsisteMailAmministratore($email) == 1){

@@ -347,7 +347,7 @@ $(document).ready(function(){
 
     $(".btn_aggiungi_al_carrello").click(function(){
         const IDEvento = $(".contenitoreID").attr("data-idevento");
-        const numeroBiglietti = $(".tickets-number").html();
+        const numeroBiglietti = $(".tickets-num").html();
         $.post("processa_aggiungi_evento_al_carrello.php",
         {
             numeroBiglietti: numeroBiglietti,
