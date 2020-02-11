@@ -494,6 +494,46 @@
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function ottieniNotificheNonVisteByIDOrganizzatoreDaData($idOrganizzatore, $data){
+        $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica,
+                                           ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore,
+                                           AMMINISTRATORE.Nome, AMMINISTRATORE.Cognome, AMMINISTRATORE.IDAmministratore,
+                                           EVENTO.IDEvento, EVENTO.NomeEvento, EVENTO.DataEvento,
+                                           NOTIFICA_PERSONALE.IDNotificaPersonale
+                                    FROM NOTIFICA INNER JOIN NOTIFICA_PERSONALE ON NOTIFICA.IDNotifica = NOTIFICA_PERSONALE.IDNotifica
+                                                  LEFT JOIN EVENTO ON NOTIFICA.IDEvento = EVENTO.IDEvento
+                                                  LEFT JOIN AMMINISTRATORE ON NOTIFICA.IDAmministratore = AMMINISTRATORE.IDAmministratore
+                                                  LEFT JOIN ORGANIZZATORE ON NOTIFICA.IDOrganizzatore = ORGANIZZATORE.IDOrganizzatore
+                                    WHERE  NOTIFICA_PERSONALE.IDOrganizzatore = ?
+                                           AND NOTIFICA_PERSONALE.VisualizzataSN = 'n'
+                                           AND NOTIFICA.DataNotifica > ?
+                                    ORDER BY NOTIFICA.DataNotifica DESC");
+        $stmt->bind_param('is', $idOrganizzatore, $data);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function ottieniNotificheNonVisteByIDAmministratoreDaData($idAmministratore, $data){
+        $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica,
+                                           ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore,
+                                           AMMINISTRATORE.Nome, AMMINISTRATORE.Cognome, AMMINISTRATORE.IDAmministratore,
+                                           EVENTO.IDEvento, EVENTO.NomeEvento, EVENTO.DataEvento,
+                                           NOTIFICA_PERSONALE.IDNotificaPersonale
+                                    FROM NOTIFICA INNER JOIN NOTIFICA_PERSONALE ON NOTIFICA.IDNotifica = NOTIFICA_PERSONALE.IDNotifica
+                                                  LEFT JOIN EVENTO ON NOTIFICA.IDEvento = EVENTO.IDEvento
+                                                  LEFT JOIN AMMINISTRATORE ON NOTIFICA.IDAmministratore = AMMINISTRATORE.IDAmministratore
+                                                  LEFT JOIN ORGANIZZATORE ON NOTIFICA.IDOrganizzatore = ORGANIZZATORE.IDOrganizzatore
+                                    WHERE  NOTIFICA_PERSONALE.IDAmministratore = ?
+                                           AND NOTIFICA_PERSONALE.VisualizzataSN = 'n'
+                                           AND NOTIFICA.DataNotifica > ?
+                                    ORDER BY NOTIFICA.DataNotifica DESC");
+        $stmt->bind_param('is', $idAmministratore, $data);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function ottieniNotificheNonVisteByIDOrganizzatore($idOrganizzatore){
         $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica,
                                            ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore,
