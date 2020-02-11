@@ -30,8 +30,8 @@
                 <!-- Search Bar Desktop -->
                 <ul class=" ml-10 navbar-nav align-items-center d-none d-xl-block mr-auto desktop-search-bar">
                     <li class="nav-item" >
-                        <form class="form-inline search-box" >
-                            <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
+                        <form class="form-inline search-box" method="POST" action="ricerca.php">
+                            <input class="form-control rounded-pill search-input w-100"  type="search" name="barraDiRicerca" placeholder="Cerca ..." aria-label="Search" />
                         </form>
                     </li>
                 </ul>
@@ -57,8 +57,8 @@
             <div class="row text-center">  
                 <ul class=" mb-2 mx-auto navbar-nav d-block d-xl-none align-items-center d-none mobile-search-bar">
                     <li class="nav-item" >
-                        <form class="form-inline search-box" >
-                            <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
+                        <form class="form-inline search-box" method="POST" action="ricerca.php">
+                            <input class="form-control rounded-pill search-input w-100"  name="barraDiRicerca" type="search" placeholder="Cerca ..." aria-label="Search" />
                         </form>
                     </li>
                 </ul>

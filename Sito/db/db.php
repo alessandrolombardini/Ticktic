@@ -863,5 +863,45 @@
         return $result->fetch_all(MYSQLI_ASSOC);
 
     }
+
+    /********************************************************************************************************************** */
+    /* Ricerca */
+
+    public function cercaEventi($text){
+        $param = "%{$text}%";
+        $query = "SELECT * 
+                  FROM EVENTO  
+                  WHERE NomeEvento LIKE ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    public function cercaArtisti($text){
+        $param = "%{$text}%";
+        $query = "SELECT * 
+                  FROM ARTISTA  
+                  WHERE PseudonimoArtista LIKE ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    public function cercaCategorie($text){
+        $param = "%{$text}%";
+        $query = "SELECT * 
+                  FROM CATEGORIA  
+                  WHERE NomeCategoria LIKE ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$param);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 ?>
