@@ -863,7 +863,25 @@
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
+    /********************************************************************************************************************** */
+    /*Categorie*/
+
+    public function getEventsFromIDCategoria($IDcat){
+        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE IDCategoria = ?");
+        $stmt->bind_param('i',$IDcat);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getCategoryName($IDcat){
+        $stmt = $this->db->prepare("SELECT NomeCategoria FROM CATEGORIA WHERE IDCategoria = ?");
+        $stmt->bind_param('i',$IDcat);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 ?>

@@ -48,4 +48,11 @@ function uploadImage($path, $image){
     return array($result, $msg);
 }
 
+
+function getAltFromImageName($image_name){
+    $lower_case  = strtolower($image_name);
+    $name = explode(".", $lower_case)[0];
+    return str_replace("_", " ", $name);
+}
+
 ?>

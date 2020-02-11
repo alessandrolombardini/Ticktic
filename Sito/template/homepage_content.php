@@ -37,35 +37,15 @@
   <div class=" mb-3 mt-1 dropdown-divider w-50 font-weight-bold"></div>
 </div>
 <div class="row">
-  <div class="col-6 col-md-4 col-xl-2">
-    <div class="m-3">
-      <img class="img-fluid" src="./images/categorie/categoria_spettacoli.png" alt="categoria_spettacoli" />
+
+  <?php foreach($templateParams["rand_categories"] as $categoria):?>
+    <div class="col-6 col-md-4 col-xl-2">
+      <div class="m-3">
+        <a href="./categoria.php?IDCategoria=<?php echo $categoria["IDCategoria"]?>">
+          <img class="img-fluid" src="./images/categorie/<?php echo $categoria["ImmagineCategoria"] ?>" alt="<?php echo getAltFromImageName($categoria["ImmagineCategoria"]) ?>" />
+        </a>
+      </div>
     </div>
-    
-  </div>
-  <div class="col-6 col-md-4 col-xl-2">
-    <div class="m-3">
-      <img class="img-fluid" src="./images/categorie/categoria_concerti.png" alt="categoria_concerti" />
-    </div>
-  </div>
-  <div class="col-6 col-md-4 col-xl-2">
-    <div class="m-3">
-      <img class="img-fluid" src="./images/categorie/categoria_sport.png" alt="categoria_sport" />
-    </div>
-  </div>
-  <div class="col-6 col-md-4 col-xl-2">
-    <div class="m-3">
-      <img class="img-fluid" src="./images/categorie/categoria_fiere.png" alt="categoria_fiere" />
-    </div>
-  </div >
-  <div class="col-6 col-md-4 col-xl-2">
-    <div class="m-3 ">
-      <img class="img-fluid" src="./images/categorie/categoria_cinema.png" alt="categoria_cinema" />
-    </div>
-  </div>
-  <div class="col-6 col-md-4 col-xl-2">
-    <div class="m-3">
-      <img class="img-fluid" src="./images/categorie/categoria_mostre_e_musei.png" alt="categoria_mostre_e_musei" />
-    </div>
-  </div>
+  <?php endforeach ?>
+
 </div>
