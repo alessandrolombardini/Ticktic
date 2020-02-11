@@ -1,33 +1,31 @@
 <div data-idevento=<?php echo $templateParams["informazioniEvento"]["IDEvento"] ?> class="row contenitoreID">
-    <div class="col-1 col-md-2"></div>
-    <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 mr-0 shadow-sm concert-tickets">
+    <div class="col-0 col-md-1"></div>
+    <div class="roundend-corners col-12 col-md-10 bg-white border mt-2 mb-4 px-4 py-3 mr-0 shadow-sm concert-tickets">
         <div class="row mb-3 mt-0 text-center">
-            <div class="col-md-5 col-12 pb-3 d-inline float-left">
-                <img style="width: 100%; display: block; float:left "class="img-fluid" src="./images/eventi/<?php echo $templateParams["informazioniEvento"]["ImmagineEvento"] ?>" alt=""/>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 pb-3 pl-0 pr-0 d-inline float-left">
+                <img style="width: 100%; float:left; "class="img-fluid" src="./images/eventi/<?php echo $templateParams["informazioniEvento"]["ImmagineEvento"] ?>" alt=""/>
             </div>
-            <div class="col-md-7 col-12">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-7">
                 <section>
-                    <h3><?php echo $templateParams["informazioniEvento"]["NomeEvento"] ?></h3>
+                    <h3 class="titolo-viola"><?php echo $templateParams["informazioniEvento"]["NomeEvento"] ?></h3>
                     <p><?php foreach($templateParams["artisti"] as $artista){ echo $artista["PseudonimoArtista"]; }?></p>
                     <p><?php echo $templateParams["informazioniEvento"]["DescrizioneEvento"] ?></p>
                     <p><?php echo $templateParams["informazioniEvento"]["Luogo"] ?></p>
                     <p><?php echo $templateParams["informazioniEvento"]["DataEvento"] ?></p>
                 </section>
-                <hr/>
             </div>
         </div>
-        <hr />
         <div>
+            <hr />
             <div class="row mt-3">
                 <p class="col-3 text-center"> Biglietto </p>
-                <p class="col-2 col-md-4 text-right pr-1"> cad.</p>
-                <p class="col-3 col-md-2 text-left p-0 ticket-p">€ <?php echo $templateParams["informazioniEvento"]["PrezzoBiglietto"] ?></p>
-                <i class="col-1 menoEvento fas fa-minus-circle fa-2x pr-0 text-right cursor-pointer"></i>
-                <p class="col-1 text-center font-mediumlittle tickets-num">1</p>
+                <p class="col-3 col-md-4 text-right"> cad.</p>
+                <p class="col-2 col-md-2 text-left p-0 ticket-p">€ <?php echo $templateParams["informazioniEvento"]["PrezzoBiglietto"] ?></p>
+                <i class="col-1 menoEvento fas fa-minus-circle fa-2x text-right cursor-pointer"></i>
+                <p class="col-1 text-center chill font-mediumlittle tickets-num">1</p>
                 <i class="col-1 piuEvento fas fa-plus-circle fa-2x pl-0 text-left cursor-pointer"></i>
-                <div class="col-1"></div>
+                <div class="col-0 col-sm-1"></div>
             </div>
-
             <hr />
             <div class="row mb-3">
                 <p class="col-9 col-md-10 text-right pr-4 font-weight-bold"> Totale parziale </p>
@@ -43,5 +41,5 @@
             </div>
         </div>
     </div>
-    <div class="col-1 col-md-2"></div>
+    <div class="col-0 col-md-1"></div>
 </div>

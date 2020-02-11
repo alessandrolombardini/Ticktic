@@ -16,7 +16,7 @@
                     <i class="fa fa-angle-right fa-2x"></i> 
                 </button>
             </a>
-            <a href="./prossimi_eventi.php">
+            <a href="./prossimi_eventi_organizzatore.php">
                 <button type="button" class="btn btn-gestore col-12 py-3 mb-2 ml-0">
                     <p class="col-10 float-left mb-0 mt-1 align-center"> Visualizza prossimi eventi </p> 
                     <i class="fa fa-angle-right fa-2x"></i> 

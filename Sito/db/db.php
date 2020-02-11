@@ -262,6 +262,21 @@
     }
 
     /******************************************************************************************************************************/
+    /* Prossimi eventi utente */
+    public function getEventiDiUtente($IDUtente){
+        $query = "SELECT *
+                  FROM UTENTE inner join ORDINE ON UTENTE.IDUtente = ORDINE.IDUtente
+                              inner join COMPRENDE on ORDINE.IDOrdine = COMPRENDE.IDOrdine
+                              inner join EVENTO on COMPRENDE.IDevento = EVENTO.IDEvento
+                  WHERE UTENTE.IDUtente = ? AND EVENTO.EliminatoSN = 'n'";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $IDUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /******************************************************************************************************************************/
     /* Login */
     public function checkAmministratore($email, $password){
         if($this->controllaSeEsisteMailAmministratore($email) == 1){
@@ -286,6 +301,8 @@
     public function checkUtente($email, $password){
         if($this->controllaSeEsisteMailUtente($email) == 1){
             $hashed_password = $this->ottieniPasswordByEmailUtente($email);
+            var_dump("Alessandro1998,.-");
+            var_dump($hashed_password);
             if(password_verify($password, $hashed_password)){
                 return "OK";
             }
@@ -472,6 +489,46 @@
                                            AND NOTIFICA.DataNotifica > ?
                                     ORDER BY NOTIFICA.DataNotifica DESC");
         $stmt->bind_param('is', $idUtente, $data);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function ottieniNotificheNonVisteByIDOrganizzatoreDaData($idOrganizzatore, $data){
+        $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica,
+                                           ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore,
+                                           AMMINISTRATORE.Nome, AMMINISTRATORE.Cognome, AMMINISTRATORE.IDAmministratore,
+                                           EVENTO.IDEvento, EVENTO.NomeEvento, EVENTO.DataEvento,
+                                           NOTIFICA_PERSONALE.IDNotificaPersonale
+                                    FROM NOTIFICA INNER JOIN NOTIFICA_PERSONALE ON NOTIFICA.IDNotifica = NOTIFICA_PERSONALE.IDNotifica
+                                                  LEFT JOIN EVENTO ON NOTIFICA.IDEvento = EVENTO.IDEvento
+                                                  LEFT JOIN AMMINISTRATORE ON NOTIFICA.IDAmministratore = AMMINISTRATORE.IDAmministratore
+                                                  LEFT JOIN ORGANIZZATORE ON NOTIFICA.IDOrganizzatore = ORGANIZZATORE.IDOrganizzatore
+                                    WHERE  NOTIFICA_PERSONALE.IDOrganizzatore = ?
+                                           AND NOTIFICA_PERSONALE.VisualizzataSN = 'n'
+                                           AND NOTIFICA.DataNotifica > ?
+                                    ORDER BY NOTIFICA.DataNotifica DESC");
+        $stmt->bind_param('is', $idOrganizzatore, $data);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function ottieniNotificheNonVisteByIDAmministratoreDaData($idAmministratore, $data){
+        $stmt = $this->db->prepare("SELECT NOTIFICA.TestoNotifica, NOTIFICA.TitoloNotifica, NOTIFICA.DataNotifica,
+                                           ORGANIZZATORE.Nome, ORGANIZZATORE.Cognome, ORGANIZZATORE.IDOrganizzatore,
+                                           AMMINISTRATORE.Nome, AMMINISTRATORE.Cognome, AMMINISTRATORE.IDAmministratore,
+                                           EVENTO.IDEvento, EVENTO.NomeEvento, EVENTO.DataEvento,
+                                           NOTIFICA_PERSONALE.IDNotificaPersonale
+                                    FROM NOTIFICA INNER JOIN NOTIFICA_PERSONALE ON NOTIFICA.IDNotifica = NOTIFICA_PERSONALE.IDNotifica
+                                                  LEFT JOIN EVENTO ON NOTIFICA.IDEvento = EVENTO.IDEvento
+                                                  LEFT JOIN AMMINISTRATORE ON NOTIFICA.IDAmministratore = AMMINISTRATORE.IDAmministratore
+                                                  LEFT JOIN ORGANIZZATORE ON NOTIFICA.IDOrganizzatore = ORGANIZZATORE.IDOrganizzatore
+                                    WHERE  NOTIFICA_PERSONALE.IDAmministratore = ?
+                                           AND NOTIFICA_PERSONALE.VisualizzataSN = 'n'
+                                           AND NOTIFICA.DataNotifica > ?
+                                    ORDER BY NOTIFICA.DataNotifica DESC");
+        $stmt->bind_param('is', $idAmministratore, $data);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -688,9 +745,7 @@
         $stmt->bind_param('ii', $IDEvento, $IDUtente);
         $stmt->execute();
     }
-
-
-
+    
     /********************************************************************************************************************** */
     public function ottieniInformazioniDiUnEvento($IDEvento){
         $query = "SELECT *
@@ -720,7 +775,17 @@
                   FROM ORGANIZZATORE
                   WHERE IDOrganizzatore = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s', $id);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
+    public function ottieniInformazioniAmministratore($id){
+        $query = "SELECT *
+                  FROM AMMINISTRATORE
+                  WHERE IDAmministratore = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $id);
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }

@@ -26,7 +26,7 @@
                 </button>
             </a>
             <?php if (isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "UTENTE"):?>
-            <a href="./prossimi_eventi.php">
+            <a href="./prossimi_eventi_utente.php">
                 <button type="submit" class="btn btn-gestore col-12 py-3 mb-2">
                     <p class="col-10 float-left mb-0 mt-1 align-center"> Prossimi eventi </p> 
                     <i class="fa fa-angle-right fa-2x"></i> 

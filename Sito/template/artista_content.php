@@ -25,7 +25,7 @@
                                     <p class="mb-0 ">IDAYS - Foo Fighters --- TESTO mooolto LUNGO </p>
                                     <p class="font-description close-lines text-black-50 m-0">Data evento 13/09/19</p>
                                     <div class="justify-content-center mt-5 row">
-                                        <div data-IDEvento="IDEvento"><span class="cuore-vuoto text-dark pointer mx-3 far fa-heart fa-2x"></span></div>
+                                        <div data-IDEvento="4"><span class="cuore-vuoto text-dark pointer mx-3 far fa-heart fa-2x"></span></div>
                                         <button class="btn py-1 px-3 shadow-sm purple-btn rounded-pill">Scopri</button>
                                     </div>
                                 </div>
