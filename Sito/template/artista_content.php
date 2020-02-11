@@ -1,6 +1,6 @@
 <div class="row mt-3">
-    <div class="col-1 col-md-2"></div>
-    <div class="col-10 col-md-8">
+    <div class="col-0 col-md-2"></div>
+    <div class="col-12 col-md-10">
         <div class="container-fluid text-center "> <!-- Foto e descrizione del gruppo musicale -->
             <img class="img-fluid w-50 rounded-circle mb-2" src="./images/artisti/foo_fighters.jpg" alt="foo fighters"/>
             <h3>Foo Fighters</h3>
@@ -137,5 +137,5 @@
                 </div>                
             </div>
     </div>
-    <div class="col-1 col-md-2"></div>
+    <div class="col-0 col-md-2"></div>
 </div>

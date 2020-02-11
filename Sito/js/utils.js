@@ -451,6 +451,27 @@ $(document).ready(function(){
             var objectUrl = _URL.createObjectURL(file);
             img.onload = function () {
               if(this.width/this.height != 2){
+                alert("File non idoneo: accettate solo imagini con rapporto 2:1");
+                $("input[name='eventimg']").val("");
+              }
+              /*alert(this.width + " " + this.height); */
+              _URL.revokeObjectURL(objectUrl);
+            };
+            img.src = objectUrl;
+        }
+    });
+    $("input[name='categimg']").change( function(e) {
+        var file, img;
+        if ((file = this.files[0])) {
+            if(file['type'].split('/')[0] !== 'image'){
+              alert("File non idoneo: non è una immagine");
+              $("input[name='eventimg']").val("");
+            }
+            img = new Image();
+            var objectUrl = _URL.createObjectURL(file);
+            img.onload = function () {
+            console.log(this.width/this.height);
+              if(this.width/this.height != 1){
                 alert("File non idoneo: accettate solo imagini con rapporto 1");
                 $("input[name='eventimg']").val("");
               }

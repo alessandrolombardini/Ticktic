@@ -372,6 +372,10 @@ footer {
     box-sizing: border-box;
 }
 
+.titolo-ricerca {
+    clear:right;
+}
+
 
 @media screen and (min-width: 768px) {
     .updateeventimg {

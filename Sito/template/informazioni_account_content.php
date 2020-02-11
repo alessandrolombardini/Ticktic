@@ -1,12 +1,12 @@
 <div class="row mt-3">
-    <div class="col-1 col-md-2"></div>
-    <div class="col-10 col-md-8 p-0 m-0">
+    <div class="col-0 col-md-1"></div>
+    <div class="col-12 col-md-10 p-0 m-0">
         <div class="row mb-3 mt-5 ">
             <h3 class="col-8 col-md-7">Informazioni</h3>
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="javascript:history.back()"> Indietro </a>
         </div>
         <hr/>
-    <div class="col-1 col-md-2"></div>
+    <div class="col-0 col-md-1"></div>
 
     <div class="row mt-2">
         <div class="roundend-corners col-12 col-md-12 bg-white border mt-2 mb-5 px-4 py-3 shadow-sm">
