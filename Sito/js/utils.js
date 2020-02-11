@@ -90,7 +90,7 @@ function populateDays($month){
 
 /* Open when someone clicks on the span element */
 function openNav() {
-    document.getElementById("nav").style.width = "90%";
+    document.getElementById("nav").style.width = "50%";
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
@@ -511,7 +511,7 @@ $(document).ready(function(){
     /******************************************************************************* */
 
 
-    /* Dropdown button */
+    /* Dropdown button menu*/
     $(".dropdown-btn").click(function() {
         this.classList.toggle("active");
         var dropdownContent = this.nextElementSibling;
