@@ -1,12 +1,16 @@
-<div class="row">
+<div class="row my-3">
     <div class="col-0 col-md-1"></div>
-        <div class="roundend-corners col-12 col-md-10 bg-white border mt-2 mb-4 px-4 py-3 mr-0 shadow-sm concert-tickets">
+        <div class="col-12 col-md-10 p-0 m-0">
 
-            <h3 class="text-center">Categoria <?php echo $templateParams["categoria"][0]["NomeCategoria"] ?></h3>
             
+            <h3 class="mx-3">Categoria <?php echo $templateParams["categoria"]?></h3>
+            <p class="text-black-50 mx-3">(<?php echo count($templateParams["eventi"]) ?> eventi in questa Categoria)</p>
+                
+            <hr/>
+
             <?php if (isset($templateParams["eventi"]) && $templateParams["eventi"] != NULL) : ?>
-                <p class="text-black-50 text-center">(<?php echo count($templateParams["eventi"]) ?> eventi in questa Categoria)</p>
-                <hr/>
+                
+                
                 <div class="row my-3">
 
                     <?php foreach ($templateParams["eventi"] as $evento) :?>
@@ -29,8 +33,7 @@
                 </div>
             </div>
             <?php else :?>
-                <p class="text-black-50 text-center">(0 eventi in questa Categoria)</p>
-                <hr/>
+                
                 <p class="text-center my-5">Siamo spiacenti ma questa categoria non contiene alcun evento al momento!</p>
 
             <?php endif ?>

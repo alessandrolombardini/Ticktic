@@ -117,7 +117,7 @@
                         <div class="dropdown-divider"></div>
                             
                             <?php foreach ($templateParams["categories"] as $categoria) :?>
-                                <a class="nav-link font-white" href="./categoria.php?id=<?php echo $categoria["IDCategoria"]?>"> <?php echo $categoria["NomeCategoria"] ?></a>
+                                <a class="nav-link font-white" href="./categoria.php?IDCategoria=<?php echo $categoria["IDCategoria"]?>"> <?php echo $categoria["NomeCategoria"] ?></a>
                             <?php endforeach ?>
                     </nav>
                 </div>
