@@ -140,7 +140,7 @@ $(document).ready(function(){
     });
 
     /*Possibilità di associare più artisti ad un evento*/
-    $(".reset hide").hide();
+    $(".resethide").hide();
     $(".artist_not_selected").hide();
     $(".artist_already_selected").hide();
     $(".more-artists").click(function(){

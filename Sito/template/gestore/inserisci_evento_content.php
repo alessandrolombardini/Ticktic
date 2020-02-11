@@ -17,7 +17,7 @@
             <div class="row mb-2">
                 <h4 class="col-md-4 col-3"> Artisti </h4>
                 <div class="col-4 col-md-7"> </div>
-                <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2"><p class="<?php if ($templateParams["azione"] == 1) {echo "hide";}?> m-0 p-0">Reset</p></button>
+                <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2 <?php if ($templateParams["azione"] == 1) {echo "resethide";}?>"><p class="m-0 p-0">Reset</p></button>
             </div>
             <div class="row mb-3" id="inserimento_artisti">
                 <div class="col-md-0 mb-3">

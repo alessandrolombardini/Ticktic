@@ -20,3 +20,5 @@ $eventi= $dbh->getEventiAttiviDiOrganizzatore($_SESSION["id"]);
 $templateParams["prossimiEventi"] = array_filter($eventi, "ProssimiEventi");
 
 require_once("./template/base.php"); 
+
+?>

@@ -594,7 +594,7 @@
 
     public function ottieniUtentiChePartecipanoAdUnEvento($IDEvento){
         $query = "SELECT UTENTE.IDUtente
-                  FROM EVENTO INNER JOIN COMPRENDE ON Evento.IDEvento = COMPRENDE.IDEvento
+                  FROM EVENTO INNER JOIN COMPRENDE ON EVENTO.IDEvento = COMPRENDE.IDEvento
                               INNER JOIN ORDINE ON COMPRENDE.IDOrdine = ORDINE.IDOrdine
                               INNER JOIN UTENTE ON ORDINE.IDUtente = UTENTE.IDUtente
                   WHERE EVENTO.IDEvento = ?";
