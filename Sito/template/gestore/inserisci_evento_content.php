@@ -1,6 +1,6 @@
 <div class="row newevent">
-    <div class="col-1"></div>
-    <div class="col-10">
+    <div class="col-0 col-md-1"></div>
+    <div class="col-12 col-md-10">
         <div class="row mb-3 mt-5">
             <h3 class="col-8 col-md-7"><?php if ($templateParams["azione"] == 1){echo "Inserisci Evento";}?>
             <?php if ($templateParams["azione"] == 2){ echo "Modifica Evento";}?></h3>
@@ -159,6 +159,6 @@
                 <input type="hidden" name="eventid" value="<?php echo $templateParams["evento"]["IDEvento"]; ?>"/>
             </div>
         </form>
-        <div class="col-1"></div>
+        <div class="col-0 col-md-1"></div>
     </div>
 </div>

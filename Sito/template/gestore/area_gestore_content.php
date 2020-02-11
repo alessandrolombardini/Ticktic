@@ -1,7 +1,7 @@
 <div class="container mt-3">
     <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
+        <div class="col-0 col-md-1"></div>
+        <div class="col-12 col-md-10">
             <h3 class="text-black pt-2 mb-4 mt-4">Area Organizzatore</h3>
             <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"):?>
             <div class="row">
@@ -29,6 +29,6 @@
                 </button>
             </a>
         </div>
-        <div class="col-1"></div>
+        <div class="col-0 col-md-1"></div>
     </div>
 </div>

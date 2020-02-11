@@ -23,11 +23,7 @@
                 </button>
 
                 <!-- Navbar Logo -->
-<<<<<<< HEAD
-                <a class="navbar-brand py-0 mx-0 float-center" href="./index.php">
-=======
                 <a class="navbar-brand py-0  float-center" href="./index.php">
->>>>>>> c5892e29ec35083a1844ccd48e303136caccf469
                     <img id="nav-logo" src="./images/ticktic_logo.png" alt="ticktic logo" />
                 </a>
 

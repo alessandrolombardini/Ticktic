@@ -84,11 +84,10 @@
         return $stmt->insert_id;
     }
 
-    public function insertCategoriaNonValutata($nome){
-        $query = "INSERT INTO CATEGORIA (NomeCategoria, ValutataSN, AutorizzataSN) VALUES (?,?,?)";
+    public function insertCategoria($nome, $img){
+        $query = "INSERT INTO CATEGORIA (NomeCategoria, ValutataSN, AutorizzataSN, ImmagineCategoria) VALUES (?,'s','s',?)";
         $stmt = $this->db->prepare($query);
-        $valutato = 'n';
-        $stmt->bind_param('sss', $nome, $valutato, $valutato);
+        $stmt->bind_param('ssss', $nome, $valutato, $valutato, $img);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -750,10 +749,9 @@
     public function ottieniInformazioniDiUnEvento($IDEvento){
         $query = "SELECT *
                   FROM EVENTO
-                  WHERE IDEvento = ? AND EliminatoSN = ?";
+                  WHERE IDEvento = ?";
         $stmt = $this->db->prepare($query);
-        $eliminato = 'n';
-        $stmt->bind_param('is', $IDEvento, $eliminato);
+        $stmt->bind_param('i', $IDEvento);
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }

@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-1"></div>
-  <div class="col-10">
+  <div class="col-0 col-md-1"></div>
+  <div class="col-12 col-md-10">
     <div class="row mb-3 mt-5">
       <h3 class="col-8 col-md-7">Categorie da valutare</h3>
       <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_amministratore.php"> Annulla </a>
@@ -35,5 +35,5 @@
       </table>
     </div>
   </div>
-  <div class="col-1"></div>
+  <div class="col-0 col-md-1"></div>
 </div>
