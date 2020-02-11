@@ -118,6 +118,10 @@ footer, header {
     height: 2em;
 }
 
+.navbar-toggler{
+    color:white !important;
+}
+
 .desktop-search-bar{
     min-width:50%;
 }
@@ -152,6 +156,7 @@ footer, header {
     width: 100%;
     text-align: center;
     margin-top: 2em;
+    color: white;
 }
 
 /* The navigation links inside the overlay */
@@ -159,14 +164,14 @@ footer, header {
     padding: 0.5em;
     text-decoration: none;
     font-size: 1.5em;
-    color: #818181;
+    color: #fff;
     display: block; /* Display block instead of inline */
     transition: 0.3s; /* Transition effects on hover (color) */
 }
 
 /* When you mouse over the navigation links, change their color */
-.overlay a:hover, .overlay a:focus {
-    color: rgb(103,99,214);
+.overlay a:hover, .overlay a:focus, .navbar-toggler:hover, .dropdown-btn:hover {
+    color: rgb(103,99,214) !important;
 }
 
 /* Position the close button (top right corner) */

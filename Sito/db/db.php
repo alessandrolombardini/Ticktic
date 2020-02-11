@@ -720,7 +720,17 @@
                   FROM ORGANIZZATORE
                   WHERE IDOrganizzatore = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s', $id);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
+
+    public function ottieniInformazioniAmministratore($id){
+        $query = "SELECT *
+                  FROM AMMINISTRATORE
+                  WHERE IDAmministratore = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $id);
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }

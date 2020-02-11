@@ -18,77 +18,83 @@
             <nav class="navbar navbar-dark navbar-top row"> <!-- navbar-expand-md per far comparire il menù con display grandi-->
                 
                 <!-- Navbar Toggler -->
-               <!--  <button class="navbar-toggler border-0 text-light collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="fa fa-bars"></span>
-                </button> -->
-                <button onclick="openNav()" class="navbar-toggler border-0 text-light">
+                <button onclick="openNav()" class="navbar-toggler mx-0 border-0">
                     <span  class="fa fa-bars icona-destra"></span>
                 </button>
+
                 <!-- Navbar Logo -->
-                <a class="navbar-brand py-0 ml-3 float-center" href="./index.php">
+                <a class="navbar-brand py-0 ml-5 float-center" href="./index.php">
                     <img id="nav-logo" src="./images/ticktic_logo.png" alt="ticktic logo" />
                 </a>
+
                 <!-- Search Bar Desktop -->
-                <ul class=" ml-10 navbar-nav align-items-center d-none d-xl-block mr-auto desktop-search-bar">
-                    <li class="nav-item" >
-                        <form class="form-inline search-box" >
-                            <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
-                        </form>
-                    </li>
-                </ul>
+                <?php if (!isset($templateParams["hide_search_bar"]) || $templateParams["hide_search_bar"] != "y"):?>
+                    <ul class=" ml-10 navbar-nav align-items-center d-none d-xl-block mr-auto desktop-search-bar">
+                        <li class="nav-item" >
+                            <form class="form-inline search-box" >
+                                <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
+                            </form>
+                        </li>
+                    </ul>
+                <?php endif?>
+
                 <!-- Navbar Right Side-->
-                <ul class="navbar nav align-items-center ml-0 float-right">
+                <ul class="navbar nav align-items-center float-right">
                     <li class="nav-item  mx-2">
-                        <a class="nav-link text-light px-0 icona-destra" href="nuove_notifiche.php">
+                        <a class="nav-link font-white px-0 icona-destra" href="nuove_notifiche.php">
                             <i class="fas fa-bell campanella"></i>
                         </a> 
                     </li>
                     <?php if (!isset($_SESSION["id"]) || $_SESSION["autorizzazione"] == "UTENTE"):?>
                       <li class="nav-item  mx-2">
-                          <a class="nav-link text-light px-0 icona-destra" href="carrello.php">
+                          <a class="nav-link font-white px-0 icona-destra" href="carrello.php">
                               <i class="fa fa-shopping-cart"></i>  
                           </a>
                       </li>
                     <?php endif?> 
                 </ul> 
             </nav>
+
             <!-- Search Bar Mobile -->  
-            <div class="row text-center">  
-                <ul class=" mb-2 mx-auto navbar-nav d-block d-xl-none align-items-center d-none mobile-search-bar">
-                    <li class="nav-item" >
-                        <form class="form-inline search-box" >
-                            <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
-                        </form>
-                    </li>
-                </ul>
-            </div>
+            <?php if (!isset($templateParams["hide_search_bar"]) || $templateParams["hide_search_bar"] != "y"):?>
+                <div class="row text-center">  
+                    <ul class=" mb-2 mx-auto navbar-nav d-block d-xl-none align-items-center d-none mobile-search-bar">
+                        <li class="nav-item" >
+                            <form class="form-inline search-box" >
+                                <input class="form-control rounded-pill search-input w-100"  type="search" placeholder="Cerca ..." aria-label="Search" />
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            <?php endif ?>
+
             <!-- Nav overlay -->
             <div class="overlay" id="nav"> <!-- Contenuto del menu -->
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
-                    <a class="nav-link text-light" href="./account.php">Account</a>   
+                    <a class="font-weight-bold" href="./account.php">Account</a>   
                     <?php if (isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "ORGANIZZATORE"):?>
-                      <a class="nav-link text-light" href="./area_gestore.php?msg=0">Area Organizzatore</a>                       
+                      <a class="font-weight-bold" href="./area_gestore.php?msg=0">Area organizzatore</a>                       
                     <?php endif?>                     
                     <?php if (isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "AMMINISTRATORE"):?>
-                      <a class="nav-link text-light" href="./area_gestore.php?msg=0">Area Amministratore</a>                       
+                      <a class="font-weight-bold" href="./area_gestore.php?msg=0">Area amministratore</a>                       
                     <?php endif?>                     
-                    <a class="nav-link text-light" href="./nuove_notifiche.php">Notifiche</a>       
+                    <a class="font-weight-bold" href="./nuove_notifiche.php">Notifiche</a>       
                     <?php if (!isset($_SESSION["id"]) || $_SESSION["autorizzazione"] == "UTENTE"):?>
-                        <a class="nav-link text-light" href="./ordini.php">Ordini</a>                
-                        <a class="nav-link text-light" href="./lista_desideri.php">Lista Desideri</a>
+                        <a class="font-weight-bold" href="./ordini.php">Ordini</a>                
+                        <a class="font-weight-bold" href="./lista_desideri.php">Lista Desideri</a>
                     <?php endif?> 
-                    <!--<a class="text-light nav-link dropdown-btn">Naviga
-                        <span class="text-light nav-link fa fa-caret-down"></span>
+                    <a class="font-weight-bold dropdown-btn">Naviga
+                        <span class="fa fa-caret-down"></span>
                     </a>
                     <div class="dropdown-container overlay-bg-color">
-                        <a class="text-light nav-link" href="./eventi.php">Eventi</a>
-                        <a class="text-light nav-link" href="./categorie.php">Categorie</a>
-                        <a class="text-light nav-link" href="./artisti.php">Artisti</a>
-                        <a class="text-light nav-link" href="./luoghi.php" >Luoghi</a>
-                    </div>-->
+                        <a class="font-weight-bold" href="./eventi.php">Eventi</a>
+                        <a class="font-weight-bold" href="./categorie.php">Categorie</a>
+                        <a class="font-weight-bold" href="./artisti.php">Artisti</a>
+                        <a class="font-weight-bold" href="./luoghi.php" >Luoghi</a>
+                    </div>
                     <?php if (isset($_SESSION["id"])):?>
-                        <a class="nav-link text-light" href="./logout.php">Logout</a>
+                        <a class="font-weight-bold" href="./logout.php">Logout</a>
                     <?php endif?>      
                 </div>
             </div>
