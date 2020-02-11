@@ -24,7 +24,7 @@
             <input type="text" class="form-control" id="cognome" name="cognome" required/>
           </div>
         </div>
-        <div class="mb-3">
+        <div class="col-md-12 mb-3">
           <label for="email">Email</label>
           <input type="email" class="form-control" name="email" required/>
         </div>
@@ -48,7 +48,7 @@
             <input type="number" maxlength="16" class="form-control" id="CAP" name="CAP" required/>
           </div>
         </div>
-        <div class="d-block my-3">
+        <div class="d-block col-md-12 my-3">
           <p>Sesso</p>
           <div class="custom-control custom-radio">
             <input id="sessoMaschio" name="sesso" type="radio" value="m" class="custom-control-input" checked required/>
@@ -73,10 +73,10 @@
             <input type="password" maxlength="16" class="form-control" id="ripetipassword" name="ripetipassword" required/>
           </div>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 col-md-12">
           <label for="gestore"><input type="checkbox" name="gestore"> Richiedi abilitazione come gestore</input></label>
         </div>
-        <div class="areagestore mb-3">
+        <div class="areagestore mb-3 col-md-12">
           <label for="iban">IBAN</label>
           <input type="text" class="form-control" id="iban" name="iban"/>
         </div>

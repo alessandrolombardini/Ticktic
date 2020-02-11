@@ -345,6 +345,18 @@ footer {
     box-sizing: border-box;
 }
 
+.scopri {
+    position: absolute; 
+    bottom: 0; 
+    right: 0;
+}
+
+.cuore-vuoto {
+    position: relative; 
+    bottom: 0; 
+    left: 0;
+}
+
 
 @media screen and (min-width: 768px) {
     .updateeventimg {

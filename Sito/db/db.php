@@ -286,6 +286,8 @@
     public function checkUtente($email, $password){
         if($this->controllaSeEsisteMailUtente($email) == 1){
             $hashed_password = $this->ottieniPasswordByEmailUtente($email);
+            var_dump("Alessandro1998,.-");
+            var_dump($hashed_password);
             if(password_verify($password, $hashed_password)){
                 return "OK";
             }
@@ -688,9 +690,7 @@
         $stmt->bind_param('ii', $IDEvento, $IDUtente);
         $stmt->execute();
     }
-
-
-
+    
     /********************************************************************************************************************** */
     public function ottieniInformazioniDiUnEvento($IDEvento){
         $query = "SELECT *
