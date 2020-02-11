@@ -1,16 +1,28 @@
 
-<div class="row mt-5">
+<div class="row mt-3">
     <div class="col-1 col-md-2"></div>
-    <div class="col-10 col-md-8">
-        <h3 class="text-black pt-2 mb-4"> Ordini</h3>
-    </div>
+    <div class="col-10 col-md-8 p-0 m-0">
+        <div class="row mb-3 mt-5 ">
+            <h3 class="col-8 col-md-7">Ordini</h3>
+            <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="javascript:history.back()"> Indietro </a>
+        </div>
+        <hr/>
+        <?php if (count($templateParams["ordini"]) == 0):?>
+            <div class="row error-template">
+                <div class="col-1 col-md-2"></div>
+                <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 mr-0 ">
+                    <div class="error-template text-center">
+                        <p class="h5 pt-4">Non ci sono ordini</p>
+                    </div>
+                </div>
+                <div class="col-1 col-md-2"></div>
+            </div>
+        <?php endif ?>
     <div class="col-1 col-md-2"></div>
-</div>
 
 <?php foreach ($templateParams["ordini"] as $ordine): ?>
 <div class="row mt-2">
-    <div class="col-1 col-md-2"></div>
-    <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-5 px-4 py-3 shadow-sm">
+    <div class="roundend-corners col-12 col-md-12 bg-white border mt-2 mb-5 px-4 py-3 shadow-sm">
         <div class="row mb-0 mt-0">
             <div class="pl-3 pt-1 text-md-left text-md-big text-center color-purple col-md-8">
                 <h4 class="pb-0 mb-0"> Ordine del <?php echo $ordine["DataOrdine"];?> </h4>
@@ -63,6 +75,7 @@
             </div>
         </div>
     </div>
-    <div class="col-1 col-md-2"></div>
+   
 </div>
 <?php endforeach ?>
+</div>
