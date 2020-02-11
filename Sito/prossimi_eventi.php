@@ -18,6 +18,8 @@ if (isset($_GET["deleteID"])){
 $templateParams["page_content"] = "./template/gestore/prossimi_eventi_content.php";
 $eventi= $dbh->getEventiAttiviDiOrganizzatore($_SESSION["id"]);
 $templateParams["prossimiEventi"] = array_filter($eventi, "ProssimiEventi");
+$templateParams["categories"] = $dbh->getCategories(); /* For Footer Links */
+
 
 require_once("./template/base.php"); 
 

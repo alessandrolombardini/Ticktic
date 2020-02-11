@@ -1,5 +1,7 @@
 <?php
     require_once("./bootstrap.php");
+    $templateParams["categories"] = $dbh->getCategories(); /* For Footer Links */
+
     if(isset($_GET["IDEvento"]) && !empty($_GET["IDEvento"])){
         $templateParams["informazioniEvento"] = $dbh->getEvent($_GET["IDEvento"]);
         $templateParams["artisti"] = $dbh->getArtistsFromEvent($templateParams["informazioniEvento"]["IDEvento"]);

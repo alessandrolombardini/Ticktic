@@ -8,6 +8,7 @@ if(!isset($_SESSION["id"])){
 }
 /**********************************************************************************/
 $templateParams["page_content"] = "./template/gestore/area_gestore_content.php";
+$templateParams["categories"] = $dbh->getCategories(); /* For Footer Links */
 $templateParams["nuoveNotifiche"] = $dbh-> checkNuoveNotificheOrganizzatore(/*$_SESSION["id]*/"1");
 if (isset($_GET["msg"])){
     $templateParams["msg"] = $_GET["msg"];

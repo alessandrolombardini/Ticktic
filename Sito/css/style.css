@@ -152,7 +152,7 @@ footer, header {
 /* Position the content inside the overlay */
 .overlay-content {
     position: relative;
-    top: 10%;
+    top: 12%;
     width: 100%;
     text-align: center;
     margin-top: 2em;
@@ -177,9 +177,9 @@ footer, header {
 /* Position the close button (top right corner) */
 .overlay .closebtn {
     position: absolute;
-    top: 2%;
+    top: 1%;
     right: 5%;
-    font-size: 3.5em;
+    font-size: 3em;
 }
 
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
@@ -319,7 +319,7 @@ hr{
 .error-template {margin-top: 5%; margin-bottom: 5%;}
 
 .icona-destra {
-    font-size: 150%;
+    font-size: 120%;
 }
 
 html, body {

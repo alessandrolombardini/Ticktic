@@ -8,7 +8,7 @@
     }
     /**********************************************************************************/
     $templateParams["page_content"] = "./template/utente/ordini_content.php";
-
+    $templateParams["categories"] = $dbh->getCategories(); /* For Footer Links */
     $templateParams["ordini"] = $dbh -> getOrdiniDiUtente($_SESSION["id"]);
     $templateParams["eventiinordine"] = array();
     $templateParams["artistiinevento"] = array();

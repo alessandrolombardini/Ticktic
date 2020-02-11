@@ -6,5 +6,7 @@
     } 
     /**********************************************************************************/
     $templateParams["page_content"] = "./template/login_content.php";
+    $templateParams["categories"] = $dbh->getCategories(); /* For Footer Links */
+
     require_once("./template/base.php");
 ?>

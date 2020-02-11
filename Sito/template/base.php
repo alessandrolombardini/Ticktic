@@ -23,7 +23,7 @@
                 </button>
 
                 <!-- Navbar Logo -->
-                <a class="navbar-brand py-0 ml-5 float-center" href="./index.php">
+                <a class="navbar-brand py-0 mx-0 float-center" href="./index.php">
                     <img id="nav-logo" src="./images/ticktic_logo.png" alt="ticktic logo" />
                 </a>
 
@@ -40,7 +40,7 @@
 
                 <!-- Navbar Right Side-->
                 <ul class="navbar nav align-items-center float-right">
-                    <li class="nav-item  mx-2">
+                    <li class="nav-item mx-1">
                         <a class="nav-link font-white px-0 icona-destra" href="nuove_notifiche.php">
                             <i class="fas fa-bell campanella"></i>
                         </a> 
@@ -88,6 +88,7 @@
                         <span class="fa fa-caret-down"></span>
                     </a>
                     <div class="dropdown-container overlay-bg-color">
+                        
                         <a class="font-weight-bold" href="./eventi.php">Eventi</a>
                         <a class="font-weight-bold" href="./categorie.php">Categorie</a>
                         <a class="font-weight-bold" href="./artisti.php">Artisti</a>
@@ -114,13 +115,10 @@
                     <nav class="nav flex-column">
                         <p class="pl-3 mb-0 pb-0 font-white">CATEGORIE</p>
                         <div class="dropdown-divider"></div>
-                        <a class="nav-link font-white" href="#">Sport</a>
-                        <a class="nav-link font-white" href="#">Concerti</a>
-                        <a class="nav-link font-white" href="#">Cinema</a>
-                        <a class="nav-link font-white" href="#">Spettacoli</a>
-                        <a class="nav-link font-white" href="#">Fiere</a>
-                        <a class="nav-link font-white" href="#">Mostre e Musei</a>
-                        <a class="nav-link font-white" href="#">Altro</a>
+                            
+                            <?php foreach ($templateParams["categories"] as $categoria) :?>
+                                <a class="nav-link font-white" href="./categoria?id=<?php echo $categoria["IDCategoria"]?>"> <?php echo $categoria["NomeCategoria"] ?></a>
+                            <?php endforeach ?>
                     </nav>
                 </div>
                 <div class="col-2"></div>
