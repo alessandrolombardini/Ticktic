@@ -853,5 +853,17 @@
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    /********************************************************************************************************************** */
+    /*Homepage*/
+
+    public function getRandomCategories($n = 6){
+        $stmt = $this->db->prepare("SELECT * FROM CATEGORIA ORDER BY RAND() LIMIT ?");
+        $stmt->bind_param('i',$n);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+
+    }
 }
 ?>

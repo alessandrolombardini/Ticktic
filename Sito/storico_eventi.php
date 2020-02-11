@@ -13,5 +13,10 @@ function EventiPassati($array) {
 $templateParams["page_content"] = "./template/gestore/storico_eventi_content.php";
 $eventi= $dbh->getEventiAttiviDiOrganizzatore($_SESSION["id"]);
 $templateParams["storicoEventi"] = array_filter($eventi, "EventiPassati");
+<<<<<<< HEAD
+$templateParams["categories"] = $dbh->getCategories(); /* For Footer Links */
+
+=======
+>>>>>>> c5892e29ec35083a1844ccd48e303136caccf469
 require_once("./template/base.php"); 
 ?>
