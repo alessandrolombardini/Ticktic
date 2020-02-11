@@ -68,10 +68,10 @@
                 <div class="overlay-content">
                     <a class="nav-link text-light" href="./account.php">Account</a>   
                     <?php if (isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "ORGANIZZATORE"):?>
-                      <a class="nav-link text-light" href="./area_gestore.php?msg=0">Area organizzatore</a>                       
+                      <a class="nav-link text-light" href="./area_gestore.php?msg=0">Area Organizzatore</a>                       
                     <?php endif?>                     
                     <?php if (isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "AMMINISTRATORE"):?>
-                      <a class="nav-link text-light" href="./area_gestore.php?msg=0">Area amministratore</a>                       
+                      <a class="nav-link text-light" href="./area_gestore.php?msg=0">Area Amministratore</a>                       
                     <?php endif?>                     
                     <a class="nav-link text-light" href="./nuove_notifiche.php">Notifiche</a>       
                     <?php if (!isset($_SESSION["id"]) || $_SESSION["autorizzazione"] == "UTENTE"):?>
