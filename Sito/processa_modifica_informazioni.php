@@ -17,14 +17,14 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["email"])){
                     $cap = $_POST["CAP"];
                     if ($_SESSION["autorizzazione"] == "ORGANIZZATORE"){
                         if (isset($_POST["IBAN"]) || (checkBaseParams($email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta) && checkOrganizzatoreParams($iban))){
-                            //inserisci orga
+                            /inseri/sci orga
                         } else {
                             $templateParams["msg"] = "Campi non completamente compilati";
                             $templateParams["error"] = 's';
                         }
                     } else {
                         if(checkBaseParams($email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta)){
-                            //inserisci utente
+                            $dbh -> updateUtente($email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $_GET[""])
                         } else {
                             $templateParams["msg"] = "Campi non completamente compilati";
                             $templateParams["error"] = 's';
