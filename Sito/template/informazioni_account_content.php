@@ -6,11 +6,13 @@
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="javascript:history.back()"> Indietro </a>
         </div>
         <hr/>
+        <?php if(isset($templateParams["msg"])): ?>)
         <div class="row">
             <p class="col-2"></p>
-            <p class="col-7 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
+            <p class="col-7 text-center my-2 align-center <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
             <p class="col-3"></p>
         </div>
+        <?endif?>
     <div class="col-0 col-md-1"></div>
 
     <div class="row mt-2">

@@ -375,6 +375,36 @@
     }
 
     /******************************************************************************************************************************/
+    /* Moodifica Informazioni */
+
+    public function updateUtente($email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $IDUtente){
+        $query = "UPDATE UTENTE
+                  SET Email = ?, Sesso = ?, Nome = ?, Cognome = ?, DataNascita = ?, Indirizzo = ?, CAP = ?, Citta = ?
+                  WHERE IDUtente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssssssssi', $email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $IDUtente);
+        $stmt->execute();
+    }
+
+    public function updateOrganizzatore($email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $IBAN, $id){
+        $query = "UPDATE ORGANIZZATORE
+                  SET Email = ?, Sesso = ?, Nome = ?, Cognome = ?, DataNascita = ?, Indirizzo = ?, CAP = ?, Citta = ?, IBAN = ?
+                  WHERE IDOrganizzatore = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssssssssi', $email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $IBAN, $id);
+        $stmt->execute();
+    }
+
+    public function updateAmministratore($email, $nome, $cognome, $id){
+        $query = "UPDATE AMMINISTRATORE
+                  SET Email = ?, Nome = ?, Cognome = ?
+                  WHERE IDAmministratore = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssi', $email, $nome, $cognome, $id);
+        $stmt->execute();
+    }
+
+     /******************************************************************************************************************************/
     /* Registrazione */
 
     public function inserisciNuovoUtente($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta){
