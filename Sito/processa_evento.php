@@ -1,5 +1,6 @@
 <?php
 require_once("./bootstrap.php");
+
 /****************************** Check permission **********************************/
 if(!isset($_SESSION["id"])){
     header('Location: ./login.php');
@@ -64,7 +65,8 @@ if($_POST["action"]==2){
     if(isset($_FILES["eventimg"]) && strlen($_FILES["eventimg"]["name"])>0){
         list($result, $msg) = uploadImage(UPLOAD_DIR."eventi/", $_FILES["eventimg"]);
         if($result == 0){
-            header("location: area_gestore.php?msg=".$msg);
+            $error='s';
+            header("location: area_gestore.php?msg=".$msg."&error=".$error);
         } else {
             $img = $msg;
         }

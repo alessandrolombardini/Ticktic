@@ -375,7 +375,7 @@
     }
 
     /******************************************************************************************************************************/
-    /* Moodifica Informazioni */
+    /* Moodifica Informazioni Account*/
 
     public function updateUtente($email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $IDUtente){
         $query = "UPDATE UTENTE
@@ -401,6 +401,26 @@
                   WHERE IDAmministratore = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('sssi', $email, $nome, $cognome, $id);
+        $stmt->execute();
+    }
+
+    public function updatePassword($newpassword, $tipoaccount, $id){
+        $newpassword = password_hash($newpassword, PASSWORD_DEFAULT);
+        if ($tipoaccount == 'UTENTE'){
+            $query =    "UPDATE UTENTE
+                        SET Password = ?
+                        WHERE IDUtente = ?";
+        } else if ($tipoaccount == "AMMINISTRATORE") {
+            $query =    "UPDATE AMMINISTRATORE
+                        SET Password = ?
+                        WHERE IDAmministratore = ?";
+        } else if ($tipoaccount == "ORGANIZZATORE") {
+            $query =    "UPDATE ORGANIZZATORE
+                        SET Password = ?
+                        WHERE IDOrganizzatore = ?";
+        }
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('si', $newpassword, $id);
         $stmt->execute();
     }
 
