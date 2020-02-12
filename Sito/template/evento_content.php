@@ -1,4 +1,4 @@
-<div data-idevento=<?php echo $templateParams["informazioniEvento"]["IDEvento"] ?> class="row contenitoreID">
+<div data-idevento=<?php echo $templateParams["informazioniEvento"]["IDEvento"] ?> class="contenitoreID">
     <div class="col-0 col-md-1"></div>
     <div class="roundend-corners col-12 col-md-10 bg-white border mt-2 mb-4 px-4 py-3 mr-0 shadow-sm concert-tickets">
         <?php if(isset($templateParams["msg"])): ?>
