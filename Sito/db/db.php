@@ -407,17 +407,17 @@
     public function updatePassword($newpassword, $tipoaccount, $id){
         $newpassword = password_hash($newpassword, PASSWORD_DEFAULT);
         if ($tipoaccount == 'UTENTE'){
-            $query =    "UPDATE UTENTE
-                        SET Password = ?
-                        WHERE IDUtente = ?";
+            $query = "UPDATE UTENTE
+                      SET Password = ?
+                      WHERE IDUtente = ?";
         } else if ($tipoaccount == "AMMINISTRATORE") {
-            $query =    "UPDATE AMMINISTRATORE
-                        SET Password = ?
-                        WHERE IDAmministratore = ?";
+            $query = "UPDATE AMMINISTRATORE
+                      SET Password = ?
+                      WHERE IDAmministratore = ?";
         } else if ($tipoaccount == "ORGANIZZATORE") {
-            $query =    "UPDATE ORGANIZZATORE
-                        SET Password = ?
-                        WHERE IDOrganizzatore = ?";
+            $query = "UPDATE ORGANIZZATORE
+                      SET Password = ?
+                      WHERE IDOrganizzatore = ?";
         }
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('si', $newpassword, $id);

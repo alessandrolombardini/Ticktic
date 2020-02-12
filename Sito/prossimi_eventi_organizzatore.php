@@ -14,7 +14,7 @@ if (isset($_GET["deleteID"])){
     $id = $_GET["deleteID"];
     $dbh -> deleteEvent($id);
 }
-$templateParams["page_content"] = "./template/gestore/prossimi_eventi_content.php";
+$templateParams["page_content"] = "./template/gestore/prossimi_eventi_organizzatore_content.php";
 $eventi= $dbh->getEventiAttiviDiOrganizzatore($_SESSION["id"]);
 $templateParams["prossimiEventi"] = array_filter($eventi, "ProssimiEventi");
 

@@ -1,6 +1,5 @@
 <?php 
 require_once("./bootstrap.php");
-$templateParams["categories"] = $dbh->getCategories(); /* For Footer Links */
 /****************************** Check permission **********************************/
 if(!isset($_SESSION["id"])){
     header('Location: ./login.php');

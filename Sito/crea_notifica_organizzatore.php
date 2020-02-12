@@ -11,7 +11,5 @@
         $templateParams["IDEvento"] = $_GET["IDEvento"];
         $templateParams["page_content"] = "./template/notifiche/crea_notifica_organizzatore_content.php";    
     }
-
-    $templateParams["categories"] = $dbh->getCategories(); /* For Footer Links */
     require_once("./template/base.php");
 ?>

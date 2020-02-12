@@ -17,7 +17,7 @@
         <div class="row">
         <div class="col-md-4 col-12 mb-3">
             <label for="oldpassword">Password</label>
-            <input type="oldpassword" maxlength="16" class="form-control" id="oldpassword" name="oldpassword" required/>
+            <input type="password" maxlength="16" class="form-control" id="oldpassword" name="oldpassword" required/>
           </div>
           <div class="col-md-4 col-12 mb-3">
             <label for="password">Nuova password</label>

@@ -1,6 +1,5 @@
 <?php
 require_once("./bootstrap.php");
-
 /****************************** Check permission **********************************/
 if(!isset($_SESSION["id"])){
     header('Location: ./login.php');
@@ -8,7 +7,6 @@ if(!isset($_SESSION["id"])){
     header('Location: ./page_not_allowed.php');
 }
 /**********************************************************************************/
-
 if($_POST["action"]==1){
     $error='s';
     $luogo = $_POST["luogo"];

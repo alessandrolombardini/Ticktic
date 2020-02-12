@@ -376,6 +376,12 @@ footer {
     clear:right;
 }
 
+table, th, td {
+    word-wrap: break-word;
+    word-break: break-all;
+    table-layout: fixed;
+}
+
 
 @media screen and (min-width: 768px) {
     .updateeventimg {
