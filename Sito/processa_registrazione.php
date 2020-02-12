@@ -1,28 +1,6 @@
 <?php
 require_once("./bootstrap.php");
 $inserimentoCorretto = false;
-function in_str($str, $find) {
-  foreach ($find as $ch) {
-    if (strpos($str, $ch) !== false) {
-      return true;
-    }
-  }
-  return false;
-}
-
-$symbols = array(',', '.', ':', '?', '!');
-$digits = array();
-for ($i = 0; $i < 10; $i++) {
-  array_push($digits, chr(48 + $i));
-}
-$lowercases = array();
-for ($i = 0; $i < 26; $i++) {
-  array_push($lowercases, chr(97 + $i));
-}
-$uppercases = array();
-for ($i = 0; $i < 26; $i++) {
-  array_push($uppercases, chr(65 + $i));
-}
 
 if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["email"]) && isset($_POST["sesso"]) && isset($_POST["password"]) &&
    isset($_POST["ripetipassword"]) && isset($_POST["data"]) && isset($_POST["indirizzo"]) && isset($_POST["citta"]) && isset($_POST["CAP"])){
@@ -88,23 +66,6 @@ if($inserimentoCorretto == true){
     require_once("./login.php");
 } else {
     require_once("./registrazione.php");
-}
-
-function checkBaseParams($email, $sesso, $password, $ripetipassword, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta){
-    return !empty($password)
-           && !empty($ripetipassword)
-           && filter_var($email, FILTER_VALIDATE_EMAIL)
-           && ($sesso == "m" || $sesso == "f" || $sesso == "a")
-           && !empty($nome)
-           && !empty($cognome)
-           && !empty($datanascita)
-           && !empty($indirizzo)
-           && !empty($cap)
-           && !empty($citta);
-}
-
-function checkOrganizzatoreParams($iban){
-    return isset($iban) && !empty($iban);
 }
 
 ?>

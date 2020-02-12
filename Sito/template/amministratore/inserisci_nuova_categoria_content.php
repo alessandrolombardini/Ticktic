@@ -12,7 +12,7 @@
             <?php if($templateParams["error"] == 's'){echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
         </div>
         <?php endif ?>
-        <form class="pt-3" action="processa_inserimento_nuova_categoria.php" method="POST">
+        <form class="pt-3" action="processa_inserimento_nuova_categoria.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-12 col-md-4 mb-3">
                     <label for="nome">Nome</label>

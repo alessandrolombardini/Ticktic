@@ -7,9 +7,11 @@
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="javascript:history.back()"> Annulla </a>
         </div>
         <hr/>
-        <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"):?>
-        <p class="col-8 mb-3"> <?php echo $templateParams["msg"] ?> </p> 
-        <?php endif?>
+        <div class="row">
+            <p class="col-2"></p>
+            <p class="col-7 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
+            <p class="col-3"></p>
+        </div>
         <?php if ($templateParams["azione"] == 2){
             echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5 updateeventimg'>";
         }?>

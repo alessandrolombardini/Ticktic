@@ -85,7 +85,8 @@
     }
 
     public function insertCategoria($nome, $img){
-        $query = "INSERT INTO CATEGORIA (NomeCategoria, ValutataSN, AutorizzataSN, ImmagineCategoria) VALUES (?,'s','s',?)";
+        $query = "INSERT INTO CATEGORIA (NomeCategoria, ValutataSN, AutorizzataSN, ImmagineCategoria) VALUES (?,?,?,?)";
+        $valutato = 's';
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ssss', $nome, $valutato, $valutato, $img);
         $stmt->execute();

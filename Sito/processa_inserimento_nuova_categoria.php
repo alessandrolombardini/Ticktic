@@ -9,15 +9,19 @@
     /**********************************************************************************/
     
     
-    list($result, $immagineEvento) = uploadImage(UPLOAD_DIR."categorie/", $_POST["categimg"]);
-    $id = $dbh->insertCategoria($_POST["nome"], $immagineEvento);
-
-    if($id == false){
-        $templateParams["msg"] = "Errore: categoria non inserita.";
-        $templateParams["error"] = 's';
+    list($result, $msg) = uploadImage(UPLOAD_DIR."categorie/", $_FILES["categimg"]);
+    if($result != 0){
+        $id = $dbh->insertCategoria($_POST["nome"], $msg);
+        if($id == false){
+            $templateParams["msg"] = "Errore: categoria non inserita.";
+            $templateParams["error"] = 's';
+        } else {
+            $templateParams["msg"] = "Congratulazioni: categoria inserita.";
+            $templateParams["error"] = 'n';    
+        }
     } else {
-        $templateParams["msg"] = "Congratulazioni: categoria inserita.";
-        $templateParams["error"] = 'n';    
+        $templateParams["msg"] = $msg;
+        $templateParams["error"] = 's';
     }
     require_once("./inserisci_nuova_categoria.php");
 ?>

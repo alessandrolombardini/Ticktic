@@ -20,7 +20,7 @@
     
      <div class="row">
     <?php foreach ($templateParams["storicoEventi"] as $evento) :?>
-        <div class="event col-12 col-md-6 col-lg-4 col-xl-4 shadow-sm pl-1 pr-1 ml-0 mr-0 pt-2 pb-2 mt-3 mb-4 bg-white rounded border-dark d-inline-block">
+        <div class="event col-12 col-md-6 col-lg-4 col-xl-4 shadow-sm pl-1 pr-1 pt-2 pb-2 mt-3 mb-4 bg-white rounded border-dark d-inline-block">
             <div class="row m-0 p-0 float-left shadow-sm  bg-white rounded border-dark">
                 <img class="img-fluid rounded" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"></img>
             </div>

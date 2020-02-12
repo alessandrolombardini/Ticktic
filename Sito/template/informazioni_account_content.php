@@ -6,6 +6,11 @@
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="javascript:history.back()"> Indietro </a>
         </div>
         <hr/>
+        <div class="row">
+            <p class="col-2"></p>
+            <p class="col-7 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
+            <p class="col-3"></p>
+        </div>
     <div class="col-0 col-md-1"></div>
 
     <div class="row mt-2">
@@ -25,13 +30,17 @@
                 </div>
                 <div class="row mt-1 mt-md-2 pb-3">
                     <div class = "col-12 col-md-7"><span class="font-weight-bold">Indirizzo:  </span><?php echo$templateParams["account"]["Indirizzo"]?></div>
-                    <div class = "col-8 col-md-3 mt-0 mt-md-1"><span class="font-weight-bold">Città:  </span><?php echo$templateParams["account"]["Citta"]?></div>
-                    <div class = "col-4 col-md-2 mt-0 mt-md-1"><span class="font-weight-bold">CAP:  </span><?php echo$templateParams["account"]["CAP"]?></div>
+                    <div class = "col-12 col-md-3 mt-0 mt-md-1"><span class="font-weight-bold">Città:  </span><?php echo$templateParams["account"]["Citta"]?></div>
+                    <div class = "col-12 col-md-2 mt-0 mt-md-1"><span class="font-weight-bold">CAP:  </span><?php echo$templateParams["account"]["CAP"]?></div>
                 </div>
             <?php endif ?>
             <div class="row mt-1 mt-md-2 pb-1">
-                <a class="col-12 text-right" href="#">
+                <div class="col-md-5"> </div>
+                <a class="col-12 col-md-4 text-center text-md-right" href="modifica_informazioni_account.php">
                     <button class="purple-btn p-1 mt-2 pr-4 pl-4 font-description shadow-sm rounded-pill">Modifica Informazioni</button>
+                </a>
+                <a class="col-12 col-md-3 text-center text-md-right" href="modifica_password.php">
+                    <button class="purple-btn p-1 mt-2 pr-4 pl-4 font-description shadow-sm rounded-pill">Modifica Password</button>
                 </a>
             </div>
         </div>

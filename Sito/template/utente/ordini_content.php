@@ -24,7 +24,7 @@
     <div class="roundend-corners col-12 col-md-12 bg-white border mt-2 mb-5 px-4 py-3 shadow-sm">
         <div class="row mb-0 mt-0">
             <div class="pl-3 pt-1 text-md-left text-md-big text-center color-purple col-md-8">
-                <h4 class="pb-0 mb-0"> Ordine del <?php echo $ordine["DataOrdine"];?> </h4>
+                <h4 class="pb-0 mb-0"> Ordine del <?php echo date("d/m/Y", strtotime($ordine["DataOrdine"]));?> </h4>
             </div>
         </div>
         <hr/>

@@ -1,4 +1,47 @@
 <?php
+  function in_str($str, $find) {
+    foreach ($find as $ch) {
+      if (strpos($str, $ch) !== false) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  $symbols = array(',', '.', ':', '?', '!');
+  $digits = array();
+  for ($i = 0; $i < 10; $i++) {
+    array_push($digits, chr(48 + $i));
+  }
+  $lowercases = array();
+  for ($i = 0; $i < 26; $i++) {
+    array_push($lowercases, chr(97 + $i));
+  }
+  $uppercases = array();
+  for ($i = 0; $i < 26; $i++) {
+    array_push($uppercases, chr(65 + $i));
+  }
+
+function checkBaseParams($email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta){
+    return filter_var($email, FILTER_VALIDATE_EMAIL)
+           && ($sesso == "m" || $sesso == "f" || $sesso == "a")
+           && !empty($nome)
+           && !empty($cognome)
+           && !empty($datanascita)
+           && !empty($indirizzo)
+           && !empty($cap)
+           && !empty($citta);
+}
+
+function checkOrganizzatoreParams($iban){
+    return isset($iban) && !empty($iban);
+}
+
+function checkAmministratoreParams($email, $nome, $cognome){
+    return filter_var($email, FILTER_VALIDATE_EMAIL)
+           && !empty($nome)
+           && !empty($cognome);
+}
 
 function uploadImage($path, $image){
     $imageName = basename($image["name"]);
