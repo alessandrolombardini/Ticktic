@@ -467,7 +467,6 @@ $(document).ready(function(){
             img = new Image();
             var objectUrl = _URL.createObjectURL(file);
             img.onload = function () {
-            console.log(this.width/this.height);
               if(this.width/this.height != 1){
                 alert("File non idoneo: accettate solo imagini con rapporto 1");
                 $("input[name='eventimg']").val("");
@@ -497,7 +496,6 @@ $(document).ready(function(){
         $(".cuore-vuoto").click(riempiCuore);
     }
     function riempiCuore(){
-        console.log("ciao");
         let IDEvento = $(this).parent().attr("data-IDEvento");
         $(this).off();
         $(this).removeClass('cuore-vuoto');
@@ -508,7 +506,6 @@ $(document).ready(function(){
         {
             IDEvento: IDEvento
         });
-        console.log($(this).parent().attr("data-IDEvento"));
         $(".cuore-pieno").click(svuotaCuore);
     }
 
