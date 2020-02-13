@@ -7,8 +7,8 @@
     </div>
     <hr/>
     <?php require_once __DIR__.'/../check_errori.php';?>
-    <div class="row">
-      <form action="./processa_modifica_informazioni.php" method="POST" class="col-12">
+    <div class="row p-0 m-0">
+      <form class="p-0 m-0" action="./processa_modifica_informazioni.php" method="POST" class="col-12">
         <div class="row pt-3">
             <div class = "col-12 col-md-4">
                 <label for="nome">Nome</label>

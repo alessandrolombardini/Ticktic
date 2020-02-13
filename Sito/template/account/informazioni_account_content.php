@@ -9,7 +9,7 @@
         <?php require_once __DIR__.'/../check_errori.php'; ?>
         <div class="row">
             <div class="col-0 col-md-2"></div>
-            <div class="table col-12 col-md-8">
+            <div class="table col-12 col-md-8 p-0 m-0">
             <table class="table table-striped table-bordered mt-2 mb-0">
                 <tr>
                     <th class="col-12" header="info" id="nome">Nome</th>
