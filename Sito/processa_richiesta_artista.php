@@ -15,6 +15,8 @@
         $immagineArtista = $msg;
         $id = $dbh->insertArtistaNonValutato($nome, $descrizione, $immagineArtista);
         if($id!=false){
+            $IDNotifica = $dbh -> inserisciNotificaOrganizzatorePerArtistaECategorie("Richiesta di inserimento artista.", "Un organizzatore ha richiesto l'inserimento dell'artista " . $nome, $_SESSION["id"]);
+            $dbh -> pubblicaNotificaATuttiGliAmministratori($IDNotifica);
             $msg = "Richiesta inoltrata.";
             $error = 'n';
             header("location: area_gestore.php?msg=".$msg."&error=".$error);
