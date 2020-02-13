@@ -3,15 +3,9 @@
         <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-10">
             <h3 class="text-black pt-2 mt-4 mb-4">Area Organizzatore</h3>
-            <?php if (isset($templateParams["msg"])):?>
-            <div class="row">
-                <p class="col-3"></p>
-                <p class="col-6 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
-                <p class="col-3"></p>
-            </div>
-            <?php endif?>
+            <?php require_once("check_errori.php");?>
             <a href="./inserisci_evento.php?action=1">
-                <button type="submit" class="btn btn-gestore col-12 py-3 mt-5 mb-2 ml-0">
+                <button type="submit" class="btn btn-gestore col-12 py-3 mt-4 mb-2 ml-0">
                     <p class="col-10 float-left mb-0 mt-1 align-center"> Inserisci nuovo evento </p> 
                     <i class="fa fa-angle-right fa-2x"></i> 
                 </button>
