@@ -13,6 +13,7 @@
         <script type="text/javascript" src="./js/utils.js"> </script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <title>TickTic</title>
     </head>
     <body class ="bg-light">
@@ -25,7 +26,7 @@
                 </button>
 
                 <!-- Navbar Logo -->
-                <a class="navbar-brand py-0 mx-0 float-center" href="./index.php">
+                <a class="navbar-brand py-0 mx-xl-5 float-center" href="./index.php">
                     <img id="nav-logo" src="./images/ticktic_logo.png" alt="ticktic logo" />
                 </a>
 
@@ -33,7 +34,7 @@
                 <?php if (!isset($templateParams["hide_search_bar"]) || $templateParams["hide_search_bar"] != "y"):?>
                     <ul class=" ml-10 navbar-nav align-items-center d-none d-xl-block mr-auto desktop-search-bar">
                         <li class="nav-item" >
-                            <form class="form-inline search-box" method="POST" action="ricerca.php">
+                            <form class="form-inline search-box" method="POST" action="./ricerca.php">
                                 <input class="form-control rounded-pill search-input w-100"  type="search" name="barraDiRicerca" placeholder="Cerca ..." aria-label="Search" />
                             </form>
                         </li>
@@ -72,7 +73,7 @@
 
             <!-- Nav overlay -->
             <div class="overlay" id="nav"> <!-- Contenuto del menu -->
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
                     <a class="font-weight-bold" href="./account.php">Account</a>   
                     <?php if (isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "ORGANIZZATORE"):?>
@@ -112,7 +113,7 @@
         <footer class="py-3 text-white">
             <div class="row mb-3">
                 <div class="col-1"></div>
-                <div class="col-3">
+                <div class="col-4">
                     <nav class="nav flex-column">
                         <p class="pl-3 mb-0 pb-0 font-white">CATEGORIE</p>
                         <div class="dropdown-divider"></div>
@@ -123,8 +124,7 @@
                     </nav>
                 </div>
                 <div class="col-2"></div>
-                <div class="col-1"></div>
-                <div class="col-3">
+                <div class="col-4">
                     <nav class="nav flex-column">
                         <p class="pl-3 mb-0 pb-0 font-white"> OVERVIEW </p>
                         <div class="dropdown-divider"></div>
@@ -134,7 +134,7 @@
                         <a class="nav-link font-white" href="./account.php">Area Personale</a>
                     </nav>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-1"></div>
             </div>
             <div class="row">
                 <div class="col-1"></div>

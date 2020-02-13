@@ -17,9 +17,9 @@
 
                     <?php foreach ($templateParams["eventi"] as $evento) :?>
                         <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
-                            <div class="shadow-sm bg-white rounded border-dark d-inline-block">
-                                <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white rounded border-dark">
-                                    <img class="img-fluid rounded" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"></img>
+                            <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
+                                <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
+                                    <img class="img-fluid roundend-corners" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"></img>
                                 </div>
                                 <div class="col-12 m-0 p-0 d-inline-block text-left px-3 pb-3 pt-3">
                                     <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
