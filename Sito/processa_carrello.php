@@ -43,6 +43,7 @@
                 $idcomprende = $dbh->insertEventiOnOrdine($id, $evento["IDEvento"], $evento["bigliettiacquistati"]);
                 if ($id == false){
                     $msg = "Errore in inserimento!";
+                    $error = 's';
                     break;
                 } else {
                     $msg = "Ordine effettuato.";
@@ -52,6 +53,7 @@
         }
         else{
             $msg = "Errore in inserimento!";
+            $error = 's';
         }
     }
     header("location: area_utente.php?msg=".$msg."&error?".$error);

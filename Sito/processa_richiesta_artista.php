@@ -16,12 +16,17 @@
         $id = $dbh->insertArtistaNonValutato($nome, $descrizione, $immagineArtista);
         if($id!=false){
             $msg = "Richiesta inoltrata.";
+            $error = 'n';
+            header("location: area_gestore.php?msg=".$msg."&error=".$error);
         }
         else{
             $msg = "Errore in inserimento!";
+            $error = 's';
+            header('Location: ' . $_SERVER['HTTP_REFERER'] . "?msg=". $msg."&error=".$error);
         }
     } else {
         $msg = "Errore nel caricamento immagine.";
+        $error = 's';
+        header('Location: ' . $_SERVER['HTTP_REFERER'] . "?msg=". $msg."&error=".$error);
     }
-    header("location: area_gestore.php?msg=".$msg);
 ?>

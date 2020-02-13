@@ -14,5 +14,9 @@ if(!isset($_SESSION["id"])){
 }
 /**********************************************************************************/
 $templateParams["page_content"] = "./template/account/modifica_informazioni_account_content.php";
+if (isset($_GET["msg"]) && isset($_GET["error"])){
+    $templateParams["msg"] = $_GET["msg"];
+    $templateParams["error"] = $_GET["error"];
+}
 require_once("./template/base.php");
 ?>

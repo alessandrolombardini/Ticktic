@@ -61,7 +61,7 @@ foreach($templateParams["eventi"] as $evento):?>
 </div>
 
 <div class="row mb-3">
-    <div class="col-3 p-0 m-0"> </div>
-    <button type="button" class="purple-btn col-6 p-3 m-0 mb-5 rounded-pill"><p class="mb-0">Procedi all'acquisto</p></button>
-    <div class="col-3 p-0 m-0"> </div>
+    <div class="col-1 col-md-3 p-0 m-0"> </div>
+    <button type="button" class="purple-btn col-10 col-md-6 p-3 m-0 mb-5 rounded-pill"><p class="mb-0">Procedi all'acquisto</p></button>
+    <div class="col-1 col-md-3 p-0 m-0"> </div>
 </div>

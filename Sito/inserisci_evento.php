@@ -20,8 +20,10 @@ if (isset($_GET["id"]) && !empty($_GET["id"])){
     $templateParams["annoEvento"] = substr($data, 0, 4);
     $templateParams["oraEvento"] = substr($data, 11, 5);
 }
-if (isset($_GET["msg"])){
+
+if (isset($_GET["msg"]) && isset($_GET["error"])){
     $templateParams["msg"] = $_GET["msg"];
+    $templateParams["error"] = $_GET["error"];
 }
 require_once("./template/base.php");
 ?>

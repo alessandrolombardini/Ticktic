@@ -1,9 +1,9 @@
-<div class="container mt-3 mb-5">
+<div class="container mt-3 mb-0">
     <div class="row">
         <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-10">
             <h3 class="text-black pt-2 mt-4">Area Organizzatore</h3>
-            <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"):?>
+            <?php if (isset($templateParams["msg"])):?>
             <div class="row">
                 <p class="col-3"></p>
                 <p class="col-6 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
