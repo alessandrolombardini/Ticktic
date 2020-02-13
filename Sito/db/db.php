@@ -794,8 +794,6 @@
 
     public function pubblicaNotificaATuttiGliAmministratori($IDNotifica){
         $amministratori = $this->ottieniAmministratori();
-        var_dump($IDNotifica);
-        var_dump($amministratori);
         foreach ($amministratori as $amministratore){
             $this->pubblicaNotificaAdAmministratore($amministratore["IDAmministratore"], $IDNotifica);
         }
@@ -822,7 +820,6 @@
                   VALUES (?,?,'n')";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss', $IDAmministratore, $IDNotifica);
-        var_dump("ciao");
         $stmt->execute();
     }
 
