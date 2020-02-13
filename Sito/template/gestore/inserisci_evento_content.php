@@ -7,7 +7,7 @@
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="javascript:history.back()"> Annulla </a>
         </div>
         <hr/>
-        <?php require_once("check_errori.php");?>
+        <?php require_once __DIR__.'/../check_errori.php'; ?>
         <?php if ($templateParams["azione"] == 2){
             echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5 updateeventimg'>";
         }?>

@@ -6,7 +6,7 @@
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="inserisci_evento.php?action=1"> Annulla </a>
         </div>
         <hr/>
-        <?php require_once("check_errori.php");?>
+        <?php require_once __DIR__.'/../check_errori.php'; ?>
         <form action="processa_richiesta_artista.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-4 col-12 mb-3">

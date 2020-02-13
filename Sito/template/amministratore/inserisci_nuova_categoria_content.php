@@ -6,7 +6,7 @@
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="./verifica_nuove_categorie.php"> Annulla </a>
         </div>
         <hr/>
-        <?php require_once("check_errori.php");?>
+        <?php require_once __DIR__.'/../check_errori.php'; ?>
         <form class="pt-3" action="processa_inserimento_nuova_categoria.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-12 col-md-4 mb-3">
