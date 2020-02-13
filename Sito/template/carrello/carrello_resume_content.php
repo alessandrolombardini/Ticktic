@@ -5,7 +5,7 @@
         <div class="col-md-8 col-12">
             <div class="row mt-3">
                 <h3 class="col-8 col-md-7 mb-0">Riepilogo Ordine</h3>
-                <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold">Indietro </a>
+                <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="#">Indietro </a>
             </div>
             <hr class="mt-1"/>
             <div class="roundend-corners col-12 bg-white border mt-2 mb-4 px-4 py-3 shadow-sm">

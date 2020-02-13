@@ -6,14 +6,7 @@
       <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="informazioni_account.php"> Annulla </a>
     </div>
     <hr/>
-    <?php if (isset($templateParams["msg"])):?>
-    <div class="row">
-        <p class="col-3"></p>
-        <p class="col-6 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
-        <p class="col-3"></p>
-    </div>
-    <?php endif?>
-
+    <?php require_once("check_errori.php");?>
     <div class="row">
       <form action="./processa_modifica_informazioni.php" method="POST">
         <div class="row pt-3">

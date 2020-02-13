@@ -3,16 +3,10 @@
   <div class="col-12 col-md-10">
         <div class="row mb-3 mt-5">
         <h3 class="col-8 col-md-7">Informazioni Account</h3>
-        <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="account.php"> Annulla </a>
+        <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="account.php"> Indietro </a>
         </div>
         <hr/>
-        <?php if (isset($templateParams["msg"])):?>
-        <div class="row mb-2">
-            <p class="col-3"></p>
-            <p class="col-6 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
-            <p class="col-3"></p>
-        </div>
-        <?php endif?>
+        <?php require_once("check_errori.php");?>
         <div class="row">
             <div class="col-0 col-md-2"></div>
             <div class="table col-12 col-md-8">

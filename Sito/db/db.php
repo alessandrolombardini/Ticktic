@@ -73,10 +73,11 @@
         $stmt->execute();  
     }
 
-    public function insertArtistaNonValutato($pseudominoArtista, $descrizione, $immagine, $valutato){
+    public function insertArtistaNonValutato($pseudominoArtista, $descrizione, $immagine){
         $query = "INSERT INTO ARTISTA (PseudonimoArtista, Descrizione, ImmagineArtista, ValutatoSN, AutorizzatoSN) VALUES (?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssss', $pseudominoArtista, $descrizione, $immagine, $valutato, $valutato);
+        $valutato = 'n';
+        $stmt->bind_param('sssss', $pseudominoArtista, $descrizione, $immagine, $valutato, $valutato);
         $stmt->execute();
         $result = $stmt->get_result();
 
