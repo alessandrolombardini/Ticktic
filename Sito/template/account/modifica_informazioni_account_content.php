@@ -7,7 +7,7 @@
     </div>
     <hr/>
     <?php require_once("check_errori.php");?>
-    <div class="container">
+    <div class="row">
       <form action="./processa_modifica_informazioni.php" method="POST">
         <div class="row pt-3">
             <div class = "col-12 col-md-4">

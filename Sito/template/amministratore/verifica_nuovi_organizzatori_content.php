@@ -12,21 +12,21 @@
     <div class="row">
         <table class="table table-striped table-bordered">
           <thead>
-            <tr>
-              <th id="numeroInLista"></th>
-              <th id="nome">Nome</th>
-              <th id="cognome">Cognome</th>
-              <th id="linkAdOrganizzatore"></th>
+            <tr class="d-flex">
+              <th class="col-2" id="numeroInLista"></th>
+              <th class="col-4" id="nome">Nome</th>
+              <th class="col-4" id="cognome">Cognome</th>
+              <th class="col-2" id="linkAdOrganizzatore"></th>
             </tr>
           </thead>
           <tbody>
             <?php $i = 1 ?>
             <?php foreach ($templateParams["organizzatoriDaAnalizzare"] as $organizzatore): ?>
-              <tr>
-                <th id="numero" headers="numeroInLista"><?php echo $i ?></th>
-                <td headers="numero nome"><?php echo $organizzatore["Nome"] ?></td>
-                <td headers="numero cognome"><?php echo $organizzatore["Cognome"] ?></td>
-                <td headers="numero linkAdOrganizzatore" class="text-right"><a href="./verifica_singolo_organizzatore.php?id=<?php echo $organizzatore["IDOrganizzatore"] ?>">Apri</a></td>
+              <tr class="d-flex">
+                <th class="col-2" id="numero" headers="numeroInLista"><?php echo $i ?></th>
+                <td class="col-4" headers="numero nome"><?php echo $organizzatore["Nome"] ?></td>
+                <td class="col-4" headers="numero cognome"><?php echo $organizzatore["Cognome"] ?></td>
+                <td class="col-2" headers="numero linkAdOrganizzatore" class="text-right"><a href="./verifica_singolo_organizzatore.php?id=<?php echo $organizzatore["IDOrganizzatore"] ?>">Apri</a></td>
               </tr>  
             <?php $i++ ?>
             <?php endforeach ?>
