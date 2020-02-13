@@ -1,6 +1,6 @@
-<div data-idevento=<?php echo $templateParams["informazioniEvento"]["IDEvento"] ?> class="contenitoreID">
+<div data-idevento="<?php echo $templateParams["informazioniEvento"]["IDEvento"] ?>"" class="row contenitoreID">
     <div class="col-0 col-md-1"></div>
-    <div class="roundend-corners col-12 col-md-10 bg-white border mt-2 mb-4 px-4 py-3 mr-0 shadow-sm concert-tickets">
+    <div class="roundend-corners col-12 col-md-10 bg-white border mt-2 mb-4 py-col-md-3 mr-0 shadow-sm concert-tickets">
         <?php if(isset($templateParams["msg"])): ?>
             <div class="row">
                 <p class="col-12 my-2 text-center align-center
@@ -14,10 +14,10 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-7">
                 <section>
                     <h3 class="titolo-viola"><?php echo $templateParams["informazioniEvento"]["NomeEvento"] ?></h3>
-                    <p><?php foreach($templateParams["artisti"] as $artista){ echo $artista["PseudonimoArtista"]; }?></p>
+                    <!-- <p><?php /* foreach($templateParams["artisti"] as $artista){ echo $artista["PseudonimoArtista"]; } */?></p> -->
                     <p><?php echo $templateParams["informazioniEvento"]["DescrizioneEvento"] ?></p>
-                    <p><?php echo $templateParams["informazioniEvento"]["Luogo"] ?></p>
-                    <p><?php echo $templateParams["informazioniEvento"]["DataEvento"] ?></p>
+                    <p class="font-italic"><?php echo $templateParams["informazioniEvento"]["Luogo"] ?></p>
+                    <p class="font-italic"><?php echo date("d/m/Y h:m", strtotime(substr($templateParams["informazioniEvento"]["DataEvento"], 0, -3)));?></p>
                 </section>
             </div>
         </div>

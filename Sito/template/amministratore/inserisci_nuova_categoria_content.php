@@ -15,13 +15,13 @@
         <form class="pt-3" action="processa_inserimento_nuova_categoria.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-12 col-md-4 mb-3">
-                    <label for="nome">Nome</label>
+                    <label for="nome">Nome *</label>
                     <input type="text" class="form-control" id="nome" name="nome" value="<?php if(isset($templateParams["nome"])) {echo $templateParams["nome"];} else {echo "";}?>" required/>
                 </div>
                 <div class="col-0 col-md-2 mb-3"></div>
 
                 <div class="col-12 col-md-4 mb-3">
-                    <label for="categimg">Immagine</label><br/>
+                    <label for="categimg">Immagine *</label><br/>
                     <input type="file" name="categimg" id="categimg"/>
                 </div>
                 <div class="col-0 col-md-2 mb-3"></div>

@@ -14,7 +14,7 @@
     </div>
     <?php endif?>
 
-    <div class="container">
+    <div class="row">
       <form action="./processa_modifica_informazioni.php" method="POST">
         <div class="row pt-3">
             <div class = "col-12 col-md-4">

@@ -1,6 +1,6 @@
-<div class="p-0 m-0">
+<div class="row">
   <div class="col-0 col-md-1"></div>
-  <div class="col-12 col-md-10 p-0 m-0">
+  <div class="col-12 col-md-10">
     <div class="row mb-3 mt-5 ">
         <h3 class="col-8 col-md-7">Storico eventi</h3>
         <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Indietro </a>
@@ -18,7 +18,7 @@
         </div>
     <?php endif ?>
     
-     <div class="row mr-3 ml-3">
+     <div class="row">
     <?php foreach ($templateParams["storicoEventi"] as $evento) :?>
         <div class="event col-12 col-md-6 col-lg-4 col-xl-4 shadow-sm pl-1 pr-1 pt-2 pb-2 mt-3 mb-4 bg-white rounded border-dark d-inline-block">
             <div class="row m-0 p-0 float-left shadow-sm  bg-white rounded border-dark">
