@@ -3,7 +3,7 @@
     <div class="col-12 col-md-10">
         <div class="row mb-3 mt-5">
             <h3 class="col-8 col-md-7">Inserimento categoria </h3>
-            <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="./verifica_nuove_categorie.php"> Annulla </a>
+            <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="./area_amministratore.php"> Annulla </a>
         </div>
         <hr/>
         <?php require_once __DIR__.'/../check_errori.php'; ?>

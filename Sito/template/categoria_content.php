@@ -36,7 +36,7 @@
 
                 <?php else :?>
                 
-                <p class="text-center mx-auto my-5">Siamo spiacenti ma non ci sono in eventi in questa categoria!</p>
+                <p class="text-center mx-auto my-5">Siamo spiacenti ma non ci sono in eventi in questa categoria</p>
 
                 <?php endif ?>
             </div>
