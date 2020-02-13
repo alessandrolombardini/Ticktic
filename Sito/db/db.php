@@ -695,7 +695,7 @@
 
     public function inserisciNotificaOrganizzatorePerArtistaECategorie($titolo, $testo, $idOrganizzatore){
         $query = "INSERT INTO NOTIFICA(TitoloNotifica, TestoNotifica, IDOrganizzatore)
-                  VALUES (?,?,?,?)";
+                  VALUES (?,?,?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('sss', $titolo, $testo, $idOrganizzatore);
         $stmt->execute();

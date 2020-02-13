@@ -12,19 +12,19 @@
     <div class="row">
         <table class="table table-striped table-bordered">
           <thead>
-            <tr>
-              <th id="numeroInLista"></th>
-              <th id="pseudonimo">Pseudonimo</th>
-              <th id="linkAdArtista"></th>
+            <tr class="d-flex">
+              <th class="col-1" id="numeroInLista"></th>
+              <th class="col-8" id="pseudonimo">Pseudonimo</th>
+              <th class="col-3" id="linkAdArtista"></th>
             </tr>
           </thead>
           <tbody>
             <?php $i = 1 ?>
             <?php foreach ($templateParams["artistiDaAnalizzare"] as $artista): ?>
-              <tr>
-                <th id="numero" headers="numeroInLista"><?php echo $i ?></th>
-                <td headers="numero pseudonimo"><?php echo $artista["PseudonimoArtista"] ?></td>
-                <td headers="numero linkAdArtista" class="text-right"><a href="./verifica_singolo_artista.php?id=<?php echo $artista["IDArtista"] ?>">Apri</a></td>
+              <tr class="d-flex">
+                <th class="col-1" id="numero" headers="numeroInLista"><?php echo $i ?></th>
+                <td class="col-8" headers="numero pseudonimo"><?php echo $artista["PseudonimoArtista"] ?></td>
+                <td class="col-3" headers="numero linkAdArtista" class="text-right"><a href="./verifica_singolo_artista.php?id=<?php echo $artista["IDArtista"] ?>">Apri</a></td>
               </tr>  
             <?php $i++ ?>
             <?php endforeach ?>
