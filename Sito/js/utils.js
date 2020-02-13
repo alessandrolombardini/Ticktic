@@ -276,7 +276,7 @@ $(document).ready(function(){
     updateChartTotal();
 
     /*Aumenta il numero di biglietti*/
-    $(".fa-plus-circle").click(function(){
+    $(".piuCarrello").click(function(){
         let ticketkind = $(this).parent().parent();
         let number = Number($(ticketkind).find("p.tickets-number").text());
         if(number < 8){
@@ -290,7 +290,7 @@ $(document).ready(function(){
     });
 
     /*Diminuisce il numero di biglietti*/
-    $(".fa-minus-circle").click(function(){
+    $(".menoCarrello").click(function(){
         let ticketkind = $(this).parent().parent();
         let number = Number($(ticketkind).find("p.tickets-number").text());
         if(number > 1){
@@ -303,8 +303,8 @@ $(document).ready(function(){
         }
     });
 
-    /* Stesse opeazioni poste sopra ma per il singolo evento */
-
+    /* Stesse operazioni poste sopra ma per il singolo evento */
+    /*Aumenta il numero di biglietti*/
     $(".piuEvento").click(function(){
         let ticketkind = $(this).parent();
         let number = Number($(ticketkind).find("p.tickets-num").text());

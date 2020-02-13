@@ -2,8 +2,8 @@
   <div class="col-0 col-md-1"></div>
   <div class="col-12 col-md-10">
         <div class="row mb-3 mt-5">
-        <h3 class="col-8 col-md-7">Autorizza organizzatore</h3>
-        <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="verifica_nuovi_organizzatori.php"> Annulla </a>
+        <h3 class="col-8 col-md-7">Informazioni Account</h3>
+        <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="account.php"> Annulla </a>
         </div>
         <hr/>
         <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"): ?>
@@ -15,10 +15,7 @@
         <div class="row">
             <div class="col-0 col-md-2"></div>
             <div class="table col-12 col-md-8">
-            <table class="table table-striped table-bordered">
-                <tr class="thead-dark">
-                    <th id="info" class="pt-4 pb-4 text-center h5" colspan="2">Informazioni organizzatore</th>
-                <tr>
+            <table class="table table-striped table-bordered mt-2 mb-0">
                 <tr>
                     <th class="col-12" header="info" id="nome">Nome</th>
                     <td header="info nome" class="col-12 text-right"><?php echo$templateParams["account"]["Nome"] ?></td>
@@ -61,14 +58,14 @@
             </div>
             <div class="col-0 col-md-2"></div>
         </div>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-md-2"></div>
-            <div class="col-6 col-md-4">
-                <div class="form-group text-center">
+            <div class="col-12 col-md-4">
+                <div class="form-group text-center mb-1">
                 <a class="text-white" href="modifica_informazioni_account.php"><button type="button" class="purple-btn col-10 shadow-sm p-3 mt-4 rounded-pill" id="accettaBtn">Modifica informazioni</button></a>
                 </div>
             </div>
-            <div class="col-6 col-md-4">
+            <div class="col-12 col-md-4">
                 <div class="form-group text-center">
                 <a class="text-white" href="modifica_password.php"><button type="button" class="purple-btn col-10 shadow-sm p-3 mt-4 rounded-pill" id="declinaBtn">Modifica password</button></a>
                 </div>
