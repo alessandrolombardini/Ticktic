@@ -72,11 +72,11 @@
                         <input type="text" class="form-control" id="nome" name="nome" 
                         value="<?php if ($templateParams["azione"] == 2) {echo $templateParams["evento"]["NomeEvento"];} else {echo "";}?>" required/>
                     </div>
-                    <div class="col-md-1 col-3 mb-3">
+                    <div class="col-md-1 col-4 mb-3">
                         <label for="day">Giorno*</label>
                         <select class="form-control eventdate <?php if ($templateParams["azione"] == 2) {echo "updateevent ";}?>" id="day" name="day"><?php if ($templateParams["azione"] == 2) {echo $templateParams["giornoEvento"];}?></select>
                     </div>
-                    <div class="col-md-2 col-5 mb-3">
+                    <div class="col-md-2 col-8 mb-3">
                         <label for="month">Mese*</label>
                         <select id="month" class="form-control eventdate" name="month">
                         <option value="01" <?php if ((($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "01")) || $templateParams["azione"]==1) {echo "selected";}?>>Gennaio</option>
@@ -93,7 +93,7 @@
                         <option value="12" <?php if (($templateParams["azione"] == 2) && ($templateParams["meseEvento"] == "12")) {echo "selected";}?>>Dicembre</option>
                         </select>
                     </div>
-                    <div class="col-md-2 col-4 mb-3">
+                    <div class="col-md-2 col-6 mb-3">
                         <label for="year">Anno*</label>
                         <select id="year" class="form-control eventdate <?php if ($templateParams["azione"] == 2) {echo "updateevent ";}?>" name="year"><?php if ($templateParams["azione"] == 2) {echo $templateParams["annoEvento"];}?></select>
                     </div>
