@@ -63,8 +63,6 @@
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii', $IDArtista, $IDEvento);
         $stmt->execute();
-
-        var_dump($this->getArtistsFromEvent($IDEvento));
         return $stmt->insert_id;
     }
 
@@ -75,21 +73,11 @@
         $stmt->execute();  
     }
 
-    public function insertArtistaNonValutato($pseudominoArtista, $descrizione, $immagine, $valutato){
+    public function insertArtistaNonValutato($pseudominoArtista, $descrizione, $immagine){
         $query = "INSERT INTO ARTISTA (PseudonimoArtista, Descrizione, ImmagineArtista, ValutatoSN, AutorizzatoSN) VALUES (?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssss', $pseudominoArtista, $descrizione, $immagine, $valutato, $valutato);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $stmt->insert_id;
-    }
-
-    public function insertCategoria($nome, $img){
-        $query = "INSERT INTO CATEGORIA (NomeCategoria, ValutataSN, AutorizzataSN, ImmagineCategoria) VALUES (?,?,?,?)";
-        $valutato = 's';
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssss', $nome, $valutato, $valutato, $img);
+        $valutato = 'n';
+        $stmt->bind_param('sssss', $pseudominoArtista, $descrizione, $immagine, $valutato, $valutato);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -106,6 +94,62 @@
         $stmt->execute();
     }
 
+    /**************************************************************************************************************************** */
+    /* Gestione categorie */
+    public function insertCategoria($nome, $img){
+        $query = "INSERT INTO CATEGORIA (NomeCategoria, ValutataSN, AutorizzataSN, ImmagineCategoria) VALUES (?,?,?,?)";
+        $valutato = 's';
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssss', $nome, $valutato, $valutato, $img);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $stmt->insert_id;
+    }
+
+    public function insertCategoriaNonValutata($nome){
+        $query = "INSERT INTO CATEGORIA (NomeCategoria, ValutataSN, AutorizzataSN) VALUES (?,?,?)";
+        $valutato = 'n';
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sss', $nome, $valutato, $valutato);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $stmt->insert_id;
+    }
+
+    public function deleteCategoria($id){
+        $query = "DELETE FROM CATEGORIA WHERE IDCategoria = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+    }
+
+    public function getCategoria ($id){
+        $stmt = $this->db->prepare("SELECT *
+                                    FROM CATEGORIA
+                                    WHERE IDCategoria = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();;
+    }
+
+    public function aggiornaInformazioniCategoria($id, $consensoSN){
+        $query = "UPDATE CATEGORIA
+                  SET AutorizzataSN = ?, ValutataSN = 's'
+                  WHERE IDCategoria = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('si', $consensoSN, $id);
+        $stmt->execute();
+    }
+
+    public function pubblicaCategoriaConsigliata($id, $nome, $img){
+        $query = "UPDATE CATEGORIA
+                  SET AutorizzataSN = 's', ValutataSN = 's', ImmagineCategoria = ?
+                  WHERE IDCategoria = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('si', $img, $id);
+        $stmt->execute();
+    }
     /******************************************************************************************************************************/
     /* Carrello */
 
@@ -302,8 +346,6 @@
     public function checkUtente($email, $password){
         if($this->controllaSeEsisteMailUtente($email) == 1){
             $hashed_password = $this->ottieniPasswordByEmailUtente($email);
-            var_dump("Alessandro1998,.-");
-            var_dump($hashed_password);
             if(password_verify($password, $hashed_password)){
                 return "OK";
             }
@@ -639,7 +681,6 @@
         /*var_dump(date("Y-m-d h:i:sa"));*/
         $stmt->bind_param('sss', $titolo, $testo, $idAmministratore);
         $stmt->execute();
-        var_dump($stmt->insert_id);
         return $stmt->insert_id;
     }
 
@@ -649,7 +690,15 @@
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ssss', $titolo, $testo, $idOrganizzatore, $idEvento);
         $stmt->execute();
-        var_dump($stmt->insert_id);
+        return $stmt->insert_id;
+    }
+
+    public function inserisciNotificaOrganizzatorePerArtistaECategorie($titolo, $testo, $idOrganizzatore){
+        $query = "INSERT INTO NOTIFICA(TitoloNotifica, TestoNotifica, IDOrganizzatore)
+                  VALUES (?,?,?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sss', $titolo, $testo, $idOrganizzatore);
+        $stmt->execute();
         return $stmt->insert_id;
     }
 
@@ -659,7 +708,15 @@
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('sss', $titolo, $testo, $idEvento);
         $stmt->execute();
-        var_dump($stmt->insert_id);
+        return $stmt->insert_id;
+    }
+
+    public function inserisciNotificaSistemaPerRegistrazione($titolo, $testo){
+        $query = "INSERT INTO NOTIFICA(TitoloNotifica, TestoNotifica)
+                  VALUES (?,?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $titolo, $testo);
+        $stmt->execute();
         return $stmt->insert_id;
     }
 
@@ -700,6 +757,15 @@
         return $result;
     }
 
+    public function ottieniAmministratori(){
+        $query = "SELECT IDAmministratore
+                  FROM AMMINISTRATORE";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $result;
+    }
+
     public function ottieniUtentiChePartecipanoAdUnEvento($IDEvento){
         $query = "SELECT UTENTE.IDUtente
                   FROM EVENTO INNER JOIN COMPRENDE ON EVENTO.IDEvento = COMPRENDE.IDEvento
@@ -727,6 +793,13 @@
         }
     }
 
+    public function pubblicaNotificaATuttiGliAmministratori($IDNotifica){
+        $amministratori = $this->ottieniAmministratori();
+        foreach ($amministratori as $amministratore){
+            $this->pubblicaNotificaAdAmministratore($amministratore["IDAmministratore"], $IDNotifica);
+        }
+    }
+
     public function pubblicaNotificaAdUtente($IDUtente, $IDNotifica){
         $query = "INSERT INTO NOTIFICA_PERSONALE(IDUtente, IDNotifica, VisualizzataSN)
                   VALUES (?,?,'n')";
@@ -735,11 +808,19 @@
         $stmt->execute();
     }
 
-    public function pubblicaNotificaAdOrganizzatore($IDNotifica, $IDOrganizzatore){
+    public function pubblicaNotificaAdOrganizzatore($IDOrganizzatore, $IDNotifica){
         $query = "INSERT INTO NOTIFICA_PERSONALE(IDOrganizzatore, IDNotifica, VisualizzataSN)
                   VALUES (?,?,'n')";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ss', $IDOrganizzatore, $IDNotifica);
+        $stmt->execute();
+    }
+
+    public function pubblicaNotificaAdAmministratore($IDAmministratore, $IDNotifica){
+        $query = "INSERT INTO NOTIFICA_PERSONALE(IDAmministratore, IDNotifica, VisualizzataSN)
+                  VALUES (?,?,'n')";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $IDAmministratore, $IDNotifica);
         $stmt->execute();
     }
 
@@ -863,15 +944,6 @@
         $query = "UPDATE ARTISTA
                   SET AutorizzatoSN = ?, ValutatoSN = 's'
                   WHERE IDArtista = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('si', $consensoSN, $id);
-        $stmt->execute();
-    }
-
-    public function aggiornaInformazioniCategoria($id, $consensoSN){
-        $query = "UPDATE CATEGORIA
-                  SET AutorizzataSN = ?, ValutataSN = 's'
-                  WHERE IDCategoria = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('si', $consensoSN, $id);
         $stmt->execute();

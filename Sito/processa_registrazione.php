@@ -27,6 +27,8 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["email"]) &
                           $iban = $_POST["iban"];
                           $dbh->inserisciNuovoOrganizzatore($email, $sesso, $password, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $iban);
                           $inserimentoCorretto = true;
+                          $idNotifica = $dbh->inserisciNotificaSistemaPerRegistrazione("Richiesta registrazione organizzatore","Un utente ha richiesto il riconoscimento di qualità di organizzatore");
+                          $dbh->pubblicaNotificaATuttiGliAmministratori($idNotifica);
                         }
                       }
                   } else {

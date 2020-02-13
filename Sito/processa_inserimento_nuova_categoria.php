@@ -9,7 +9,12 @@ if(!isset($_SESSION["id"])){
 /**********************************************************************************/
 list($result, $msg) = uploadImage(UPLOAD_DIR."categorie/", $_FILES["categimg"]);
 if($result != 0){
-    $id = $dbh->insertCategoria($_POST["nome"], $msg);
+    if(isset($_POST["IDCategoria"])){
+        $id = $dbh->pubblicaCategoriaConsigliata($_POST["IDCategoria"], $_POST["nome"], $msg);
+        $id = true;
+    } else {
+        $id = $dbh->insertCategoria($_POST["nome"], $msg);
+    }
     if($id == false){
         $templateParams["msg"] = "Errore: categoria non inserita.";
         $templateParams["error"] = 's';

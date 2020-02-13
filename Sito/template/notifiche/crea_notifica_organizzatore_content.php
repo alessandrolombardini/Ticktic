@@ -3,7 +3,7 @@
   <div class="col-12 col-md-10">
     <div class="row mb-3 mt-5">
         <h3 class="col-8 col-md-7">Creazione notifiche</h3>
-        <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_organizzatore.php"> Annulla </a>
+        <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="prossimi_eventi_organizzatore.php"> Annulla </a>
     </div>
     <hr/>
     <?php if(isset($templateParams["msg"])): ?>

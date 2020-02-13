@@ -8,7 +8,7 @@ if(!isset($_SESSION["id"])){
 }
 /**********************************************************************************/
 if(isset($_GET["id"]) && isset($_GET["valutazione"]) && !empty($_GET["id"]) && !empty($_GET["valutazione"])){
-    $dbh->aggiornaInformazioniCategoria($_GET["id"], $_GET["valutazione"]);   
+    $dbh->deleteCategoria($_GET["id"]);   
     header('Location: ./verifica_nuove_categorie.php'); 
 } else {
     header('Location: ./page_something_goes_wrong.php');

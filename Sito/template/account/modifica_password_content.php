@@ -6,12 +6,7 @@
       <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="informazioni_account.php"> Annulla </a>
     </div>
     <hr/>
-    <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"): ?>
-      <div class="row">
-          <p class="col-12 my-2
-          <?php if($templateParams["error"] == 's'){echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
-      </div>
-    <?php endif?>
+    <?php require_once("check_errori.php");?>
     <div class="container">
       <form action="./processa_modifica_password.php" method="POST">
         <div class="row">

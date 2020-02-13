@@ -3,10 +3,9 @@
     <div class="col-md-8 col-12">
         <div class="row mt-3">
             <h3 class="col-8 col-md-7 mb-0">Pagamento</h3>
-            <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold">Indietro </a>
+            <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="#">Indietro </a>
         </div>
         <hr class="mt-1"/>
-        <form action="#">
             <div class="row mb-3">
                 <div class="col-md-6 mb-3">
                     <label for="intestatario">Intestatario Carta</label>
@@ -33,7 +32,6 @@
                     <img src="./images/carte/nexi.png" alt="select_nexi" class="col-md-3"/>
                 </div>
             </div>
-        </form>
     </div>
     <div class="col-md-2"></div>
 </div>  

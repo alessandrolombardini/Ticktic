@@ -6,13 +6,7 @@
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="inserisci_evento.php?action=1"> Annulla </a>
         </div>
         <hr/>
-        <?php if (isset($_GET["msg"])):?>
-            <div class="row">
-                <p class="col-3"></p>
-                <p class="col-6 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
-                <p class="col-3"></p>
-            </div>
-        <?php endif ?>
+        <?php require_once("check_errori.php");?>
         <form action="processa_richiesta_artista.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-4 col-12 mb-3">
