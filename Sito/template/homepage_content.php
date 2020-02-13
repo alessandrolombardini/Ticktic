@@ -23,29 +23,23 @@
 
 
 
-<div class="slideshow h-100">
+<div class="slideshow row">
   <?php foreach ($templateParams["eventi"] as $evento) :?>
-    <div class="row">
-      <div class="content">
-        <div class="col-11 col-md-8 row shadow-sm p-2 bg-white rounded border-dark mx-auto">
-            <div class="col-12 col-md-5 text-center my-auto">
-              <div class="">
-                <img class="img-fluid rounded my-auto" src="images/<?php echo ($evento["ImmagineEvento"] == NULL ? "image-not-found.png" : "eventi/".$evento["ImmagineEvento"]) ?>"></img>
-              </div>
-            </div>
-            <div class="col-12 col-md-7 row m-auto">
-              <div class="col-12 mx-3 p-0 d-inline-block text-left px-3 pb-3 pt-3">
-                  <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
-                  <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y h:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
-                  <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
-              </div> 
-              <div class="col-12 row p-0 mx-3">
-                  <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark cursor-pointer mx-3 fas fa-heart fa-2x"></span></div>
-                  <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>"><button class="scopri btn py-1 px-3 ml-3 mr-5 shadow-sm purple-btn rounded-pill">Scopri</button></a>
-              </div>
-            </div>
+    <div class="row p-3">
+      <div class="roundend-corners border">
+        <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white rounded border-dark">
+            <img class="img-fluid rounded" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"></img>
         </div>
-    </div>
+        <div class="col-12 m-0 p-0 d-inline-block text-left pl-3 pb-3 pt-3">
+            <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
+            <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y h:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
+            <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
+        </div> 
+        <div class="col-12 m-0 p-0">
+            <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
+            <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>"><button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button></a>
+        </div>
+      </div>
     </div>
   <?php endforeach ?>
 </div>
