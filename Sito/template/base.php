@@ -100,7 +100,7 @@
                 </div>
             </div>
         </header>
-        <main>
+        <main class="pl-2 pr-2">
             <!-- Main content of the page -->
             <?php
                 if(isset($templateParams["page_content"])){
