@@ -73,7 +73,7 @@
 
             <!-- Nav overlay -->
             <div class="overlay" id="nav"> <!-- Contenuto del menu -->
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
                     <a class="font-weight-bold" href="./account.php">Account</a>   
                     <?php if (isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "ORGANIZZATORE"):?>
@@ -113,7 +113,7 @@
         <footer class="py-3 text-white">
             <div class="row mb-3">
                 <div class="col-1"></div>
-                <div class="col-3">
+                <div class="col-4">
                     <nav class="nav flex-column">
                         <p class="pl-3 mb-0 pb-0 font-white">CATEGORIE</p>
                         <div class="dropdown-divider"></div>
@@ -124,8 +124,7 @@
                     </nav>
                 </div>
                 <div class="col-2"></div>
-                <div class="col-1"></div>
-                <div class="col-3">
+                <div class="col-4">
                     <nav class="nav flex-column">
                         <p class="pl-3 mb-0 pb-0 font-white"> OVERVIEW </p>
                         <div class="dropdown-divider"></div>
@@ -135,7 +134,7 @@
                         <a class="nav-link font-white" href="./account.php">Area Personale</a>
                     </nav>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-1"></div>
             </div>
             <div class="row">
                 <div class="col-1"></div>

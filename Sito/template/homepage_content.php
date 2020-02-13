@@ -5,7 +5,7 @@
       <!-- Search form -->
       <div class="row mt-10">
         <div class="col-lg-3"></div>
-        <div class="col-12 col-lg-6 mt-5">
+        <div class="col-12 col-lg-6 mt-3 mt-md-5 mt-xl-10">
           <form class="search-box mx-3 my-5" method="POST" action="./ricerca.php">
             <input class="form-control rounded-pill search-input text-center" type="search" name="barraDiRicerca" placeholder="Cerca per Eventi, Artisti, Luoghi, ..." aria-label="Search">
           </form>
