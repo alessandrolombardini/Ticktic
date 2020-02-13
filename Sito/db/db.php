@@ -13,7 +13,7 @@
     /******************************************************************************************************************************/
     /* Inserimento e Modifica Evento */
     public function getCategories(){
-        $stmt = $this->db->prepare("SELECT * FROM CATEGORIA");
+        $stmt = $this->db->prepare("SELECT * FROM CATEGORIA WHERE AutorizzataSN = 's' AND ValutataSN = 's'");
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -908,7 +908,7 @@
     /*Homepage*/
 
     public function getRandomCategories($n = 6){
-        $stmt = $this->db->prepare("SELECT * FROM CATEGORIA ORDER BY RAND() LIMIT ?");
+        $stmt = $this->db->prepare("SELECT * FROM CATEGORIA WHERE AutorizzataSN = 's' AND ValutataSN = 's' ORDER BY RAND() LIMIT ?");
         $stmt->bind_param('i',$n);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -927,7 +927,7 @@
     }
 
     public function getCategoryName($IDcat){
-        $stmt = $this->db->prepare("SELECT NomeCategoria FROM CATEGORIA WHERE IDCategoria = ?");
+        $stmt = $this->db->prepare("SELECT NomeCategoria FROM CATEGORIA WHERE IDCategoria = ? AND AutorizzataSN = 's' AND ValutataSN = 's'");
         $stmt->bind_param('i',$IDcat);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -965,7 +965,7 @@
         $param = "%{$text}%";
         $query = "SELECT * 
                   FROM CATEGORIA  
-                  WHERE NomeCategoria LIKE ?";
+                  WHERE NomeCategoria LIKE ? AND AutorizzataSN = 's' AND ValutataSN = 's'";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$param);
         $stmt->execute();

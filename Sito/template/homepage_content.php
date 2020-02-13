@@ -17,23 +17,23 @@
 
 <!-- Carousel -->
 <div class="container-fluid mt-2">
-  <p class ="d-inline font-weight-bold">Suggeriti per te</p> 
+  <h3 class="d-inline mr-3">Suggeriti per te</h3>
   <div class=" mb-3 mt-1 dropdown-divider w-50 font-weight-bold"></div>
 </div>
 <div id="carousel" class="carousel slide containter-fluid mt-2" data-ride="carousel">
   <div class="carousel-inner ">
-    <div class="carousel-item active position-center">
-      <img class="  d-block w-50" src="./images/artisti/salmo.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item positiont-center">
-      <img class=" d-block w-50" src="./images/artisti/foo_fighters.jpg" alt="Second slide">
-    </div>
+    <?php foreach($templateParams["rand_categories"] as $categoria):?>
+      
+      <div class="carousel-item">
+        <div><p><?php echo $categoria["IDCategoria"]?></p></div>
+      </div>
+    <?php endforeach ?>
   </div>
 </div>
 
 <!-- Categorie -->
 <div class="container-fluid mt-2 mb-3">
-  <p class ="d-inline font-weight-bold">Categorie</p> 
+  <h3 class="d-inline mr-3">Categorie</h3>
   <div class=" mb-3 mt-1 dropdown-divider w-50 font-weight-bold"></div>
 </div>
 <div class="row">
