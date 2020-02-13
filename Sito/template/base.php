@@ -77,7 +77,7 @@
                       <a class="font-weight-bold" href="./area_gestore.php?msg=0">Area organizzatore</a>                       
                     <?php endif?>                     
                     <?php if (isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "AMMINISTRATORE"):?>
-                      <a class="font-weight-bold" href="./area_gestore.php?msg=0">Area amministratore</a>                       
+                      <a class="font-weight-bold" href="./area_amministratore.php?msg=0">Area amministratore</a>                       
                     <?php endif?>                     
                     <a class="font-weight-bold" href="./nuove_notifiche.php">Notifiche</a>       
                     <?php if (!isset($_SESSION["id"]) || $_SESSION["autorizzazione"] == "UTENTE"):?>

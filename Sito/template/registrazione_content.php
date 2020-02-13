@@ -41,7 +41,7 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="citta">Città</label>
-            <input type="citta" maxlength="16" class="form-control" id="citta" name="citta" required/>
+            <input type="citta" maxlength="40" class="form-control" id="citta" name="citta" required/>
           </div>
           <div class="col-md-6 mb-3">
             <label for="CAP">CAP</label>

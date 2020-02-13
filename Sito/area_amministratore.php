@@ -8,6 +8,5 @@ if(!isset($_SESSION["id"])){
 }
 /**********************************************************************************/
 $templateParams["page_content"] = "./template/amministratore/area_amministratore_content.php";
-$templateParams["categories"] = $dbh->getCategories(); /* For Footer Links */
 require_once("./template/base.php");
 ?>
