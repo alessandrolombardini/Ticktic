@@ -286,31 +286,6 @@ hr{
   margin-bottom: 10px;
 }
 
-/* Tutti i paragrami date degli eventi */
-.date {
-    font-size: 0.7em;
-}
-
-.mt-10,
-.my-10 {
-  margin-top: 10rem !important;
-}
-
-.mr-10,
-.mx-10 {
-  margin-right: 10rem !important;
-}
-
-.mb-10,
-.my-10 {
-  margin-bottom: 10rem !important;
-}
-
-.ml-10,
-.mx-10 {
-  margin-left: 10rem !important;
-}
-
 .updateeventimg {
     margin-left:10%;
     width:80%;
