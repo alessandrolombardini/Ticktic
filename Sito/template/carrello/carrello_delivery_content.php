@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="col-md-2 col-1"></div>
-    <div class="col-md-8 col-10">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 col-12">
         <form action="#" method="GET">
-            <h3 class="mb-5">Spedizione</h3>
+            <h3 class="mb-4 ml-2">Spedizione</h3>
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="nome">Nome</label>
@@ -27,7 +27,7 @@
                     <input type="text" class="form-control" id="citta" name="citta" value="<?php echo $templateParams["utente"]["Citta"]?>" required/>
                 </div>
             </div>
-            <div class="d-block mt-2 mb-3">
+            <div class="d-block mt-2 mb-3 ml-2">
                 <p>Tipo di spedizione:</p>
                 <div class="custom-control custom-radio">
                     <input id="spedStandard" name="spedizione" type="radio" class="custom-control-input" value="3.99" checked required/>
@@ -43,10 +43,10 @@
                 </div>
             </div>
         </form>
-        <div class="col-md-2 col-1"></div>
+        <div class="col-md-2"></div>
     </div>
 </div>
-<div class="row mt-3">
+<div class="row mt-md-3 mt-1">
     <div class="col-md-2 col-3 p-0 m-0"> </div>
     <a class="col-md-2 text-center col-6 p-3 m-0 mb-md-5 mb-0 cursor-pointer purple-black-link font-weight-bold"> Indietro </a>
     <div class="col-md-1 col-3 p-0 m-0"> </div>

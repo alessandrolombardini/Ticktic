@@ -17,7 +17,7 @@
             <div class="col-1 col-md-2"></div>
         </div>
     <?php endif ?>
-    <div class="row">
+    <div class="row mr-3 ml-3">
         <?php foreach ($templateParams["prossimiEventi"] as $evento) :?>
             <div class="col-12 col-md-6 col-lg-3 col-xl-3 shadow-sm pl-1 pr-1 ml-0 mr-0 pt-2 pb-2 mt-3 mb-4 bg-white rounded border-dark d-inline-block">
                 <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white rounded border-dark">

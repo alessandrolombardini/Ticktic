@@ -7,8 +7,8 @@ if(!isset($_SESSION["id"])){
     header('Location: ./page_not_allowed.php');
 }
 /**********************************************************************************/
-$numeroBiglietti = $_GET["numeroBiglietti"];
-$IDEvento = $_GET["IDEvento"];
+$numeroBiglietti = $_POST["numeroBiglietti"];
+$IDEvento = $_POST["IDEvento"];
 
 if(checkParams($IDEvento, $numeroBiglietti)){
     $risultato = $dbh->aggiungiACarrelloEvento($IDEvento, $numeroBiglietti, $_SESSION["id"]);

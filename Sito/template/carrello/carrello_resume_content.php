@@ -1,11 +1,16 @@
 <div class="resume">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <h3 class="mb-3 ml-2 col-md-8">Riepilogo Ordine</h3>
+        <div class="col-md-2"></div>
+    </div>
     <?php foreach($templateParams["eventi"] as $evento):?>
     <div class="row">
-        <div class="col-1 col-md-2"></div>
-        <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 shadow-sm">
+        <div class="col-md-2"></div>
+        <div class="roundend-corners col-12 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 shadow-sm">
             <div class="container">
-                <div class="row mb-0 mt-3 align-items-end">
-                    <img class="col-md-4 mt-1 mt-md-0 col-12 mb-3 mb-md-0" src="./images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="IDAYS"/>
+                <div class="row mb-0 mt-1 align-items-end">
+                    <img class="col-md-4 mt-1 mt-md-0 col-12 mb-3 mb-md-0 pl-0 pr-0 rounded" src="./images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="IDAYS"/>
                     <div class="col-md-8 mt-md-0 col-12 ">
                         <div class="row mb-0">
                             <h5 class="col-12 text-md-left text-center mb-3"> <?php echo $evento["NomeEvento"];?> </h5>
@@ -32,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-1 col-md-2"></div>
+        <div class="col-md-2"></div>
     </div>
     <?php endforeach?>
 
@@ -65,7 +70,7 @@
         <p class="col-2 p-0 m-0"> </p>
     </div>
 
-    <div class="row mt-3">
+    <div class="row mt-md-3 mt-1">
         <div class="col-md-2 col-3 p-0 m-0"> </div>
         <a class="col-md-2 text-center col-6 p-3 m-0 mb-md-5 mb-0 cursor-pointer purple-black-link font-weight-bold"> Indietro </a>
         <div class="col-md-1 col-3 p-0 m-0"> </div>

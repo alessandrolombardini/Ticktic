@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="col-md-2 col-1"></div>
-    <div class="col-md-8 col-10">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 col-12">
         <form action="#">
-            <h3 class="mb-5">Pagamento</h3>
+            <h3 class="mb-4 ml-2">Pagamento</h3>
             <div class="row mb-3">
                 <div class="col-md-6 mb-3">
                     <label for="intestatario">Intestatario Carta</label>
@@ -31,7 +31,7 @@
             </div>
         </form>
     </div>
-    <div class="col-md-2 col-1"></div>
+    <div class="col-md-2"></div>
 </div>  
 <div class="row mt-3">
     <div class="col-md-2 col-3 p-0 m-0"> </div>

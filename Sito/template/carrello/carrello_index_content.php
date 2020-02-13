@@ -1,14 +1,14 @@
 <?php $i=0; 
 foreach($templateParams["eventi"] as $evento):?>
 <div class="row event" id="chart_event_<?php echo $evento["IDEvento"];?>">
-    <div class="col-1 col-md-2"></div>
-    <div class="roundend-corners col-10 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 mr-0 shadow-sm concert-tickets">
+    <div class="col-md-2"></div>
+    <div class="roundend-corners col-12 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 mr-0 shadow-sm concert-tickets">
         <div class="row m-0 p-0">
             <a class="col-12 text-right m-0 p-0" href="?deleteid=<?php echo $evento["IDEvento"];?>"><i class="fas fa-times fa-2x purple-black-link"></i></a>
         </div>
         <div class="row mb-3 mt-0">
-            <img class="col-md-4 mt-1 mt-md-0 col-12 mb-3 mb-md-0" src="./images/eventi/<?php echo $evento["ImmagineEvento"]?>" alt="IDAYS"/>
-            <div class="col-md-8 mt-1 mt-md-0 col-12">
+            <img class="col-md-4 mt-1 mt-md-0 col-12 mb-3 mb-md-0 pl-0 pr-0 rounded" src="./images/eventi/<?php echo $evento["ImmagineEvento"]?>" alt="IDAYS"/>
+            <div class="col-md-8 mt-md-0 col-12 pl-4">
                 <h3 class="text-md-left text-center mb-3"> <?php echo $evento["NomeEvento"]?> </h3>
                 <h4 class="text-md-left text-center mb-2"><?php foreach($templateParams["artisti"][$evento["IDEvento"]] as $artista){
                     $str = $artista["PseudonimoArtista"];
@@ -43,7 +43,7 @@ foreach($templateParams["eventi"] as $evento):?>
             <p class="col-md-2 p-0 m-0"> </p>
         </div>
     </div>
-    <div class="col-1 col-md-2"></div>
+    <div class="col-md-2"></div>
     <input type="hidden" name="event_<?php echo $i; $i++;?>" value="<?php echo $evento["IDEvento"]; ?>"/>
 </div>
 <?php endforeach ?>
@@ -60,7 +60,7 @@ foreach($templateParams["eventi"] as $evento):?>
     <p class="col-md-2 p-0 m-0"> </p>
 </div>
 
-<div class="row mb-3">
+<div class="row mt-md-3 mt-1">
     <div class="col-1 col-md-3 p-0 m-0"> </div>
     <button type="button" class="purple-btn col-10 col-md-6 p-3 m-0 mb-5 rounded-pill"><p class="mb-0">Procedi all'acquisto</p></button>
     <div class="col-1 col-md-3 p-0 m-0"> </div>
