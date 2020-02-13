@@ -26,7 +26,7 @@
 <div class="slideshow row">
   <?php foreach ($templateParams["eventi"] as $evento) :?>
     <div class="row p-3">
-      <div class="roundend-corners border">
+      <div class="roundend-corners border p-2">
         <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white rounded border-dark">
             <img class="img-fluid rounded" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"></img>
         </div>
