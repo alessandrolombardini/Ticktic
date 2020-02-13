@@ -2,13 +2,13 @@
     <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-10 p-0 m-0">
 
-        <div class="container-fluid text-center row"> <!-- Foto e descrizione del gruppo musicale -->
-            <div class="col-12 col-lg-6 my-auto">
+        <div class="container-fluid row"> <!-- Foto e descrizione del gruppo musicale -->
+            <div class="col-12 col-lg-6 my-auto text-center">
                 <img class="img-fluid rounded" src="./images/artisti/<?php echo $templateParams["artista"]["ImmagineArtista"]?>" alt="<?php echo getAltFromImageName($templateParams["artista"]["ImmagineArtista"]) ?>"/>
             </div>
-            <div class="col-12 col-lg-6 my-auto">
+            <div class="col-12 col-lg-6 my-auto text-center text-lg-left">
                 <h3 class="mt-2"><?php echo $templateParams["artista"]["PseudonimoArtista"]?></h3>
-                <p class="text-black-50 font-description  close-lines mb-3 px-5"><?php echo $templateParams["artista"]["Descrizione"]?></p>
+                <p class="text-black-50 font-description  close-lines mb-3"><?php echo $templateParams["artista"]["Descrizione"]?></p>
             </div>
         </div>
 

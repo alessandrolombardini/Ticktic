@@ -84,7 +84,7 @@
                         <a class="font-weight-bold" href="./ordini.php">Ordini</a>                
                         <a class="font-weight-bold" href="./lista_desideri.php">Lista Desideri</a>
                     <?php endif?> 
-                    <a class="font-weight-bold dropdown-btn">Naviga
+                    <a class="font-weight-bold dropdown-btn cursor-pointer">Naviga
                         <span class="fa fa-caret-down"></span>
                     </a>
                     <div class="dropdown-container overlay-bg-color">

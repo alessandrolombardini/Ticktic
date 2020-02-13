@@ -56,5 +56,5 @@
             $error = 's';
         }
     }
-    header("location: area_utente.php?msg=".$msg."&error?".$error);
+    header("location: account.php?msg=".$msg."&error?".$error);
 ?>
