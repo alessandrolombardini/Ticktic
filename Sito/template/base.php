@@ -88,11 +88,9 @@
                         <span class="fa fa-caret-down"></span>
                     </a>
                     <div class="dropdown-container overlay-bg-color">
-                        
                         <a class="font-weight-bold" href="./eventi.php">Eventi</a>
                         <a class="font-weight-bold" href="./categorie.php">Categorie</a>
                         <a class="font-weight-bold" href="./artisti.php">Artisti</a>
-                        <a class="font-weight-bold" href="./luoghi.php" >Luoghi</a>
                     </div>
                     <?php if (isset($_SESSION["id"])):?>
                         <a class="font-weight-bold" href="./logout.php">Logout</a>
@@ -100,7 +98,7 @@
                 </div>
             </div>
         </header>
-        <main>
+        <main class="">
             <!-- Main content of the page -->
             <?php
                 if(isset($templateParams["page_content"])){

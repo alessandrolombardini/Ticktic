@@ -972,5 +972,25 @@
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    /********************************************************************************************************************** */
+    /*Artisti*/
+
+    public function getArtistFromID($ID){
+        $stmt = $this->db->prepare("SELECT * FROM ARTISTA WHERE ValutatoSN = 's' AND AutorizzatoSN = 's' AND IDArtista = ?");
+        $stmt->bind_param('i',$ID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getEventsFromIDArtista($ID){
+        $stmt = $this->db->prepare("SELECT * FROM EVENTO JOIN ESEGUE ON EVENTO.IDEvento = ESEGUE.IDEvento WHERE IDArtista = ?");
+        $stmt->bind_param('i',$ID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 ?>

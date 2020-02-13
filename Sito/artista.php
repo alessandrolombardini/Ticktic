@@ -1,9 +1,15 @@
 <?php
     require_once("./bootstrap.php");
-    $templateParams["page_content"] = "./template/artista_content.php";
+    
     $templateParams["categories"] = $dbh->getCategories(); /* For Footer Links */
 
-    require_once("./template/base.php");
+    if(isset($_GET["IDArtista"]) && !empty($_GET["IDArtista"])){
+        $templateParams["artista"] = $dbh->getArtistFromID($_GET["IDArtista"])[0];
+        $templateParams["eventi"] = $dbh->getEventsFromIDArtista($_GET["IDArtista"]);
+        $templateParams["page_content"] = "./template/artista_content.php";
+    } else {
+        header('Location: ./page_something_goes_wrong.php');
+    }
 
-    /* Fare la get dell'id dell'artista che si vuole visualizzare */
+    require_once("./template/base.php");
 ?>
