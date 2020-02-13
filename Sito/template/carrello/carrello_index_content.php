@@ -7,8 +7,8 @@ foreach($templateParams["eventi"] as $evento):?>
             <a class="col-12 text-right m-0 p-0" href="?deleteid=<?php echo $evento["IDEvento"];?>"><i class="fas fa-times fa-2x purple-black-link"></i></a>
         </div>
         <div class="row mb-3 mt-0">
-            <img class="col-md-4 mt-1 mt-md-0 col-12 mb-3 mb-md-0 pl-0 pr-0 rounded" src="./images/eventi/<?php echo $evento["ImmagineEvento"]?>" alt="IDAYS"/>
-            <div class="col-md-8 mt-md-0 col-12 pl-4">
+            <img class="col-md-5 mt-1 mt-md-0 col-12 mb-3 mb-md-0 pl-0 pr-0 rounded" src="./images/eventi/<?php echo $evento["ImmagineEvento"]?>" alt="IDAYS"/>
+            <div class="col-md-7 mt-md-0 col-12 pl-4">
                 <h3 class="text-md-left text-center mb-3"> <?php echo $evento["NomeEvento"]?> </h3>
                 <h4 class="text-md-left text-center mb-2"><?php foreach($templateParams["artisti"][$evento["IDEvento"]] as $artista){
                     $str = $artista["PseudonimoArtista"];
@@ -18,8 +18,8 @@ foreach($templateParams["eventi"] as $evento):?>
                     echo $str;
                 }?></h4>
                 <div class="event-info text-md-left text-center">
-                    <p> <?php echo $evento["Luogo"]?> </p>
-                    <p> <?php echo $evento["DataEvento"]?> </p>
+                    <p class="font-description"> <?php echo $evento["Luogo"]?> </p>
+                    <p class="date font-italic"> <?php echo $evento["DataEvento"]?> </p>
                 </div>
             </div>
         </div>

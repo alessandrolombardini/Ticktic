@@ -254,13 +254,10 @@ $(document).ready(function(){
     });
 
     /*Pulsanti per tornare indietro*/
-    $(".chart-content").find("button").siblings("a").click(function(){
+    $(".chart-content").find("h3").siblings("a").click(function(){
         chartChangePageBack()
     });
-    $(".chart-content").find("input[type='submit']").siblings("a").click(function(){
-        chartChangePageBack()
-    });
-
+    
     /*Selettore per le carte di credito*/
     $("#card-selector img").click(function(){
         $("#card-selector img.purpleborder").removeClass("purpleborder");
