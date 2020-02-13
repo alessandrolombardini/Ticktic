@@ -7,11 +7,13 @@
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="javascript:history.back()"> Annulla </a>
         </div>
         <hr/>
-        <div class="row">
-            <p class="col-3"></p>
-            <p class="col-6 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
-            <p class="col-3"></p>
-        </div>
+        <?php if (isset($_GET["msg"])):?>
+            <div class="row">
+                <p class="col-3"></p>
+                <p class="col-6 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
+                <p class="col-3"></p>
+            </div>
+        <?php endif ?>
         <?php if ($templateParams["azione"] == 2){
             echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5 updateeventimg'>";
         }?>
@@ -149,12 +151,9 @@
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-2 col-3 p-0 m-0"> </div>
-                    <a class="col-md-2 text-center col-6 p-3 m-0 mb-md-5 mb-0 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Annulla </a>
-                    <div class="col-md-1 col-3 p-0 m-0"> </div>
-                    <div class="col-1 p-0 m-0"> </div>
-                    <input type="submit" class="purple-btn col-md-4 col-10 p-3 m-0 mb-5 rounded-pill" value="Inserisci"/>
-                    <div class="col-md-3 col-1 p-0 m-0"> </div>
+                    <div class="col-md-4 col-1 p-0 m-0"> </div>
+                    <input type="submit" class="purple-btn col-md-4 col-10 p-3 m-0 mb-5 text-center rounded-pill" value="Inserisci"/>
+                    <div class="col-md-4 col-1 p-0 m-0"> </div>
                 </div>
                 <input type="hidden" name="action" value="<?php echo $templateParams["azione"]; ?>"/>
                 <input type="hidden" name="oldimg" value="<?php echo $templateParams["evento"]["ImmagineEvento"]?>"/>

@@ -7,7 +7,7 @@ a {
 }
 
 .font-little{
-    font-size: 0.7rem;
+    font-size: 0.6rem;
 }
 
 .font-description{
@@ -374,6 +374,16 @@ footer {
 
 .titolo-ricerca {
     clear:right;
+}
+
+table, th, td {
+    word-wrap: break-word;
+    word-break: break-all;
+    table-layout: fixed;
+}
+
+main {
+    box-sizing: border-box;
 }
 
 

@@ -1,5 +1,10 @@
-<?php 
+<?php
 require_once("./bootstrap.php");
+/****************************** Check permission **********************************/
+if(!isset($_SESSION["id"])){
+    header('Location: ./login.php');
+} 
+/**********************************************************************************/
 $msg = "Modifica eseguita correttamente";
 $error = 'n';
 
@@ -16,8 +21,8 @@ if(isset($_POST["nome"]) && isset($_POST["cognome"]) && isset($_POST["email"])){
                 $citta = $_POST["citta"];
                 $cap = $_POST["CAP"];
                 if ($_SESSION["autorizzazione"] == "ORGANIZZATORE"){
-                    if (isset($_POST["IBAN"]) || (checkBaseParams($email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta) && checkOrganizzatoreParams($iban))){
-                        $dbh ->updateOrganizzatore($email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $IBAN, $_SESSION["id"]);
+                    if (isset($_POST["iban"]) || (checkBaseParams($email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta) && checkOrganizzatoreParams($_POST["iban"]))){
+                        $dbh ->updateOrganizzatore($email, $sesso, $nome, $cognome, $datanascita, $indirizzo, $cap, $citta, $_POST["iban"], $_SESSION["id"]);
                     } else {
                         $msg = "Campi non completamente compilati";
                         $error = 's';

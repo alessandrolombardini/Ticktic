@@ -98,6 +98,7 @@
                 </div>
             </div>
         </header>
+
         <main class="">
             <!-- Main content of the page -->
             <?php

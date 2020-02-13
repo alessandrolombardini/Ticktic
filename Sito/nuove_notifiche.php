@@ -13,7 +13,5 @@
     /**********************************************************************************/
     $templateParams["dataAggiornamento"] = date("Y-m-d G:i:s"); 
     $templateParams["page_content"] = "./template/notifiche/nuove_notifiche_content.php";
-    $templateParams["categories"] = $dbh->getCategories(); /* For Footer Links */
-
     require_once("./template/base.php");
 ?>

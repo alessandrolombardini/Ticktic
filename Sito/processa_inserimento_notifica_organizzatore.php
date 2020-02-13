@@ -35,5 +35,4 @@ function checkBaseParams($titolo, $testo, $IDEvento){
            && !empty($testo)
            && !empty($IDEvento);
 }
-
 ?>

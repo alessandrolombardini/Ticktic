@@ -6,11 +6,12 @@
       <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="informazioni_account.php"> Annulla </a>
     </div>
     <hr/>
-    <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"): ?>
-      <div class="row">
-          <p class="col-12 my-2
-          <?php if($templateParams["error"] == 's'){echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
-      </div>
+    <?php if (isset($templateParams["msg"])):?>
+    <div class="row">
+        <p class="col-3"></p>
+        <p class="col-6 text-center my-2 align-center msg <?php if($templateParams["error"] == 's') {echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
+        <p class="col-3"></p>
+    </div>
     <?php endif?>
 
     <div class="container">
@@ -73,12 +74,9 @@
             </div>
         <?php endif ?>
         <div class="row mt-3">
-            <div class="col-md-2 col-3 p-0 m-0"> </div>
-            <a class="col-md-2 text-center col-6 p-3 m-0 mb-md-5 mb-0 cursor-pointer purple-black-link font-weight-bold" href="informazioni_account.php"> Annulla </a>
-            <div class="col-md-1 col-3 p-0 m-0"> </div>
-            <div class="col-1 p-0 m-0"> </div>
-            <input type="submit" class="purple-btn col-md-4 col-10 p-3 m-0 mb-5 rounded-pill" value="Modifica"/>
-            <div class="col-md-3 col-1 p-0 m-0"> </div>
+            <div class="col-md-4 col-1 p-0 m-0"> </div>
+            <input type="submit" class="purple-btn col-md-4 col-10 p-3 m-0 mb-5 text-center rounded-pill" value="Modifica"/>
+            <div class="col-md-4 col-1 p-0 m-0"> </div>
         </div>
       </form>
     </div>

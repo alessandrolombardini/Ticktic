@@ -1,6 +1,5 @@
 <?php
 require_once("./bootstrap.php");
-
 /****************************** Check permission **********************************/
 if(!isset($_SESSION["id"])){
     header('Location: ./login.php');
@@ -8,7 +7,6 @@ if(!isset($_SESSION["id"])){
     header('Location: ./page_not_allowed.php');
 }
 /**********************************************************************************/
-
 if($_POST["action"]==1){
     $error='s';
     $luogo = $_POST["luogo"];
@@ -42,10 +40,10 @@ if($_POST["action"]==1){
         }
         else{
             $msg = "Errore in inserimento!";
-            header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg."&error=".$error);
+            header('Location: ' . $_SERVER['HTTP_REFERER'] . "?msg=" . $msg."&error=".$error);
         }
     } else {
-        header('Location: ' . $_SERVER['HTTP_REFERER'] . "&msg=" . $msg."&error=".$error);
+        header('Location: ' . $_SERVER['HTTP_REFERER'] . "?msg=" . $msg."&error=".$error);
     }
 } 
 
@@ -66,7 +64,7 @@ if($_POST["action"]==2){
         list($result, $msg) = uploadImage(UPLOAD_DIR."eventi/", $_FILES["eventimg"]);
         if($result == 0){
             $error='s';
-            header("location: area_gestore.php?msg=".$msg."&error=".$error);
+            header('Location: ' . $_SERVER['HTTP_REFERER'] . "?msg=". $msg . "&error=" . $error);
         } else {
             $img = $msg;
         }
@@ -91,7 +89,7 @@ if($_POST["action"]==2){
     $dbh->pubblicaNotificaATuttiGliUtentiDiUnEvento($IDNotifica, $IDEvento);
 
     $msg = "Modifica completata correttamente!";
-    $error='n';
+    $error = 'n';
     header("location: area_gestore.php?msg=".$msg."&error=".$error);
 }
 

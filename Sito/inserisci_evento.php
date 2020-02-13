@@ -11,7 +11,6 @@ $templateParams["page_content"] = "./template/gestore/inserisci_evento_content.p
 $templateParams["categorie"] = $dbh -> getCategories();
 $templateParams["artisti"] = $dbh -> getArtisti();
 $templateParams["azione"] = $_GET["action"];
-
 if (isset($_GET["id"]) && !empty($_GET["id"])){
     $templateParams["evento"] = $dbh -> getEvent($_GET["id"]);
     $templateParams["artistiEvento"] = $dbh -> getArtistsFromEvent($_GET["id"]);
@@ -22,9 +21,9 @@ if (isset($_GET["id"]) && !empty($_GET["id"])){
     $templateParams["oraEvento"] = substr($data, 11, 5);
 }
 
-if (isset($_GET["msg"])){
+if (isset($_GET["msg"]) && isset($_GET["error"])){
     $templateParams["msg"] = $_GET["msg"];
+    $templateParams["error"] = $_GET["error"];
 }
-
 require_once("./template/base.php");
 ?>
