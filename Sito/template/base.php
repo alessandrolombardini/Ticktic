@@ -26,7 +26,7 @@
                 </button>
 
                 <!-- Navbar Logo -->
-                <a class="navbar-brand py-0 mx-0 float-center" href="./index.php">
+                <a class="navbar-brand py-0 mx-xl-5 float-center" href="./index.php">
                     <img id="nav-logo" src="./images/ticktic_logo.png" alt="ticktic logo" />
                 </a>
 
@@ -34,7 +34,7 @@
                 <?php if (!isset($templateParams["hide_search_bar"]) || $templateParams["hide_search_bar"] != "y"):?>
                     <ul class=" ml-10 navbar-nav align-items-center d-none d-xl-block mr-auto desktop-search-bar">
                         <li class="nav-item" >
-                            <form class="form-inline search-box" method="POST" action="ricerca.php">
+                            <form class="form-inline search-box" method="POST" action="./ricerca.php">
                                 <input class="form-control rounded-pill search-input w-100"  type="search" name="barraDiRicerca" placeholder="Cerca ..." aria-label="Search" />
                             </form>
                         </li>
