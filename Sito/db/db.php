@@ -993,5 +993,15 @@
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    /********************************************************************************************************************** */
+    /*Artisti*/
+
+    public function getAllEvents(){
+        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE EliminatoSN = 'n'");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 ?>
