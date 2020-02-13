@@ -497,6 +497,7 @@ $(document).ready(function(){
         $(".cuore-vuoto").click(riempiCuore);
     }
     function riempiCuore(){
+        console.log("ciao");
         let IDEvento = $(this).parent().attr("data-IDEvento");
         $(this).off();
         $(this).removeClass('cuore-vuoto');
@@ -587,12 +588,11 @@ $(document).ready(function(){
             const res = JSON.parse(result);
             if(res["Esito"]=="Negativo"){
                 spa.off();
-                console.log(spa);
                 spa.removeClass('cuore-pieno');
                 spa.removeClass('fas');
                 spa.addClass('far');
                 spa.addClass('cuore-vuoto');
-                console.log(spa);
+                $(".cuore-vuoto").click(riempiCuore);
             }
         });
 
