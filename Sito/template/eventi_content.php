@@ -1,11 +1,11 @@
 <div class="row my-5">
     <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-10 p-0 m-0">
- 
+
             <div class="row">
                 <div class="col-8 col-md-7 row">
                     <h3 class="d-inline mr-3">Eventi</h3>
-                    <p class="text-black-50 pt-2">(<?php echo count($templateParams["eventi"]) ?> risultati)</p>
+                    <p class="text-black-50 pt-2 mb-0">(<?php echo count($templateParams["eventi"]) ?> risultati)</p>
                 </div>
             </div>
             <hr/>

@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row ml-3 mr-3">
   <div class="col-md-1"></div>
   <div class="col-12 col-md-10 p-0 m-0">
     <div class="row mb-3 mt-5 ">
-        <h3 class="col-8 col-md-7">Storico eventi</h3>
+        <h3 class="col-8 col-md-7 pt-2">Storico eventi</h3>
         <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Indietro </a>
     </div>
     <hr/>
@@ -29,22 +29,32 @@
                 <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y h:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
                 <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
             </div> 
-            <div class="row text-center">
-                <div class="col-12 col-md-4 mb-0 color-purple mr-0 pr-3">
-                    <p class="sold-tickets mb-0 text-center"><?php echo $evento["BigliettiVenduti"]?></p>
+
+            <div class="row text-center mb-1">
+                <div class="col-6 mb-0 color-black mr-0 pr-3 font-storico text-left">
+                    Bigl. venduti:
                 </div>
-                <div class="col-12 col-md-8 text-md-left text-center mt-2 align-middle ml-md-0 pl-md-0">
-                    <h6 class="font-mediumlittle"><?php if ($evento["BigliettiVenduti"] != 1) {
-                        echo " biglietti venduti";
-                    } else {
-                        echo " biglietto venduto";
-                    }?> (<span class="mb-0 color-purple font-weight-bold"><?php $percentuale=$evento["BigliettiVenduti"]*100/$evento["NumeroPosti"]; echo number_format($percentuale, 2)?></span>%)</h6>
+                <div class="col-6 mb-0 mr-0 pr-3 sold-tickets font-storico mb-0 text-center">
+                    <?php echo $evento["BigliettiVenduti"]?>
                 </div>
             </div>
-            <div class="row align-text-bottom mb-1">
-                <h5 class="col-12 mb-0 text-center font-mediumlittle">€ <?php $totale = $evento["BigliettiVenduti"] * $evento["PrezzoBiglietto"];
-                echo $totale;?> </h5>
+            <div class="row text-center mb-1">
+                <div class="col-6 mb-0 color-black mr-0 pr-3 font-storico text-left">
+                    Percentuale:
+                </div>
+                <div class="col-6 mb-0 mr-0 pr-3 font-storico mb-0 text-center">
+                <span class="mb-0 color-purple font-weight-bold"><?php $percentuale=$evento["BigliettiVenduti"]*100/$evento["NumeroPosti"]; echo number_format($percentuale, 2)?></span>%
+                </div>
             </div>
+            <div class="row text-center mb-3">
+                <div class="col-6 mb-0 color-black mr-0 pr-3 font-storico text-left">
+                    Incasso:
+                </div>
+                <div class="col-6 mb-0 mr-0 pr-3 font-storico mb-0 text-center">
+                    € <?php $totale = $evento["BigliettiVenduti"] * $evento["PrezzoBiglietto"]; echo $totale;?>
+                </div>
+            </div>
+
         </div>
     <?php endforeach ?>
     </div>

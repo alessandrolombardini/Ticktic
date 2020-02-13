@@ -1,4 +1,4 @@
-<div data-idevento="<?php echo $templateParams["informazioniEvento"]["IDEvento"] ?>"" class="row contenitoreID">
+<div data-idevento="<?php echo $templateParams["informazioniEvento"]["IDEvento"] ?>"" class="row contenitoreID mt-5 mb-5">
     <div class="col-0 col-md-1"></div>
     <div class="roundend-corners col-12 col-md-10 bg-white border mt-2 mb-4 py-col-md-3 mr-0 shadow-sm concert-tickets">
         <?php if(isset($templateParams["msg"])): ?>
@@ -7,9 +7,9 @@
                 <?php if($templateParams["error"] == 's'){echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
             </div>
         <?php endif ?>
-        <div class="row mb-3 mt-0 text-center">
+        <div class="row mb-3 mt-3 text-center">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 pb-3 pl-0 pr-0 d-inline float-left">
-                <img style="width: 100%; float:left; "class="img-fluid" src="./images/eventi/<?php echo $templateParams["informazioniEvento"]["ImmagineEvento"] ?>" alt=""/>
+                <img style="width: 100%; float:left; "class="img-fluid rounded pr-0 pl-0" src="./images/eventi/<?php echo $templateParams["informazioniEvento"]["ImmagineEvento"] ?>" alt=""/>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-7">
                 <section>
