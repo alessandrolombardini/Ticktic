@@ -527,10 +527,11 @@ $(document).ready(function(){
             $(this).addClass('cuore-vuoto');
         }
     });*/
+
+
     /******************************************************************************* */
-
-
     /* Dropdown button menu*/
+
     $(".dropdown-btn").click(function() {
         //this.classList.toggle("active");
         var dropdownContent = this.nextElementSibling;
@@ -540,5 +541,19 @@ $(document).ready(function(){
             dropdownContent.style.display = "block";
         } 
     });
+
+    /******************************************************************************* */
+    /*Slideshow*/
+
+    $(".slideshow > div:gt(0)").hide();
+
+    setInterval(function() {
+      $('.slideshow > div:first')
+        .hide()
+        .next()
+        .fadeIn(1500)
+        .end()
+        .appendTo('.slideshow');
+    }, 5000);
 
 });

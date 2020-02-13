@@ -11,6 +11,10 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.css"/>
         <script type="text/javascript" src="./js/utils.js"> </script>
+
+
+        <script src="jquery.slides.min.js"></script>
+				
         <title>TickTic</title>
     </head>
     <body class ="bg-light">
@@ -152,6 +156,7 @@
                 <div class="col-1 col-md-1"></div>
             </div>
         </footer>   
+
     </body>
 </html>
 
