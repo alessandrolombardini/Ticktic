@@ -549,9 +549,9 @@ $(document).ready(function(){
 
     setInterval(function() {
       $('.slideshow > div:first')
-        .hide()
+        .fadeOut(1500)
         .next()
-        .fadeIn(1500)
+        .delay(1500).fadeIn(1500)
         .end()
         .appendTo('.slideshow');
     }, 5000);
