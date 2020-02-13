@@ -12,7 +12,7 @@ if(isset($_POST["titolo"]) && isset($_POST["testo"]) && isset($_POST["IDEvento"]
     $titolo = $_POST["titolo"];
     $testo = $_POST["testo"];
     $IDEvento = $_POST["IDEvento"];
-    if(checkBaseParams($titolo, $testo, $IDEvento)){
+    if(checkParams($titolo, $testo, $IDEvento)){
         $inserimentoCorretto = true;
         $IDOrganizzatore = $_SESSION["id"];
         $IDNotifica = $dbh->inserisciNotificaOrganizzatore($titolo, $testo, $IDOrganizzatore, $IDEvento);
@@ -30,7 +30,7 @@ if($inserimentoCorretto == true){
     require_once("./crea_notifica_organizzatore.php");
 }
 
-function checkBaseParams($titolo, $testo, $IDEvento){
+function checkParams($titolo, $testo, $IDEvento){
     return !empty($titolo) 
            && !empty($testo)
            && !empty($IDEvento);

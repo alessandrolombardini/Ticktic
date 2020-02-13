@@ -559,8 +559,6 @@ $(document).ready(function(){
             settings: {
               slidesToShow: 3,
               slidesToScroll: 3,
-              infinite: true,
-              dots: true
             }
           },
           {
@@ -581,4 +579,24 @@ $(document).ready(function(){
     });
 
     $(".slideshow > button").hide();
+    $(".cuore-pieno").each(function(){
+        const spa = $(this);
+        $.post("api-check-cuore.php",
+        {
+          idevento: $(this).parent().attr("data-IDEvento")
+        },
+        function(result){
+            const res = JSON.parse(result);
+            if(res["Esito"]=="Negativo"){
+                spa.off();
+                console.log(spa);
+                spa.removeClass('cuore-pieno');
+                spa.removeClass('fas');
+                spa.addClass('far');
+                spa.addClass('cuore-vuoto');
+                console.log(spa);
+            }
+        });
+
+    });
 });
