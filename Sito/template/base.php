@@ -126,11 +126,10 @@
                     <nav class="nav flex-column">
                         <p class="pl-3 mb-0 pb-0 font-white"> OVERVIEW </p>
                         <div class="dropdown-divider"></div>
-                        <a class="nav-link font-white" href="#">Eventi</a>
-                        <a class="nav-link font-white" href="#">Categorie</a>
-                        <a class="nav-link font-white" href="#">Luoghi</a>
-                        <a class="nav-link font-white" href="#">Artisti</a>
-                        <a class="nav-link font-white" href="#">Area Personale</a>
+                        <a class="nav-link font-white" href="./eventi.php">Eventi</a>
+                        <a class="nav-link font-white" href="./categorie.php">Categorie</a>
+                        <a class="nav-link font-white" href="./artisti.php">Artisti</a>
+                        <a class="nav-link font-white" href="./account.php">Area Personale</a>
                     </nav>
                 </div>
                 <div class="col-2"></div>
