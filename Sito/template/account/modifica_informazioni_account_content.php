@@ -6,9 +6,9 @@
       <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="informazioni_account.php"> Annulla </a>
     </div>
     <hr/>
-    <?php require_once("check_errori.php");?>
+    <?php require_once __DIR__.'/../check_errori.php';?>
     <div class="row">
-      <form action="./processa_modifica_informazioni.php" method="POST">
+      <form action="./processa_modifica_informazioni.php" method="POST" class="col-12">
         <div class="row pt-3">
             <div class = "col-12 col-md-4">
                 <label for="nome">Nome</label>

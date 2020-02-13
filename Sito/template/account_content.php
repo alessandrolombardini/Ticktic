@@ -3,7 +3,7 @@
         <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-10">
             <h3 class="text-black pt-2 mb-4 mt-4"> Area personale </h3>
-            <?php require_once("check_errori.php");?>
+            <?php require("check_errori.php") ?>
             <?php if (isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "ORGANIZZATORE"):?>
             <a href="./area_gestore.php">
                 <button type="submit" class="btn btn-gestore col-12 py-3 mt-5 mb-2 ml-0">

@@ -146,10 +146,10 @@
             <div class="row">
                 <div class="col-1 col-md-1"></div>
                 <div class="col-md-5 col-10">  
-                    <p class="text-md-right text-center mb-0 font-little font-white">ticktic - Via Roma dell'Università 612, FC - Cesena - 47042</p>
+                    <p class="text-md-right text-center mb-0 font-info font-white">ticktic - Via Roma dell'Università 612, FC - Cesena - 47042</p>
                 </div>
                 <div class="col md-5">
-                    <p class="text-md-left text-center pl-5 pl-md-0 font-little font-white">info@ticktic.com - tel. 0547892346 - P.IVA 0243546576678  </p>
+                    <p class="text-md-left text-center pl-5 pl-md-0 font-info font-white">info@ticktic.com - tel. 0547892346 - P.IVA 0243546576678  </p>
                 </div>
                 <div class="col-1 col-md-1"></div>
             </div>
