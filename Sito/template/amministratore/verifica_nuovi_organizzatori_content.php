@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row pb-5 mb-5">
   <div class="col-0 col-md-1"></div>
   <div class="col-12 col-md-10">
     <div class="row mb-3 mt-5">
@@ -26,7 +26,7 @@
                 <th class="col-2" id="numero" headers="numeroInLista"><?php echo $i ?></th>
                 <td class="col-4" headers="numero nome"><?php echo $organizzatore["Nome"] ?></td>
                 <td class="col-4" headers="numero cognome"><?php echo $organizzatore["Cognome"] ?></td>
-                <td class="col-2" headers="numero linkAdOrganizzatore" class="text-right"><a href="./verifica_singolo_organizzatore.php?id=<?php echo $organizzatore["IDOrganizzatore"] ?>">Apri</a></td>
+                <td class="col-2 text-right" headers="numero linkAdOrganizzatore"><a href="./verifica_singolo_organizzatore.php?id=<?php echo $organizzatore["IDOrganizzatore"] ?>">Apri</a></td>
               </tr>  
             <?php $i++ ?>
             <?php endforeach ?>

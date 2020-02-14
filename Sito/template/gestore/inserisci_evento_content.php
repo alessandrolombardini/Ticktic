@@ -115,7 +115,7 @@
                 <div class="row mt-2">
                     <div class="col-md-3 mb-3">
                         <label for="categoria">Categoria*</label>
-                        <select name="categoria" class="form-control" required>
+                        <select id="categoria" name="categoria" class="form-control" required>
                             <?php foreach ($templateParams["categorie"] as $categoria): ?>
                                 <option value="<?php echo $categoria["IDCategoria"]?>" 
                                     <?php if ($templateParams["azione"] == 2 && $templateParams["evento"]["IDCategoria"] == $categoria["IDCategoria"]) {

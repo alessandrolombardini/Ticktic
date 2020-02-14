@@ -3,36 +3,31 @@
         <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-10">
             <section>
-                <h3 class="text-black pt-2 mt-4"> Area Amministratore</h3>
-                <a href="./verifica_nuovi_organizzatori.php">
-                    <button class="btn btn-gestore col-12 py-3 mt-3 mb-2 ml-0">
+                <h3 class="text-black pt-2 pb-4 mt-4"> Area Amministratore</h3>
+                <a class="btn btn-gestore col-12 py-3 mb-2" href="./verifica_nuovi_organizzatori.php">
                         <p class="col-10 float-left mb-0 mt-1 align-center"> Verifica nuovi organizzatori </p> 
-                        <i class="fa fa-angle-right fa-2x"></i> 
-                    </button>
+                        <span class="fa fa-angle-right fa-2x"></span> 
+                    
                 </a>
-                <a href="./verifica_nuovi_artisti.php">
-                    <button class="btn btn-gestore col-12 py-3 mb-2">
+                <a class="btn btn-gestore col-12 py-3 mb-2" href="./verifica_nuovi_artisti.php">
                         <p class="col-10 float-left mb-0 mt-1 align-center"> Verifica nuovi artisti </p> 
-                        <i class="fa fa-angle-right fa-2x"></i> 
-                    </button>
+                        <span class="fa fa-angle-right fa-2x"></span> 
+                    
                 </a>
-                <a href="./verifica_nuove_categorie.php">
-                    <button class="btn btn-gestore col-12 py-3 mb-2">
+                <a class="btn btn-gestore col-12 py-3 mb-2" href="./verifica_nuove_categorie.php">
                         <p class="col-10 float-left mb-0 mt-1 align-center"> Verifica nuove categorie </p> 
-                        <i class="fa fa-angle-right fa-2x"></i> 
-                    </button>
+                        <span class="fa fa-angle-right fa-2x"></span> 
+                    
                 </a>
-                <a href="./inserisci_nuova_categoria.php">
-                    <button class="btn btn-gestore col-12 py-3 mb-2">
+                <a class="btn btn-gestore col-12 py-3 mb-2" href="./inserisci_nuova_categoria.php">
                         <p class="col-10 float-left mb-0 mt-1 align-center"> Inserisci nuova categoria </p> 
-                        <i class="fa fa-angle-right fa-2x"></i> 
-                    </button>
+                        <span class="fa fa-angle-right fa-2x"></span> 
+                    
                 </a>
-                <a href="./crea_notifica_amministratore.php">
-                    <button class="btn btn-gestore col-12 py-3 mb-2">
+                <a class="btn btn-gestore col-12 py-3 mb-2" href="./crea_notifica_amministratore.php">
                         <p class="col-10 float-left mb-0 mt-1 align-center"> Emetti notifica </p> 
-                        <i class="fa fa-angle-right fa-2x"></i> 
-                    </button>
+                        <span class="fa fa-angle-right fa-2x"></span> 
+                    
                 </a>
             </section>
         </div>

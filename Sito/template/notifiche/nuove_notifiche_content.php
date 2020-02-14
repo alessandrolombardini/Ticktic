@@ -23,7 +23,7 @@
                 <div class="notifica">
                     <div class="roundend-corners col-md-12 bg-white border mt-2 mb-4 px-4 py-3 shadow-sm">
                         <div class="row m-0 p-0 d-block float-right">
-                            <a data-IDNotificaPersonale="<?php echo $notifica["IDNotificaPersonale"] ?>" class="text-right m-0 p-0 click_nuove_notifiche pointer"><i class="fas fa-times color-purple fa-2x"></i></a>
+                            <a data-IDNotificaPersonale="<?php echo $notifica["IDNotificaPersonale"] ?>" class="text-right m-0 p-0 click_nuove_notifiche pointer"><span class="fas fa-times color-purple fa-2x"></span></a>
                         </div>
                         <div class="mt-1 mt-md-0">
                             <section>

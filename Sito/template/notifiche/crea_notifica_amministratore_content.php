@@ -16,7 +16,7 @@
         <form action="./processa_inserimento_notifica_amministratore.php" method="POST">
             <div class="mb-3">
                 <label for="titolo">Titolo *</label>
-                <input type="text" class="form-control" name="titolo"/>
+                <input type="text" class="form-control" id="titolo" name="titolo"/>
             </div>
             <div class="mb-3">
                 <label for="testo">Testo *</label>

@@ -2,7 +2,7 @@
   <div class="col-md-1"></div>
   <div class="col-12 col-md-10 p-0 m-0">
     <div class="row mb-3 mt-5 ">
-        <h3 class="col-8 col-md-7 pt-2">Storico eventi</h3>
+        <p class="col-8 col-md-7 pt-2 titolo_sezioni">Storico eventi</p>
         <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Indietro </a>
     </div>
     <hr/>
@@ -22,7 +22,7 @@
     <?php foreach ($templateParams["storicoEventi"] as $evento) :?>
         <div class="event col-12 col-md-6 col-lg-4 col-xl-4 shadow-sm pl-1 pr-1 pt-2 pb-2 mt-3 mb-4 bg-white rounded border-dark d-inline-block">
             <div class="row m-0 p-0 float-left shadow-sm  bg-white rounded border-dark">
-                <img class="img-fluid rounded" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"></img>
+                <img alt="" class="img-fluid rounded" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"/>
             </div>
             <div class="row m-0 p-0 d-inline-block text-left pl-3 pb-3 pt-3">
                 <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>

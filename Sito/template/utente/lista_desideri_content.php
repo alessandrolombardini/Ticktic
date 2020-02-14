@@ -2,7 +2,7 @@
   <div class="col-0 col-md-1"></div>
   <div class="col-12 col-md-10">
     <div class="row mb-3 mt-5 ">
-        <h3 class="col-8 col-md-7">Lista desideri</h3>
+        <p class="col-8 col-md-7 titolo_sezioni">Lista desideri</p>
         <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="account.php"> Indietro </a>
     </div>
     <hr class="mb-0"/>
@@ -22,7 +22,7 @@
             <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
                 <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
                     <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
-                        <img class="img-fluid roundend-corners" alt="immagine evento" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"></img>
+                        <img class="img-fluid roundend-corners" alt="immagine evento" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"/>
                     </div>
                     <div class="col-12 d-inline-block text-left m-3">
                         <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
@@ -31,7 +31,7 @@
                     </div> 
                     <div class="col-12 m-0 mb-2">
                         <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-                        <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>"><button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button></a>
+                        <a class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill d-inline-block" href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>">Scopri</a>
                     </div>
                 </div>
             </div>

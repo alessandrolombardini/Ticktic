@@ -8,7 +8,7 @@
         <hr/>
         <?php require_once __DIR__.'/../check_errori.php';?>
         <div class="p-0 m-0">
-            <form class="p-0 m-0" action="./processa_modifica_informazioni.php" method="POST" class="col-12">
+            <form class="p-0 m-0 col-12" action="./processa_modifica_informazioni.php" method="POST">
                 <div class="row pt-3">
                     <div class = "col-12 col-md-4">
                         <label for="nome">Nome</label>
@@ -20,7 +20,7 @@
                     </div>
                     <div class = "col-12 col-md-4 mt-2">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" value="<?php echo$templateParams["account"]["Email"]?>" required/>
+                        <input type="email" id="email" class="form-control" name="email" value="<?php echo$templateParams["account"]["Email"]?>" required/>
                     </div>
                 </div>
                 <?php if ($_SESSION["autorizzazione"] != "AMMINISTRATORE"):?>

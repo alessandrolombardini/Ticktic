@@ -24,7 +24,7 @@
               <tr class="d-flex">
                 <th class="col-1" id="numero" headers="numeroInLista"><?php echo $i ?></th>
                 <td class="col-8" headers="numero pseudonimo"><?php echo $artista["PseudonimoArtista"] ?></td>
-                <td class="col-3" headers="numero linkAdArtista" class="text-right"><a href="./verifica_singolo_artista.php?id=<?php echo $artista["IDArtista"] ?>">Apri</a></td>
+                <td class="col-3 text-right" headers="numero linkAdArtista"><a href="./verifica_singolo_artista.php?id=<?php echo $artista["IDArtista"] ?>">Apri</a></td>
               </tr>  
             <?php $i++ ?>
             <?php endforeach ?>
