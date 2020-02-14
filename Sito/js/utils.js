@@ -115,6 +115,23 @@ function chartChangePageBack(){
     showChartSelectedContent();
 }
 
+/*Va avanti nelle pagine del carrello*/
+function chartChangePageForward(){
+    let selezionato = $(".chart-content").children(".selected");
+    $(selezionato).removeClass("selected");
+    $(selezionato).next().addClass("selected");
+
+    let progress = $(".chart-progress").children();
+    let purple = $(progress[0]).find(".color-purple");
+    $(purple).removeClass("color-purple");
+    $(purple).next().addClass("color-purple");
+    let black = $(progress[1]).find(".color-black");
+    $(black).removeClass("color-black");
+    $(black).next().addClass("color-black");
+
+    showChartSelectedContent();
+}
+
 
 $(document).ready(function(){
     /* Mostra e nascondi opzioni gestore in registrazione */
@@ -236,21 +253,26 @@ $(document).ready(function(){
     /*Gestione delle 4 attività del carrello*/;
     showChartSelectedContent();
 
+
     /*Bottoni per procedere con l'acquisto*/
     $(".chart-content").find("button").click(function(){
-        let selezionato = $(".chart-content").children(".selected");
-        $(selezionato).removeClass("selected");
-        $(selezionato).next().addClass("selected");
-
-        let progress = $(".chart-progress").children();
-        let purple = $(progress[0]).find(".color-purple");
-        $(purple).removeClass("color-purple");
-        $(purple).next().addClass("color-purple");
-        let black = $(progress[1]).find(".color-black");
-        $(black).removeClass("color-black");
-        $(black).next().addClass("color-black");
-
-        showChartSelectedContent();
+        if ($(this).attr("id") == "resume-btn"){
+            form = $("#payment-form");
+            if($(form)[0].checkValidity()) {
+                chartChangePageForward();
+            } else {
+                $('<input type="submit">').hide().appendTo($(form)).click().remove();
+            }
+        } else if ($(this).attr("id") == "payment-btn") {
+            form = $("#delivery-form");
+            if($(form)[0].checkValidity()) {
+                chartChangePageForward();
+            } else {
+                $('<input type="submit">').hide().appendTo($(form)).click().remove();
+            }
+        } else {
+            chartChangePageForward();
+        }
     });
 
     /*Pulsanti per tornare indietro*/
@@ -276,10 +298,15 @@ $(document).ready(function(){
     $(".piuCarrello").click(function(){
         let ticketkind = $(this).parent().parent();
         let number = Number($(ticketkind).find("p.tickets-number").text());
-        if(number < 8){
+        if(number < 10){
             number++;
             $(ticketkind).find("p.tickets-number").text(number);
-            $(ticketkind).find("input[type='hidden']").attr("value", number)
+            id = $(ticketkind).attr("id").substring(12);
+            $(".hidden-tickets-number").each(function(){
+                if($(this).find("p").text() == id){
+                    $(this).find("input[type='hidden']").attr("value", number)
+                }
+            });
             updateChartPrices();
         } else {
             ;
@@ -293,7 +320,12 @@ $(document).ready(function(){
         if(number > 1){
             number--;
             $(ticketkind).find("p.tickets-number").text(number);
-            $(ticketkind).find("input[type='hidden']").attr("value", number)
+            id = $(ticketkind).attr("id").substring(12);
+            $(".hidden-tickets-number").each(function(){
+                if($(this).find("p").text() == id){
+                    $(this).find("input[type='hidden']").attr("value", number)
+                }
+            });
             updateChartPrices();
         } else {
             ;
@@ -338,7 +370,7 @@ $(document).ready(function(){
         var totalecarello = parseFloat($(".resume").find(".totale-carrello").text().substring(1));
         var totalespesa =(totalecarello + spedizione).toFixed(2);
         $(".totale-spesa").text("€" + totalespesa);
-        $(this).after("<input type='hidden' name='totale-spesa' value=" + totalespesa + "/>");
+        $(".totale-spesa").after("<input type='hidden' name='totale-spesa' value=" + totalespesa + "/>");
     });
 
 

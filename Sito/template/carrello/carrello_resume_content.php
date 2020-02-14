@@ -1,5 +1,11 @@
 <div class="resume">
-    <?php foreach($templateParams["eventi"] as $evento):?>
+<form method="post" action="processa_carrello.php">
+    <?php $i = 1; foreach($templateParams["eventi"] as $evento):?>
+    <div class="hidden-tickets-number">
+        <p hidden class="mb-0"><?php echo $evento["IDEvento"]; ?></p>
+        <input type="hidden" name="tickets_<?php echo $i;?>" value="<?php echo $evento["NumeroBiglietti"]; ?>"/>
+    </div>
+    <input type="hidden" name="event_<?php echo $i; $i++;?>" value="<?php echo $evento["IDEvento"]; ?>"/>
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8 col-12">
@@ -77,4 +83,5 @@
         <input type="submit" value="Procedi all'acquisto" class="purple-btn col-10 col-md-6 p-3 m-0 mb-5 rounded-pill"/>
         <div class="col-1 col-md-3 p-0 m-0"> </div>
     </div>
+</form>
 </div>

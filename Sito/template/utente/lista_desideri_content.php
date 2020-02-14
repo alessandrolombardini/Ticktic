@@ -5,7 +5,7 @@
         <h3 class="col-8 col-md-7">Lista desideri</h3>
         <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="account.php"> Indietro </a>
     </div>
-    <hr/>
+    <hr class="mb-0"/>
     <?php if (count($templateParams["eventiListaDesideri"]) == 0):?>
         <div class="row error-template">
             <div class="col-1 col-md-2"></div>
