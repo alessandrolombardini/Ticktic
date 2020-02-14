@@ -48,10 +48,8 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-12 col-md-12">
-                            <div class="form-group text-center">
-                                <form action="./evento.php?IDEvento=<?php echo $templateParams["informazioniEvento"]["IDEvento"] ?>" method="get">
-                                    <button type="button" class="purple-btn col-10 shadow-sm p-3 mt-4 rounded-pill btn_aggiungi_al_carrello" id="declinaBtn">Aggiungi al carrello</button>
-                                </form>
+                            <div class=" text-center row">
+                                <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="purple-btn col-10 shadow-sm p-3 mx-auto mt-4 rounded-pill btn_aggiungi_al_carrello" id="declinaBtn">Aggiungi al carrello</a>
                             </div>
                         </div>
                     </div>
