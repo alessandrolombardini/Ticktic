@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-7">
                     <div>
-                        <p class="titolo_sezioni titolo-viola"><?php echo $templateParams["informazioniEvento"]["NomeEvento"] ?></p>
+                        <p class="titolo_sezioni"><?php echo $templateParams["informazioniEvento"]["NomeEvento"] ?></p>
                         <!-- <p><?php /* foreach($templateParams["artisti"] as $artista){ echo $artista["PseudonimoArtista"]; } */?></p> -->
                         <p><?php echo $templateParams["informazioniEvento"]["DescrizioneEvento"] ?></p>
                         <p class="font-italic"><?php echo $templateParams["informazioniEvento"]["Luogo"] ?></p>
