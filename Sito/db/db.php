@@ -998,11 +998,36 @@
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getEventiSuggeriti(){
+        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE EliminatoSN = 'n' ORDER BY RAND() LIMIT 10");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getProssimiEventi(){
+        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE EliminatoSN = 'n' AND DataEvento >= CURDATE() ORDER BY DataEvento ASC LIMIT 10");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAcquisti($IDUtente){
+        $stmt = $this->db->prepare("SELECT * FROM ORDINE 
+                                        JOIN COMPRENDE ON ORDINE.IDOrdine = COMPRENDE.IDOrdine 
+                                        JOIN EVENTO ON EVENTO.IDEvento = COMPRENDE.IDEvento
+                                        WHERE ORDINE.IDUtente = ? AND DataEvento >= CURDATE()");
+        $stmt->bind_param('i', $IDUtente);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     /********************************************************************************************************************** */
     /*Categorie*/
 
     public function getEventsFromIDCategoria($IDcat){
-        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE IDCategoria = ?");
+        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE IDCategoria = ? AND EliminatoSN = 'n'");
         $stmt->bind_param('i',$IDcat);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -1069,7 +1094,7 @@
     }
 
     public function getEventsFromIDArtista($ID){
-        $stmt = $this->db->prepare("SELECT * FROM EVENTO JOIN ESEGUE ON EVENTO.IDEvento = ESEGUE.IDEvento WHERE IDArtista = ?");
+        $stmt = $this->db->prepare("SELECT * FROM EVENTO JOIN ESEGUE ON EVENTO.IDEvento = ESEGUE.IDEvento WHERE IDArtista = ? AND EliminatoSN = 'n'");
         $stmt->bind_param('i',$ID);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -1077,7 +1102,7 @@
     }
 
     /********************************************************************************************************************** */
-    /*Artisti*/
+    /*Eventi*/
 
     public function getAllEvents(){
         $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE EliminatoSN = 'n'");
