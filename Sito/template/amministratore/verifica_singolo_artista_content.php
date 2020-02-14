@@ -3,7 +3,7 @@
   <div class="col-12 col-md-10">
     <div class="row mb-3 mt-5">
       <h3 class="col-8 col-md-7">Autorizza artista</h3>
-      <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_amministratore.php"> Annulla </a>
+      <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="verifica_nuovi_artisti.php"> Annulla </a>
     </div>
     <hr/>
     <?php if (isset($templateParams["msg"]) && $templateParams["msg"]!= "0"):?>
