@@ -5,12 +5,11 @@
             <p class="titolo_sezioni col-8 col-md-7">Evento</p>
         </div>
         <hr/>
+    
+        <div class="row d-none avviso-acquisto-evento">
+                <p class="col-12 my-2 text-center align-center good-msg">Biglietto aggiunto al carrello</p>
+            </div>
         <div class="roundend-corners bg-white border mt-2 mb-4 p-md-3 mr-0 shadow-sm concert-tickets p-0 m-0">
-            <?php if(isset($templateParams["msg"])): ?>
-                <div class="row">
-                    <p class="col-12 my-2 text-center align-center <?php if($templateParams["error"] == 's'){echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
-                </div>
-            <?php endif ?>
             <div class="row mb-3 mt-3 text-center">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 pb-3 pl-0 pr-0 d-inline float-left">
                     <img style="width: 100%; float:left; " class="img-fluid rounded pr-0 pl-0" src="./images/eventi/<?php echo $templateParams["informazioniEvento"]["ImmagineEvento"] ?>" alt="immagine evento"/>
@@ -22,6 +21,10 @@
                         <p><?php echo $templateParams["informazioniEvento"]["DescrizioneEvento"] ?></p>
                         <p class="font-italic"><?php echo $templateParams["informazioniEvento"]["Luogo"] ?></p>
                         <p class="font-italic"><?php echo date("d/m/Y h:m", strtotime(substr($templateParams["informazioniEvento"]["DataEvento"], 0, -3)));?></p>
+                        <?php if(isset($templateParams["informazioniEvento"]["NoteEvento"]) && $templateParams["informazioniEvento"]["NoteEvento"] != ""): ?>
+                            <p><small>Note: <?php echo $templateParams["informazioniEvento"]["NoteEvento"]?></small></p>
+                        <?php endif ?>
+
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@
     $templateParams["eventi_prossimi"] = $dbh->getProssimiEventi();
 
     if(isset($_SESSION["id"]) && $_SESSION["autorizzazione"]=="UTENTE"){
-        $templateParams["eventi_dediserati"] = $dbh->ottieniEventiDiInteresseDiUnUtente($_SESSION["id"]);
+        $templateParams["eventi_desiderati"] = $dbh->ottieniEventiDiInteresseDiUnUtente($_SESSION["id"]);
         $templateParams["eventi_acquistati"] = $dbh->getAcquisti($_SESSION["id"]);
     }
 

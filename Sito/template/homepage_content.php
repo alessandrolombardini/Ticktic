@@ -76,7 +76,6 @@
     <p class="titolo_sezioni d-inline mr-3">Dalla tua lista desideri</p>
     <div class=" mb-3 mt-1 dropdown-divider w-50 font-weight-bold"></div>
   </div>
-
   <div class="slideshow row">
     <?php foreach ($templateParams["eventi_desiderati"] as $evento) :?>
       <div class="row p-3">
