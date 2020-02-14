@@ -1,13 +1,14 @@
 <!-- Testata del sito -->
 <div id="homepage-image" class="position-relative m-0 p-0"> 
-      <h1 class="text-light text-center pt-5">Benvenuti su ticktic! </h1>
-      <h2 class="text-light text-center">Il miglior portale di ricerca e acquisto di eventi!</h2>
+      <p class="title text-light text-center pt-5">Benvenuti su ticktic! </h1>
+      <p class="subtitle text-light text-center">Il miglior portale di ricerca e acquisto di eventi!</p>
       <!-- Search form -->
       <div class="row mt-10">
         <div class="col-lg-3"></div>
         <div class="col-12 col-lg-6 mt-3 mt-md-5 mt-xl-10">
           <form class="search-box mx-3 my-5" method="POST" action="./ricerca.php">
-            <input class="form-control rounded-pill search-input text-center" type="search" name="barraDiRicerca" placeholder="Cerca per Eventi, Artisti, Luoghi, ..." aria-label="Search">
+            <label for="search-bar" class="hide"> Search</label>
+            <input id="search-bar" class="form-control rounded-pill search-input text-center" type="search" name="barraDiRicerca" placeholder="Cerca per Eventi, Artisti, Luoghi, ..." aria-label="Search" />
           </form>
         </div>
         <div class="col-lg-3"></div>
@@ -17,7 +18,7 @@
 
 <!-- Eventi Suggeriti -->
 <div class="container-fluid mt-2">
-  <h3 class="d-inline mr-3">Suggeriti per te</h3>
+  <p class="titolo_sezioni d-inline mr-3">Suggeriti per te</p>
   <div class=" mb-3 mt-1 dropdown-divider w-50 font-weight-bold"></div>
 </div>
 
@@ -26,7 +27,7 @@
     <div class="row p-3">
       <div class="roundend-corners border p-2">
         <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
-            <img class="img-fluid roundend-corners" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="immagine evento"></img>
+            <img class="img-fluid roundend-corners" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="immagine evento"/>
         </div>
         <div class="col-12 m-0 p-0 d-inline-block text-left pl-3 pb-3 pt-3">
             <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
@@ -35,7 +36,9 @@
         </div> 
         <div class="col-12 m-0 p-0">
             <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-            <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>"><button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button></a>
+            <form action="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" method="get">
+              <button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button>
+            </form>
         </div>
       </div>
     </div>
@@ -44,7 +47,7 @@
 
 <!-- Prossimi Eventi -->
 <div class="container-fluid mt-2">
-  <h3 class="d-inline mr-3">Prossimi Eventi</h3>
+  <p class=" titolo_sezioni d-inline mr-3">Prossimi Eventi</p>
   <div class=" mb-3 mt-1 dropdown-divider w-50 font-weight-bold"></div>
 </div>
 
@@ -53,7 +56,7 @@
     <div class="row p-3">
       <div class="roundend-corners border p-2">
         <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
-            <img class="img-fluid roundend-corners" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="immagine evento"></img>
+            <img class="img-fluid roundend-corners" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="immagine evento"/>
         </div>
         <div class="col-12 m-0 p-0 d-inline-block text-left pl-3 pb-3 pt-3">
             <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
@@ -62,7 +65,9 @@
         </div> 
         <div class="col-12 m-0 p-0">
             <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-            <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>"><button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button></a>
+            <form action="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" method="get">
+              <button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button>
+            </form>
         </div>
       </div>
     </div>
@@ -72,7 +77,7 @@
 <!-- Eventi Lista desideri-->
 <?php if (isset($templateParams["eventi_desiderati"]) && $templateParams["eventi_desiderati"] != NULL): ?>
   <div class="container-fluid mt-2">
-    <h3 class="d-inline mr-3">Dalla tua lista desideri</h3>
+    <p class="titolo_sezioni d-inline mr-3">Dalla tua lista desideri</p>
     <div class=" mb-3 mt-1 dropdown-divider w-50 font-weight-bold"></div>
   </div>
   <div class="slideshow row">
@@ -80,7 +85,7 @@
       <div class="row p-3">
         <div class="roundend-corners border p-2">
           <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
-              <img class="img-fluid roundend-corners" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="immagine evento"></img>
+              <img class="img-fluid roundend-corners" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="immagine evento"/>
           </div>
           <div class="col-12 m-0 p-0 d-inline-block text-left pl-3 pb-3 pt-3">
               <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
@@ -89,7 +94,9 @@
           </div> 
           <div class="col-12 m-0 p-0">
               <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-              <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>"><button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button></a>
+              <form action="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" method="get">
+                <button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button>
+              </a>
           </div>
         </div>
       </div>
@@ -100,7 +107,7 @@
 <!-- Eventi Acquistati -->
 <?php if (isset($templateParams["eventi_acquistati"]) && $templateParams["eventi_acquistati"] != NULL): ?>
   <div class="container-fluid mt-2">
-    <h3 class="d-inline mr-3">I tuoi eventi Acquistati</h3>
+    <p class="ttolo_sezioni d-inline mr-3">I tuoi eventi Acquistati</p>
     <div class=" mb-3 mt-1 dropdown-divider w-50 font-weight-bold"></div>
   </div>
 
@@ -109,7 +116,7 @@
       <div class="row p-3">
         <div class="roundend-corners border p-2">
           <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
-              <img class="img-fluid roundend-corners" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="immagine evento"></img>
+              <img class="img-fluid roundend-corners" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="immagine evento"/>
           </div>
           <div class="col-12 m-0 p-0 d-inline-block text-left pl-3 pb-3 pt-3">
               <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
@@ -118,7 +125,9 @@
           </div> 
           <div class="col-12 m-0 p-0">
               <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-              <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>"><button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button></a>
+              <form action="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" method="get">
+                <button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button>
+              </form>
           </div>
         </div>
       </div>
@@ -128,7 +137,7 @@
 
 <!-- Categorie -->
 <div class="container-fluid mt-2 mb-3">
-  <h3 class="d-inline mr-3">Categorie</h3>
+  <p class="titolo_sezioni d-inline mr-3">Categorie</p>
   <div class=" mb-3 mt-1 dropdown-divider w-50 font-weight-bold"></div>
 </div>
 <div class="row">

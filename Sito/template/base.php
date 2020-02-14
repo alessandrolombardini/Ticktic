@@ -10,8 +10,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.css"/>
-        <script type="text/javascript" src="./js/utils.js"> </script>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="./js/utils.js"> </script>
+        <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <title>TickTic</title>
@@ -35,7 +35,8 @@
                     <ul class=" ml-10 navbar-nav align-items-center d-none d-xl-block mr-auto desktop-search-bar">
                         <li class="nav-item" >
                             <form class="form-inline search-box" method="POST" action="./ricerca.php">
-                                <input class="form-control rounded-pill search-input w-100"  type="search" name="barraDiRicerca" placeholder="Cerca ..." aria-label="Search" />
+                                <label for="search-bar-desktop" class="hide"> Search</label>
+                                <input id="search-bar-desktop" class="form-control rounded-pill search-input w-100"  type="search" name="barraDiRicerca" placeholder="Cerca ..." aria-label="Search" />
                             </form>
                         </li>
                     </ul>
@@ -45,13 +46,13 @@
                 <ul class="navbar nav align-items-center float-right">
                     <li class="nav-item mx-1">
                         <a class="nav-link font-white px-0 icona-destra" href="nuove_notifiche.php">
-                            <i class="fas fa-bell campanella"></i>
+                            <span class="fas fa-bell campanella"></span>
                         </a> 
                     </li>
                     <?php if (!isset($_SESSION["id"]) || $_SESSION["autorizzazione"] == "UTENTE"):?>
                       <li class="nav-item  mx-2">
                           <a class="nav-link font-white px-0 icona-destra" href="carrello.php">
-                              <i class="fa fa-shopping-cart"></i>  
+                              <span class="fa fa-shopping-cart"></span>  
                           </a>
                       </li>
                     <?php endif?> 
@@ -64,7 +65,8 @@
                     <ul class=" mb-2 mx-auto navbar-nav d-block d-xl-none align-items-center d-none mobile-search-bar">
                         <li class="nav-item" >
                             <form class="form-inline search-box" method="POST" action="ricerca.php">
-                                <input class="form-control rounded-pill search-input w-100"  name="barraDiRicerca" type="search" placeholder="Cerca ..." aria-label="Search" />
+                                <label for="search-bar-mobile" class="hide"> Search</label >
+                                <input id="search-bar-mobile" class="form-control rounded-pill search-input w-100"  name="barraDiRicerca" type="search" placeholder="Cerca ..." aria-label="Search" />
                             </form>
                         </li>
                     </ul>

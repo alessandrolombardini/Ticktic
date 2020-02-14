@@ -105,6 +105,13 @@ h3, h2 {
     letter-spacing: 2px;
 }
 
+.titolo_sezioni{
+    font-size: 1.5em !important;
+    font-weight: bold;
+    color:black;
+    letter-spacing: 2px;
+}
+
 h1{
     font-size:2.5em;
 }
@@ -133,6 +140,19 @@ footer, header {
 /*------------------- HEADER & MAIN NAV -----------------*/
 #nav-logo {
     height: 2em;
+}
+
+.title{
+    font-size:2.5em !important;
+}
+
+.hide{
+    color:rgba(0,0,0,0) !important;
+    font-size: 0em !important;
+}
+
+.subtitle{
+    font-size:2em !important;
 }
 
 .navbar-toggler{
