@@ -9,7 +9,7 @@
             <div class="col-6 col-md-4 col-xl-2">
             <div class="m-3">
                 <a href="./categoria.php?IDCategoria=<?php echo $categoria["IDCategoria"]?>">
-                <img class="img-fluid" src="./images/categorie/<?php echo $categoria["ImmagineCategoria"] ?>" alt="<?php echo getAltFromImageName($categoria["ImmagineCategoria"]) ?>" />
+                    <img class="img-fluid roundend-corners" src="./images/categorie/<?php echo $categoria["ImmagineCategoria"] ?>" alt="<?php echo getAltFromImageName($categoria["ImmagineCategoria"]) ?>" />
                 </a>
             </div>
             </div>
