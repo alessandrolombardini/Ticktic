@@ -40,10 +40,10 @@ if($_POST["action"]==1){
         }
         else{
             $msg = "Errore in inserimento!";
-            header('Location: ' . $_SERVER['HTTP_REFERER'] . "?msg=" . $msg."&error=".$error);
+            header("location: area_gestore.php?msg=".$msg."&error=".$error);
         }
     } else {
-        header('Location: ' . $_SERVER['HTTP_REFERER'] . "?msg=" . $msg."&error=".$error);
+        header("location: area_gestore.php?msg=".$msg."&error=".$error);
     }
 } 
 
