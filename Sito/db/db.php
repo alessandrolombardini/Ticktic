@@ -877,6 +877,17 @@
         $stmt->bind_param('ii', $IDEvento, $IDUtente);
         $stmt->execute();
     }
+
+    public function checkInteresseAdEvento($IDEvento, $IDUtente) {
+        $query = "SELECT *
+                  FROM EVENTO, INTERESSA
+                  WHERE EVENTO.IDEvento = INTERESSA.IDEvento
+                  AND INTERESSA.IDUtente = ? AND EVENTO.IDEvento = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii', $IDUtente, $IDEvento);
+        $stmt->execute();
+        return $stmt->get_result()->num_rows > 0 ? true : false;
+    }
     
     /********************************************************************************************************************** */
     public function ottieniInformazioniDiUnEvento($IDEvento){

@@ -1,6 +1,6 @@
 <div class="row p-0 m-0">
   <div class="col-0 col-md-1"></div>
-  <div class="col-12 col-md-10 p-0 m-0">
+  <div class="col-12 col-md-10">
     <div class="row mb-3 mt-5 ">
         <h3 class="col-8 col-md-7">Lista desideri</h3>
         <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="account.php"> Indietro </a>
@@ -17,7 +17,7 @@
             <div class="col-1 col-md-2"></div>
         </div>
     <?php endif ?>
-    <div class="row">
+    <div class="row p-0 m-0">
         <?php foreach ($templateParams["eventiListaDesideri"] as $evento) :?>
             <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
                 <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
