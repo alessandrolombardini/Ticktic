@@ -40,9 +40,11 @@ if($_POST["action"]==1){
         }
         else{
             $msg = "Errore in inserimento!";
+            $error='s';
             header("location: area_gestore.php?msg=".$msg."&error=".$error);
         }
     } else {
+        $error='s';
         header("location: area_gestore.php?msg=".$msg."&error=".$error);
     }
 } 
