@@ -15,16 +15,16 @@
     <div class="container col-12 col-md-12">
         <form action="./processa_inserimento_notifica_amministratore.php" method="POST">
             <div class="mb-3">
-                <label for="titolo">Titolo</label>
+                <label for="titolo">Titolo *</label>
                 <input type="text" class="form-control" name="titolo"/>
             </div>
             <div class="mb-3">
-                <label for="testo">Testo</label>
+                <label for="testo">Testo *</label>
                 <textarea class="form-control" id="testo" name="testo" rows="4"></textarea>
             </div>
             <div class="d-block my-3">
                 <fieldset>
-                    <legend>Destinazione</legend>
+                    <legend>Destinazione *</legend>
                     <div class="custom-control custom-radio">
                         <input id="utenti" name="destinazione" type="radio" value="utenti" class="custom-control-input"/>
                         <label class="custom-control-label" for="utenti">Solo utenti</label>

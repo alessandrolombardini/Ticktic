@@ -16,40 +16,40 @@
       <form action="./processa_registrazione.php" method="POST">
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="nome">Nome</label>
+            <label for="nome">Nome *</label>
             <input type="text" class="form-control" id="nome" name="nome" required/>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="cognome">Cognome</label>
+            <label for="cognome">Cognome *</label>
             <input type="text" class="form-control" id="cognome" name="cognome" required/>
           </div>
         </div>
         <div class="col-md-12 mb-3">
-          <label for="email">Email</label>
+          <label for="email">Email *</label>
           <input type="email" class="form-control" name="email" required/>
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="indirizzo">Indirizzo</label>
+            <label for="indirizzo">Indirizzo *</label>
             <input type="text" class="form-control" id="indirizzo"  name="indirizzo" required/>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="data">Data di nascita</label>
+            <label for="data">Data di nascita *</label>
             <input type="date" class="form-control" name="data" id="data" required/>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="citta">Città</label>
+            <label for="citta">Città *</label>
             <input type="citta" maxlength="40" class="form-control" id="citta" name="citta" required/>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="CAP">CAP</label>
+            <label for="CAP">CAP *</label>
             <input type="number" maxlength="16" class="form-control" id="CAP" name="CAP" required/>
           </div>
         </div>
         <div class="d-block col-md-12 my-3">
-          <p>Sesso</p>
+          <p>Sesso *</p>
           <div class="custom-control custom-radio">
             <input id="sessoMaschio" name="sesso" type="radio" value="m" class="custom-control-input" checked required/>
             <label class="custom-control-label" for="sessoMaschio">Maschio</label>
@@ -65,11 +65,11 @@
         </div>
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="password">Password</label>
+            <label for="password">Password *</label>
             <input type="password" maxlength="50" class="form-control" id="password" name="password" required/>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="ripetipassword">Ripeti password</label>
+            <label for="ripetipassword">Ripeti password *</label>
             <input type="password" maxlength="50" class="form-control" id="ripetipassword" name="ripetipassword" required/>
           </div>
         </div>

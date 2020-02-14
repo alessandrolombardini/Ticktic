@@ -7,18 +7,18 @@
     </div>
     <hr/>
     <?php require_once __DIR__.'/../check_errori.php'; ?>
-    <div class="container p-0 m-0">
+    <div class="p-0 m-0">
       <form class="p-0 m-0" action="./processa_modifica_password.php" method="POST">
         <div class="row">
-        <div class="col-md-4 col-12 p-0 m-0 mb-3">
+        <div class="col-md-4 col-12 p-md-4 m-0 mb-3">
             <label for="oldpassword">Password</label>
             <input type="password" maxlength="16" class="form-control" id="oldpassword" name="oldpassword" required/>
           </div>
-          <div class="col-md-4 col-12 p-0 m-0 mb-3">
+          <div class="col-md-4 col-12 p-md-4 m-0 mb-3">
             <label for="password">Nuova password</label>
             <input type="password" maxlength="16" class="form-control" id="password" name="password" required/>
           </div>
-          <div class="col-md-4 col-12 p-0 m-0 mb-3">
+          <div class="col-md-4 col-12 p-md-4 m-0 mb-3">
             <label for="ripetipassword">Ripeti nuova password</label>
             <input type="password" maxlength="16" class="form-control" id="ripetipassword" name="ripetipassword" required/>
           </div>

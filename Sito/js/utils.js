@@ -137,6 +137,7 @@ $(document).ready(function(){
     /* Mostra e nascondi opzioni gestore in registrazione */
     let nascosto = 1;
     $("div.areagestore").hide();
+    $("input[name='gestore']").prop( "checked", false );
     $("input[name='gestore']").click(function(){
         if(nascosto == 0){
             $("div.areagestore").hide();
@@ -375,6 +376,7 @@ $(document).ready(function(){
 
 
     $(".btn_aggiungi_al_carrello").click(function(){
+        event.preventDefault();
         const IDEvento = $(".contenitoreID").attr("data-idevento");
         const numeroBiglietti = $(".tickets-num").html();
         $.post("processa_aggiungi_evento_al_carrello.php",
@@ -382,6 +384,7 @@ $(document).ready(function(){
             numeroBiglietti: numeroBiglietti,
             IDEvento: IDEvento
         });
+        $(".avviso-acquisto-evento").removeClass("d-none");
     });
 
     /******************************** NOTIFICHE ******************************************/
