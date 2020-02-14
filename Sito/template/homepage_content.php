@@ -36,9 +36,7 @@
         </div> 
         <div class="col-12 m-0 p-0">
             <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-            <form action="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" method="get">
-              <button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button>
-            </form>
+            <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
         </div>
       </div>
     </div>
@@ -65,9 +63,7 @@
         </div> 
         <div class="col-12 m-0 p-0">
             <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-            <form action="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" method="get">
-              <button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button>
-            </form>
+            <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
         </div>
       </div>
     </div>
@@ -95,9 +91,7 @@
           </div> 
           <div class="col-12 m-0 p-0">
               <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-              <form action="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" method="get">
-                <button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button>
-              </a>
+              <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
           </div>
         </div>
       </div>
@@ -126,9 +120,7 @@
           </div> 
           <div class="col-12 m-0 p-0">
               <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-              <form action="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" method="get">
-                <button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button>
-              </form>
+              <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
           </div>
         </div>
       </div>
