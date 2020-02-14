@@ -6,6 +6,7 @@
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="#">Indietro </a>
         </div>
         <hr class="mt-1"/>
+        <form id="delivery-form">
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="nome">Nome</label>
@@ -23,7 +24,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="cap">CAP</label>
-                    <input type="text" class="form-control" id="cap" name="cap" value="<?php echo $templateParams["utente"]["CAP"]?>" required/>
+                    <input type="number" max="99999"class="form-control" id="cap" name="cap" value="<?php echo $templateParams["utente"]["CAP"]?>" required/>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="citta">Città</label>
@@ -45,12 +46,13 @@
                     <label class="custom-control-label" for="spedStop">Ritiro sul luogo dell'evento - 0,00€</label>
                 </div>
             </div>
+        </form>
         <div class="col-md-2"></div>
     </div>
 </div>
 
 <div class="row mt-md-3 mt-1">
     <div class="col-1 col-md-3 p-0 m-0"> </div>
-    <button type="button" class="purple-btn col-10 col-md-6 p-3 m-0 mb-5 rounded-pill"><p class="mb-0">Procedi all'acquisto</p></button>
+    <button type="button" class="purple-btn col-10 col-md-6 p-3 m-0 mb-5 rounded-pill" id="payment-btn"><p class="mb-0">Procedi all'acquisto</p></button>
     <div class="col-1 col-md-3 p-0 m-0"> </div>
 </div>

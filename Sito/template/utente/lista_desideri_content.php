@@ -5,7 +5,7 @@
         <h3 class="col-8 col-md-7">Lista desideri</h3>
         <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="account.php"> Indietro </a>
     </div>
-    <hr/>
+    <hr class="mb-0"/>
     <?php if (count($templateParams["eventiListaDesideri"]) == 0):?>
         <div class="row error-template">
             <div class="col-1 col-md-2"></div>
@@ -22,9 +22,9 @@
             <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
                 <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
                     <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
-                        <img class="img-fluid roundend-corners" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"></img>
+                        <img class="img-fluid roundend-corners" alt="immagine evento" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"></img>
                     </div>
-                    <div class="col-12 m-0 p-0 d-inline-block text-left px-3 pb-3 pt-3">
+                    <div class="col-12 d-inline-block text-left m-3">
                         <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
                         <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y h:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
                         <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>

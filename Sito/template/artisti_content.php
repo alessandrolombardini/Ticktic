@@ -6,7 +6,7 @@
         <?php foreach($templateParams["artist"] as $artista):?>
             <div class="align-middle row shadow-sm  bg-white rounded border-dark m-2 mh-50">
                 <div class="col-12 col-sm-5 col-lg-4 d-inline-block my-auto p-2 ">
-                    <img src="./images/artisti/<?php echo $artista["ImmagineArtista"] ?>" class="img-fluid rounded mh-100" alt="<?php echo getAltFromImageName($artista["ImmagineArtista"]) ?>" />
+                    <img src="./images/artisti/<?php echo $artista["ImmagineArtista"] ?>" class="img-fluid rounded mh-100" alt="<?php echo strtolower($artista["PseudonimoArtista"]) ?>" />
                 </div>
 
                 <div class="align-middle col-12 col-sm-7 col-lg-8 d-inline-block container-fluid mt-2">

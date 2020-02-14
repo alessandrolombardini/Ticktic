@@ -7,7 +7,7 @@
         header('Location: ./page_not_allowed.php');
     }
     /**********************************************************************************/
-    $count = 0;
+    $count = 1;
     $insertOrdine = false;
     $eventiAcquistati = array();
     $error='s';
@@ -30,14 +30,14 @@
         }
         $count++;
     }
-
+    
     if ($insertOrdine == true){
         $dataOrdine = date("Y-m-d");
         $IDUtente = $_SESSION["id"];
         $SpesaTotale = $_POST["totale-spesa"];
 
         $id = $dbh->insertOrdine($dataOrdine, $IDUtente, $SpesaTotale);
-        if($id!=false){
+        if($id != false){
             $dbh->resetCarrello($IDUtente);
             foreach ($eventiAcquistati as $evento){
                 $idcomprende = $dbh->insertEventiOnOrdine($id, $evento["IDEvento"], $evento["bigliettiacquistati"]);
@@ -56,5 +56,5 @@
             $error = 's';
         }
     }
-    header("location: account.php?msg=".$msg."&error?".$error);
+    header("location: account.php?msg=".$msg."&error=".$error);
 ?>

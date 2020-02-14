@@ -34,7 +34,6 @@
 
     <hr/>
 
-    <form method="post" action="processa_carrello.php">
         <div class="chart-content mr-3 ml-3">
             <div id="chart-index" class="selected">
                 <?php require("carrello/carrello_index_content.php");?>
@@ -52,6 +51,5 @@
                 <?php require("carrello/carrello_resume_content.php");?>
             </div>
         </div>
-    </form>
     <?php endif ?>
 </div>
