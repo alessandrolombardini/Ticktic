@@ -999,7 +999,7 @@
     }
 
     public function getEventiSuggeriti(){
-        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE EliminatoSN = 'n' ORDER BY RAND() LIMIT 10");
+        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE EliminatoSN = 'n' AND DataEvento >= CURDATE() ORDER BY RAND() LIMIT 10");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -1027,7 +1027,7 @@
     /*Categorie*/
 
     public function getEventsFromIDCategoria($IDcat){
-        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE IDCategoria = ? AND EliminatoSN = 'n'");
+        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE IDCategoria = ? AND EliminatoSN = 'n' AND DataEvento >= CURDATE()");
         $stmt->bind_param('i',$IDcat);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -1047,9 +1047,7 @@
 
     public function cercaEventi($text){
         $param = "%{$text}%";
-        $query = "SELECT * 
-                  FROM EVENTO  
-                  WHERE NomeEvento LIKE ?";
+        $query = "SELECT * FROM EVENTO WHERE NomeEvento LIKE ? AND DataEvento >= CURDATE()";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $param);
         $stmt->execute();
@@ -1059,9 +1057,7 @@
     
     public function cercaArtisti($text){
         $param = "%{$text}%";
-        $query = "SELECT * 
-                  FROM ARTISTA  
-                  WHERE PseudonimoArtista LIKE ?";
+        $query = "SELECT * FROM ARTISTA WHERE PseudonimoArtista LIKE ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$param);
         $stmt->execute();
@@ -1071,9 +1067,7 @@
     
     public function cercaCategorie($text){
         $param = "%{$text}%";
-        $query = "SELECT * 
-                  FROM CATEGORIA  
-                  WHERE NomeCategoria LIKE ? AND AutorizzataSN = 's' AND ValutataSN = 's'";
+        $query = "SELECT * FROM CATEGORIA WHERE NomeCategoria LIKE ? AND AutorizzataSN = 's' AND ValutataSN = 's'";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$param);
         $stmt->execute();
@@ -1094,7 +1088,7 @@
     }
 
     public function getEventsFromIDArtista($ID){
-        $stmt = $this->db->prepare("SELECT * FROM EVENTO JOIN ESEGUE ON EVENTO.IDEvento = ESEGUE.IDEvento WHERE IDArtista = ? AND EliminatoSN = 'n'");
+        $stmt = $this->db->prepare("SELECT * FROM EVENTO JOIN ESEGUE ON EVENTO.IDEvento = ESEGUE.IDEvento WHERE IDArtista = ? AND EliminatoSN = 'n' AND DataEvento >= CURDATE()");
         $stmt->bind_param('i',$ID);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -1105,7 +1099,7 @@
     /*Eventi*/
 
     public function getAllEvents(){
-        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE EliminatoSN = 'n'");
+        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE EliminatoSN = 'n' AND DataEvento >= CURDATE()");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
