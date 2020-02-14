@@ -613,9 +613,18 @@ $(document).ready(function(){
           }
         ]
     });
-
     $(".slideshow > button").hide();
+    
     $(".cuore-pieno").each(function(){
+        const spa = $(this);
+        spa.removeClass('cuore-pieno');
+        spa.removeClass('fas');
+        spa.addClass('far');
+        spa.addClass('cuore-vuoto');
+        $(".cuore-vuoto").click(riempiCuore);
+    });
+    
+    $(".cuore-vuoto").each(function(){
         const spa = $(this);
         $.post("api-check-cuore.php",
         {
@@ -623,13 +632,13 @@ $(document).ready(function(){
         },
         function(result){
             const res = JSON.parse(result);
-            if(res["Esito"]=="Negativo"){
+            if(res["Esito"]=="Positivo"){
                 spa.off();
-                spa.removeClass('cuore-pieno');
-                spa.removeClass('fas');
-                spa.addClass('far');
-                spa.addClass('cuore-vuoto');
-                $(".cuore-vuoto").click(riempiCuore);
+                spa.removeClass('cuore-vuoto');
+                spa.removeClass('far');
+                spa.addClass('fas');
+                spa.addClass('cuore-pieno');
+                $(".cuore-pieno").click(svuotaCuore);
             }
         });
 
