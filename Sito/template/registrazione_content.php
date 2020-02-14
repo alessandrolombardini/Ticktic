@@ -66,11 +66,11 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="password">Password</label>
-            <input type="password" maxlength="16" class="form-control" id="password" name="password" required/>
+            <input type="password" maxlength="50" class="form-control" id="password" name="password" required/>
           </div>
           <div class="col-md-6 mb-3">
             <label for="ripetipassword">Ripeti password</label>
-            <input type="password" maxlength="16" class="form-control" id="ripetipassword" name="ripetipassword" required/>
+            <input type="password" maxlength="50" class="form-control" id="ripetipassword" name="ripetipassword" required/>
           </div>
         </div>
         <div class="mb-3 col-md-12">

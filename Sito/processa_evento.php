@@ -80,7 +80,7 @@ if($_POST["action"]==2){
         $count++;
     }
    
-    $dbh->updateEvent($luogo, $numeroPosti, $prezzoBiglietto, $img, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore);
+    $dbh->updateEvent($luogo, $numeroPosti, $prezzoBiglietto, $img, $dataEvento, $noteEvento, $descrizioneEvento, $nomeEvento, $IDCategoria, $IDOrganizzatore, $IDEvento);
     $dbh->deleteArtistiOnEvent($IDEvento);
     foreach($newartisti as $newartista){
         $id = $dbh->insertArtistiOnEvent(intval($newartista), $IDEvento);
