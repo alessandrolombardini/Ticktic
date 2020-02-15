@@ -77,7 +77,7 @@
             <div class="overlay" id="nav"> <!-- Contenuto del menu -->
                 <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
-                    <a class="font-weight-bold" href="./account.php">Account</a>   
+                    <a class="font-weight-bold" href="./account.php">Il mio account</a>   
                     <?php if (isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "ORGANIZZATORE"):?>
                       <a class="font-weight-bold" href="./area_gestore.php">Area organizzatore</a>                       
                     <?php endif?>                     

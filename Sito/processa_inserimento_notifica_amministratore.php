@@ -12,7 +12,7 @@ if(isset($_POST["titolo"]) && isset($_POST["testo"]) && isset($_POST["destinazio
     $titolo = $_POST["titolo"];
     $testo = $_POST["testo"];
     $destinazione = $_POST["destinazione"];
-    if(checkBaseParams($titolo, $testo, $destinazione)){
+    if(checkParams($titolo, $testo, $destinazione)){
         $inserimentoCorretto = true;
         $IDNotifica = $dbh->inserisciNotificaAmministratore($titolo, $testo, $_SESSION["id"]);
         if($destinazione=="utenti"){
@@ -38,7 +38,7 @@ if($inserimentoCorretto == true){
       $templateParams["error"] = 's';
 }
 require_once("./crea_notifica_amministratore.php");
-function checkBaseParams($titolo, $testo, $destinazione){
+function checkParams($titolo, $testo, $destinazione){
     return !empty($titolo)
            && !empty($testo)
            && ($destinazione == "utenti" || $destinazione == "organizzatori" || $destinazione == "tutti");

@@ -5,10 +5,6 @@
             <p class="titolo_sezioni col-8 col-md-7">Evento</p>
         </div>
         <hr/>
-    
-        <div class="row d-none avviso-acquisto-evento">
-                <p class="col-12 my-2 text-center align-center good-msg">Biglietto aggiunto al carrello</p>
-            </div>
         <div class="roundend-corners bg-white border mt-2 mb-4 p-md-3 mr-0 shadow-sm concert-tickets p-0 m-0">
             <div class="row mb-3 mt-3 text-center">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 pb-3 pl-0 pr-0 d-inline float-left">
@@ -48,8 +44,18 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-12 col-md-12">
+                            <div class="row d-none avviso-acquisto-evento" data-loggato="<?php if(isset($_SESSION["id"])) { if($_SESSION["autorizzazione"] == "UTENTE") {echo "u";} else {echo "o";}} else {echo "n";} ?>">
+                                <p class="col-12 my-2 text-center align-center good-msg">Biglietto aggiunto al carrello</p>
+                            </div>
+                            <div class="row d-none avviso-acquisto-evento-gestore">
+                                <p class="col-12 my-2 text-center align-center error-msg">Gli organizzatori non possono effettuare acquisti</p>
+                            </div>
                             <div class=" text-center row">
-                                <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="purple-btn col-10 shadow-sm p-3 mx-auto mt-4 rounded-pill btn_aggiungi_al_carrello" id="declinaBtn">Aggiungi al carrello</a>
+                            <?php if(isset($_SESSION["id"])): ?>
+                                <a href="./evento.php?IDEvento=<?php echo $templateParams["informazioniEvento"]["IDEvento"]?>" class="purple-btn col-10 shadow-sm p-3 mx-auto mt-4 rounded-pill btn_aggiungi_al_carrello" id="declinaBtn">Aggiungi al carrello</a>
+                            <?php else: ?>
+                                <a href="./login.php" class="purple-btn col-10 shadow-sm p-3 mx-auto mt-4 rounded-pill btn_aggiungi_al_carrello">Aggiungi al carrello</a>
+                            <?php endif ?>   
                             </div>
                         </div>
                     </div>

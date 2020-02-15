@@ -376,15 +376,20 @@ $(document).ready(function(){
 
 
     $(".btn_aggiungi_al_carrello").click(function(){
-        event.preventDefault();
-        const IDEvento = $(".contenitoreID").attr("data-idevento");
-        const numeroBiglietti = $(".tickets-num").html();
-        $.post("processa_aggiungi_evento_al_carrello.php",
-        {
-            numeroBiglietti: numeroBiglietti,
-            IDEvento: IDEvento
-        });
-        $(".avviso-acquisto-evento").removeClass("d-none");
+        if($(".avviso-acquisto-evento").attr("data-loggato") == "u"){
+            event.preventDefault();
+            const IDEvento = $(".contenitoreID").attr("data-idevento");
+            const numeroBiglietti = $(".tickets-num").html();
+            $.post("processa_aggiungi_evento_al_carrello.php",
+            {
+                numeroBiglietti: numeroBiglietti,
+                IDEvento: IDEvento
+            });
+            $(".avviso-acquisto-evento").removeClass("d-none");
+        }   else if ($(".avviso-acquisto-evento").attr("data-loggato") == "o"){
+            event.preventDefault();
+            $(".avviso-acquisto-evento-gestore").removeClass("d-none");
+        }
     });
 
     /******************************** NOTIFICHE ******************************************/

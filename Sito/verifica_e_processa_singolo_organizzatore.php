@@ -14,7 +14,7 @@ if(isset($_GET["id"]) && isset($_GET["valutazione"]) && !empty($_GET["id"]) && !
     $notifica = $dbh->inserisciNotificaAmministratore("Sei stato accettato!", 
                                                       "Congratulazioni, sei stato accettato come organizzatore.
                                                        Goditi la tua esperienza su ticktic.", $_SESSION["id"]);   
-    $dbh->pubblicaNotificaAdOrganizzatore($notifica, $idOrganizzatoreValutato); 
+    $dbh->pubblicaNotificaAdOrganizzatore($idOrganizzatoreValutato,$notifica); 
     header('Location: ./verifica_nuovi_organizzatori.php');
 } else {
     header('Location: ./page_something_goes_wrong.php');
