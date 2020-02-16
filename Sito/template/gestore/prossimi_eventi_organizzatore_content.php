@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-0 col-md-1"></div>
   <div class="col-12 col-md-10">
-    <div class="row mb-3 mt-5 ">
-        <p class="col-8 col-md-7 titolo_sezioni">Prossimi eventi</p>
+    <div class="row mb-md-3 mb-0 mt-5">
+        <p class="titolo_sezioni col-8 col-md-7 mt-2 mb-0">Prossimi eventi</p>
         <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Indietro </a>
     </div>
-    <hr/>
+    <hr class="mt-1 mx-2"/>
     <?php if (count($templateParams["prossimiEventi"]) == 0):?>
         <div class="row error-template">
             <div class="col-1 col-md-2"></div>
@@ -31,9 +31,9 @@
                         <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
                     </div> 
                     <div class="col-12 m-0 p-0 text-center mb-2">
-                        <a class="purple-btn p-1 mt-2 pr-3 pl-3 box-sizing d-inline-block font-little shadow-sm rounded-pill col-12 p-0 m-0" href="./inserisci_evento.php?action=2&id=<?php echo $evento["IDEvento"]?>">Modifica Evento</a>
-                        <a class="purple-btn p-1 mt-2 pr-3 pl-3 d-inline-block font-little shadow-sm rounded-pill col-12 p-0 m-0" href="?deleteID=<?php echo $evento["IDEvento"]?>">Elimina Evento</a>
-                        <a class="purple-btn p-1 mt-2 pr-3 pl-3 d-inline-block font-little shadow-sm rounded-pill col-12 p-0 m-0" href="crea_notifica_organizzatore.php?IDEvento=<?php echo $evento["IDEvento"]?>">Emetti Notifica</a>
+                        <a class="purple-btn p-1 mt-2 font-little shadow-sm rounded-pill col-12 m-0" href="./inserisci_evento.php?action=2&id=<?php echo $evento["IDEvento"]?>">Modifica Evento</a>
+                        <a class="purple-btn p-1 mt-2 font-little shadow-sm rounded-pill col-12 m-0" href="?deleteID=<?php echo $evento["IDEvento"]?>">Elimina Evento</a>
+                        <a class="purple-btn p-1 mt-2 font-little shadow-sm rounded-pill col-12 m-0" href="crea_notifica_organizzatore.php?IDEvento=<?php echo $evento["IDEvento"]?>">Emetti Notifica</a>
                     </div>
                 </div>
             </div>

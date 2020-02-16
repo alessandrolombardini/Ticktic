@@ -165,7 +165,8 @@ $(document).ready(function(){
         if ($(".select_artisti").last().find(":selected").val() != notselected){
             let c = $(".select_artisti").length + 1;
             let html = `<div class="col-md-4 mb-3">
-                            <select name="artisti_${c}" class="form-control select_artisti" required>
+                            <label for="artisti_${c}" hidden>Artista</label>
+                            <select name="artisti_${c}" id="artisti_${c}" class="form-control select_artisti">
 
                             </select>
                         </div>`;
@@ -219,7 +220,7 @@ $(document).ready(function(){
     let yearSelect = $(".eventdate#year");
     let selectedyear = year;
     if ($(".eventdate#year").hasClass("updateevent")){
-        selectedyear = $(".eventdate#year").text();
+        selectedyear = $(".eventdate#year").parent().find("p").text();
     }
     for(var i = 0; i <= 5; i++) {
         var option = document.createElement('option');
@@ -233,7 +234,7 @@ $(document).ready(function(){
     let monthSelect = $(".eventdate#month");
     let day = $(".eventdate#day").first().text();
     if ($(".eventdate#day").hasClass("updateevent")){
-        day = $(".eventdate#day").text();
+        day = $(".eventdate#day").parent().find("p").text();
         if (day.substring(0,1) == 0){
             day = day.substring(1,2);
         }
@@ -253,7 +254,6 @@ $(document).ready(function(){
     /******************************** CARRELLO ******************************************/
     /*Gestione delle 4 attività del carrello*/;
     showChartSelectedContent();
-
 
     /*Bottoni per procedere con l'acquisto*/
     $(".chart-content").find("button").click(function(){
@@ -287,6 +287,16 @@ $(document).ready(function(){
         $(this).addClass("purpleborder");
     });
 
+    /*Popola gli anni*/
+    let expireYearSelect = $(".expireyear");
+    for(var i = 0; i <= 10; i++) {
+        var option = document.createElement('option');
+        option.textContent = year+i;
+        option.value = year+i;
+        expireYearSelect.append(option);
+    }
+   //$(expireYearSelect).children().first().attr('selected','selected');
+
     /*Inizializza i prezzi del carrello*/
     $(".ticket-price").each(function(){
         let price = "€" + (parseFloat($(this).text().substring(1))).toFixed(2);
@@ -299,10 +309,10 @@ $(document).ready(function(){
     $(".piuCarrello").click(function(){
         let ticketkind = $(this).parent().parent();
         let number = Number($(ticketkind).find("p.tickets-number").text());
-        if(number < 10){
+        if(number < 9){
             number++;
             $(ticketkind).find("p.tickets-number").text(number);
-            id = $(ticketkind).attr("id").substring(12);
+            id = $(ticketkind).attr("id").substring(2);
             $(".hidden-tickets-number").each(function(){
                 if($(this).find("p").text() == id){
                     $(this).find("input[type='hidden']").attr("value", number)
@@ -321,7 +331,7 @@ $(document).ready(function(){
         if(number > 1){
             number--;
             $(ticketkind).find("p.tickets-number").text(number);
-            id = $(ticketkind).attr("id").substring(12);
+            id = $(ticketkind).attr("id").substring(2);
             $(".hidden-tickets-number").each(function(){
                 if($(this).find("p").text() == id){
                     $(this).find("input[type='hidden']").attr("value", number)
@@ -338,7 +348,7 @@ $(document).ready(function(){
     $(".piuEvento").click(function(){
         let ticketkind = $(this).parent();
         let number = Number($(ticketkind).find("p.tickets-num").text());
-        if(number < 8){
+        if(number < 9){
             number++;
             $(ticketkind).find("p.tickets-num").text(number);
             updatePrice();

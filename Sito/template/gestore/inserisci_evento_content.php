@@ -1,28 +1,29 @@
 <div class="row newevent">
     <div class="col-0 col-md-1"></div>
     <div class="col-12 col-md-10">
-        <div class="row mb-3 mt-5">
-            <h3 class="col-8 col-md-7"><?php if ($templateParams["azione"] == 1){echo "Inserisci Evento";}?>
-            <?php if ($templateParams["azione"] == 2){ echo "Modifica Evento";}?></h3>
-            <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="javascript:history.back()"> Annulla </a>
+        <div class="row mb-md-3 mb-0 mt-4 mt-md-5">
+            <p class="titolo_sezioni col-8 col-md-7 mt-2 mb-0 px-0 mx-0 pl-1"><?php if ($templateParams["azione"] == 1){echo "Inserisci Evento";}?>
+            <?php if ($templateParams["azione"] == 2){ echo "Modifica Evento";}?></p>
+            <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Annulla </a>
         </div>
-        <hr/>
+        <hr class="mt-1 mx-1"/>
         <?php require_once __DIR__.'/../check_errori.php'; ?>
         <?php if ($templateParams["azione"] == 2){
-            echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5 updateeventimg'>";
+            echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5 updateeventimg' alt='Immagine evento da modificare.'>";
         }?>
         <form action="processa_evento.php" method="POST" enctype="multipart/form-data" id="newevent">
             <div class="row mb-2">
                 <h4 class="col-md-4 col-3"> Artisti </h4>
                 <div class="col-4 col-md-7"> </div>
-                <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2 <?php if ($templateParams["azione"] == 1) {echo "resethide";}?>"><p class="m-0 p-0">Reset</p></button>
+                <button type="button" class="reset little-btn col-md-1 col-4 m-0 p-2 <?php if ($templateParams["azione"] == 1) {echo "resethide";}?>">Reset</button>
             </div>
             <div class="row mb-3" id="inserimento_artisti">
                 <div class="col-md-0 mb-3">
                 </div>
                 <?php if ($templateParams["azione"] == 1):?>
                     <div class="col-md-4 mb-3">
-                        <select name="artisti_1" class="form-control select_artisti" required>
+                        <label for="artisti_1" hidden>Artista</label>
+                        <select name="artisti_1" id="artisti_1" class="form-control select_artisti">
                             <option value="none">...</option>
                             <?php foreach ($templateParams["artisti"] as $artista): ?>
                             <option value="<?php echo $artista["IDArtista"]?>"><?php echo $artista["PseudonimoArtista"]?></option>
@@ -33,7 +34,8 @@
                 <?php if ($templateParams["azione"] == 2):
                     $i = 1; foreach($templateParams["artistiEvento"] as $artistaselezionato):?>
                     <div class="col-md-4 mb-3">
-                        <select name="artisti_<?php echo $i; $i++;?>" class="form-control select_artisti" required>
+                        <label for="artisti_<?php echo $i;?>" hidden>Artista</label>
+                        <select name="artisti_<?php echo $i;?>" id="artisti_<?php echo $i; $i++;?>" class="form-control select_artisti">
                         <option value="none">...</option>
                             <?php foreach ($templateParams["artisti"] as $artista): ?>
                             <option value="<?php echo $artista["IDArtista"]?>" <?php 
@@ -48,13 +50,14 @@
                 <?php endif?>
                 <div class="col-md-4 mb-3 pr-md-0 pl-md-3">
                     <div class="col-md-1"></div>
-                    <button type="button" class="little-btn col-md-11 m-0 py-2 more-artists"><p class="mb-0">Inserisci un altro artista</p></button>
+                    <button type="button" class="little-btn col-md-11 m-0 py-2 more-artists">Inserisci un altro artista</button>
                 </div>
                 <div class="col-md-4 mb-3 px-md-0">
                     <div class="col-md-1"></div>
-                    <a href="./inserisci_artista.php" class="ml-md-3">
-                        <button type="button" class="little-btn col-md-10 m-0 py-2"><p class="mb-0">L'artista non è presente?</p></button>
+                    <a href="./inserisci_artista.php" class="little-btn col-md-10 m-0 py-2 ml-md-3">
+                        L'artista non è presente?
                     </a>
+                    <div class="col-md-1"></div>
                 </div>
                 <div class="col-12 artist_not_selected col-md-4 text-center font-weight-bold"> <p class="mb-0"> Utilizza i menù a tua disposizione! </p></div>
                 <div class="col-12 artist_already_selected col-md-4 text-center font-weight-bold"> <p class="mb-0"> Hai già selezionato questo artista! </p></div>
@@ -68,7 +71,8 @@
                     </div>
                     <div class="col-md-1 col-4 mb-3">
                         <label for="day">Giorno*</label>
-                        <select class="form-control eventdate <?php if ($templateParams["azione"] == 2) {echo "updateevent ";}?>" id="day" name="day"><?php if ($templateParams["azione"] == 2) {echo $templateParams["giornoEvento"];}?></select>
+                        <?php if ($templateParams["azione"] == 2) {echo '<p hidden>'.$templateParams["giornoEvento"].'</p>';}?>
+                        <select class="form-control eventdate <?php if ($templateParams["azione"] == 2) {echo "updateevent ";}?>" id="day" name="day"></select>
                     </div>
                     <div class="col-md-2 col-8 mb-3">
                         <label for="month">Mese*</label>
@@ -89,7 +93,8 @@
                     </div>
                     <div class="col-md-2 col-6 mb-3">
                         <label for="year">Anno*</label>
-                        <select id="year" class="form-control eventdate <?php if ($templateParams["azione"] == 2) {echo "updateevent ";}?>" name="year"><?php if ($templateParams["azione"] == 2) {echo $templateParams["annoEvento"];}?></select>
+                        <?php if ($templateParams["azione"] == 2) {echo '<p hidden>'.$templateParams["annoEvento"].'</p>';}?>
+                        <select id="year" class="form-control eventdate <?php if ($templateParams["azione"] == 2) {echo "updateevent ";}?>" name="year"></select>
                     </div>
                     <div class="col-md-2 col-6 mb-3">
                         <label for="orario">Orario*</label>
@@ -115,7 +120,7 @@
                 <div class="row mt-2">
                     <div class="col-md-3 mb-3">
                         <label for="categoria">Categoria*</label>
-                        <select id="categoria" name="categoria" class="form-control" required>
+                        <select id="categoria" name="categoria" class="form-control">
                             <?php foreach ($templateParams["categorie"] as $categoria): ?>
                                 <option value="<?php echo $categoria["IDCategoria"]?>" 
                                     <?php if ($templateParams["azione"] == 2 && $templateParams["evento"]["IDCategoria"] == $categoria["IDCategoria"]) {
@@ -126,8 +131,8 @@
                         </select>
                     </div>
                     <div class="col-md-5 mb-3">
-                        <a href="./inserisci_categoria.php">
-                            <button type="button" class="little-btn col-md-10 mt-md-4 mb-1 py-2"><p class="mb-0">La categoria non è presente?</p></button>
+                        <a href="./inserisci_categoria.php" class="little-btn col-md-10 mt-md-4 mb-1 py-2">
+                            La categoria non è presente?
                         </a>
                     </div>
                     <div class="col-md-4 mb-3">

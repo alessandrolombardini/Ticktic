@@ -1,11 +1,11 @@
 <div class="row p-0 m-0">
   <div class="col-0 col-md-1"></div>
   <div class="col-12 col-md-10">
-    <div class="row mb-3 mt-5 ">
-        <p class="col-8 col-md-7 titolo_sezioni">Lista desideri</p>
+    <div class="row mb-md-3 mb-0 mt-5">
+        <p class="titolo_sezioni col-8 col-md-7 mt-2 mb-0">Lista Desideri</p>
         <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="account.php"> Indietro </a>
     </div>
-    <hr class="mb-0"/>
+    <hr class="mt-1 mx-2"/>
     <?php if (count($templateParams["eventiListaDesideri"]) == 0):?>
         <div class="row error-template">
             <div class="col-1 col-md-2"></div>

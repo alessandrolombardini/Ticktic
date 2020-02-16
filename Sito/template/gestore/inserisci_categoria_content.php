@@ -1,11 +1,11 @@
+<div class="row mb-md-3 mb-0 mt-5">
+    <p class="titolo_sezioni col-9 col-md-7 mt-2 mb-0 px-0 mx-0 pl-3 px-md-5">Richiedi Categoria</p>
+    <a class="col-md-5 col-3 text-right pt-3 cursor-pointer purple-black-link font-weight-bold px-md-5" href="inserisci_evento.php?action=1"> Annulla </a>
+</div>
+<hr class="mt-1 mx-2 mx-md-5"/>
 <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
-        <div class="row mb-3 mt-5">
-            <h3 class="col-8 col-md-7">Richiedi inserimento categoria </h3>
-            <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="inserisci_evento.php?action=1"> Annulla </a>
-        </div>
-        <hr/>
         <?php require_once __DIR__.'/../check_errori.php'; ?>
         <form action="processa_richiesta_categoria.php" method="POST">
             <div class="row">

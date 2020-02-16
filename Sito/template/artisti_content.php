@@ -2,7 +2,7 @@
     <div class="col-0 col-md-1"></div>
     <div class="col-12 col-md-10 p-0 m-0">
         <h3 class="mx-3 mb-3">Artisti</h3>
-        <hr/>
+        <hr class="mx-2"/>
         <?php foreach($templateParams["artist"] as $artista):?>
             <div class="align-middle row shadow-sm  bg-white rounded border-dark m-2 mh-50">
                 <div class="col-12 col-sm-5 col-lg-4 d-inline-block my-auto p-2 ">

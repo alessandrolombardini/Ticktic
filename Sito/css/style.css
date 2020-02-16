@@ -7,7 +7,6 @@ a {
 }
 
 p{
-    margin-bottom: 0;
     font-size: 0.8em !important;
 }
 
@@ -80,6 +79,7 @@ p{
 .purple-btn {
     background-color: rgb(103,99,214) !important;
     color: white !important;
+    letter-spacing: 0.1em;
 }
 
 .purple-btn:hover{
@@ -87,12 +87,21 @@ p{
     border: 1px solid black;
 }
 
+a.little-btn, a.purple-btn{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+}
+
 .little-btn{
+    text-align: center;
+    background-color: white;
     color: rgb(103,99,214);
     border: solid 1px rgb(103,99,214);
     border-radius: 10px;
-    font-size:small;
+    font-size: 0.9em !important;
     margin:2%;
+    letter-spacing: 0.1em;
 }
 
 .little-btn:hover{
@@ -125,7 +134,7 @@ h3{
 }
 
 h4{
-    font-size: medium;
+    font-size:1.3em !important;
 }
 
 .nav-link:hover{
@@ -257,14 +266,11 @@ aside > section > ul > li > img{
     margin-right: 5px;
 }
 
-button p {
-    letter-spacing: 0.2rem;
-}
-
 .btn-gestore{
     background-color: white !important;
     border-color: rgb(223,223,223) !important;
     color:black !important;
+    letter-spacing: 0.1em;
 }
 
 .btn-gestore:hover{
@@ -397,8 +403,6 @@ main {
     box-sizing: border-box;
 }
 
-
-
 @media screen and (min-width: 768px) {
     p{
         margin-bottom: 0;
@@ -417,7 +421,6 @@ main {
     /*dimensioni del font nel carrello*/
     #chart{
         font-size: 1rem;
-        letter-spacing: 0.2rem;
     }
 
     /*dimensioni delle carte di credito*/

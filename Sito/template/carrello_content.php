@@ -15,24 +15,24 @@
     <div class="chart-progress">
         <div class="row mt-4 px-3">
             <div class="col-md-2"></div>
-            <div class="col-3 col-md-2 text-center chart-index color-purple"><i class="fas fa-dot-circle fa-2x"></i></div>
-            <div class="col-3 col-md-2 text-center chart-delivery"><i class="fas fa-dot-circle fa-2x"></i></div>
-            <div class="col-3 col-md-2 text-center pl-4 chart-payment"><i class="fas fa-dot-circle fa-2x"></i></div>
-            <div class="col-3 col-md-2 text-center chart-resume"><i class="fas fa-dot-circle fa-2x"></i></div>
+            <div class="col-3 col-md-2 text-center chart-index color-purple"><span class="fas fa-dot-circle fa-2x"></span></div>
+            <div class="col-3 col-md-2 text-center chart-delivery"><span class="fas fa-dot-circle fa-2x"></span></div>
+            <div class="col-3 col-md-2 text-center pl-4 chart-payment"><span class="fas fa-dot-circle fa-2x"></span></div>
+            <div class="col-3 col-md-2 text-center chart-resume"><span class="fas fa-dot-circle fa-2x"></span></div>
             <div class="col-md-2"></div>
         </div>
 
         <div class="row px-3 mb-0">
             <div class="col-md-2"></div>
             <div class="col-3 col-md-2 text-center m-0 p-0 chart-index color-black"><p class="mb-0"> Carrello </p></div>
-            <div class="col-3 col-md-2 text-center m-0 p-0 chart-delivery"><p class="mb-0"> Spedizione </p></i></div>
-            <div class="col-3 col-md-2 text-center m-0 p-0 pl-2 chart-payment"><p class="mb-0"> Pagamento </p></i></div>
-            <div class="col-3 col-md-2 text-center m-0 p-0 chart-resume"><p class="mb-0"> Ordine </p></i></div>
+            <div class="col-3 col-md-2 text-center m-0 p-0 chart-delivery"><p class="mb-0"> Spedizione </p></div>
+            <div class="col-3 col-md-2 text-center m-0 p-0 pl-2 chart-payment"><p class="mb-0"> Pagamento </p></div>
+            <div class="col-3 col-md-2 text-center m-0 p-0 chart-resume"><p class="mb-0"> Ordine </p></div>
             <div class="col-md-2"></div>
         </div>
     </div>
 
-    <hr/>
+    <hr class="mt-3 mx-md-5 mx-2"/>
 
         <div class="chart-content mr-3 ml-3">
             <div id="chart-index" class="selected">
