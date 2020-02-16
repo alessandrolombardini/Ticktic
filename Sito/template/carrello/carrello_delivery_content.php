@@ -9,25 +9,25 @@
         <form id="delivery-form">
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label for="nome">Nome</label>
+                    <label for="nome">Nome*</label>
                     <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $templateParams["utente"]["Nome"]?>" required/>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="cognome">Cognome</label>
+                    <label for="cognome">Cognome*</label>
                     <input type="text" class="form-control" id="cognome" name="cognome" value="<?php echo $templateParams["utente"]["Cognome"]?>" required/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label for="indirizzo">Indirizzo</label>
+                    <label for="indirizzo">Indirizzo*</label>
                     <input type="text" class="form-control" id="indirizzo"  name="indirizzo" value="<?php echo $templateParams["utente"]["Indirizzo"]?>" required/>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label for="cap">CAP</label>
+                    <label for="cap">CAP*</label>
                     <input type="number" max="99999" class="form-control" id="cap" name="cap" value="<?php echo $templateParams["utente"]["CAP"]?>" required/>
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label for="citta">Città</label>
+                    <label for="citta">Città*</label>
                     <input type="text" class="form-control" id="citta" name="citta" value="<?php echo $templateParams["utente"]["Citta"]?>" required/>
                 </div>
             </div>

@@ -255,7 +255,6 @@ $(document).ready(function(){
     /*Gestione delle 4 attività del carrello*/;
     showChartSelectedContent();
 
-
     /*Bottoni per procedere con l'acquisto*/
     $(".chart-content").find("button").click(function(){
         if ($(this).attr("id") == "resume-btn"){
@@ -287,6 +286,16 @@ $(document).ready(function(){
         $("#card-selector img.purpleborder").removeClass("purpleborder");
         $(this).addClass("purpleborder");
     });
+
+    /*Popola gli anni*/
+    let expireYearSelect = $(".expireyear");
+    for(var i = 0; i <= 10; i++) {
+        var option = document.createElement('option');
+        option.textContent = year+i;
+        option.value = year+i;
+        expireYearSelect.append(option);
+    }
+   //$(expireYearSelect).children().first().attr('selected','selected');
 
     /*Inizializza i prezzi del carrello*/
     $(".ticket-price").each(function(){
