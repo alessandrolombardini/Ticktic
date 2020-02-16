@@ -35,9 +35,9 @@ if(isset($_POST["filter"])){
     }
 }
 
-/* foreach ($result as $event) {
-    $event["DataEvento"].replace(date("d/m/Y h:m", strtotime(substr($event["DataEvento"]))));
-}  */
+foreach ($result as $event) {
+    $event["DataEvento"] = date("d/m/Y h:m", strtotime(substr($event["DataEvento"], 0, -3)));
+}  
 header("Content-Type: application/json");
 print_r(json_encode($result));
 
