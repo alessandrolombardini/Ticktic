@@ -7,7 +7,7 @@
     </div>
         <hr class="mt-1 mx-2"/>
         <?php require_once __DIR__.'/../check_errori.php'; ?>
-        <div class="row mt-4">
+        <div class="row mt-3">
             <div class="col-0 col-md-2"></div>
             <div class="col-12 col-md-8 p-0 mb-4">
             <table class="table table-striped table-bordered mt-2 mb-0">
