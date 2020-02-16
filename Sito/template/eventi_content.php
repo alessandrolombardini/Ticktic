@@ -1,9 +1,8 @@
 <div class="row my-5">
     <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-10 p-0 m-0">
-
-            <div class="row">
-                <div class="col-8 col-md-7 row">
+            <div class="row mb-0">
+                <div class="col-8 col-md-7 row mb-0">
                     <p class="titolo_sezioni d-inline mr-3">Eventi</p>
                     <p class="text-black-50 pt-2 mb-0">(<?php echo count($templateParams["eventi"]) ?> risultati)</p>
                 </div>

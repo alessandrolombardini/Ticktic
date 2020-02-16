@@ -1,12 +1,12 @@
 <div class="row newevent">
     <div class="col-0 col-md-1"></div>
     <div class="col-12 col-md-10">
-        <div class="row mb-3 mt-5">
-            <h3 class="col-8 col-md-7"><?php if ($templateParams["azione"] == 1){echo "Inserisci Evento";}?>
-            <?php if ($templateParams["azione"] == 2){ echo "Modifica Evento";}?></h3>
+        <div class="row mb-md-3 mb-0 mt-4 mt-md-5">
+            <p class="titolo_sezioni col-8 col-md-7 mt-2 mb-0 px-0 mx-0 pl-1"><?php if ($templateParams["azione"] == 1){echo "Inserisci Evento";}?>
+            <?php if ($templateParams["azione"] == 2){ echo "Modifica Evento";}?></p>
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Annulla </a>
         </div>
-        <hr/>
+        <hr class="mt-1 mx-1"/>
         <?php require_once __DIR__.'/../check_errori.php'; ?>
         <?php if ($templateParams["azione"] == 2){
             echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5 updateeventimg' alt='Immagine evento da modificare.'>";

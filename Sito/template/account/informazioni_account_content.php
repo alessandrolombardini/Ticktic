@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-0 col-md-1"></div>
   <div class="col-12 col-md-10">
-        <div class="row mb-3 mt-5">
-            <h3 class="col-8 col-md-7">Informazioni Account</h3>
-            <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="account.php"> Indietro </a>
-        </div>
-        <hr/>
+    <div class="row mb-md-3 mb-0 mt-5">
+        <p class="titolo_sezioni col-8 col-md-7 mt-2 mb-0">Informazioni</p>
+        <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="account.php"> Indietro </a>
+    </div>
+        <hr class="mt-1 mx-2"/>
         <?php require_once __DIR__.'/../check_errori.php'; ?>
-        <div class="row">
+        <div class="row mt-4">
             <div class="col-0 col-md-2"></div>
             <div class="col-12 col-md-8 p-0 mb-4">
             <table class="table table-striped table-bordered mt-2 mb-0">

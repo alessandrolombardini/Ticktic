@@ -20,7 +20,7 @@
                 <a class="col-md-5 col-4 text-right pt-2 cursor-pointer purple-black-link font-weight-bold " href="./artisti.php"> Vai a tutti gli artisti </a>
             </div>
                 
-            <hr/>
+            <hr class="mx-2"/>
 
         <?php if (isset($templateParams["eventi"]) && $templateParams["eventi"] != NULL) : ?>
                 
