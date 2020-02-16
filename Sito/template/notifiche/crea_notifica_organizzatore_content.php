@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-0 col-md-1"></div>
   <div class="col-12 col-md-10">
-    <div class="row mb-3 mt-5">
-        <h3 class="col-8 col-md-7">Creazione notifiche</h3>
+    <div class="row mb-md-3 mb-0 mt-5 align-items-end">
+        <p class="titolo_sezioni col-8 col-md-7 mt-2 mb-0">Creazione notifiche</p>
         <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="prossimi_eventi_organizzatore.php"> Annulla </a>
     </div>
-    <hr/>
+    <hr class="mt-1 mx-2"/>
     <?php if(isset($templateParams["msg"])): ?>
         <div class="row">
             <p class="col-12 my-2

@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-0 col-md-1"></div>
     <div class="col-12 col-md-10">
-        <div class="row mb-3 mt-5 ">
-            <h3 class="col-8 col-md-7">Ordini</h3>
+        <div class="row mb-md-3 mb-0 mt-5">
+            <p class="titolo_sezioni col-8 col-md-7 mt-2 mb-0">Ordini</p>
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="javascript:history.back()"> Indietro </a>
         </div>
-        <hr/>
+        <hr class="mt-1 mx-2"/>
         <?php if (count($templateParams["ordini"]) == 0):?>
             <div class="row error-template">
                 <div class="col-1 col-md-2"></div>
@@ -31,7 +31,7 @@
             <?php foreach ($templateParams["eventiinordine"][$ordine["IDOrdine"]] as $evento): ?>
             <div class="container px-0">
                 <div class="row mb-0 mt-3 align-items-end">
-                    <img alt="" class="col-md-4 mt-1 mt-md-0 col-12 mb-3 mb-md-0 px-0 px-md-2" src="./images/eventi/<?php echo $evento["ImmagineEvento"];?>"/>
+                    <img alt="" class="col-md-4 mt-1 mt-md-0 col-12 mb-3 mb-md-0 px-0 px-md-2 rounded-corners" src="./images/eventi/<?php echo $evento["ImmagineEvento"];?>"/>
                     <div class="col-md-8 mt-md-0 col-12 px-0">
                         <div class="row mb-0">
                             <h5 class="col-12 text-md-left text-center mb-3 px-0 px-0 px-md-2"> <?php echo $evento["NomeEvento"];?> </h5>

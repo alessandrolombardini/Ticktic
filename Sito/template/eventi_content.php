@@ -2,9 +2,9 @@
     <div class="col-0 col-md-1"></div>
         <div class="col-12 col-md-10 p-0 m-0">
 
-            <div class="row">
-                <div class="col-8 col-md-7 row">
-                    <p class="titolo_sezioni d-inline mr-3 mb-0s">Eventi</p>
+            <div class="row mb-0">
+                <div class="col-8 col-md-7 row mb-0">
+                    <p class="titolo_sezioni d-inline mr-3">Eventi</p>
                     <p class="text-black-50 pt-2 mb-0">(<?php echo count($templateParams["eventi"]) ?> risultati)</p>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                             </div> 
                             <div class="col-12 m-0 mb-2">
                                 <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-                                <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
+                                <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri py-1 px-3 mx-3 purple-btn rounded-pill">Scopri</a>
                             </div>
                         </div>
                     </div>

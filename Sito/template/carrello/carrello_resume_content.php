@@ -1,7 +1,7 @@
 <div class="resume">
-    <div class="row mt-3">
+    <div class="row mt-md-4 mt-2">
         <div class="col-md-2"></div>
-        <h3 class="col-8 col-md-5 mb-0 pl-3">Riepilogo Ordine</h3>
+        <h3 class="col-8 col-md-5 mb-0 pl-3 mt-2 mt-md-0">Riepilogo Ordine</h3>
         <a class="col-md-3 col-4 text-right pr-3 pt-3 cursor-pointer purple-black-link font-weight-bold" href="#">Indietro </a>
         <div class="col-md-2"></div>
     </div>

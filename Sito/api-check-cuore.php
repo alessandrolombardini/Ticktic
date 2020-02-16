@@ -1,7 +1,8 @@
 <?php
 require_once("./bootstrap.php");
  /****************************** Check permission **********************************/
-if(isset($_POST["idevento"])){
+$result = false;
+ if(isset($_POST["idevento"]) && isset($_SESSION["id"])){
     $result = $dbh->checkInteresseAdEvento($_POST["idevento"], $_SESSION["id"]); 
 }
 /**********************************************************************************/

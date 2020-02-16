@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 col-12">
-        <div class="row mt-3">
-            <h3 class="col-8 col-md-7 mb-0">Pagamento</h3>
+        <div class="row mt-md-3">
+            <h3 class="col-8 col-md-7 mb-0 mt-2 mt-md-0">Pagamento</h3>
             <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="#">Indietro </a>
         </div>
         <hr class="mt-1"/>

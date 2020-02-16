@@ -21,7 +21,6 @@
         </div>
                 
         <hr/>
-
             <?php if (isset($templateParams["eventi"]) && $templateParams["eventi"] != NULL) : ?>
                 
                 <div class="form-group">

@@ -1,14 +1,14 @@
 <div data-idevento="<?php echo $templateParams["informazioniEvento"]["IDEvento"] ?>" class="row contenitoreID mt-5 mb-5">
     <div class="col-0 col-md-1"></div>
     <div class="col-12 col-md-10">
-        <div class="row mb-3">
-            <p class="titolo_sezioni col-8 col-md-7">Evento</p>
+        <div class="row mb-md-3 my-0 align-items-end">
+            <p class="titolo_sezioni col-8 col-md-7 mt-2 mb-0">Evento</p>
         </div>
-        <hr/>
+        <hr class="mt-1 mx-2 mb-5"/>
         <div class="roundend-corners bg-white border mt-2 mb-4 p-md-3 mr-0 shadow-sm concert-tickets p-0 m-0">
             <div class="row mb-3 mt-3 text-center">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 pb-3 pl-0 pr-0 d-inline float-left">
-                    <img style="width: 100%; float:left; " class="img-fluid rounded pr-0 pl-0" src="./images/eventi/<?php echo $templateParams["informazioniEvento"]["ImmagineEvento"] ?>" alt="immagine evento"/>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 pb-3 px-2 d-inline text-center">
+                    <img style="width: 100%; float:left; " class="img-fluid rounded px-0" src="./images/eventi/<?php echo $templateParams["informazioniEvento"]["ImmagineEvento"] ?>" alt="immagine evento"/>
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-7">
                     <div>
@@ -29,11 +29,11 @@
                     <hr />
                     <div class="row mt-3">
                         <p class="col-3 text-center"> Biglietto </p>
-                        <p class="col-3 col-md-4 text-right"> cad.</p>
+                        <p class="col-2 col-md-4 text-right"> cad.</p>
                         <p class="col-2 col-md-2 text-left p-0 ticket-p">€ <?php echo $templateParams["informazioniEvento"]["PrezzoBiglietto"] ?></p>
-                        <span class="col-1 menoEvento fas fa-minus-circle fa-2x text-right cursor-pointer"></span>
-                        <p class="col-1 text-center chill font-mediumlittle tickets-num">1</p>
-                        <span class="col-1 piuEvento fas fa-plus-circle fa-2x pl-0 text-left cursor-pointer"></span>
+                        <span class="col-2 menoEvento fas fa-minus-circle fa-2x text-right  m-0 px-0 pb-0 cursor-pointer"></span>
+                        <p class="col-1 text-center chill font-mediumlittle tickets-num p-0 m-0">1</p>
+                        <span class="col-2 piuEvento fas fa-plus-circle fa-2x pl-0 text-left  m-0 px-0 pb-0 cursor-pointer"></span>
                         <div class="col-0 col-sm-1"></div>
                     </div>
                     <hr />

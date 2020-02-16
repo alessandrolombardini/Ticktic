@@ -336,7 +336,7 @@ $(document).ready(function(){
     $(".piuCarrello").click(function(){
         let ticketkind = $(this).parent().parent();
         let number = Number($(ticketkind).find("p.tickets-number").text());
-        if(number < 10){
+        if(number < 9){
             number++;
             $(ticketkind).find("p.tickets-number").text(number);
             id = $(ticketkind).attr("id").substring(2);
@@ -375,7 +375,7 @@ $(document).ready(function(){
     $(".piuEvento").click(function(){
         let ticketkind = $(this).parent();
         let number = Number($(ticketkind).find("p.tickets-num").text());
-        if(number < 8){
+        if(number < 9){
             number++;
             $(ticketkind).find("p.tickets-num").text(number);
             updatePrice();
