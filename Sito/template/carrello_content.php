@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <hr/>
+    <hr class="mt-3 mx-md-5 mx-2"/>
 
         <div class="chart-content mr-3 ml-3">
             <div id="chart-index" class="selected">
