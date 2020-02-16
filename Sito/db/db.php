@@ -1026,8 +1026,26 @@
     /********************************************************************************************************************** */
     /*Categorie*/
 
-    public function getEventsFromIDCategoria($IDcat){
-        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE IDCategoria = ? AND EliminatoSN = 'n' AND DataEvento >= CURDATE()");
+    public function getEventsFromIDCategoriaNameOrdered($IDcat, $type){
+        $query ="SELECT * FROM EVENTO 
+                    WHERE IDCategoria = ? AND EliminatoSN = 'n' AND DataEvento >= CURDATE()
+                    ORDER BY NomeEvento ";
+        $query .= $type;
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$IDcat);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getEventsFromIDCategoriaPriceOrdered($IDcat, $type){
+        $query = "SELECT * FROM EVENTO 
+                    WHERE IDCategoria = ? AND EliminatoSN = 'n' AND DataEvento >= CURDATE()
+                    ORDER BY PrezzoBiglietto ";
+        $query .= $type;
+
+        $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$IDcat);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -1087,8 +1105,28 @@
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getEventsFromIDArtista($ID){
-        $stmt = $this->db->prepare("SELECT * FROM EVENTO JOIN ESEGUE ON EVENTO.IDEvento = ESEGUE.IDEvento WHERE IDArtista = ? AND EliminatoSN = 'n' AND DataEvento >= CURDATE()");
+    public function getEventsFromIDArtistaNameOrdered($ID, $type){
+        $query = "SELECT * FROM EVENTO 
+                    JOIN ESEGUE ON EVENTO.IDEvento = ESEGUE.IDEvento 
+                    WHERE IDArtista = ? AND EliminatoSN = 'n' AND DataEvento >= CURDATE()
+                    ORDER BY NomeEvento ";
+        $query .= $type;
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$ID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getEventsFromIDArtistaPriceOrdered($ID, $type){
+        $query = "SELECT * FROM EVENTO 
+                    JOIN ESEGUE ON EVENTO.IDEvento = ESEGUE.IDEvento 
+                    WHERE IDArtista = ? AND EliminatoSN = 'n' AND DataEvento >= CURDATE()
+                    ORDER BY PrezzoBiglietto ";
+        $query .= $type;
+
+        $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$ID);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -1098,8 +1136,25 @@
     /********************************************************************************************************************** */
     /*Eventi*/
 
-    public function getAllEvents(){
-        $stmt = $this->db->prepare("SELECT * FROM EVENTO WHERE EliminatoSN = 'n' AND DataEvento >= CURDATE()");
+    public function getAllEventsNameOrdered($type){
+        $query = "SELECT * FROM EVENTO 
+                    WHERE EliminatoSN = 'n' AND DataEvento >= CURDATE()
+                    ORDER BY NomeEvento ";
+        $query .= $type;
+        
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAllEventsPriceOrdered($type){
+        $query = "SELECT * FROM EVENTO 
+                    WHERE EliminatoSN = 'n' AND DataEvento >= CURDATE()
+                    ORDER BY PrezzoBiglietto ";
+        $query .= $type;
+
+        $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

@@ -5,7 +5,7 @@
 
     if(isset($_GET["IDArtista"]) && !empty($_GET["IDArtista"])){
         $templateParams["artista"] = $dbh->getArtistFromID($_GET["IDArtista"])[0];
-        $templateParams["eventi"] = $dbh->getEventsFromIDArtista($_GET["IDArtista"]);
+        $templateParams["eventi"] = $dbh->getEventsFromIDArtistaNameOrdered($_GET["IDArtista"], "ASC");
         $templateParams["page_content"] = "./template/artista_content.php";
     } else {
         header('Location: ./page_something_goes_wrong.php');

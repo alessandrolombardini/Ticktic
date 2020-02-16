@@ -23,7 +23,7 @@
                     <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
                         <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
                             <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
-                                <img class="img-fluid roundend-corners" alt="immagine evento" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"></img>
+                                <img class="img-fluid roundend-corners" alt="immagine evento" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"/>
                             </div>
                             <div class="col-12 d-inline-block text-left m-3">
                                 <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
@@ -32,7 +32,7 @@
                             </div> 
                             <div class="col-12 m-0 mb-2">
                                 <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-                                <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>"><button class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button></a>
+                                <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
                             </div>
                         </div>
                     </div>
@@ -46,13 +46,13 @@
                     <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
                         <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
                             <div class="col-12 m-0 p-0 shadow-sm bg-white roundend-corners border-dark">
-                                <img class="img-fluid roundend-corners" src="images/artisti/<?php echo $artista["ImmagineArtista"];?>" alt="<?php echo strtolower($artista["PseudonimoArtista"]) ?>"></img>
+                                <img class="img-fluid roundend-corners" src="images/artisti/<?php echo $artista["ImmagineArtista"];?>" alt="<?php echo strtolower($artista["PseudonimoArtista"]) ?>"/>
                             </div>
                             <div class="col-12 m-0 p-0 d-inline-block text-left pl-3 pb-3 pt-3">
                                 <h5 class="mb-0"><?php echo $artista["PseudonimoArtista"];?></h5>
                             </div> 
                             <div class="col-12 m-0 p-0 text-right">
-                                <a href="./artista.php?IDArtista=<?php echo $artista["IDArtista"]?>"><button class=" btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</button></a>
+                                <a href="./artista.php?IDArtista=<?php echo $artista["IDArtista"]?>" class=" btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
                             </div>
                         </div>
                     </div>

@@ -9,7 +9,7 @@
         <?php endif ?>
         <div class="bg-white border mt-4 mb-4 px-5 py-4">
             <div class="form-group text-center">
-                <img class="img-fluid col-7 col-md-4" src="./images/pic_ominostilizzato.png" alt="Login"></img>
+                <img class="img-fluid col-7 col-md-4" src="./images/pic_ominostilizzato.png" alt="Login"/>
             </div>
             <form action="./processa_login.php" method="POST">
                 <div class="form-group text-center">
@@ -21,7 +21,7 @@
                     <input type="password" name="password" id="password" class="form-control shadow-sm p-4 bg-white rounded" placeholder="password" required>
                 </div>
                 <div class="form-group text-center">
-                    <input type="submit" value="Accedi" class="purple-btn col-10 shadow-sm p-3 mt-4 rounded-pill"></input>
+                    <input type="submit" value="Accedi" class="purple-btn col-10 shadow-sm p-3 mt-4 rounded-pill"/>
                 </div>
             </form>
             <div class="form-group text-center">

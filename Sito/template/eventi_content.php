@@ -4,13 +4,32 @@
 
             <div class="row">
                 <div class="col-8 col-md-7 row">
-                    <p class="titolo_sezioni d-inline mr-3">Eventi</p>
+                    <p class="titolo_sezioni d-inline mr-3 mb-0s">Eventi</p>
                     <p class="text-black-50 pt-2 mb-0">(<?php echo count($templateParams["eventi"]) ?> risultati)</p>
                 </div>
             </div>
-            <hr/>
+            <hr class="mt-0"/>
 
-            <div class="row">
+<div class="form-group">
+            <form class="mx-auto text-center"  action="/action_page.php">
+                <label for="order-selection" class="ml-3 d-inline-block">Ordina la visualizzazione:</label>
+                
+                <select id="order-selection" class="d-inline-block rounded-pill mx-3">
+                    <!-- <optgroup label="Ordina per Nome Evento"> -->
+                        <option value="A-Z">Ordinamento A-Z</option>
+                        <option value="Z-A">Ordinamento Z-A</option>
+                    <!-- </optgroup> -->
+                    <!-- <optgroup label="Ordina per Prezzo Evento"> -->
+                        <option value="P-ASC">Prezzo crescente</option>
+                        <option value="P-DESC">Prezzo decrescente</option>
+                    <!-- </optgroup> -->
+                </select>
+            </form>
+</div>
+
+
+
+            <div class="row" id="event-container">
                 <?php foreach ($templateParams["eventi"] as $evento) :?>
                     <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
                         <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
