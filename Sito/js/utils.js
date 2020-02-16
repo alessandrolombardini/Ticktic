@@ -19,7 +19,7 @@ function updateChartPrices(){
 
 /*Aggiorna i prezzi di totale evento nel carrello*/
 function updateEventTotal(){
-    $(".event").each(function(){
+    $(".chart-content").find(".event").each(function(){
         let totaleevento = 0;
         let ticketsnumber = parseFloat($(this).find(".tickets-number").text());
         let ticketprice = parseFloat($(this).find(".ticket-price").text().substring(1));
