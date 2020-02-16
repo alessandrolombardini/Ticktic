@@ -4,7 +4,7 @@ foreach($templateParams["eventi"] as $evento):?>
     <div class="col-md-2"></div>
     <div class="roundend-corners col-12 col-md-8 bg-white border mt-2 mb-4 px-4 py-3 mr-0 shadow-sm concert-tickets">
         <div class="row m-0 p-0">
-            <a class="col-12 text-right m-0 p-0" href="?deleteid=<?php echo $evento["IDEvento"];?>"><i class="fas fa-times fa-2x purple-black-link"></i></a>
+            <a class="col-12 text-right m-0 p-0" href="?deleteid=<?php echo $evento["IDEvento"];?>"><span class="fas fa-times fa-2x purple-black-link"></span></a>
         </div>
         <div class="row mb-3 mt-0">
             <img class="col-md-5 mt-1 mt-md-0 col-12 mb-3 mb-md-0 pl-0 pr-0 rounded" src="./images/eventi/<?php echo $evento["ImmagineEvento"]?>" alt="IDAYS"/>
@@ -24,7 +24,7 @@ foreach($templateParams["eventi"] as $evento):?>
             </div>
         </div>
         <hr />
-        <div class="ticket-kind chart_event" id="chart_event_<?php echo $evento["IDEvento"];?>">
+        <div class="ticket-kind chart_event" id="e_<?php echo $evento["IDEvento"];?>">
             <div class="row mt-3">
                 <p class="col-md-1 m-0 p-0"></p>
                 <span class="col-2 col-md-1 fas fa-minus-circle menoCarrello fa-2x text-right m-0 px-0 pb-0 pt-md-1 pt-2 cursor-pointer"></span>
@@ -60,6 +60,6 @@ foreach($templateParams["eventi"] as $evento):?>
 
 <div class="row mt-md-3 mt-1">
     <div class="col-1 col-md-3 p-0 m-0"> </div>
-    <button type="button" class="purple-btn col-10 col-md-6 p-3 m-0 mb-5 rounded-pill"><p class="mb-0">Procedi all'acquisto</p></button>
+    <button type="button" class="purple-btn col-10 col-md-6 p-3 m-0 mb-5 rounded-pill">Procedi all'acquisto</button>
     <div class="col-1 col-md-3 p-0 m-0"> </div>
 </div>

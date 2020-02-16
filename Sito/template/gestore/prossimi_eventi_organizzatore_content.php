@@ -31,9 +31,9 @@
                         <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
                     </div> 
                     <div class="col-12 m-0 p-0 text-center mb-2">
-                        <a class="purple-btn p-1 mt-2 pr-3 pl-3 box-sizing d-inline-block font-little shadow-sm rounded-pill col-12 p-0 m-0" href="./inserisci_evento.php?action=2&id=<?php echo $evento["IDEvento"]?>">Modifica Evento</a>
-                        <a class="purple-btn p-1 mt-2 pr-3 pl-3 d-inline-block font-little shadow-sm rounded-pill col-12 p-0 m-0" href="?deleteID=<?php echo $evento["IDEvento"]?>">Elimina Evento</a>
-                        <a class="purple-btn p-1 mt-2 pr-3 pl-3 d-inline-block font-little shadow-sm rounded-pill col-12 p-0 m-0" href="crea_notifica_organizzatore.php?IDEvento=<?php echo $evento["IDEvento"]?>">Emetti Notifica</a>
+                        <a class="purple-btn p-1 mt-2 font-little shadow-sm rounded-pill col-12 m-0" href="./inserisci_evento.php?action=2&id=<?php echo $evento["IDEvento"]?>">Modifica Evento</a>
+                        <a class="purple-btn p-1 mt-2 font-little shadow-sm rounded-pill col-12 m-0" href="?deleteID=<?php echo $evento["IDEvento"]?>">Elimina Evento</a>
+                        <a class="purple-btn p-1 mt-2 font-little shadow-sm rounded-pill col-12 m-0" href="crea_notifica_organizzatore.php?IDEvento=<?php echo $evento["IDEvento"]?>">Emetti Notifica</a>
                     </div>
                 </div>
             </div>

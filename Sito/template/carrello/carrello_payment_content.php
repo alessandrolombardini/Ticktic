@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="numero">Numero Carta</label>
-                    <input type="number" min="1111111111111111" max="9999999999999999"class="form-control" id="numero" name="numero" required/>
+                    <input type="number" min="1111111111111111" max="9999999999999999" class="form-control" id="numero" name="numero" required/>
                 </div>
             </div>
             <div class="row">
@@ -39,6 +39,6 @@
 </div>  
 <div class="row mt-md-3 mt-1">
     <div class="col-1 col-md-3 p-0 m-0"> </div>
-    <button type="button" class="purple-btn col-10 col-md-6 p-3 m-0 mb-5 rounded-pill" id="resume-btn"><p class="mb-0">Procedi all'acquisto</p></button>
+    <button type="button" class="purple-btn col-10 col-md-6 p-3 m-0 mb-5 rounded-pill" id="resume-btn">Procedi all'acquisto</button>
     <div class="col-1 col-md-3 p-0 m-0"> </div>
 </div>
