@@ -13,11 +13,11 @@
         </div>
 
         <div class="row mb-3 mt-5 ">
-            <div class="col-8 col-md-7 row">
-                <h3 class="mx-3 d-inline">Eventi <?php echo $templateParams["artista"]["PseudonimoArtista"]?></h3>
-                <p class="text-black-50 mx-3 pt-2">(<?php echo count($templateParams["eventi"]) ?> risultati)</p>
+            <div class="col-12 col-md-7 row">
+                <h3 class="ml-3 d-inline">Eventi</h3>
+                <p class="text-black-50 ml-3 pt-2">(<?php echo count($templateParams["eventi"]) ?> risultati)</p>
             </div>
-            <a class="col-md-5 col-4 text-right pt-2 cursor-pointer purple-black-link font-weight-bold " href="./artisti.php"> Vai a tutti gli artisti </a>
+            <a class="col-md-5 col-12 text-right pt-0 pt-md-2 cursor-pointer purple-black-link font-weight-bold " href="./artisti.php"> Vai a tutti gli artisti </a>
         </div>
                 
         <hr/>

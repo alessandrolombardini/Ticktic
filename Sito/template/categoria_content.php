@@ -3,11 +3,11 @@
         <div class="col-12 col-md-10 p-0 m-0">
  
             <div class="row">
-                <div class="col-8 col-md-7 row">
+                <div class="col-12 col-md-7 row">
                     <p class="titolo_sezioni d-inline mr-3">Categoria <?php echo $templateParams["categoria"]?></h3>
                     <p class="text-black-50 pt-2">(<?php echo count($templateParams["eventi"]) ?> risultati)</p>
                 </div>
-                <a class="col-md-5 col-4 text-right pt-2 cursor-pointer purple-black-link font-weight-bold " href="./categorie.php"> Vai a tutte le categorie </a>
+                <a class="col-md-5 col-12 pt-0 pt-md-2 mt-0 text-right cursor-pointer purple-black-link font-weight-bold " href="./categorie.php"> Vai a tutte le categorie </a>
             </div>
             <hr/>
 
@@ -18,7 +18,7 @@
                         <form class="mx-auto text-center"  action="/action_page.php">
                             <label for="order-selection" class="ml-3 d-inline-block">Ordina la visualizzazione:</label>
                             
-                            <select id="order-selection" class="d-inline-block rounded-pill mx-3">
+                            <select id="order-selection" class="d-inline-block rounded-pill mx-1">
                                 <!-- <optgroup label="Ordina per Nome Evento"> -->
                                     <option value="A-Z">Ordinamento A-Z</option>
                                     <option value="Z-A">Ordinamento Z-A</option>
@@ -30,7 +30,7 @@
                             </select>
                         </form>
                     </div>
-                    
+
                     <div class="row" id="event-container">
                         <?php foreach ($templateParams["eventi"] as $evento) :?>
                             <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
