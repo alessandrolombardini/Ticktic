@@ -16,7 +16,7 @@
                         <!-- <p><?php /* foreach($templateParams["artisti"] as $artista){ echo $artista["PseudonimoArtista"]; } */?></p> -->
                         <p><?php echo $templateParams["informazioniEvento"]["DescrizioneEvento"] ?></p>
                         <p class="font-italic"><?php echo $templateParams["informazioniEvento"]["Luogo"] ?></p>
-                        <p class="font-italic"><?php echo date("d/m/Y h:m", strtotime(substr($templateParams["informazioniEvento"]["DataEvento"], 0, -3)));?></p>
+                        <p class="font-italic"><?php echo date("d/m/Y H:m", strtotime(substr($templateParams["informazioniEvento"]["DataEvento"], 0, -3)));?></p>
                         <?php if(isset($templateParams["informazioniEvento"]["NoteEvento"]) && $templateParams["informazioniEvento"]["NoteEvento"] != ""): ?>
                             <p><small>Note: <?php echo $templateParams["informazioniEvento"]["NoteEvento"]?></small></p>
                         <?php endif ?>
