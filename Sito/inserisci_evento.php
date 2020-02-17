@@ -14,6 +14,7 @@ if(!isset($_SESSION["id"])){
     } else if($info["ValutatoSN"] == 's' && $info["AutorizzatoSN"] == 'n'){
         $msg = "Sei stato rifiutato";
         $error = "s";
+        header("location: area_gestore.php?msg=".$msg."&error=".$error);
     } 
 }
 /**********************************************************************************/
