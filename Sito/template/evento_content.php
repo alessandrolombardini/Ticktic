@@ -31,9 +31,9 @@
                         <p class="col-3 text-center"> Biglietto </p>
                         <p class="col-2 col-md-4 text-right"> cad.</p>
                         <p class="col-2 col-md-2 text-left p-0 ticket-p">€ <?php echo $templateParams["informazioniEvento"]["PrezzoBiglietto"] ?></p>
-                        <span class="col-2 menoEvento fas fa-minus-circle fa-2x text-right  m-0 px-0 pb-0 cursor-pointer"></span>
+                        <span class="col-2 col-md-1 menoEvento fas fa-minus-circle fa-2x text-right  m-0 px-0 pb-0 cursor-pointer"></span>
                         <p class="col-1 text-center chill font-mediumlittle tickets-num p-0 m-0">1</p>
-                        <span class="col-2 piuEvento fas fa-plus-circle fa-2x pl-0 text-left  m-0 px-0 pb-0 cursor-pointer"></span>
+                        <span class="col-2 col-md-1 piuEvento fas fa-plus-circle fa-2x pl-0 text-left  m-0 px-0 pb-0 cursor-pointer"></span>
                         <div class="col-0 col-sm-1"></div>
                     </div>
                     <hr />

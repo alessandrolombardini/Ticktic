@@ -20,7 +20,7 @@
     
     <div class="row mr-3 ml-3">
         <?php foreach ($templateParams["prossimiEventi"] as $evento) :?>
-            <div class="col-12 col-md-6 col-lg-6 col-xl-6 p-2 ml-0 mt-3 mb-4">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2 ml-0 mt-3 mb-4">
                 <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
                     <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
                         <img class="img-fluid roundend-corners" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>" alt="immagine evento"/>
