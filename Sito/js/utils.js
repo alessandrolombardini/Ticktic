@@ -143,7 +143,7 @@ function visualizzaEventi(events){
                     <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
                         <img class="img-fluid roundend-corners" alt="immagine evento" src="images/eventi/${eventi[i]["ImmagineEvento"]}"/>
                     </div>
-                <div class="col-12 d-inline-block text-left m-3">
+                <div class="col-12 d-inline-block text-left ml-3">
                     <h5 class="mb-0">${eventi[i]["NomeEvento"]}</h5>
                     <p class="date font-italic m-0 p-0 mt-1">${eventi[i]["DataEvento"]}</p>
                     <p class="m-0 p-0 font-description">${eventi[i]["Luogo"]}</p>
