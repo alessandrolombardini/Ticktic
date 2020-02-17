@@ -4,7 +4,7 @@
         <h3 class="mx-3 mb-3 mt-5">Categorie</h3>
         <hr/>
 
-        <div class="row">
+        <div class="row mb-2">
         <?php foreach($templateParams["categories"] as $categoria):?>
             <div class="col-6 col-md-4 col-xl-2">
             <div class="m-3">
