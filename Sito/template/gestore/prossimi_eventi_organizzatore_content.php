@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-0 col-md-1"></div>
   <div class="col-12 col-md-10">
-    <div class="row mb-md-3 mb-0 mt-5">
-        <p class="titolo_sezioni col-8 col-md-7 mt-2 mb-0">Prossimi eventi</p>
-        <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Indietro </a>
+    <div class="row mb-md-3 mb-0 mt-5 align-items-end">
+        <p class="titolo_sezioni col-9 col-md-7 mt-2 mb-0">Prossimi eventi</p>
+        <a class="col-md-5 col-3 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="area_gestore.php"> Indietro </a>
     </div>
     <hr class="mt-1 mx-2"/>
     <?php if (count($templateParams["prossimiEventi"]) == 0):?>
