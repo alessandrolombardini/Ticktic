@@ -132,6 +132,33 @@ function chartChangePageForward(){
     showChartSelectedContent();
 }
 
+function visualizzaEventi(eventi){
+    let result = "";
+    for(let i=0; i < eventi.length; i++){
+        const ret = `
+            <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
+                <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
+                    <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
+                        <img class="img-fluid roundend-corners" alt="immagine evento" src="images/eventi/${eventi[i]["ImmagineEvento"]}"/>
+                    </div>
+                <div class="col-12 d-inline-block text-left m-3">
+                    <h5 class="mb-0">${eventi[i]["NomeEvento"]}</h5>
+                    <p class="date font-italic m-0 p-0 mt-1">${eventi[i]["DataEvento"]}</p>
+                    <p class="m-0 p-0 font-description">${eventi[i]["Luogo"]}</p>
+                </div>
+                <div class="col-12 m-0 mb-2">
+                    <div data-IDEvento="${eventi[i]["IDEvento"]}"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
+                        <a href="./evento.php?IDEvento=${eventi[i]["IDEvento"]}" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
+                    </div>
+                </div>
+            </div>
+        `;
+        result += ret;
+    }
+    return result;
+        
+}
+
 
 $(document).ready(function(){
     /* Mostra e nascondi opzioni gestore in registrazione */
@@ -630,32 +657,75 @@ $(document).ready(function(){
     });
     $(".slideshow > button").hide();
     
-    $(".cuore-pieno").each(function(){
-        const spa = $(this);
-        spa.removeClass('cuore-pieno');
-        spa.removeClass('fas');
-        spa.addClass('far');
-        spa.addClass('cuore-vuoto');
-        $(".cuore-vuoto").click(riempiCuore);
-    });
+    svuotaCuori();
+
+    function svuotaCuori(){
+        $(".cuore-pieno").each(function(){
+            const spa = $(this);
+            spa.removeClass('cuore-pieno');
+            spa.removeClass('fas');
+            spa.addClass('far');
+            spa.addClass('cuore-vuoto');
+            $(".cuore-vuoto").click(riempiCuore);
+        });
+    }
+
+    verificaCuori();
+
+    function verificaCuori(){
+        $(".cuore-vuoto").each(function(){
+            const spa = $(this);
+            $.post("api-check-cuore.php",
+            {
+              idevento: $(this).parent().attr("data-IDEvento")
+            },
+            function(result){
+                const res = JSON.parse(result);
+                if(res["Esito"]=="Positivo"){
+                    spa.off();
+                    spa.removeClass('cuore-vuoto');
+                    spa.removeClass('far');
+                    spa.addClass('fas');
+                    spa.addClass('cuore-pieno');
+                    $(".cuore-pieno").click(svuotaCuore);
+                }
+            });
     
-    $(".cuore-vuoto").each(function(){
-        const spa = $(this);
-        $.post("api-check-cuore.php",
+        });
+    }
+    
+    
+
+    /******************************************************************************* */
+    /*Visualizzazione articoli*/
+
+    $("#order-selection").change(function(){
+        var categoria = "";
+        var artista = "";
+        const page = window.location.pathname.split("/").pop();
+
+        if (page == "categoria.php"){
+            categoria = window.location.search.split("=")[1];
+        } else if (page == "artista.php"){
+            artista = window.location.search.split("=")[1];
+        }
+        
+        $.post("api-filtra-eventi.php",
         {
-          idevento: $(this).parent().attr("data-IDEvento")
+            filter: $(this).children("option:selected").val(),
+            artist: artista,
+            category: categoria 
         },
-        function(result){
-            const res = JSON.parse(result);
-            if(res["Esito"]=="Positivo"){
-                spa.off();
-                spa.removeClass('cuore-vuoto');
-                spa.removeClass('far');
-                spa.addClass('fas');
-                spa.addClass('cuore-pieno');
-                $(".cuore-pieno").click(svuotaCuore);
+        function(data){
+            if(data!=""){
+                //const result = JSON.parse(data);
+                let eventi = visualizzaEventi(data);
+                const container = $("#event-container");
+                container.children().remove();
+                container.append(eventi);
+                svuotaCuori();
+                verificaCuori();
             }
         });
-
     });
 });

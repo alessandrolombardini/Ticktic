@@ -31,7 +31,7 @@
         </div>
         <div class="col-12 m-0 p-0 d-inline-block text-left pl-3 pb-3 pt-3">
             <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
-            <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y h:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
+            <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y H:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
             <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
         </div> 
         <div class="col-12 m-0 p-0">
@@ -58,7 +58,7 @@
         </div>
         <div class="col-12 m-0 p-0 d-inline-block text-left pl-3 pb-3 pt-3">
             <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
-            <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y h:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
+            <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y H:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
             <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
         </div> 
         <div class="col-12 m-0 p-0">
@@ -85,7 +85,7 @@
           </div>
           <div class="col-12 m-0 p-0 d-inline-block text-left pl-3 pb-3 pt-3">
               <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
-              <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y h:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
+              <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y H:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
               <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
           </div> 
           <div class="col-12 m-0 p-0">
@@ -114,7 +114,7 @@
           </div>
           <div class="col-12 m-0 p-0 d-inline-block text-left pl-3 pb-3 pt-3">
               <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
-              <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y h:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
+              <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y H:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
               <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
           </div> 
           <div class="col-12 m-0 p-0">
