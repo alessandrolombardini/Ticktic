@@ -9,7 +9,7 @@
         <hr class="mt-1 mx-1"/>
         <?php require_once __DIR__.'/../check_errori.php'; ?>
         <?php if ($templateParams["azione"] == 2){
-            echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5 updateeventimg' alt='Immagine evento da modificare.'>";
+            echo "<img src='". UPLOAD_DIR . "eventi/". $templateParams["evento"]["ImmagineEvento"] ."' class='mb-5 updateeventimg' alt='". getAltFromImageName($templateParams["evento"]["ImmagineEvento"]) ."'>";
         }?>
         <form action="processa_evento.php" method="POST" enctype="multipart/form-data" id="newevent">
             <div class="row mb-2">

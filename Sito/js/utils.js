@@ -513,7 +513,7 @@ $(document).ready(function(){
 
     /*********************************************************************************** */
     /* Check immagine di input */
-    var _URL = window.URL || window.webkitURL;
+   var _URL = window.URL || window.webkitURL;
     $("input[name='eventimg']").change( function(e) {
         var file, img;
         if ((file = this.files[0])) {
