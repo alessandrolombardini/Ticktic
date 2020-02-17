@@ -5,6 +5,12 @@
             <p class="titolo_sezioni col-8 col-md-7 mt-2 mb-0">Evento</p>
         </div>
         <hr class="mt-1 mx-2 mb-5"/>
+        <?php if(isset($templateParams["msg"])): ?>
+            <div class="row">
+                <p class="col-12 my-2 text-center align-center
+                <?php if($templateParams["error"] == 's'){echo "error-msg";} else {echo "good-msg";}?>"><?php echo $templateParams["msg"]?></p>
+            </div>
+        <?php endif ?>
         <div class="roundend-corners bg-white border mt-2 mb-4 p-md-3 mr-0 shadow-sm concert-tickets p-0 m-0">
             <div class="row mb-3 mt-3 text-center">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5 pb-3 px-2 d-inline text-center">
@@ -48,7 +54,7 @@
                                 <p class="col-12 my-2 text-center align-center good-msg">Biglietto aggiunto al carrello</p>
                             </div>
                             <div class="row d-none avviso-acquisto-evento-gestore">
-                                <p class="col-12 my-2 text-center align-center error-msg">Gli organizzatori non possono effettuare acquisti</p>
+                                <p class="col-12 my-2 text-center align-center error-msg">Solo gli utenti possono effettuare acquisti</p>
                             </div>
                             <div class=" text-center row">
                             <?php if(isset($_SESSION["id"])): ?>
