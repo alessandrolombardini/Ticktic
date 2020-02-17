@@ -582,6 +582,15 @@ $(document).ready(function(){
                 elem.addClass('far');
                 elem.addClass('cuore-vuoto');
                 $(".cuore-vuoto").click(riempiCuore);
+                $("div[data-IDEvento='"+IDEvento+"']").each(function(){
+                    const span = $(this).children().first();
+                    span.off();
+                    span.removeClass('cuore-pieno');
+                    span.removeClass('fas');
+                    span.addClass('far');
+                    span.addClass('cuore-vuoto');
+                    span.click(riempiCuore);    
+                });
             } else if(res["Esito"] == "Non loggato") {
                 window.location.href = "./login.php";
             }
@@ -602,6 +611,15 @@ $(document).ready(function(){
                 elem.addClass('fas');
                 elem.addClass('cuore-pieno');
                 $(".cuore-pieno").click(svuotaCuore);
+                $("div[data-IDEvento='"+IDEvento+"']").each(function(){
+                    const span = $(this).children().first();
+                    span.off();
+                    span.removeClass('cuore-vuoto');
+                    span.removeClass('far');
+                    span.addClass('fas');
+                    span.addClass('cuore-pieno');
+                    span.click(svuotaCuore);
+                });
             } else if(res["Esito"] == "Non loggato") {
                 window.location.href = "./login.php";
             }
