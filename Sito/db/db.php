@@ -1075,7 +1075,7 @@
     
     public function cercaArtisti($text){
         $param = "%{$text}%";
-        $query = "SELECT * FROM ARTISTA WHERE PseudonimoArtista LIKE ?";
+        $query = "SELECT * FROM ARTISTA WHERE PseudonimoArtista LIKE ? AND AutorizzatoSN = 's' AND ValutatoSN = 's'";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s',$param);
         $stmt->execute();

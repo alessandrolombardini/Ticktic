@@ -41,7 +41,7 @@
                             <?php if(isset($_SESSION["id"]) && ($_SESSION ["autorizzazione"] == "ORGANIZZATORE" || $_SESSION ["autorizzazione"] == "AMMINISTRATORE")): ?>
                             <div class="invisible" data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark mx-3 fas fa-heart fa-2x"></span></div>
                             <?php else: ?>
-                            <div  data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno pointer text-dark mx-3 fas fa-heart fa-2x"></span></div>
+                            <div  data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno cursor-pointer text-dark mx-3 fas fa-heart fa-2x"></span></div>
                             <?php endif ?>
                             <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
                             </div>
