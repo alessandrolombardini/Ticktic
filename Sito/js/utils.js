@@ -138,12 +138,12 @@ function visualizzaEventi(events){
     let visu_cuore = events[1];
     for(let i=0; i < eventi.length; i++){
         var ret = `
-            <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
+            <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-1 mb-2">
                 <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
                     <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
                         <img class="img-fluid roundend-corners" alt="immagine evento" src="images/eventi/${eventi[i]["ImmagineEvento"]}"/>
                     </div>
-                <div class="col-12 d-inline-block text-left ml-3">
+                <div class="col-12 d-inline-block text-left ml-3 mt-2 mb-2">
                     <h5 class="mb-0">${eventi[i]["NomeEvento"]}</h5>
                     <p class="date font-italic m-0 p-0 mt-1">${eventi[i]["DataEvento"]}</p>
                     <p class="m-0 p-0 font-description">${eventi[i]["Luogo"]}</p>

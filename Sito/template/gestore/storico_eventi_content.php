@@ -20,11 +20,11 @@
     
      <div class="row">
     <?php foreach ($templateParams["storicoEventi"] as $evento) :?>
-        <div class="event col-12 col-md-6 col-lg-4 col-xl-4 shadow-sm pl-1 pr-1 pt-2 pb-2 mt-3 mb-4 bg-white rounded border-dark d-inline-block">
+        <div class="event col-12 col-md-6 col-lg-4 col-xl-4 shadow-sm pl-1 pr-1 pt-2 pb-2 mt-1 mb-2 bg-white rounded border-dark d-inline-block">
             <div class="row m-0 p-0 float-left shadow-sm  bg-white rounded border-dark">
                 <img alt="" class="img-fluid rounded" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"/>
             </div>
-            <div class="row m-0 p-0 d-inline-block text-left pl-3 pb-3 pt-3">
+            <div class="row m-0 p-0 d-inline-block text-left pl-3 pb-2 pt-2">
                 <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
                 <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y H:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
                 <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
