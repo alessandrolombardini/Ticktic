@@ -35,7 +35,11 @@
             <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
         </div> 
         <div class="col-12 m-0 p-0">
-            <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
+        <?php if(isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "UTENTE"): ?>
+              <div  data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno pointer text-dark mx-3 fas fa-heart fa-2x"></span></div>
+            <?php else: ?>
+              <div class="invisible" data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark mx-3 fas fa-heart fa-2x"></span></div>
+            <?php endif ?>
             <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
         </div>
       </div>
@@ -62,7 +66,11 @@
             <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
         </div> 
         <div class="col-12 m-0 p-0">
-            <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
+        <?php if(isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "UTENTE"): ?>
+              <div  data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno pointer text-dark mx-3 fas fa-heart fa-2x"></span></div>
+            <?php else: ?>
+              <div class="invisible" data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark mx-3 fas fa-heart fa-2x"></span></div>
+            <?php endif ?>
             <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
         </div>
       </div>
@@ -89,8 +97,12 @@
               <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
           </div> 
           <div class="col-12 m-0 p-0">
-              <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-              <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
+          <?php if(isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "UTENTE"): ?>
+              <div  data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno pointer text-dark mx-3 fas fa-heart fa-2x"></span></div>
+            <?php else: ?>
+              <div class="invisible" data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark mx-3 fas fa-heart fa-2x"></span></div>
+            <?php endif ?>
+            <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
           </div>
         </div>
       </div>
@@ -118,8 +130,12 @@
               <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
           </div> 
           <div class="col-12 m-0 p-0">
-              <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-              <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
+          <?php if(isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "UTENTE"): ?>
+              <div  data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno pointer text-dark mx-3 fas fa-heart fa-2x"></span></div>
+            <?php else: ?>
+              <div class="invisible" data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark mx-3 fas fa-heart fa-2x"></span></div>
+            <?php endif ?>
+            <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
           </div>
         </div>
       </div>

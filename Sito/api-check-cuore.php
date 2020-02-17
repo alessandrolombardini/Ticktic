@@ -2,7 +2,7 @@
 require_once("./bootstrap.php");
  /****************************** Check permission **********************************/
 $result = false;
- if(isset($_POST["idevento"]) && isset($_SESSION["id"])){
+ if(isset($_POST["idevento"]) && isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "UTENTE"){
     $result = $dbh->checkInteresseAdEvento($_POST["idevento"], $_SESSION["id"]); 
 }
 /**********************************************************************************/

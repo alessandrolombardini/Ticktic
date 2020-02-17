@@ -561,29 +561,43 @@ $(document).ready(function(){
 
     function svuotaCuore(){
         let IDEvento = $(this).parent().attr("data-IDEvento");
-        $(this).off();
-        $(this).removeClass('cuore-pieno');
-        $(this).removeClass('fas');
-        $(this).addClass('far');
-        $(this).addClass('cuore-vuoto');
+        let elem = $(this);
         $.post("./processa_interessati_rimuovi_evento.php",
         {
             IDEvento: IDEvento
+        }, function(result){
+            const res = JSON.parse(result);
+            if(res["Esito"]=="OK"){
+                elem.off();
+                elem.removeClass('cuore-pieno');
+                elem.removeClass('fas');
+                elem.addClass('far');
+                elem.addClass('cuore-vuoto');
+                $(".cuore-vuoto").click(riempiCuore);
+            } else if(res["Esito"] == "Non loggato") {
+                window.location.href = "./login.php";
+            }
         });
-        $(".cuore-vuoto").click(riempiCuore);
     }
     function riempiCuore(){
         let IDEvento = $(this).parent().attr("data-IDEvento");
-        $(this).off();
-        $(this).removeClass('cuore-vuoto');
-        $(this).removeClass('far');
-        $(this).addClass('fas');
-        $(this).addClass('cuore-pieno');
+        let elem = $(this);
         $.post("./processa_interessati_aggiungi_evento.php",
         {
             IDEvento: IDEvento
+        }, function(result){
+            const res = JSON.parse(result);
+            if(res["Esito"]=="OK"){
+                elem.off();
+                elem.removeClass('cuore-vuoto');
+                elem.removeClass('far');
+                elem.addClass('fas');
+                elem.addClass('cuore-pieno');
+                $(".cuore-pieno").click(svuotaCuore);
+            } else if(res["Esito"] == "Non loggato") {
+                window.location.href = "./login.php";
+            }
         });
-        $(".cuore-pieno").click(svuotaCuore);
     }
 
 /*    $(".cuore-vuoto").hover(function(){
@@ -688,13 +702,11 @@ $(document).ready(function(){
                     spa.addClass('fas');
                     spa.addClass('cuore-pieno');
                     $(".cuore-pieno").click(svuotaCuore);
-                }
+                } 
             });
     
         });
     }
-    
-    
 
     /******************************************************************************* */
     /*Visualizzazione articoli*/

@@ -1,13 +1,14 @@
 <?php
 require_once("./bootstrap.php");
 /****************************** Check permission **********************************/
+$arr = [];
 if(!isset($_SESSION["id"])){
-    header('Location: ./login.php');
+    $arr["Esito"] = "Non loggato";
 } else if(isset($_SESSION["id"]) && $_SESSION["autorizzazione"]!="UTENTE"){
-    header('Location: ./page_not_allowed.php');
-}
-/**********************************************************************************/
-if(isset($_POST["IDEvento"]) && !empty($_POST["IDEvento"])){
+    $arr["Esito"] = "Non utente";
+} else if(isset($_POST["IDEvento"]) && !empty($_POST["IDEvento"])){
     $dbh->inserisciInteressePerUtente($_POST["IDEvento"], $_SESSION["id"]);
+    $arr["Esito"] = "OK";
 } 
+print_r(json_encode($arr));
 ?>

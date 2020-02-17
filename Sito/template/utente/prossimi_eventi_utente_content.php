@@ -30,8 +30,12 @@
                         <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
                     </div> 
                     <div class="col-12 m-0 mb-2">
-                        <div data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-                        <a class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill" href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>">Scopri</a>
+                    <?php if(isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "UTENTE"): ?>
+                    <div  data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno pointer text-dark mx-3 fas fa-heart fa-2x"></span></div>
+                    <?php else: ?>
+                    <div class="invisible" data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark mx-3 fas fa-heart fa-2x"></span></div>
+                    <?php endif ?>
+                    <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
                     </div>
                 </div>
             </div>
