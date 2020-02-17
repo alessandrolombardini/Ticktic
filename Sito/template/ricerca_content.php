@@ -1,10 +1,10 @@
 <div class="row p-0 m-0">
   <div class="col-0 col-md-1"></div>
   <div class="col-12 col-md-10 p-0 m-0">
-    <div class="row mb-3 mt-5 ">
+    <div class="row mb-1 mt-5 ">
         <h3 class="col-8 col-md-7">Ricerca</h3>
     </div>
-    <hr/>
+    <hr class="mt-1"/>
    <!--<?php if (count($templateParams["eventi"]) == 0):?>
         <div class="row error-template">
             <div class="col-1 col-md-2"></div>
@@ -17,7 +17,14 @@
         </div>
     <?php endif ?>-->
     <div class="row">
-            <h4 class="titolo-ricerca">Eventi (<?php echo count($templateParams["eventi"])?>)</h4>
+        <div class=" ml-3 ml-md-0 ">
+            <div class="row mb-0 pb-0">
+                <h4 class="titolo-ricerca d-inline">Eventi</h4>
+                <p class="text-black-50 ml-3">(<?php echo count($templateParams["eventi"]) ?> risultati)</p>
+            </div> 
+            <hr class="mt-0 pt-0"/>
+        </div>
+            
             <div class="row col-12">
                 <?php foreach ($templateParams["eventi"] as $evento) :?>
                     <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
@@ -44,7 +51,14 @@
             </div>
     </div>
     <div class="row">
-            <h4 class="titolo-ricerca">Artisti (<?php echo count($templateParams["artisti"])?>)</h4>
+        <div class="ml-3 ml-md-0">
+            <div class="row mb-0 pb-0">
+                <h4 class="titolo-ricerca d-inline">Artisti </h4>
+                <p class="text-black-50 ml-3">(<?php echo count($templateParams["artisti"]) ?> risultati)</p>
+            </div>
+            <hr class="mt-0 pt-0"/>
+        </div>
+            
             <div class="row col-12">
                 <?php foreach ($templateParams["artisti"] as $artista) :?>
                     <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
@@ -64,8 +78,15 @@
             </div>
     </div>
     <div class="row">
-        <h4 class="titolo-ricerca">Categorie (<?php echo count($templateParams["categorie"])?>)</h4>
-        <div class="row">
+        <div class="ml-3 ml-md-0"> 
+            <div class="row mb-0 pb-0">
+                <h4 class="titolo-ricerca d-inline">Categorie </h4>
+                <p class="text-black-50 ml-3">(<?php echo count($templateParams["categorie"]) ?> risultati)</p>
+            </div>
+            <hr class="mt-0 pt-0"/>
+        </div>
+        
+        <div class="row <?php if (count($templateParams["categorie"]) <= 0 ) {echo "mb-5 pb-5";} ?>">
                 <?php foreach ($templateParams["categorie"] as $categoria) :?>
                     <div class="col-6 col-md-4 col-xl-2">
                         <div class="m-3">

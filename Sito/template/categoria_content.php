@@ -15,7 +15,7 @@
 
                 <?php if (isset($templateParams["eventi"]) && $templateParams["eventi"] != NULL) : ?>
                     <div class="form-group">
-                        <form class="mx-auto text-center"  action="/action_page.php">
+                        <form class="mx-auto text-center text-md-left"  action="/action_page.php">
                             <label for="order-selection" class="ml-3 d-inline-block">Ordina la visualizzazione:</label>
                             
                             <select id="order-selection" class="d-inline-block rounded-pill mx-1">
