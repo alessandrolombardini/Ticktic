@@ -11,9 +11,14 @@ if(isset($_GET["id"]) && isset($_GET["valutazione"]) && !empty($_GET["id"]) && !
     $idOrganizzatoreValutato = $_GET["id"];
     $valutazione = $_GET["valutazione"];
     $dbh->aggiornaInformazioniOrganizzatore($idOrganizzatoreValutato, $valutazione);
-    $notifica = $dbh->inserisciNotificaAmministratore("Sei stato accettato!", 
-                                                      "Congratulazioni, sei stato accettato come organizzatore.
-                                                       Goditi la tua esperienza su ticktic.", $_SESSION["id"]);   
+    if($valutazione == 's'){
+        $notifica = $dbh->inserisciNotificaAmministratore("Sei stato accettato!", 
+                                                          "Congratulazioni, sei stato accettato come organizzatore.
+                                                           Goditi la tua esperienza su ticktic.", $_SESSION["id"]);   
+    } else {
+        $notifica = $dbh->inserisciNotificaAmministratore("Ci dispiace!", 
+                                                          "Non sei stato accettato come organizzatore.", $_SESSION["id"]);   
+    }
     $dbh->pubblicaNotificaAdOrganizzatore($idOrganizzatoreValutato,$notifica); 
     header('Location: ./verifica_nuovi_organizzatori.php');
 } else {
