@@ -1065,7 +1065,7 @@
 
     public function cercaEventi($text){
         $param = "%{$text}%";
-        $query = "SELECT * FROM EVENTO WHERE NomeEvento LIKE ? AND DataEvento >= CURDATE()";
+        $query = "SELECT * FROM EVENTO WHERE NomeEvento LIKE ? AND DataEvento >= CURDATE() AND EliminatoSN = 'n'";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $param);
         $stmt->execute();

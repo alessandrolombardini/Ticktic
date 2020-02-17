@@ -340,7 +340,7 @@ hr{
 }
 
 html, body{ height:100%; }
-footer{ height:450px; }
+footer{ height:550px; }
 
 /* Trick */
 body{ 
@@ -410,6 +410,10 @@ main {
 
     h3{
         font-size:2.0em !important;
+    }
+
+    footer {
+        height: 450px;
     }
 
     .updateeventimg {
