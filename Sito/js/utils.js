@@ -132,10 +132,12 @@ function chartChangePageForward(){
     showChartSelectedContent();
 }
 
-function visualizzaEventi(eventi){
+function visualizzaEventi(events){
     let result = "";
+    let eventi = events[0];
+    let visu_cuore = events[1];
     for(let i=0; i < eventi.length; i++){
-        const ret = `
+        var ret = `
             <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
                 <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
                     <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
@@ -146,13 +148,19 @@ function visualizzaEventi(eventi){
                     <p class="date font-italic m-0 p-0 mt-1">${eventi[i]["DataEvento"]}</p>
                     <p class="m-0 p-0 font-description">${eventi[i]["Luogo"]}</p>
                 </div>
-                <div class="col-12 m-0 mb-2">
-                    <div data-IDEvento="${eventi[i]["IDEvento"]}"><span class="cuore-pieno text-dark pointer mx-3 fas fa-heart fa-2x"></span></div>
-                        <a href="./evento.php?IDEvento=${eventi[i]["IDEvento"]}" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
+                <div class="col-12 m-0 mb-2">`;
+        
+        if (visu_cuore == "y"){
+            ret += `<div  data-IDEvento="${eventi[i]["IDEvento"]}"><span class="cuore-pieno pointer text-dark mx-3 fas fa-heart fa-2x"></span></div>`;       
+        } else {
+            ret += `<div class="invisible" data-IDEvento="${eventi[i]["IDEvento"]}"><span class="cuore-pieno text-dark mx-3 fas fa-heart fa-2x"></span></div>`;   
+        }
+
+        ret += `<a href="./evento.php?IDEvento=${eventi[i]["IDEvento"]}" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
                     </div>
                 </div>
             </div>
-        `;
+            `;
         result += ret;
     }
     return result;
@@ -731,6 +739,7 @@ $(document).ready(function(){
         function(data){
             if(data!=""){
                 //const result = JSON.parse(data);
+                console.log(data);
                 let eventi = visualizzaEventi(data);
                 const container = $("#event-container");
                 container.children().remove();

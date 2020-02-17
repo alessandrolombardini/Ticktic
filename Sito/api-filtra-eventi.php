@@ -38,7 +38,15 @@ if(isset($_POST["filter"])){
 for ($i = 0; $i < count($result); $i++) {
         $result[$i]["DataEvento"] = date("d/m/Y H:m", strtotime(substr($result[$i]["DataEvento"], 0, -3)));
 }
+
+$utente = "y";
+
+if (isset($_SESSION["id"]) && ($_SESSION ["autorizzazione"] == "ORGANIZZATORE" || $_SESSION ["autorizzazione"] == "AMMINISTRATORE")){
+        $utente = "n";
+}
+
+$arr = array($result,$utente);
 header("Content-Type: application/json");
-print_r(json_encode($result));
+print_r(json_encode($arr));
 
 ?>
