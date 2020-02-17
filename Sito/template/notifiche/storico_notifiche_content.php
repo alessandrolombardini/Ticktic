@@ -28,14 +28,14 @@
                               <div class="text-left">
                                   <p><?php echo $notifica["TestoNotifica"]?></p>
                                   <?php if(isset($notifica["IDOrganizzatore"])): ?>
-                                    <p class="small">Pubblicato da <?php echo $notifica["Nome"]?> <?php echo $notifica["Cognome"]?> (ORGANIZZATORE) il <?php echo $notifica["DataNotifica"]?></p>
+                                    <p class="small">Pubblicato da <?php echo $notifica["Nome"]?> <?php echo $notifica["Cognome"]?> (ORGANIZZATORE) il <?php echo date("d/m/Y H:m", strtotime(substr($notifica["DataNotifica"], 0, -3)))?></p>
                                     <?php if(isset($notifica["IDEvento"])): ?>
-                                    <p class="small">In merito all'evento <?php echo $notifica["NomeEvento"]." (in data ".$notifica["DataEvento"].")";?></p>
+                                    <p class="small">In merito all'evento <?php echo $notifica["NomeEvento"]." (in data ".date("d/m/Y H:m", strtotime(substr($notifica["DataNotifica"], 0, -3))).")";?></p>
                                     <div class="text-right"><a href="./evento.php?IDEvento=<?php echo $notifica["IDEvento"]?>">Apri evento</a></div>
                                     <?php endif ?>
                                   <?php endif ?>
                                   <?php if(isset($notifica["IDAmministratore"])): ?>
-                                  <p class="small">Pubblicato da <?php echo $notifica["Nome"]?> <?php echo $notifica["Cognome"]?> (AMMINISTRATORE) il <?php echo $notifica["DataNotifica"]?></p>
+                                  <p class="small">Pubblicato da <?php echo $notifica["Nome"]?> <?php echo $notifica["Cognome"]?> (AMMINISTRATORE) il <?php echo date("d/m/Y H:m", strtotime(substr($notifica["DataNotifica"], 0, -3)))?></p>
                                   <?php endif ?>
                               </div>
                           </section>
