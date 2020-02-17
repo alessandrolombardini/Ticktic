@@ -14,7 +14,6 @@
     $templateParams["page_content"] = "./template/carrello_content.php";
     $templateParams["eventi"] = $dbh->getEventiCheDesideraAcquistare($_SESSION["id"]);
     $templateParams["artisti"] = array();
-    $templateParams["categories"] = $dbh->getCategories(); /* For Footer Links */
 
     foreach($templateParams["eventi"] as $evento){
         $artisti = $dbh->getArtistsFromEvent($evento["IDEvento"]);

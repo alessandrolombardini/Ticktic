@@ -13,14 +13,14 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-7">
                     <div>
                         <p class="titolo_sezioni"><?php echo $templateParams["informazioniEvento"]["NomeEvento"] ?></p>
-                        <!-- <p><?php /* foreach($templateParams["artisti"] as $artista){ echo $artista["PseudonimoArtista"]; } */?></p> -->
+                        <p>Artisti: <?php foreach($templateParams["artisti"] as $artista){ echo '<a href="./artista.php?IDArtista='.$artista["IDArtista"].'">'.$artista["PseudonimoArtista"].' </a>'; } ?></p>
                         <p><?php echo $templateParams["informazioniEvento"]["DescrizioneEvento"] ?></p>
                         <p class="font-italic"><?php echo $templateParams["informazioniEvento"]["Luogo"] ?></p>
                         <p class="font-italic"><?php echo date("d/m/Y H:m", strtotime(substr($templateParams["informazioniEvento"]["DataEvento"], 0, -3)));?></p>
                         <?php if(isset($templateParams["informazioniEvento"]["NoteEvento"]) && $templateParams["informazioniEvento"]["NoteEvento"] != ""): ?>
                             <p><small>Note: <?php echo $templateParams["informazioniEvento"]["NoteEvento"]?></small></p>
                         <?php endif ?>
-
+                        <p class="font-italic">Categoria evento: <a href="./categoria.php?IDCategoria=<?php echo $templateParams["informazioniEvento"]["IDCategoria"]?>"><?php echo $templateParams["informazioniEvento"]["NomeCategoria"]?></a></p>
                     </div>
                 </div>
             </div>

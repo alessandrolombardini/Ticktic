@@ -891,9 +891,9 @@
     
     /********************************************************************************************************************** */
     public function ottieniInformazioniDiUnEvento($IDEvento){
-        $query = "SELECT *
-                  FROM EVENTO
-                  WHERE IDEvento = ?";
+        $query = "SELECT * FROM EVENTO
+                    JOIN CATEGORIA ON EVENTO.IDCategoria = CATEGORIA.IDCategoria
+                    WHERE IDEvento = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $IDEvento);
         $stmt->execute();
