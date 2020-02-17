@@ -1,6 +1,6 @@
 <div class="row p-0 m-0">
   <div class="col-0 col-md-1"></div>
-  <div class="col-12 col-md-10 p-0 m-0">
+  <div class="col-12 col-md-10">
     <div class="row mb-md-3 mb-0 mt-5">
         <p class="titolo_sezioni col-8 col-md-7 mt-2 mb-0">Prossimi eventi</p>
         <a class="col-md-5 col-4 text-right pt-3 cursor-pointer purple-black-link font-weight-bold" href="account.php"> Indietro </a>
@@ -17,7 +17,7 @@
             <div class="col-1 col-md-2"></div>
         </div>
     <?php endif ?>
-    <div class="row mr-3 ml-3">
+    <div class="row p-0 m-0">
         <?php foreach ($templateParams["prossimiEventi"] as $evento) :?>
             <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
                 <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
@@ -30,10 +30,10 @@
                         <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
                     </div> 
                     <div class="col-12 m-0 mb-2">
-                    <?php if(isset($_SESSION["id"]) && $_SESSION["autorizzazione"] == "UTENTE"): ?>
-                    <div  data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno pointer text-dark mx-3 fas fa-heart fa-2x"></span></div>
-                    <?php else: ?>
+                    <?php if(isset($_SESSION["id"]) && ($_SESSION ["autorizzazione"] == "ORGANIZZATORE" || $_SESSION ["autorizzazione"] == "AMMINISTRATORE")): ?>
                     <div class="invisible" data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno text-dark mx-3 fas fa-heart fa-2x"></span></div>
+                    <?php else: ?>
+                    <div  data-IDEvento="<?php echo $evento["IDEvento"]?>"><span class="cuore-pieno pointer text-dark mx-3 fas fa-heart fa-2x"></span></div>
                     <?php endif ?>
                     <a href="./evento.php?IDEvento=<?php echo $evento["IDEvento"]?>" class="scopri btn py-1 px-3 mx-3 shadow-sm purple-btn rounded-pill">Scopri</a>
                     </div>
