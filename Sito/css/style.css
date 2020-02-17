@@ -339,21 +339,20 @@ hr{
     font-size: 120%;
 }
 
-html, body {
-    height: 100%;
-}
-#container {
-    min-height: 100%;
+html, body{ height:100%; }
+footer{ height:450px; }
+
+/* Trick */
+body{ 
+  display:flex; 
+  flex-direction:column; 
 }
 
-main{
-    padding-bottom: 500px;
-}
 footer{
-    height: 500px;
-    position: relative;
-    margin-top: -500px;
+  margin-top:auto; 
 }
+ 
+
 .row {
     margin-left: 0 !important;
     margin-right: 0 !important;
