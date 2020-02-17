@@ -27,12 +27,12 @@
             
             <div class="row col-12">
                 <?php foreach ($templateParams["eventi"] as $evento) :?>
-                    <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-3 mb-4">
+                    <div class="col-12 col-md-6 col-lg-3 col-xl-3 p-2 ml-0 mt-1 mb-2">
                         <div class="shadow-sm bg-white roundend-corners border-dark d-inline-block p-2">
                             <div class="col-12 m-0 p-0 float-left shadow-sm  bg-white roundend-corners border-dark">
                                 <img class="img-fluid roundend-corners" alt="immagine evento" src="images/eventi/<?php echo $evento["ImmagineEvento"];?>"/>
                             </div>
-                            <div class="col-12 d-inline-block text-left ml-3">
+                            <div class="col-12 d-inline-block text-left ml-3 mt-2 mb-2">
                                 <h5 class="mb-0"><?php echo $evento["NomeEvento"];?></h5>
                                 <p class="date font-italic m-0 p-0 mt-1"> <?php echo date("d/m/Y H:m", strtotime(substr($evento["DataEvento"], 0, -3)));?></p>
                                 <p class="m-0 p-0 font-description"><?php echo $evento["Luogo"];?> </p>
