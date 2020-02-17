@@ -113,7 +113,7 @@
 <!-- Eventi Acquistati -->
 <?php if (isset($templateParams["eventi_acquistati"]) && $templateParams["eventi_acquistati"] != NULL): ?>
   <div class="container-fluid mt-2">
-    <p class="ttolo_sezioni d-inline mr-3">I tuoi eventi Acquistati</p>
+    <p class="titolo_sezioni d-inline mr-3">I tuoi eventi Acquistati</p>
     <div class=" mb-3 mt-1 dropdown-divider w-50 font-weight-bold"></div>
   </div>
 
