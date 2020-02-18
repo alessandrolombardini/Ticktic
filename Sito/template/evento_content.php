@@ -20,7 +20,7 @@
                     <div>
                         <p class="titolo_sezioni"><?php echo $templateParams["informazioniEvento"]["NomeEvento"] ?></p>
                         <?php if (isset($templateParams["artisti"]) && count($templateParams["artisti"])>0 ): ?>
-                            <p>Artisti: <?php foreach($templateParams["artisti"] as $artista){ echo '<a class="purple-black-link" href="./artista.php?IDArtista='.$artista["IDArtista"].'">'.$artista["PseudonimoArtista"].' </a>'; } ?></p>
+                            <p>Artisti: <?php foreach($templateParams["artisti"] as $artista){ echo '<a class="purple-black-link" href="./artista.php?IDArtista='.$artista["IDArtista"].'">'.$artista["PseudonimoArtista"].'</a>'; } ?></p>
                         <?php endif ?>
                         <p><?php echo $templateParams["informazioniEvento"]["DescrizioneEvento"] ?></p>
                         <p class="font-italic"><?php echo $templateParams["informazioniEvento"]["Luogo"] ?></p>
